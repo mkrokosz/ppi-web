@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     'plastic fabrication',
     'New Jersey manufacturing',
   ],
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: '/favicon.png',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({

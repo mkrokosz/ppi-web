@@ -9,6 +9,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const timeline = [
   {
@@ -134,19 +135,19 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Placeholder for facility image */}
             <div className="relative">
-              <div className="aspect-video bg-gradient-to-br from-steel-100 to-steel-200 rounded-2xl flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Building className="w-20 h-20 text-steel-400 mx-auto mb-4" />
-                  <p className="text-steel-500 font-medium">
-                    Our Linden, NJ Facility
-                  </p>
-                  <p className="text-steel-400 text-sm">
-                    [Professional facility photo placeholder]
-                  </p>
-                </div>
+              <div className="aspect-video relative rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/ppi-building.png"
+                  alt="Pro Plastics Inc. facility in Linden, NJ"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
+              <p className="text-center text-steel-500 mt-4 font-medium">
+                Our Linden, NJ Facility
+              </p>
             </div>
           </div>
         </div>
@@ -266,9 +267,6 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <p className="text-center text-steel-500 mt-8">
-            [Team photos and individual bios to be added]
-          </p>
         </div>
       </section>
 

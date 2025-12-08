@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Cog,
   Factory,
@@ -123,7 +124,15 @@ export default function HomePage() {
                 <span>Trusted Since 1968</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-                <span className="text-precision-orange-400">Pro Plastics Inc.</span>
+                <span
+                  className="text-precision-orange-400 tracking-tight drop-shadow-[0_2px_10px_rgba(237,137,54,0.3)]"
+                  style={{
+                    textShadow: '0 0 40px rgba(237, 137, 54, 0.4), 0 2px 4px rgba(0,0,0,0.3)',
+                  }}
+                >
+                  Pro Plastics Inc.
+                </span>
+                <div className="h-1 w-32 bg-gradient-to-r from-precision-orange-400 to-precision-orange-300 rounded-full mt-3" />
               </h1>
               <p className="text-2xl md:text-3xl font-semibold text-white mb-6">
                 Precision Plastic Manufacturing
@@ -144,19 +153,33 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Stats cards */}
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center"
-                >
-                  <div className="text-4xl font-bold text-precision-orange-400 mb-2">
-                    {stat.value}
+            {/* Hero Image */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/ppi-hero-image.jpeg"
+                  alt="CNC machining precision plastic part"
+                  width={600}
+                  height={400}
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-industrial-blue-900/30 to-transparent" />
+              </div>
+              {/* Stats overlay */}
+              <div className="grid grid-cols-2 gap-3 mt-6">
+                {stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center"
+                  >
+                    <div className="text-2xl font-bold text-precision-orange-400 mb-1">
+                      {stat.value}
+                    </div>
+                    <div className="text-steel-300 text-xs">{stat.label}</div>
                   </div>
-                  <div className="text-steel-300 text-sm">{stat.label}</div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -284,15 +307,15 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Visual placeholder - would be replaced with actual image */}
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-industrial-blue-100 to-industrial-blue-200 rounded-2xl flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Factory className="w-24 h-24 text-industrial-blue-400 mx-auto mb-4" />
-                  <p className="text-industrial-blue-600 font-medium">
-                    State-of-the-art facility in Linden, NJ
-                  </p>
-                </div>
+              <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/ppi-building.png"
+                  alt="Pro Plastics Inc. facility in Linden, NJ"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
               {/* Floating card */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-6 max-w-xs">
