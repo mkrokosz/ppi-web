@@ -70,7 +70,7 @@ Resources:
     Type: AWS::CloudFront::OriginAccessControl
     Properties:
       OriginAccessControlConfig:
-        Name: !Sub '${DomainName}-oac'
+        Name: 'proplastics-website-oac'
         OriginAccessControlOriginType: s3
         SigningBehavior: always
         SigningProtocol: sigv4
@@ -80,7 +80,7 @@ Resources:
     Type: AWS::CloudFront::CachePolicy
     Properties:
       CachePolicyConfig:
-        Name: !Sub '${DomainName}-cache-policy'
+        Name: !Sub 'proplastics-website-cache-policy'
         DefaultTTL: 86400
         MaxTTL: 31536000
         MinTTL: 0
