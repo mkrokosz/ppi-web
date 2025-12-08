@@ -56,6 +56,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - name: Checkout (for infrastructure template)
+        uses: actions/checkout@v4
+
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
@@ -68,10 +71,55 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
 
+      - name: Check if infrastructure exists
+        id: check-infra
+        run: |
+          if aws cloudformation describe-stacks --stack-name ${{ env.STACK_NAME }} > /dev/null 2>&1; then
+            echo "stack_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "stack_exists=false" >> $GITHUB_OUTPUT
+            echo "⚠️ Infrastructure stack does not exist. Deploying infrastructure first..."
+          fi
+
+      - name: Look up Hosted Zone ID
+        if: steps.check-infra.outputs.stack_exists == 'false'
+        id: hosted-zone
+        run: |
+          HOSTED_ZONE_ID=$(aws route53 list-hosted-zones-by-name \
+            --dns-name proplastics.us \
+            --query "HostedZones[?Name=='proplastics.us.'].Id" \
+            --output text | sed 's|/hostedzone/||')
+
+          if [ -z "$HOSTED_ZONE_ID" ]; then
+            echo "Error: Could not find hosted zone for proplastics.us"
+            exit 1
+          fi
+
+          echo "Found Hosted Zone ID: $HOSTED_ZONE_ID"
+          echo "hosted_zone_id=$HOSTED_ZONE_ID" >> $GITHUB_OUTPUT
+
+      - name: Deploy infrastructure
+        if: steps.check-infra.outputs.stack_exists == 'false'
+        run: |
+          echo "Deploying CloudFormation stack..."
+          aws cloudformation deploy \
+            --template-file infrastructure/cloudformation.yaml \
+            --stack-name ${{ env.STACK_NAME }} \
+            --parameter-overrides \
+              DomainName=proplastics.us \
+              HostedZoneId=${{ steps.hosted-zone.outputs.hosted_zone_id }} \
+            --capabilities CAPABILITY_IAM \
+            --no-fail-on-empty-changeset
+
+          echo "✅ Infrastructure deployed"
+
       - name: Get CloudFormation outputs
         id: cfn-outputs
         run: |
           echo "Fetching outputs from CloudFormation stack: ${{ env.STACK_NAME }}"
+
+          # Wait for stack to be ready if just created
+          aws cloudformation wait stack-exists --stack-name ${{ env.STACK_NAME }}
 
           S3_BUCKET=$(aws cloudformation describe-stacks \
             --stack-name ${{ env.STACK_NAME }} \
