@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-steel-700 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-precision-orange-400 text-white font-semibold rounded-lg
+           hover:bg-precision-orange-500 transition-colors duration-200 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-industrial-blue-900 text-white font-semibold rounded-lg
+           hover:bg-industrial-blue-800 transition-colors duration-200;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 border-2 border-industrial-blue-900 text-industrial-blue-900
+           font-semibold rounded-lg hover:bg-industrial-blue-900 hover:text-white transition-colors duration-200;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-industrial-blue-900 mb-4;
+  }
+
+  .section-subheading {
+    @apply text-lg text-steel-500 max-w-2xl;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-industrial-blue-900 to-industrial-blue-700;
+  }
+}
