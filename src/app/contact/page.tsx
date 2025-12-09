@@ -1,6 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+// Note: Metadata must be exported from a server component
 import Link from 'next/link';
 import {
   Phone,
@@ -8,14 +11,12 @@ import {
   MapPin,
   Clock,
   Send,
-  CheckCircle,
   ArrowRight,
 } from 'lucide-react';
 import { trackContactFormSubmit, trackPhoneClick, trackEmailClick } from '@/lib/firebase';
 
-// Note: Metadata must be exported from a server component
-
 export default function ContactPage() {
+  const router = useRouter();
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({
     firstName: '',
@@ -40,7 +41,7 @@ export default function ContactPage() {
       // Fallback for development or if API not configured
       console.log('Contact form submission:', formData);
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      setFormStatus('success');
+      router.push('/contact/thank-you');
       return;
     }
 
@@ -60,7 +61,7 @@ export default function ContactPage() {
       }
 
       trackContactFormSubmit(formData.subject);
-      setFormStatus('success');
+      router.push('/contact/thank-you');
     } catch (error) {
       console.error('Contact form error:', error);
       setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
@@ -200,40 +201,7 @@ export default function ContactPage() {
                   Send Us a Message
                 </h2>
 
-                {formStatus === 'success' ? (
-                  <div className="text-center py-12">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-8 h-8 text-green-500" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-industrial-blue-900 mb-2">
-                      Message Sent!
-                    </h3>
-                    <p className="text-steel-600 mb-6">
-                      Thank you for reaching out. We&apos;ll get back to you within
-                      one business day.
-                    </p>
-                    <button
-                      onClick={() => {
-                        setFormStatus('idle');
-                        setErrorMessage('');
-                        setFormData({
-                          firstName: '',
-                          lastName: '',
-                          email: '',
-                          phone: '',
-                          company: '',
-                          subject: '',
-                          message: '',
-                          website: '',
-                        });
-                      }}
-                      className="text-precision-orange-500 font-medium hover:underline"
-                    >
-                      Send another message
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div>
                         <label
@@ -424,8 +392,7 @@ export default function ContactPage() {
                         </>
                       )}
                     </button>
-                  </form>
-                )}
+                </form>
               </div>
             </div>
           </div>
