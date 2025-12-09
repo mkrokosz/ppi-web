@@ -1,4 +1,4 @@
-export const locales = ['en', 'es', 'fr', 'it', 'pt', 'ja', 'zh', 'hi'] as const;
+export const locales = ['en', 'es', 'fr', 'it', 'pt', 'ja', 'zh', 'hi', 'ar'] as const;
 export const defaultLocale = 'en' as const;
 
 export type Locale = (typeof locales)[number];
@@ -13,7 +13,11 @@ export const localeNames: Record<Locale, string> = {
   ja: '日本語',
   zh: '简体中文',
   hi: 'हिन्दी',
+  ar: 'العربية',
 };
+
+// RTL locales
+export const rtlLocales: Locale[] = ['ar'];
 
 // Localized names for each language in each locale
 // localeNamesLocalized[viewingLocale][targetLocale] = name
@@ -27,6 +31,7 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     ja: 'Japanese',
     zh: 'Chinese',
     hi: 'Hindi',
+    ar: 'Arabic',
   },
   es: {
     en: 'Inglés (English)',
@@ -37,6 +42,7 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     ja: 'Japonés',
     zh: 'Chino',
     hi: 'Hindi',
+    ar: 'Árabe',
   },
   fr: {
     en: 'Anglais (English)',
@@ -47,6 +53,7 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     ja: 'Japonais',
     zh: 'Chinois',
     hi: 'Hindi',
+    ar: 'Arabe',
   },
   it: {
     en: 'Inglese (English)',
@@ -57,6 +64,7 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     ja: 'Giapponese',
     zh: 'Cinese',
     hi: 'Hindi',
+    ar: 'Arabo',
   },
   pt: {
     en: 'Inglês (English)',
@@ -67,6 +75,7 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     ja: 'Japonês',
     zh: 'Chinês',
     hi: 'Hindi',
+    ar: 'Árabe',
   },
   ja: {
     en: '英語 (English)',
@@ -77,6 +86,7 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     ja: '日本語',
     zh: '中国語',
     hi: 'ヒンディー語',
+    ar: 'アラビア語',
   },
   zh: {
     en: '英语 (English)',
@@ -87,6 +97,7 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     ja: '日语',
     zh: '简体中文',
     hi: '印地语',
+    ar: '阿拉伯语',
   },
   hi: {
     en: 'अंग्रेज़ी (English)',
@@ -97,6 +108,18 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     ja: 'जापानी',
     zh: 'चीनी',
     hi: 'हिन्दी',
+    ar: 'अरबी',
+  },
+  ar: {
+    en: 'الإنجليزية (English)',
+    es: 'الإسبانية',
+    fr: 'الفرنسية',
+    it: 'الإيطالية',
+    pt: 'البرتغالية',
+    ja: 'اليابانية',
+    zh: 'الصينية',
+    hi: 'الهندية',
+    ar: 'العربية',
   },
 };
 

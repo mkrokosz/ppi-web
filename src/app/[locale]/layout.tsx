@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { locales, Locale } from '@/i18n/config';
+import { locales, Locale, rtlLocales } from '@/i18n/config';
 import Layout from '@/components/Layout';
 import FirebaseAnalytics from '@/components/FirebaseAnalytics';
 
@@ -99,16 +99,22 @@ export default async function LocaleLayout({
   // Get messages for this locale
   const messages = await getMessages();
 
+  // Determine text direction based on locale
+  const isRtl = rtlLocales.includes(locale as Locale);
+  const dir = isRtl ? 'rtl' : 'ltr';
+
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <FirebaseAnalytics />
-      <NextIntlClientProvider messages={messages}>
-        <Layout>{children}</Layout>
-      </NextIntlClientProvider>
-    </>
+    <html lang={locale} dir={dir} suppressHydrationWarning>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <FirebaseAnalytics />
+        <NextIntlClientProvider messages={messages}>
+          <Layout>{children}</Layout>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

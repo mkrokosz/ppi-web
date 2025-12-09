@@ -82,16 +82,11 @@ export const metadata: Metadata = {
   },
 };
 
-// Root layout with required html/body tags
-// The locale layout handles the dynamic lang attribute via metadata
+// Root layout - children include the locale layout which sets html lang/dir attributes
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body>{children}</body>
-    </html>
-  );
+  return children;
 }
