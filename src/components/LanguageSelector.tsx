@@ -2,7 +2,7 @@
 
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/routing';
-import { locales, localeNames, Locale } from '@/i18n/config';
+import { locales, localeNames, localeNamesLocalized, Locale } from '@/i18n/config';
 import { Globe, ChevronDown } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 
@@ -54,20 +54,20 @@ export default function LanguageSelector({ showFullName = false, openAbove = fal
       </button>
 
       {isOpen && (
-        <div className={`absolute left-1/2 -translate-x-1/2 bg-white rounded-lg shadow-lg border border-steel-200 py-1 min-w-[120px] z-50 ${
+        <div className={`absolute left-1/2 -translate-x-1/2 bg-white rounded-lg shadow-lg border border-steel-200 py-1 min-w-[140px] z-50 ${
           openAbove ? 'bottom-full mb-1' : 'top-full mt-1'
         }`}>
           {locales.map((loc) => (
             <button
               key={loc}
               onClick={() => handleLocaleChange(loc)}
-              className={`w-full text-left px-4 py-2 text-sm hover:bg-steel-50 transition-colors ${
+              className={`w-full text-left px-4 py-2 text-sm whitespace-nowrap hover:bg-steel-50 transition-colors ${
                 loc === locale
                   ? 'text-precision-orange-500 font-medium'
                   : 'text-steel-700'
               }`}
             >
-              {localeNames[loc]}
+              {localeNamesLocalized[locale][loc]}
             </button>
           ))}
         </div>
