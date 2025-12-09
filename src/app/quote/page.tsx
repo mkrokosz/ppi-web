@@ -265,7 +265,6 @@ export default function QuotePage() {
                     <option value="">Select part type...</option>
                     <option value="machined">CNC Machined Part</option>
                     <option value="fabricated">Fabricated Component</option>
-                    <option value="formed">Vacuum Formed Part</option>
                     <option value="sheet">Cut Sheet/Panel</option>
                     <option value="rod-tube">Rod/Tube Stock</option>
                     <option value="other">Other</option>
