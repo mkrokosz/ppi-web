@@ -93,7 +93,14 @@ const comparisonData = [
   },
 ];
 
-const materials = ['PEEK', 'Ultem', 'Delrin', 'Nylon', 'PTFE', 'UHMW'];
+const materials = [
+  { name: 'PEEK', color: 'from-amber-600 to-amber-700', bgLight: 'bg-amber-50', text: 'text-amber-800' },
+  { name: 'Ultem', color: 'from-amber-500 to-amber-600', bgLight: 'bg-amber-50', text: 'text-amber-700' },
+  { name: 'Delrin', color: 'from-blue-600 to-blue-700', bgLight: 'bg-blue-50', text: 'text-blue-800' },
+  { name: 'Nylon', color: 'from-blue-500 to-blue-600', bgLight: 'bg-blue-50', text: 'text-blue-700' },
+  { name: 'PTFE', color: 'from-emerald-600 to-emerald-700', bgLight: 'bg-emerald-50', text: 'text-emerald-800' },
+  { name: 'UHMW', color: 'from-slate-500 to-slate-600', bgLight: 'bg-slate-50', text: 'text-slate-700' },
+];
 
 export default function ComparisonPage() {
   return (
@@ -137,43 +144,40 @@ export default function ComparisonPage() {
             </button>
           </div>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto rounded-xl border border-steel-200">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-industrial-blue-900 text-white">
-                  <th className="text-left p-4 font-semibold">Property</th>
+                <tr>
+                  <th className="text-left p-4 font-semibold bg-steel-100 text-industrial-blue-900">Property</th>
                   {materials.map((material) => (
-                    <th key={material} className="text-center p-4 font-semibold">
-                      {material}
+                    <th key={material.name} className={`text-center p-4 font-semibold text-white bg-gradient-to-br ${material.color}`}>
+                      {material.name}
                     </th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {comparisonData.map((row, index) => (
-                  <tr
-                    key={row.property}
-                    className={index % 2 === 0 ? 'bg-steel-50' : 'bg-white'}
-                  >
-                    <td className="p-4 font-medium text-industrial-blue-900 border-b border-steel-200">
+                  <tr key={row.property}>
+                    <td className={`p-4 font-medium text-industrial-blue-900 border-b border-steel-200 ${index % 2 === 0 ? 'bg-steel-50' : 'bg-white'}`}>
                       {row.property}
                     </td>
-                    <td className="p-4 text-center text-steel-700 border-b border-steel-200">
+                    <td className={`p-4 text-center font-medium border-b border-steel-200 ${materials[0].text} ${index % 2 === 0 ? materials[0].bgLight : 'bg-white'}`}>
                       {row.peek}
                     </td>
-                    <td className="p-4 text-center text-steel-700 border-b border-steel-200">
+                    <td className={`p-4 text-center font-medium border-b border-steel-200 ${materials[1].text} ${index % 2 === 0 ? materials[1].bgLight : 'bg-white'}`}>
                       {row.ultem}
                     </td>
-                    <td className="p-4 text-center text-steel-700 border-b border-steel-200">
+                    <td className={`p-4 text-center font-medium border-b border-steel-200 ${materials[2].text} ${index % 2 === 0 ? materials[2].bgLight : 'bg-white'}`}>
                       {row.delrin}
                     </td>
-                    <td className="p-4 text-center text-steel-700 border-b border-steel-200">
+                    <td className={`p-4 text-center font-medium border-b border-steel-200 ${materials[3].text} ${index % 2 === 0 ? materials[3].bgLight : 'bg-white'}`}>
                       {row.nylon}
                     </td>
-                    <td className="p-4 text-center text-steel-700 border-b border-steel-200">
+                    <td className={`p-4 text-center font-medium border-b border-steel-200 ${materials[4].text} ${index % 2 === 0 ? materials[4].bgLight : 'bg-white'}`}>
                       {row.ptfe}
                     </td>
-                    <td className="p-4 text-center text-steel-700 border-b border-steel-200">
+                    <td className={`p-4 text-center font-medium border-b border-steel-200 ${materials[5].text} ${index % 2 === 0 ? materials[5].bgLight : 'bg-white'}`}>
                       {row.uhmw}
                     </td>
                   </tr>

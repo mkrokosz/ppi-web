@@ -37,7 +37,14 @@ const resistanceData: ChemicalData[] = [
   { chemical: 'Deionized Water', category: 'Water', peek: 'E', ptfe: 'E', delrin: 'E', nylon: 'E', uhmw: 'E', pvc: 'E' },
 ];
 
-const materials = ['PEEK', 'PTFE', 'Delrin', 'Nylon', 'UHMW', 'PVC'];
+const materials = [
+  { name: 'PEEK', color: 'from-amber-600 to-amber-700', bgLight: 'bg-amber-50', text: 'text-amber-800' },
+  { name: 'PTFE', color: 'from-emerald-600 to-emerald-700', bgLight: 'bg-emerald-50', text: 'text-emerald-800' },
+  { name: 'Delrin', color: 'from-blue-600 to-blue-700', bgLight: 'bg-blue-50', text: 'text-blue-800' },
+  { name: 'Nylon', color: 'from-blue-500 to-blue-600', bgLight: 'bg-blue-50', text: 'text-blue-700' },
+  { name: 'UHMW', color: 'from-slate-500 to-slate-600', bgLight: 'bg-slate-50', text: 'text-slate-700' },
+  { name: 'PVC', color: 'from-gray-500 to-gray-600', bgLight: 'bg-gray-50', text: 'text-gray-700' },
+];
 const categories = ['All', 'Acids', 'Bases', 'Solvents', 'Fuels', 'Alcohols', 'Oxidizers', 'Oils', 'Water'];
 
 const ResistanceCell = ({ value }: { value: Resistance }) => {
@@ -160,15 +167,15 @@ export default function ChemicalResistancePage() {
             </button>
           </div>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto rounded-xl border border-steel-200">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-industrial-blue-900 text-white">
-                  <th className="text-left p-4 font-semibold">Chemical</th>
-                  <th className="text-left p-4 font-semibold">Category</th>
+                <tr>
+                  <th className="text-left p-4 font-semibold bg-steel-100 text-industrial-blue-900">Chemical</th>
+                  <th className="text-left p-4 font-semibold bg-steel-100 text-industrial-blue-900">Category</th>
                   {materials.map((material) => (
-                    <th key={material} className="text-center p-4 font-semibold">
-                      {material}
+                    <th key={material.name} className={`text-center p-4 font-semibold text-white bg-gradient-to-br ${material.color}`}>
+                      {material.name}
                     </th>
                   ))}
                 </tr>

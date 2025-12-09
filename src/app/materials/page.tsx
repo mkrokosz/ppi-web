@@ -24,6 +24,7 @@ interface Material {
   forms: string[];
   tempRange: string;
   description: string;
+  color: string; // Tailwind gradient class for category
 }
 
 const materials: Material[] = [
@@ -36,6 +37,7 @@ const materials: Material[] = [
     forms: ['Sheet', 'Rod', 'Tube'],
     tempRange: '-100°F to +480°F',
     description: 'Premium high-performance thermoplastic with excellent mechanical properties at elevated temperatures.',
+    color: 'from-amber-600 to-amber-800',
   },
   {
     id: 'ultem',
@@ -46,6 +48,7 @@ const materials: Material[] = [
     forms: ['Sheet', 'Rod'],
     tempRange: '-40°F to +340°F',
     description: 'Polyetherimide with high strength, stiffness, and broad chemical resistance.',
+    color: 'from-amber-500 to-amber-700',
   },
   {
     id: 'delrin',
@@ -56,6 +59,7 @@ const materials: Material[] = [
     forms: ['Sheet', 'Rod', 'Tube'],
     tempRange: '-40°F to +180°F',
     description: 'High-strength acetal homopolymer with excellent dimensional stability and machinability.',
+    color: 'from-blue-600 to-blue-800',
   },
   {
     id: 'nylon',
@@ -66,6 +70,7 @@ const materials: Material[] = [
     forms: ['Sheet', 'Rod', 'Tube'],
     tempRange: '-60°F to +210°F',
     description: 'Versatile engineering plastic with excellent wear resistance and mechanical properties.',
+    color: 'from-blue-500 to-blue-700',
   },
   {
     id: 'teflon',
@@ -76,6 +81,7 @@ const materials: Material[] = [
     forms: ['Sheet', 'Rod', 'Tube'],
     tempRange: '-450°F to +500°F',
     description: 'Exceptional chemical resistance and lowest coefficient of friction of any solid material.',
+    color: 'from-emerald-600 to-emerald-800',
   },
   {
     id: 'uhmw',
@@ -86,6 +92,7 @@ const materials: Material[] = [
     forms: ['Sheet', 'Rod'],
     tempRange: '-200°F to +180°F',
     description: 'Ultra high molecular weight PE with outstanding abrasion resistance and impact strength.',
+    color: 'from-slate-500 to-slate-700',
   },
   {
     id: 'polycarbonate',
@@ -96,6 +103,7 @@ const materials: Material[] = [
     forms: ['Sheet', 'Rod', 'Tube'],
     tempRange: '-40°F to +250°F',
     description: 'Virtually unbreakable with excellent optical clarity and impact resistance.',
+    color: 'from-slate-400 to-slate-600',
   },
   {
     id: 'acrylic',
@@ -106,6 +114,7 @@ const materials: Material[] = [
     forms: ['Sheet', 'Rod', 'Tube'],
     tempRange: '-40°F to +180°F',
     description: 'Crystal clear thermoplastic with excellent optical properties and weather resistance.',
+    color: 'from-sky-400 to-sky-600',
   },
   {
     id: 'phenolic',
@@ -116,6 +125,7 @@ const materials: Material[] = [
     forms: ['Sheet', 'Rod', 'Tube'],
     tempRange: '-60°F to +300°F',
     description: 'Fabric-reinforced laminate with excellent electrical and mechanical properties.',
+    color: 'from-orange-700 to-orange-900',
   },
   {
     id: 'g10',
@@ -126,6 +136,7 @@ const materials: Material[] = [
     forms: ['Sheet', 'Rod'],
     tempRange: '-60°F to +285°F',
     description: 'Glass fabric reinforced epoxy with superior electrical and mechanical properties.',
+    color: 'from-lime-600 to-lime-800',
   },
   {
     id: 'pvc',
@@ -136,6 +147,7 @@ const materials: Material[] = [
     forms: ['Sheet', 'Rod', 'Tube'],
     tempRange: '32°F to +140°F',
     description: 'Cost-effective material with good chemical resistance and flame retardancy.',
+    color: 'from-gray-500 to-gray-700',
   },
   {
     id: 'hdpe',
@@ -146,6 +158,7 @@ const materials: Material[] = [
     forms: ['Sheet', 'Rod'],
     tempRange: '-148°F to +180°F',
     description: 'High-density polyethylene with excellent chemical resistance and low moisture absorption.',
+    color: 'from-stone-500 to-stone-700',
   },
 ];
 
@@ -366,76 +379,84 @@ export default function MaterialsPage() {
               {filteredMaterials.map((material) => (
                 <div
                   key={material.id}
-                  className="card border border-steel-200 hover:border-precision-orange-400 transition-colors"
+                  className="card border border-steel-200 hover:border-precision-orange-400 transition-colors p-0 overflow-hidden"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <span className="px-3 py-1 bg-industrial-blue-100 text-industrial-blue-800 rounded-full text-xs font-medium">
+                  {/* Material Color Header */}
+                  <div className={`relative h-20 w-full bg-gradient-to-br ${material.color}`}>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-white/20 text-6xl font-bold tracking-tighter">
+                        {material.id.toUpperCase()}
+                      </span>
+                    </div>
+                    <span className="absolute bottom-2 left-3 px-3 py-1 bg-white/90 text-industrial-blue-800 rounded-full text-xs font-medium">
                       {material.category}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-semibold text-industrial-blue-900 mb-2">
-                    {material.name}
-                  </h3>
+                  <div className="p-5">
+                    <h3 className="text-lg font-semibold text-industrial-blue-900 mb-2">
+                      {material.name}
+                    </h3>
 
-                  <p className="text-steel-500 text-sm mb-4 line-clamp-2">
-                    {material.description}
-                  </p>
+                    <p className="text-steel-500 text-sm mb-4 line-clamp-2">
+                      {material.description}
+                    </p>
 
-                  <div className="space-y-3 mb-4">
-                    <div>
-                      <span className="text-xs font-medium text-steel-400 uppercase">
-                        Temp Range
-                      </span>
-                      <p className="text-sm text-steel-700 font-mono">
-                        {material.tempRange}
-                      </p>
-                    </div>
+                    <div className="space-y-3 mb-4">
+                      <div>
+                        <span className="text-xs font-medium text-steel-400 uppercase">
+                          Temp Range
+                        </span>
+                        <p className="text-sm text-steel-700 font-mono">
+                          {material.tempRange}
+                        </p>
+                      </div>
 
-                    <div>
-                      <span className="text-xs font-medium text-steel-400 uppercase">
-                        Available Forms
-                      </span>
-                      <div className="flex gap-2 mt-1">
-                        {material.forms.map((form) => (
-                          <span
-                            key={form}
-                            className="px-2 py-0.5 bg-steel-100 text-steel-600 rounded text-xs"
-                          >
-                            {form}
-                          </span>
-                        ))}
+                      <div>
+                        <span className="text-xs font-medium text-steel-400 uppercase">
+                          Available Forms
+                        </span>
+                        <div className="flex gap-2 mt-1">
+                          {material.forms.map((form) => (
+                            <span
+                              key={form}
+                              className="px-2 py-0.5 bg-steel-100 text-steel-600 rounded text-xs"
+                            >
+                              {form}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <span className="text-xs font-medium text-steel-400 uppercase">
+                          Key Properties
+                        </span>
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {material.properties.slice(0, 3).map((prop) => (
+                            <span
+                              key={prop}
+                              className="flex items-center gap-1 text-xs text-green-700"
+                            >
+                              <CheckCircle className="w-3 h-3" />
+                              {prop}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
 
-                    <div>
-                      <span className="text-xs font-medium text-steel-400 uppercase">
-                        Key Properties
-                      </span>
-                      <div className="flex flex-wrap gap-1 mt-1">
-                        {material.properties.slice(0, 3).map((prop) => (
-                          <span
-                            key={prop}
-                            className="flex items-center gap-1 text-xs text-green-700"
-                          >
-                            <CheckCircle className="w-3 h-3" />
-                            {prop}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="pt-4 border-t border-steel-100 flex justify-between items-center">
+                      <Link
+                        href={`/materials/${material.id}`}
+                        className="text-precision-orange-500 font-medium text-sm hover:underline flex items-center gap-1"
+                      >
+                        View Details <ArrowRight className="w-4 h-4" />
+                      </Link>
+                      <button className="text-steel-400 hover:text-steel-600 transition-colors">
+                        <Download className="w-5 h-5" />
+                      </button>
                     </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-steel-100 flex justify-between items-center">
-                    <Link
-                      href={`/materials/${material.id}`}
-                      className="text-precision-orange-500 font-medium text-sm hover:underline flex items-center gap-1"
-                    >
-                      View Details <ArrowRight className="w-4 h-4" />
-                    </Link>
-                    <button className="text-steel-400 hover:text-steel-600 transition-colors">
-                      <Download className="w-5 h-5" />
-                    </button>
                   </div>
                 </div>
               ))}
