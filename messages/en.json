@@ -869,5 +869,33 @@
     "notFound": "Page Not Found",
     "notFoundDescription": "The page you're looking for doesn't exist or has been moved.",
     "backHome": "Back to Home"
+  },
+  "thankYou": {
+    "contact": {
+      "heroTitle": "Contact Us",
+      "title": "Message Sent!",
+      "description": "Thank you for reaching out. We'll get back to you within one business day.",
+      "whatHappensNext": "What happens next?",
+      "step1": "Our team reviews your message",
+      "step2": "We'll reach out via email or phone",
+      "step3": "You'll receive a response within one business day",
+      "returnHome": "Return Home",
+      "viewCapabilities": "View Capabilities",
+      "needImmediate": "Need immediate assistance?",
+      "callUs": "Call +1 (866) 925-5000"
+    },
+    "quote": {
+      "heroTitle": "Request a Quote",
+      "title": "Quote Request Submitted!",
+      "description": "Thank you for your quote request. Our team will review your requirements and get back to you within 24 hours with a detailed quote.",
+      "whatHappensNext": "What happens next?",
+      "step1": "Our engineering team reviews your drawings and requirements",
+      "step2": "We'll reach out if we need any clarification",
+      "step3": "You'll receive a detailed quote via email within 24 hours",
+      "returnHome": "Return Home",
+      "viewCapabilities": "View Capabilities",
+      "needImmediate": "Need immediate assistance?",
+      "callUs": "Call +1 (866) 925-5000"
+    }
   }
 }

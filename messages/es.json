@@ -869,5 +869,33 @@
     "notFound": "Página No Encontrada",
     "notFoundDescription": "La página que está buscando no existe o ha sido movida.",
     "backHome": "Volver al Inicio"
+  },
+  "thankYou": {
+    "contact": {
+      "heroTitle": "Contáctenos",
+      "title": "¡Mensaje Enviado!",
+      "description": "Gracias por comunicarse con nosotros. Le responderemos dentro de un día hábil.",
+      "whatHappensNext": "¿Qué sucede ahora?",
+      "step1": "Nuestro equipo revisa su mensaje",
+      "step2": "Nos comunicaremos por correo electrónico o teléfono",
+      "step3": "Recibirá una respuesta dentro de un día hábil",
+      "returnHome": "Volver al Inicio",
+      "viewCapabilities": "Ver Capacidades",
+      "needImmediate": "¿Necesita asistencia inmediata?",
+      "callUs": "Llamar +1 (866) 925-5000"
+    },
+    "quote": {
+      "heroTitle": "Solicitar Cotización",
+      "title": "¡Solicitud de Cotización Enviada!",
+      "description": "Gracias por su solicitud de cotización. Nuestro equipo revisará sus requisitos y le responderá dentro de 24 horas con una cotización detallada.",
+      "whatHappensNext": "¿Qué sucede ahora?",
+      "step1": "Nuestro equipo de ingeniería revisa sus planos y requisitos",
+      "step2": "Nos comunicaremos si necesitamos alguna aclaración",
+      "step3": "Recibirá una cotización detallada por correo electrónico dentro de 24 horas",
+      "returnHome": "Volver al Inicio",
+      "viewCapabilities": "Ver Capacidades",
+      "needImmediate": "¿Necesita asistencia inmediata?",
+      "callUs": "Llamar +1 (866) 925-5000"
+    }
   }
 }
