@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
 import Layout from '@/components/Layout';
+import FirebaseAnalytics from '@/components/FirebaseAnalytics';
 
 const siteUrl = 'https://proplastics.us';
 
@@ -171,6 +172,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <FirebaseAnalytics />
         <Layout>{children}</Layout>
       </body>
     </html>

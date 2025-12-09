@@ -13,6 +13,7 @@ import {
   Shield,
   Phone,
 } from 'lucide-react';
+import { trackQuoteRequest } from '@/lib/firebase';
 
 type Step = 1 | 2 | 3 | 4;
 
@@ -84,6 +85,7 @@ export default function QuotePage() {
     e.preventDefault();
     setFormStatus('submitting');
     await new Promise((resolve) => setTimeout(resolve, 2000));
+    trackQuoteRequest(formData.partType, formData.material);
     setFormStatus('success');
   };
 

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
+import { trackPhoneClick, trackQuoteButtonClick } from '@/lib/firebase';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -47,6 +48,7 @@ export default function Header() {
           <a
             href="tel:+18669255000"
             className="flex sm:hidden items-center gap-2 hover:text-precision-orange-300 transition-colors"
+            onClick={() => trackPhoneClick('866-925-5000', 'header-mobile')}
           >
             <Phone className="w-4 h-4" />
             <span className="font-semibold">(866) 925-5000</span>
@@ -55,6 +57,7 @@ export default function Header() {
             <a
               href="tel:+18669255000"
               className="flex items-center gap-2 hover:text-precision-orange-300 transition-colors"
+              onClick={() => trackPhoneClick('866-925-5000', 'header-desktop')}
             >
               <Phone className="w-4 h-4" />
               <span className="font-semibold">(866) 925-5000</span>
@@ -62,6 +65,7 @@ export default function Header() {
             <Link
               href="/quote"
               className="bg-precision-orange-400 hover:bg-precision-orange-500 text-white px-3 py-1 rounded font-semibold transition-colors"
+              onClick={() => trackQuoteButtonClick('header-desktop')}
             >
               Request Quote
             </Link>
@@ -69,6 +73,7 @@ export default function Header() {
           <Link
             href="/quote"
             className="sm:hidden bg-precision-orange-400 hover:bg-precision-orange-500 text-white px-3 py-1 rounded font-semibold transition-colors"
+            onClick={() => trackQuoteButtonClick('header-mobile')}
           >
             Request Quote
           </Link>

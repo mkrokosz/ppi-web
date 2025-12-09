@@ -11,6 +11,7 @@ import {
   CheckCircle,
   ArrowRight,
 } from 'lucide-react';
+import { trackContactFormSubmit, trackPhoneClick, trackEmailClick } from '@/lib/firebase';
 
 // Note: Metadata must be exported from a server component
 
@@ -58,6 +59,7 @@ export default function ContactPage() {
         throw new Error(data.error || 'Failed to send message');
       }
 
+      trackContactFormSubmit(formData.subject);
       setFormStatus('success');
     } catch (error) {
       console.error('Contact form error:', error);
@@ -110,6 +112,7 @@ export default function ContactPage() {
                     <a
                       href="tel:+18669255000"
                       className="text-steel-600 hover:text-precision-orange-500 transition-colors"
+                      onClick={() => trackPhoneClick('866-925-5000', 'contact-page')}
                     >
                       (866) 925-5000
                     </a>
@@ -126,6 +129,7 @@ export default function ContactPage() {
                     <a
                       href="mailto:sales@proplasticsinc.com"
                       className="text-steel-600 hover:text-precision-orange-500 transition-colors"
+                      onClick={() => trackEmailClick('sales@proplasticsinc.com', 'contact-page')}
                     >
                       sales@proplasticsinc.com
                     </a>

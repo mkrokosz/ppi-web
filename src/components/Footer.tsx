@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { trackPhoneClick, trackEmailClick } from '@/lib/firebase';
 
 const footerLinks = {
   company: [
@@ -59,6 +62,7 @@ export default function Footer() {
               <a
                 href="tel:+18669255000"
                 className="flex items-center gap-3 text-steel-300 hover:text-precision-orange-400 transition-colors"
+                onClick={() => trackPhoneClick('866-925-5000', 'footer')}
               >
                 <Phone className="w-5 h-5" />
                 <span>(866) 925-5000</span>
@@ -66,6 +70,7 @@ export default function Footer() {
               <a
                 href="mailto:sales@proplasticsinc.com"
                 className="flex items-center gap-3 text-steel-300 hover:text-precision-orange-400 transition-colors"
+                onClick={() => trackEmailClick('sales@proplasticsinc.com', 'footer')}
               >
                 <Mail className="w-5 h-5" />
                 <span>sales@proplasticsinc.com</span>
