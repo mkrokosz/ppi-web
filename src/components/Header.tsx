@@ -1,40 +1,44 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { trackPhoneClick, trackQuoteButtonClick } from '@/lib/firebase';
-
-const navigation = [
-  { name: 'Home', href: '/' },
-  {
-    name: 'Capabilities',
-    href: '/capabilities',
-    children: [
-      { name: 'CNC Machining', href: '/capabilities/cnc-machining' },
-      { name: 'Fabrication', href: '/capabilities/fabrication' },
-      { name: 'Secondary Operations', href: '/capabilities/secondary-operations' },
-    ],
-  },
-  {
-    name: 'Materials',
-    href: '/materials',
-    children: [
-      { name: 'Material Database', href: '/materials' },
-      { name: 'Comparison Charts', href: '/materials/comparison' },
-      { name: 'Chemical Resistance', href: '/materials/chemical-resistance' },
-    ],
-  },
-  { name: 'Industries', href: '/industries' },
-  { name: 'Portfolio', href: '/portfolio' },
-  { name: 'About Us', href: '/about' },
-  { name: 'Contact', href: '/contact' },
-];
+import { useTranslations } from 'next-intl';
+import LanguageSelector from './LanguageSelector';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const t = useTranslations('nav');
+  const tCommon = useTranslations('common');
+
+  const navigation = [
+    { name: t('home'), href: '/' },
+    {
+      name: t('capabilities'),
+      href: '/capabilities',
+      children: [
+        { name: t('cncMachining'), href: '/capabilities/cnc-machining' },
+        { name: t('fabrication'), href: '/capabilities/fabrication' },
+        { name: t('secondaryOperations'), href: '/capabilities/secondary-operations' },
+      ],
+    },
+    {
+      name: t('materials'),
+      href: '/materials',
+      children: [
+        { name: t('materialDatabase'), href: '/materials' },
+        { name: t('comparisonCharts'), href: '/materials/comparison' },
+        { name: t('chemicalResistance'), href: '/materials/chemical-resistance' },
+      ],
+    },
+    { name: t('industries'), href: '/industries' },
+    { name: t('portfolio'), href: '/portfolio' },
+    { name: t('about'), href: '/about' },
+    { name: t('contact'), href: '/contact' },
+  ];
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -42,8 +46,8 @@ export default function Header() {
       <div className="bg-industrial-blue-900 text-white py-2">
         <div className="container-custom flex justify-between items-center text-sm">
           <div className="hidden sm:flex items-center gap-6">
-            <span>Mon-Fri: 8:30 AM - 4:00 PM EST</span>
-            <span>1190 Sylvan St, Linden, NJ 07036, USA</span>
+            <span>{tCommon('hours')}</span>
+            <span>{tCommon('address')}, {tCommon('cityStateZip')}</span>
           </div>
           <a
             href="tel:+18669255000"
@@ -54,6 +58,7 @@ export default function Header() {
             <span className="font-semibold">+1 (866) 925-5000</span>
           </a>
           <div className="hidden sm:flex items-center gap-4">
+            <LanguageSelector />
             <a
               href="tel:+18669255000"
               className="flex items-center gap-2 hover:text-precision-orange-300 transition-colors"
@@ -67,16 +72,19 @@ export default function Header() {
               className="bg-precision-orange-400 hover:bg-precision-orange-500 text-white px-3 py-1 rounded font-semibold transition-colors"
               onClick={() => trackQuoteButtonClick('header-desktop')}
             >
-              Request Quote
+              {tCommon('requestQuote')}
             </Link>
           </div>
-          <Link
-            href="/quote"
-            className="sm:hidden bg-precision-orange-400 hover:bg-precision-orange-500 text-white px-3 py-1 rounded font-semibold transition-colors"
-            onClick={() => trackQuoteButtonClick('header-mobile')}
-          >
-            Request Quote
-          </Link>
+          <div className="sm:hidden flex items-center gap-2">
+            <LanguageSelector />
+            <Link
+              href="/quote"
+              className="bg-precision-orange-400 hover:bg-precision-orange-500 text-white px-3 py-1 rounded font-semibold transition-colors"
+              onClick={() => trackQuoteButtonClick('header-mobile')}
+            >
+              {tCommon('requestQuote')}
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -94,10 +102,10 @@ export default function Header() {
             />
             <div className="flex flex-col">
               <span className="text-2xl font-bold text-industrial-blue-900">
-                Pro Plastics
+                Pro Plastics Inc.
               </span>
-              <span className="text-xs text-steel-500 tracking-wider leading-tight">
-                PRECISION MANUFACTURING<br />SINCE 1968
+              <span className="text-xs text-steel-500 tracking-wider leading-tight uppercase">
+                {tCommon('since1968')}
               </span>
             </div>
           </Link>
@@ -186,7 +194,7 @@ export default function Header() {
                 className="btn-primary w-full text-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Request Quote
+                {tCommon('requestQuote')}
               </Link>
             </div>
           </div>

@@ -1,0 +1,873 @@
+{
+  "metadata": {
+    "title": "Pro Plastics Inc. | Precision Plastic Manufacturing Since 1968",
+    "description": "Custom plastic manufacturing in Linden, NJ, USA. CNC machining, fabrication & material distribution for aerospace, medical & semiconductor industries since 1968."
+  },
+  "nav": {
+    "home": "Home",
+    "capabilities": "Capabilities",
+    "cncMachining": "CNC Machining",
+    "fabrication": "Fabrication",
+    "secondaryOperations": "Secondary Operations",
+    "materials": "Materials",
+    "materialDatabase": "Material Database",
+    "comparisonCharts": "Comparison Charts",
+    "chemicalResistance": "Chemical Resistance",
+    "industries": "Industries",
+    "portfolio": "Portfolio",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "common": {
+    "phone": "+1 (866) 925-5000",
+    "email": "sales@proplasticsinc.com",
+    "address": "1190 Sylvan St",
+    "cityStateZip": "Linden, NJ 07036, USA",
+    "hours": "Mon-Fri: 8:30 AM - 4:00 PM EST",
+    "tollFree": "Toll-free",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "viewDetails": "View Details",
+    "downloadPdf": "Download PDF",
+    "contactUs": "Contact Us",
+    "getDirections": "Get Directions",
+    "since1968": "Precision Manufacturing Since 1968",
+    "requestQuote": "Request Quote",
+    "callUs": "Call +1 (866) 925-5000"
+  },
+  "home": {
+    "hero": {
+      "trustedSince": "Trusted Since 1968",
+      "subtitle": "Precision Plastic Manufacturing",
+      "description": "Your complete source for custom plastic parts—from prototype to production. Expert CNC machining, fabrication, and material distribution for demanding industries.",
+      "getQuote": "Get a Free Quote",
+      "viewCapabilities": "View Capabilities"
+    },
+    "stats": {
+      "yearsExperience": "Years of Experience",
+      "industriesServed": "Industries Served",
+      "materialsAvailable": "Materials Available",
+      "quoteTurnaround": "Quote Turnaround"
+    },
+    "capabilities": {
+      "cncMachining": {
+        "title": "CNC Machining",
+        "description": "Precision CNC horizontal and vertical machining with tight tolerances for complex geometries."
+      },
+      "customFabrication": {
+        "title": "Custom Fabrication",
+        "description": "Full-service plastic fabrication including routing, milling, drilling, and punching."
+      },
+      "materialDistribution": {
+        "title": "Material Distribution",
+        "description": "Comprehensive inventory of plastic sheets, rods, and tubes in engineering-grade materials."
+      },
+      "prototyping": {
+        "title": "Prototyping",
+        "description": "Rapid prototype development from concept to production-ready parts."
+      }
+    },
+    "trustIndicators": {
+      "isoQuality": "ISO Quality Standards",
+      "madeInUsa": "Made in USA",
+      "fastTurnaround": "Fast Turnaround",
+      "expertSupport": "Expert Support"
+    },
+    "sections": {
+      "capabilities": {
+        "title": "Our Capabilities",
+        "subtitle": "From complex CNC machining to full-scale production, we deliver precision plastic solutions tailored to your needs."
+      },
+      "industries": {
+        "title": "Industries We Serve",
+        "subtitle": "Trusted by leading companies across diverse industries for mission-critical plastic components."
+      },
+      "whyChooseUs": {
+        "title": "Why Choose Pro Plastics?",
+        "subtitle": "With over 55 years of experience, we combine traditional craftsmanship with modern precision manufacturing to deliver exceptional results every time.",
+        "learnMore": "Learn More About Us"
+      },
+      "testimonials": {
+        "title": "What Our Clients Say",
+        "subtitle": "Don't just take our word for it—hear from the companies that trust us with their precision plastic needs."
+      }
+    },
+    "features": {
+      "zeroDefect": "Zero-defect quality commitment",
+      "onTimeDelivery": "On-time delivery guarantee",
+      "expertGuidance": "Expert material guidance",
+      "competitivePricing": "Competitive pricing",
+      "rapidQuote": "Rapid quote turnaround",
+      "customSolutions": "Custom solutions for any industry"
+    },
+    "quickTurnaround": {
+      "title": "Quick Turnaround",
+      "subtitle": "Quotes within 24 hours"
+    },
+    "testimonials": {
+      "testimonial1": {
+        "quote": "Pro Plastics has been our go-to supplier for precision components for over a decade. Their quality and turnaround time are unmatched.",
+        "author": "Engineering Director",
+        "company": "Aerospace Manufacturing Co."
+      },
+      "testimonial2": {
+        "quote": "The material expertise at Pro Plastics helped us select the perfect FDA-compliant plastic for our medical device application.",
+        "author": "Product Development Manager",
+        "company": "Medical Device Startup"
+      },
+      "testimonial3": {
+        "quote": "From prototype to production, Pro Plastics delivered exactly what we needed. Highly recommend for semiconductor applications.",
+        "author": "Operations Lead",
+        "company": "Semiconductor Equipment Supplier"
+      }
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "subtitle": "Upload your drawings and get a detailed quote within 24 hours. Our team is ready to help bring your vision to life."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have questions about our capabilities or need a quote? We're here to help. Reach out and our team will respond promptly.",
+    "getInTouch": "Get in Touch",
+    "phone": "Phone",
+    "emailLabel": "Email",
+    "salesQuotes": "Sales & Quotes",
+    "addressLabel": "Address",
+    "hoursLabel": "Hours",
+    "mondayFriday": "Monday - Friday",
+    "closedWeekend": "Closed Saturday & Sunday",
+    "needQuote": "Need a Quote?",
+    "quoteDescription": "For faster service, use our quote request form to upload your drawings directly.",
+    "sendMessage": "Send Us a Message",
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "company": "Company (optional)",
+      "subject": "Subject",
+      "selectSubject": "Select a subject...",
+      "subjectQuote": "Quote Request",
+      "subjectCapabilities": "Capabilities Question",
+      "subjectMaterials": "Material Information",
+      "subjectOrder": "Order Status",
+      "subjectOther": "Other",
+      "message": "Message",
+      "messagePlaceholder": "How can we help you?",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "required": "*"
+    }
+  },
+  "quote": {
+    "title": "Request a Quote",
+    "subtitle": "Get a detailed quote for your custom plastic parts. Upload your drawings and specifications, and we'll respond within 24 hours.",
+    "ndaAvailable": "NDA available upon request",
+    "questions": "Questions? Call +1 (866) 925-5000"
+  },
+  "materials": {
+    "title": "Material Database",
+    "subtitle": "Explore our comprehensive inventory of engineering plastics. Find the perfect material for your application with our searchable database.",
+    "searchPlaceholder": "Search materials by name or description...",
+    "showing": "({count} of {total} materials)",
+    "tempRange": "Temp Range",
+    "availableForms": "Available Forms",
+    "keyProperties": "Key Properties",
+    "filters": "Filters",
+    "properties": "Properties",
+    "applications": "Applications",
+    "activeFilters": "Active filters:",
+    "clearAll": "Clear all",
+    "noResults": "No materials match your current filters.",
+    "clearFilters": "Clear filters",
+    "viewDetails": "View Details",
+    "categories": {
+      "all": "All",
+      "highPerformance": "High Performance",
+      "engineering": "Engineering",
+      "fluoropolymer": "Fluoropolymer",
+      "thermoset": "Thermoset",
+      "standard": "Standard"
+    },
+    "propertyNames": {
+      "highTemperature": "High Temperature",
+      "chemicalResistant": "Chemical Resistant",
+      "fdaCompliant": "FDA Compliant",
+      "lowFriction": "Low Friction",
+      "flameRetardant": "Flame Retardant",
+      "wearResistant": "Wear Resistant",
+      "machinable": "Machinable",
+      "impactResistant": "Impact Resistant",
+      "electricalInsulation": "Electrical Insulation",
+      "opticallyClear": "Optically Clear",
+      "uvResistant": "UV Resistant",
+      "highStrength": "High Strength"
+    },
+    "applicationNames": {
+      "aerospace": "Aerospace",
+      "medical": "Medical",
+      "semiconductor": "Semiconductor",
+      "electronics": "Electronics",
+      "automotive": "Automotive",
+      "foodProcessing": "Food Processing",
+      "chemicalProcessing": "Chemical Processing",
+      "materialHandling": "Material Handling",
+      "industrial": "Industrial",
+      "safety": "Safety",
+      "glazing": "Glazing",
+      "display": "Display",
+      "lighting": "Lighting",
+      "electrical": "Electrical",
+      "waterTreatment": "Water Treatment"
+    },
+    "forms": {
+      "sheet": "Sheet",
+      "rod": "Rod",
+      "tube": "Tube"
+    },
+    "resources": {
+      "title": "Material Resources",
+      "subtitle": "Additional tools to help you select the right material.",
+      "comparison": {
+        "title": "Comparison Charts",
+        "description": "Side-by-side property comparisons to help you choose between materials."
+      },
+      "chemicalResistance": {
+        "title": "Chemical Resistance Guide",
+        "description": "Comprehensive guide to material compatibility with various chemicals."
+      },
+      "milSpec": {
+        "title": "Military Specifications",
+        "description": "Materials meeting MIL-SPEC requirements for defense applications."
+      },
+      "viewCharts": "View Charts",
+      "viewGuide": "View Guide",
+      "viewSpecs": "View Specs"
+    },
+    "cta": {
+      "title": "Need Help Selecting a Material?",
+      "subtitle": "Our material experts can help you choose the right plastic for your specific application requirements.",
+      "contactExperts": "Contact Our Experts"
+    },
+    "expertHelp": {
+      "title": "Need Help Selecting a Material?",
+      "subtitle": "Our engineers can help you choose the optimal material for your specific application requirements.",
+      "cta": "Contact Our Experts"
+    },
+    "items": {
+      "peek": {
+        "name": "PEEK (Polyether Ether Ketone)",
+        "description": "Premium high-performance thermoplastic with excellent mechanical properties at elevated temperatures."
+      },
+      "ultem": {
+        "name": "Ultem (PEI)",
+        "description": "Polyetherimide with high strength, stiffness, and broad chemical resistance."
+      },
+      "delrin": {
+        "name": "Delrin (Acetal)",
+        "description": "High-strength acetal homopolymer with excellent dimensional stability and machinability."
+      },
+      "nylon": {
+        "name": "Nylon 6/6",
+        "description": "Versatile engineering plastic with excellent wear resistance and mechanical properties."
+      },
+      "teflon": {
+        "name": "PTFE (Teflon)",
+        "description": "Exceptional chemical resistance and lowest coefficient of friction of any solid material."
+      },
+      "uhmw": {
+        "name": "UHMW Polyethylene",
+        "description": "Ultra high molecular weight PE with outstanding abrasion resistance and impact strength."
+      },
+      "polycarbonate": {
+        "name": "Polycarbonate",
+        "description": "Virtually unbreakable with excellent optical clarity and impact resistance."
+      },
+      "acrylic": {
+        "name": "Acrylic (PMMA)",
+        "description": "Crystal clear thermoplastic with excellent optical properties and weather resistance."
+      },
+      "phenolic": {
+        "name": "Phenolic (Canvas/Linen)",
+        "description": "Fabric-reinforced laminate with excellent electrical and mechanical properties."
+      },
+      "g10": {
+        "name": "G-10/FR-4 (Glass Epoxy)",
+        "description": "Glass fabric reinforced epoxy with superior electrical and mechanical properties."
+      },
+      "pvc": {
+        "name": "PVC (Type I & II)",
+        "description": "Cost-effective material with good chemical resistance and flame retardancy."
+      },
+      "hdpe": {
+        "name": "HDPE",
+        "description": "High-density polyethylene with excellent chemical resistance and low moisture absorption."
+      }
+    }
+  },
+  "comparison": {
+    "title": "Material Comparison Charts",
+    "subtitle": "Side-by-side property comparisons to help you select the right material for your application.",
+    "tableTitle": "Engineering Plastics Comparison",
+    "tableSubtitle": "Compare key properties across common engineering plastics",
+    "property": "Property",
+    "downloadPdf": "Download PDF",
+    "quickGuide": "Quick Selection Guide",
+    "disclaimer": "* Values shown are typical and may vary by grade. Contact us for specific material data sheets.",
+    "breadcrumb": {
+      "materials": "Materials",
+      "comparison": "Comparison Charts"
+    },
+    "properties": {
+      "maxServiceTemp": "Max Service Temp",
+      "tensileStrength": "Tensile Strength (psi)",
+      "flexuralModulus": "Flexural Modulus (psi)",
+      "impactStrength": "Impact Strength",
+      "chemicalResistance": "Chemical Resistance",
+      "wearResistance": "Wear Resistance",
+      "machinability": "Machinability",
+      "fdaCompliant": "FDA Compliant",
+      "relativeCost": "Relative Cost"
+    },
+    "ratings": {
+      "excellent": "Excellent",
+      "good": "Good",
+      "fair": "Fair",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "selectionGuide": {
+      "highTemperature": {
+        "need": "High Temperature",
+        "materials": "PEEK, Ultem, PTFE",
+        "note": "For applications above 250°F"
+      },
+      "chemicalResistance": {
+        "need": "Chemical Resistance",
+        "materials": "PTFE, PEEK, UHMW",
+        "note": "For harsh chemical environments"
+      },
+      "wearResistance": {
+        "need": "Wear Resistance",
+        "materials": "UHMW, Delrin, PEEK",
+        "note": "For sliding and bearing applications"
+      },
+      "fdaCompliance": {
+        "need": "FDA Compliance",
+        "materials": "UHMW, Delrin, PTFE, Nylon",
+        "note": "For food contact applications"
+      },
+      "lowCost": {
+        "need": "Low Cost",
+        "materials": "UHMW, Nylon, Delrin",
+        "note": "Budget-friendly options"
+      },
+      "easyMachining": {
+        "need": "Easy Machining",
+        "materials": "Delrin, Nylon, UHMW",
+        "note": "For complex geometries"
+      }
+    },
+    "needHelp": {
+      "title": "Need Help Choosing?",
+      "subtitle": "Our material experts can help you select the optimal plastic for your specific application requirements.",
+      "contactExperts": "Contact Our Experts",
+      "browseAll": "Browse All Materials"
+    }
+  },
+  "chemicalResistance": {
+    "title": "Chemical Resistance Guide",
+    "subtitle": "Comprehensive guide to plastic material compatibility with various chemicals. Find the right material for your chemical environment.",
+    "legend": "Legend:",
+    "excellent": "E = Excellent",
+    "good": "G = Good",
+    "fair": "F = Fair",
+    "notRecommended": "N = Not Recommended",
+    "searchPlaceholder": "Search chemicals...",
+    "showing": "Showing {count} of {total} chemicals",
+    "chemical": "Chemical",
+    "category": "Category",
+    "downloadPdf": "Download PDF",
+    "disclaimer": "* Data shown is for general guidance at room temperature. Actual performance may vary based on concentration, temperature, and exposure time. Always test for your specific application.",
+    "breadcrumb": {
+      "materials": "Materials",
+      "chemicalResistance": "Chemical Resistance Guide"
+    },
+    "categories": {
+      "all": "All",
+      "acids": "Acids",
+      "bases": "Bases",
+      "solvents": "Solvents",
+      "fuels": "Fuels",
+      "alcohols": "Alcohols",
+      "oxidizers": "Oxidizers",
+      "oils": "Oils",
+      "water": "Water"
+    },
+    "needData": {
+      "title": "Need Specific Chemical Compatibility Data?",
+      "subtitle": "Contact us for detailed chemical resistance information or to discuss your specific application requirements.",
+      "contactExperts": "Contact Our Experts",
+      "browseAll": "Browse All Materials"
+    }
+  },
+  "industries": {
+    "title": "Industries We Serve",
+    "subtitle": "From aerospace to food processing, we provide precision plastic solutions for the world's most demanding industries.",
+    "aerospace": "Aerospace",
+    "medical": "Medical",
+    "semiconductor": "Semiconductor",
+    "electronics": "Electronics",
+    "automotive": "Automotive",
+    "chemicalProcessing": "Chemical Processing",
+    "waterTreatment": "Water Treatment",
+    "construction": "Construction",
+    "foodProcessing": "Food Processing",
+    "commonMaterials": "Common Materials",
+    "typicalApplications": "Typical Applications",
+    "compliance": "Compliance",
+    "items": {
+      "aerospace": {
+        "name": "Aerospace",
+        "description": "Precision components for aircraft, satellites, and defense applications. Materials and processes meeting strict aerospace standards.",
+        "applications": ["Structural insulators", "Bearing components", "Wear parts", "Electrical housings"],
+        "compliance": ["AS9100 capable", "ITAR registered", "MIL-SPEC materials"]
+      },
+      "medical": {
+        "name": "Medical & Life Sciences",
+        "description": "FDA-compliant materials for medical devices, laboratory equipment, and pharmaceutical applications.",
+        "applications": ["Surgical instruments", "Diagnostic equipment", "Laboratory fixtures", "Implant components"],
+        "compliance": ["FDA compliant materials", "USP Class VI", "ISO 13485 capable"]
+      },
+      "semiconductor": {
+        "name": "Semiconductor",
+        "description": "Ultra-clean components for wafer handling, chip processing, and cleanroom environments.",
+        "applications": ["Wafer handling", "Chemical delivery", "Process chambers", "Test fixtures"],
+        "compliance": ["Cleanroom compatible", "Low outgassing", "ESD safe options"]
+      },
+      "electronics": {
+        "name": "Electronics",
+        "description": "Insulating components, connectors, and housings for electronic devices and systems.",
+        "applications": ["Circuit board standoffs", "Connector bodies", "Insulating spacers", "EMI shielding"],
+        "compliance": ["UL recognized", "RoHS compliant", "Flame retardant options"]
+      },
+      "automotive": {
+        "name": "Automotive",
+        "description": "Durable components for vehicles, from under-hood applications to interior trim parts.",
+        "applications": ["Bushings & bearings", "Fuel system components", "Electrical insulators", "Wear parts"],
+        "compliance": ["IATF 16949 capable", "Automotive grade materials"]
+      },
+      "chemical": {
+        "name": "Chemical Processing",
+        "description": "Corrosion-resistant components for harsh chemical environments and processing equipment.",
+        "applications": ["Valve seats", "Pump components", "Tank linings", "Gaskets & seals"],
+        "compliance": ["Chemical resistance certified", "FDA compliant options"]
+      },
+      "water": {
+        "name": "Water Treatment",
+        "description": "Components for filtration systems, pumps, and water handling equipment.",
+        "applications": ["Filter housings", "Pump components", "Valve parts", "Piping systems"],
+        "compliance": ["NSF/ANSI 61 materials", "Potable water safe"]
+      },
+      "food": {
+        "name": "Food Processing",
+        "description": "FDA-compliant and USDA-accepted materials for food contact and processing applications.",
+        "applications": ["Conveyor parts", "Cutting surfaces", "Guide rails", "Packaging equipment"],
+        "compliance": ["FDA compliant", "USDA accepted", "3-A Dairy"]
+      },
+      "construction": {
+        "name": "Construction & Industrial",
+        "description": "Heavy-duty components for construction equipment, material handling, and industrial machinery.",
+        "applications": ["Wear strips", "Bushings", "Roller guides", "Structural components"],
+        "compliance": ["High load capacity", "Weather resistant"]
+      }
+    },
+    "crossIndustry": {
+      "title": "Cross-Industry Expertise",
+      "description": "With over 55 years of experience, we understand that each industry has unique requirements. Our team works closely with you to ensure every part meets your specific standards.",
+      "features": [
+        "Material selection guidance for your application",
+        "Design for manufacturability (DFM) support",
+        "Industry-specific compliance and certifications",
+        "Quality documentation and traceability",
+        "Prototype to production scalability"
+      ]
+    },
+    "dontSee": {
+      "title": "Don't See Your Industry?",
+      "description": "We serve many specialized sectors beyond those listed. Contact us to discuss your specific application requirements."
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Send us your specifications and let our experts help you find the right solution for your industry application."
+    }
+  },
+  "portfolio": {
+    "title": "Our Work",
+    "subtitle": "Explore examples of precision plastic components we've manufactured for clients across diverse industries.",
+    "photoComingSoon": "Photo Coming Soon",
+    "process": "Process",
+    "tolerance": "Tolerance",
+    "confidentiality": "Due to confidentiality agreements with our clients, we can only share limited details about our projects. Contact us for more information about our capabilities for your specific application.",
+    "whatWeDo": "What We Can Do For You",
+    "whatWeDoSubtitle": "Our portfolio represents just a sample of our manufacturing capabilities.",
+    "filterAll": "All",
+    "processes": {
+      "cncMachining": "CNC Machining",
+      "cncTurning": "CNC Turning",
+      "fabrication": "Fabrication"
+    },
+    "categories": {
+      "aerospace": "Aerospace",
+      "medical": "Medical",
+      "semiconductor": "Semiconductor",
+      "electronics": "Electronics",
+      "automotive": "Automotive",
+      "chemical": "Chemical",
+      "foodProcessing": "Food Processing",
+      "industrial": "Industrial",
+      "waterTreatment": "Water Treatment"
+    },
+    "capabilities": {
+      "cncMachining": {
+        "title": "CNC Machining",
+        "desc": "Complex geometries with tolerances to ±0.001\""
+      },
+      "fabrication": {
+        "title": "Fabrication",
+        "desc": "Cutting, routing, bonding, and assembly"
+      },
+      "materialDistribution": {
+        "title": "Material Distribution",
+        "desc": "1000+ materials in stock"
+      },
+      "secondaryOps": {
+        "title": "Secondary Ops",
+        "desc": "Threading, finishing, and more"
+      }
+    },
+    "items": {
+      "peekInsulators": {
+        "title": "Precision PEEK Insulators",
+        "description": "High-temperature insulators for aircraft electrical systems, machined to exacting tolerances."
+      },
+      "medicalDevice": {
+        "title": "Medical Device Components",
+        "description": "FDA-compliant housings and brackets for diagnostic imaging equipment."
+      },
+      "semiconductorWafer": {
+        "title": "Semiconductor Wafer Handling",
+        "description": "Ultra-clean wafer carriers and handling fixtures for cleanroom environments."
+      },
+      "nylonBushings": {
+        "title": "Custom Nylon Bushings",
+        "description": "High-volume wear-resistant bushings for automotive suspension systems."
+      },
+      "valveSeats": {
+        "title": "Chemical Processing Valve Seats",
+        "description": "Corrosion-resistant valve components for aggressive chemical environments."
+      },
+      "conveyorParts": {
+        "title": "Food-Grade Conveyor Parts",
+        "description": "FDA-compliant wear strips and guide rails for food packaging lines."
+      },
+      "circuitBoardStandoffs": {
+        "title": "Circuit Board Standoffs",
+        "description": "Flame-retardant insulating standoffs for high-density PCB assemblies."
+      },
+      "opticalHousings": {
+        "title": "Optical Lens Housings",
+        "description": "Precision housings for industrial optical measurement equipment."
+      },
+      "waterTreatment": {
+        "title": "Water Treatment Components",
+        "description": "Chemical-resistant fittings and manifolds for municipal water systems."
+      }
+    },
+    "cta": {
+      "title": "Have a Similar Project?",
+      "subtitle": "Send us your drawings and we'll provide a detailed quote within 24 hours. No project is too complex."
+    }
+  },
+  "about": {
+    "title": "About Pro Plastics Inc.",
+    "subtitle": "For over 55 years, we've been a trusted partner for plastic parts manufacturing and fabrication, serving diverse industries worldwide with precision, quality, and dedication.",
+    "story": {
+      "title": "Our Story",
+      "paragraph1": "Founded in 1968, Pro Plastics Inc. began as a small plastic fabrication shop in Linden, New Jersey. What started as a local operation has grown into a trusted manufacturing partner serving companies across the globe.",
+      "paragraph2": "Our founder believed that precision manufacturing should be accessible to companies of all sizes. That philosophy continues today—whether you need a single prototype or thousands of production parts, we deliver the same exceptional quality and attention to detail.",
+      "paragraph3": "Over five decades, we've invested in the latest CNC technology, expanded our material expertise, and built a team of skilled craftspeople who take pride in every part we produce. Today, we're proud to serve 12 distinct industries, from aerospace to medical devices.",
+      "facilityCaption": "Our Linden, NJ, USA Facility"
+    },
+    "timeline": {
+      "title": "Our Journey",
+      "subtitle": "55+ years of continuous growth, innovation, and commitment to excellence.",
+      "1968": {
+        "title": "Company Founded",
+        "description": "Pro Plastics Inc. established in Linden, New Jersey, starting with basic plastic fabrication services."
+      },
+      "1980s": {
+        "title": "Expansion & Growth",
+        "description": "Expanded capabilities to include CNC machining and began serving aerospace and medical industries."
+      },
+      "1990s": {
+        "title": "Technology Investment",
+        "description": "Major investment in precision CNC equipment, establishing reputation for tight-tolerance machining."
+      },
+      "2000s": {
+        "title": "Material Distribution",
+        "description": "Launched comprehensive material distribution division, becoming a one-stop shop for customers."
+      },
+      "2010s": {
+        "title": "Industry Leadership",
+        "description": "Recognized as a leading plastic manufacturer serving 12+ industries with global reach."
+      },
+      "today": {
+        "title": "Innovation Continues",
+        "description": "Continuing to invest in advanced manufacturing technology while maintaining our commitment to quality."
+      }
+    },
+    "values": {
+      "title": "Our Core Values",
+      "subtitle": "The principles that guide everything we do.",
+      "qualityFirst": {
+        "title": "Quality First",
+        "description": "Zero-defect commitment from material selection through final inspection. Every part meets exact specifications."
+      },
+      "onTimeDelivery": {
+        "title": "On-Time Delivery",
+        "description": "We understand that your production schedules depend on us. Reliable delivery is our promise."
+      },
+      "customerPartnership": {
+        "title": "Customer Partnership",
+        "description": "We work alongside your engineering team to find optimal solutions for your specific applications."
+      },
+      "integrity": {
+        "title": "Integrity",
+        "description": "Honest communication, fair pricing, and standing behind every product we manufacture."
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "Skilled professionals dedicated to delivering precision results.",
+      "leadership": {
+        "title": "Leadership",
+        "description": "Experienced management team with decades of manufacturing expertise."
+      },
+      "engineering": {
+        "title": "Engineering",
+        "description": "Technical experts who help optimize your designs for manufacturability."
+      },
+      "production": {
+        "title": "Production",
+        "description": "Skilled machinists and fabricators who bring precision to every part."
+      }
+    },
+    "quality": {
+      "title": "Quality & Certifications",
+      "description": "Quality isn't just a goal—it's built into every process. From incoming material inspection to final quality checks, we maintain rigorous standards that meet or exceed industry requirements.",
+      "certifications": {
+        "iso": "ISO 9001:2015 Quality Management",
+        "fda": "FDA Compliant Materials",
+        "rohs": "RoHS Compliant",
+        "itar": "ITAR Registered",
+        "ul": "UL Recognized Materials",
+        "milSpec": "Military Specification Capable"
+      },
+      "promise": {
+        "title": "Our Quality Promise",
+        "item1": "100% inspection on critical dimensions",
+        "item2": "Full material traceability and certification",
+        "item3": "Statistical process control where required",
+        "item4": "First article inspection reports available"
+      }
+    },
+    "cta": {
+      "title": "Let's Work Together",
+      "subtitle": "Partner with a company that's been delivering precision plastic manufacturing for over 55 years."
+    }
+  },
+  "capabilities": {
+    "title": "Manufacturing Capabilities",
+    "subtitle": "From precision CNC machining to complete fabrication services, we have the equipment and expertise to handle your most demanding plastic manufacturing requirements.",
+    "whatWeDo": "What We Do",
+    "whatWeDoSubtitle": "Comprehensive plastic manufacturing services under one roof.",
+    "keyFeatures": "Key Features:",
+    "compatibleMaterials": "Compatible Materials:",
+    "ourEquipment": "Our Equipment",
+    "ourEquipmentSubtitle": "Modern manufacturing equipment maintained to the highest standards.",
+    "precisionTolerances": "Precision Tolerances",
+    "precisionTolerancesSubtitle": "Capable of meeting your most demanding dimensional requirements.",
+    "ourProcess": "Our Process",
+    "ourProcessSubtitle": "From quote to delivery, we ensure quality at every step.",
+    "servingIndustries": "Serving Critical Industries",
+    "servingIndustriesSubtitle": "Our capabilities support demanding applications in aerospace, medical, semiconductor, and other precision industries.",
+    "viewIndustries": "View Industries",
+    "projectCta": {
+      "title": "Have a Project in Mind?",
+      "subtitle": "Send us your drawings and specifications. We'll provide a detailed quote and manufacturing recommendations within 24 hours."
+    },
+    "items": {
+      "cncMachining": {
+        "title": "CNC Machining",
+        "description": "State-of-the-art CNC horizontal and vertical machining centers for complex geometries and tight tolerances.",
+        "features": ["Horizontal & vertical machining centers", "Multi-axis capability", "Tolerances to ±0.001\"", "Complex 3D contours", "Large format capabilities"]
+      },
+      "fabrication": {
+        "title": "Custom Fabrication",
+        "description": "Full-service plastic fabrication including cutting, routing, bonding, and assembly of custom components.",
+        "features": ["Precision cutting & routing", "Drilling & tapping", "Bending & forming", "Solvent & adhesive bonding", "Assembly services"]
+      },
+      "secondaryOperations": {
+        "title": "Secondary Operations",
+        "description": "Complete finishing services including threading, heat treating, and surface finishing.",
+        "features": ["Threading & tapping", "Heat treating/annealing", "Surface grinding", "Polishing & finishing", "Marking & engraving"]
+      }
+    },
+    "equipment": {
+      "cncHorizontalMills": "CNC Horizontal Mills",
+      "cncVerticalMills": "CNC Vertical Mills",
+      "cncLathes": "CNC Lathes",
+      "manualMills": "Manual Mills",
+      "bandSaws": "Band Saws",
+      "routers": "Routers"
+    },
+    "toleranceTypes": {
+      "standard": "Standard",
+      "precision": "Precision",
+      "highPrecision": "High Precision",
+      "surfaceFinish": "Surface Finish"
+    },
+    "processSteps": {
+      "step1": { "title": "Quote Request", "desc": "Submit drawings for review" },
+      "step2": { "title": "Engineering Review", "desc": "DFM analysis & material selection" },
+      "step3": { "title": "Production", "desc": "Precision manufacturing" },
+      "step4": { "title": "Quality Check", "desc": "Inspection & verification" },
+      "step5": { "title": "Delivery", "desc": "Secure packaging & shipping" }
+    },
+    "industries": {
+      "aerospace": "Aerospace",
+      "medical": "Medical",
+      "semiconductor": "Semiconductor",
+      "electronics": "Electronics",
+      "automotive": "Automotive",
+      "chemical": "Chemical"
+    },
+    "cncMachining": {
+      "title": "CNC Machining",
+      "breadcrumb": "CNC Machining",
+      "subtitle": "State-of-the-art CNC machining centers delivering precision plastic components with tolerances as tight as ±0.001\" for the most demanding applications.",
+      "overviewTitle": "Precision CNC Machining Services",
+      "overviewParagraph1": "Our CNC machining department combines advanced multi-axis equipment with decades of plastic machining expertise. Unlike metal machining, plastics require specialized knowledge of material behavior, cutting parameters, and thermal management to achieve optimal results.",
+      "overviewParagraph2": "We machine everything from simple turned parts to complex 5-axis components, maintaining tight tolerances while ensuring excellent surface finishes. Our team works with you from design through production to optimize your parts for manufacturability.",
+      "equipmentTitle": "Equipment & Capabilities",
+      "features": [
+        "Horizontal machining centers",
+        "Vertical machining centers",
+        "Multi-axis capability (3, 4, and 5-axis)",
+        "Large format machining up to 48\" x 96\"",
+        "High-speed machining for fine finishes",
+        "Complex 3D contours and geometries"
+      ],
+      "applicationsTitle": "Industry Applications",
+      "applications": {
+        "aerospace": { "name": "Aerospace", "parts": "Structural insulators, bearing housings, wear components" },
+        "medical": { "name": "Medical", "parts": "Surgical instrument components, diagnostic housings" },
+        "semiconductor": { "name": "Semiconductor", "parts": "Wafer handling, process chamber components" },
+        "electronics": { "name": "Electronics", "parts": "Connector bodies, insulating spacers" }
+      },
+      "tolerances": "Tolerances",
+      "materialsTitle": "Materials We Machine",
+      "viewAllMaterials": "View all materials",
+      "haveProject": "Have a Project?",
+      "haveProjectDesc": "Send us your drawings for a detailed quote within 24 hours.",
+      "otherCapabilities": "Other Capabilities"
+    },
+    "fabrication": {
+      "title": "Custom Fabrication",
+      "breadcrumb": "Fabrication",
+      "subtitle": "Full-service plastic fabrication including cutting, routing, bending, bonding, and assembly for custom components and assemblies.",
+      "overviewTitle": "Complete Fabrication Services",
+      "overviewParagraph1": "Our fabrication department handles everything from simple cut-to-size sheets to complex multi-component assemblies. We combine traditional fabrication techniques with modern CNC equipment to deliver consistent, high-quality results.",
+      "overviewParagraph2": "Whether you need a single prototype or production quantities, our experienced fabricators work with a wide range of plastic materials to meet your specifications.",
+      "capabilitiesTitle": "Fabrication Capabilities",
+      "features": [
+        "Precision cutting & sawing",
+        "CNC routing",
+        "Drilling & tapping",
+        "Bending & forming",
+        "Solvent & adhesive bonding",
+        "Welding (hot air, ultrasonic)",
+        "Assembly services",
+        "Custom fixtures & jigs"
+      ],
+      "applicationsTitle": "Common Applications",
+      "applications": {
+        "industrial": { "name": "Industrial", "parts": "Machine guards, covers, enclosures" },
+        "display": { "name": "Display", "parts": "Point-of-purchase displays, signage" },
+        "foodProcessing": { "name": "Food Processing", "parts": "Conveyor components, guards" },
+        "waterTreatment": { "name": "Water Treatment", "parts": "Tanks, fittings, manifolds" }
+      },
+      "materialsTitle": "Materials We Fabricate",
+      "viewAllMaterials": "View all materials",
+      "sizeCapabilities": "Size Capabilities",
+      "maxSheetSize": "Max Sheet Size",
+      "maxThickness": "Max Thickness",
+      "minOrder": "Min Order",
+      "haveProject": "Have a Project?",
+      "haveProjectDesc": "Send us your drawings for a detailed quote within 24 hours.",
+      "otherCapabilities": "Other Capabilities"
+    },
+    "secondaryOperations": {
+      "title": "Secondary Operations",
+      "breadcrumb": "Secondary Operations",
+      "subtitle": "Complete finishing services including threading, heat treating, surface finishing, marking, and assembly to deliver ready-to-use parts.",
+      "overviewTitle": "Complete Part Finishing",
+      "overviewParagraph1": "Our secondary operations department ensures your parts are delivered ready for use. From simple deburring to complex assembly, we handle all the finishing touches that turn machined components into finished products.",
+      "overviewParagraph2": "By handling secondary operations in-house, we maintain quality control throughout the entire process and reduce lead times compared to outsourcing these services.",
+      "servicesTitle": "Available Services",
+      "operations": {
+        "threading": { "name": "Threading & Tapping", "description": "Internal and external threads, helicoil inserts, threaded inserts" },
+        "heatTreatment": { "name": "Heat Treatment", "description": "Annealing to relieve stress and improve dimensional stability" },
+        "surfaceGrinding": { "name": "Surface Grinding", "description": "Precision surface finishing for tight flatness requirements" },
+        "polishing": { "name": "Polishing & Finishing", "description": "Flame polishing, buffing, and custom surface treatments" },
+        "marking": { "name": "Marking & Engraving", "description": "Laser marking, engraving, and part identification" },
+        "bonding": { "name": "Bonding & Welding", "description": "Solvent bonding, ultrasonic welding, hot air welding" },
+        "assembly": { "name": "Assembly", "description": "Sub-assembly and full assembly services with hardware" },
+        "packaging": { "name": "Packaging", "description": "Custom packaging for shipping and presentation" }
+      },
+      "surfaceFinishes": "Surface Finishes",
+      "finishes": ["As-machined", "Flame polished", "Buffed/polished", "Bead blasted", "Sanded (various grits)", "Vapor polished"],
+      "benefitsTitle": "Benefits of In-House Finishing",
+      "benefits": ["Single point of contact", "Consistent quality control", "Reduced lead times", "Lower total cost", "Better communication"],
+      "haveProject": "Have a Project?",
+      "haveProjectDesc": "Send us your drawings for a detailed quote within 24 hours.",
+      "otherCapabilities": "Other Capabilities",
+      "otherCaps": {
+        "cncMachining": { "name": "CNC Machining", "desc": "Precision machining to ±0.001\"" },
+        "fabrication": { "name": "Fabrication", "desc": "Cutting, routing, bonding & assembly" }
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Your trusted partner for custom plastic parts manufacturing and fabrication. Serving aerospace, medical, semiconductor, and more.",
+    "company": "Company",
+    "capabilities": "Capabilities",
+    "resources": "Resources",
+    "industries": "Industries",
+    "copyright": "Pro Plastics Inc. All rights reserved.",
+    "links": {
+      "aboutUs": "About Us",
+      "ourTeam": "Our Team",
+      "facilityTour": "Facility Tour",
+      "qualityCertifications": "Quality & Certifications",
+      "chemicalResistanceGuide": "Chemical Resistance Guide"
+    }
+  },
+  "errors": {
+    "notFound": "Page Not Found",
+    "notFoundDescription": "The page you're looking for doesn't exist or has been moved.",
+    "backHome": "Back to Home"
+  }
+}

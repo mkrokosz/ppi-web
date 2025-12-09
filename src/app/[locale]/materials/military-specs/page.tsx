@@ -1,7 +1,13 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
+import { setRequestLocale } from 'next-intl/server';
+import { Link } from '@/i18n/routing';
 import { ArrowLeft, Shield, CheckCircle, FileText, Download } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
+import { locales } from '@/i18n/config';
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export const metadata: Metadata = {
   title: 'Military Specifications',
@@ -57,7 +63,14 @@ const certifications = [
   'Certified Test Reports Available',
 ];
 
-export default function MilitarySpecsPage() {
+export default async function MilitarySpecsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <>
       {/* Hero Section */}

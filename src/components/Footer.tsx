@@ -1,37 +1,42 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { trackPhoneClick, trackEmailClick } from '@/lib/firebase';
-
-const footerLinks = {
-  company: [
-    { name: 'About Us', href: '/about' },
-    { name: 'Our Team', href: '/about#team' },
-    { name: 'Facility Tour', href: '/about#facility' },
-    { name: 'Quality & Certifications', href: '/about#quality' },
-  ],
-  capabilities: [
-    { name: 'CNC Machining', href: '/capabilities/cnc-machining' },
-    { name: 'Fabrication', href: '/capabilities/fabrication' },
-    { name: 'Secondary Operations', href: '/capabilities/secondary-operations' },
-  ],
-  resources: [
-    { name: 'Material Database', href: '/materials' },
-    { name: 'Comparison Charts', href: '/materials/comparison' },
-    { name: 'Chemical Resistance Guide', href: '/materials/chemical-resistance' },
-    { name: 'Request Quote', href: '/quote' },
-  ],
-  industries: [
-    { name: 'Aerospace', href: '/industries/aerospace' },
-    { name: 'Medical', href: '/industries/medical' },
-    { name: 'Semiconductor', href: '/industries/semiconductor' },
-    { name: 'Electronics', href: '/industries/electronics' },
-  ],
-};
+import { useTranslations } from 'next-intl';
 
 export default function Footer() {
+  const t = useTranslations('footer');
+  const tNav = useTranslations('nav');
+  const tIndustries = useTranslations('industries');
+  const tCommon = useTranslations('common');
+
+  const footerLinks = {
+    company: [
+      { name: t('links.aboutUs'), href: '/about' },
+      { name: t('links.ourTeam'), href: '/about#team' },
+      { name: t('links.facilityTour'), href: '/about#facility' },
+      { name: t('links.qualityCertifications'), href: '/about#quality' },
+    ],
+    capabilities: [
+      { name: tNav('cncMachining'), href: '/capabilities/cnc-machining' },
+      { name: tNav('fabrication'), href: '/capabilities/fabrication' },
+      { name: tNav('secondaryOperations'), href: '/capabilities/secondary-operations' },
+    ],
+    resources: [
+      { name: tNav('materialDatabase'), href: '/materials' },
+      { name: tNav('comparisonCharts'), href: '/materials/comparison' },
+      { name: t('links.chemicalResistanceGuide'), href: '/materials/chemical-resistance' },
+      { name: tCommon('requestQuote'), href: '/quote' },
+    ],
+    industries: [
+      { name: tIndustries('aerospace'), href: '/industries/aerospace' },
+      { name: tIndustries('medical'), href: '/industries/medical' },
+      { name: tIndustries('semiconductor'), href: '/industries/semiconductor' },
+      { name: tIndustries('electronics'), href: '/industries/electronics' },
+    ],
+  };
   return (
     <footer className="bg-industrial-blue-900 text-white">
       {/* Main footer content */}
@@ -50,13 +55,12 @@ export default function Footer() {
               <div className="flex flex-col">
                 <span className="text-2xl font-bold">Pro Plastics Inc.</span>
                 <span className="text-sm text-steel-300">
-                  Precision Manufacturing Since 1968
+                  {tCommon('since1968')}
                 </span>
               </div>
             </div>
             <p className="text-steel-300 mb-6 leading-relaxed">
-              Your trusted partner for custom plastic parts manufacturing and
-              fabrication. Serving aerospace, medical, semiconductor, and more.
+              {t('tagline')}
             </p>
             <div className="space-y-3">
               <a
@@ -77,18 +81,18 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-3 text-steel-300">
                 <MapPin className="w-5 h-5 mt-0.5" />
-                <span>1190 Sylvan St<br />Linden, NJ 07036, USA</span>
+                <span>{tCommon('address')}<br />{tCommon('cityStateZip')}</span>
               </div>
               <div className="flex items-center gap-3 text-steel-300">
                 <Clock className="w-5 h-5" />
-                <span>Mon-Fri: 8:30 AM - 4:00 PM EST</span>
+                <span>{tCommon('hours')}</span>
               </div>
             </div>
           </div>
 
           {/* Company links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Company</h3>
+            <h3 className="font-semibold text-lg mb-4">{t('company')}</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -105,7 +109,7 @@ export default function Footer() {
 
           {/* Capabilities links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Capabilities</h3>
+            <h3 className="font-semibold text-lg mb-4">{t('capabilities')}</h3>
             <ul className="space-y-2">
               {footerLinks.capabilities.map((link) => (
                 <li key={link.name}>
@@ -122,7 +126,7 @@ export default function Footer() {
 
           {/* Resources links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Resources</h3>
+            <h3 className="font-semibold text-lg mb-4">{t('resources')}</h3>
             <ul className="space-y-2">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
@@ -139,7 +143,7 @@ export default function Footer() {
 
           {/* Industries links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Industries</h3>
+            <h3 className="font-semibold text-lg mb-4">{t('industries')}</h3>
             <ul className="space-y-2">
               {footerLinks.industries.map((link) => (
                 <li key={link.name}>
@@ -160,7 +164,7 @@ export default function Footer() {
       <div className="border-t border-industrial-blue-800">
         <div className="container-custom py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-steel-400 text-sm">
-            &copy; {new Date().getFullYear()} Pro Plastics Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} {t('copyright')}
           </p>
         </div>
       </div>
