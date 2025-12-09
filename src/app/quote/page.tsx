@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import { trackQuoteRequest } from '@/lib/firebase';
 
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+
 type Step = 1 | 2 | 3 | 4;
 
 interface FileInfo {
@@ -24,7 +26,8 @@ interface FileInfo {
 
 export default function QuotePage() {
   const [currentStep, setCurrentStep] = useState<Step>(1);
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [formStatus, setFormStatus] = useState<FormStatus>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const [uploadedFiles, setUploadedFiles] = useState<FileInfo[]>([]);
   const [formData, setFormData] = useState({
     // Step 1 - Part Details
@@ -84,9 +87,68 @@ export default function QuotePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    trackQuoteRequest(formData.partType, formData.material);
-    setFormStatus('success');
+    setErrorMessage('');
+
+    const apiUrl = process.env.NEXT_PUBLIC_CONTACT_API_URL;
+
+    // Build the message with all quote details
+    const quoteMessage = `
+QUOTE REQUEST DETAILS
+=====================
+
+PART DETAILS:
+- Part Type: ${formData.partType}
+- Quantity: ${formData.quantity}
+- Tolerance: ${formData.tolerance || 'Not specified'}
+- Uploaded Files: ${uploadedFiles.length > 0 ? uploadedFiles.map(f => f.name).join(', ') : 'None'}
+
+MATERIAL:
+- Material: ${formData.material}${formData.material === 'other' ? ` (${formData.materialOther})` : ''}
+
+TIMELINE:
+- Required Timeline: ${formData.timeline}
+- Additional Info: ${formData.additionalInfo || 'None'}
+    `.trim();
+
+    if (!apiUrl) {
+      // Fallback for development
+      console.log('Quote form submission:', { ...formData, message: quoteMessage });
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      trackQuoteRequest(formData.partType, formData.material);
+      setFormStatus('success');
+      return;
+    }
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          subject: 'quote',
+          message: quoteMessage,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit quote request');
+      }
+
+      trackQuoteRequest(formData.partType, formData.material);
+      setFormStatus('success');
+    } catch (error) {
+      console.error('Quote form error:', error);
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to submit quote request. Please try again.');
+      setFormStatus('error');
+    }
   };
 
   const steps = [
@@ -575,6 +637,13 @@ export default function QuotePage() {
                     className="w-full px-4 py-3 rounded-lg border border-steel-300 focus:border-industrial-blue-500 focus:ring-2 focus:ring-industrial-blue-200 outline-none transition-all"
                   />
                 </div>
+              </div>
+            )}
+
+            {/* Error message */}
+            {formStatus === 'error' && errorMessage && (
+              <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                {errorMessage}
               </div>
             )}
 

@@ -361,9 +361,10 @@ Resources:
           {body['message'].strip()}
           """
 
-                  # Send email
+                  # Send email with user's name as the From display name
+                  from_address = f'"{name}" <{os.environ["FROM_EMAIL"]}>'
                   ses.send_email(
-                      Source=os.environ['FROM_EMAIL'],
+                      Source=from_address,
                       Destination={'ToAddresses': [os.environ['RECIPIENT_EMAIL']]},
                       ReplyToAddresses=[email],
                       Message={
