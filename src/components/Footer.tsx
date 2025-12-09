@@ -148,20 +148,6 @@ export default function Footer() {
           <p className="text-steel-400 text-sm">
             &copy; {new Date().getFullYear()} Pro Plastics Inc. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm">
-            <Link
-              href="/privacy"
-              className="text-steel-400 hover:text-precision-orange-400 transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-steel-400 hover:text-precision-orange-400 transition-colors"
-            >
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
