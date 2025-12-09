@@ -36,13 +36,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Company info */}
           <div className="lg:col-span-2">
-            <div className="mb-6 flex items-center gap-3 -ml-5">
+            <div className="mb-6 flex items-center gap-0 -ml-5">
               <Image
                 src="/images/ppi-logo.png"
                 alt="Pro Plastics Inc. logo"
                 width={64}
                 height={64}
-                className="w-16 h-16 drop-shadow-[0_0_4px_rgba(255,255,255,0.3)]"
+                className="w-16 h-16 drop-shadow-[0_0_4px_rgba(255,255,255,0.3)] -mt-1"
               />
               <div className="flex flex-col">
                 <span className="text-2xl font-bold">Pro Plastics Inc.</span>

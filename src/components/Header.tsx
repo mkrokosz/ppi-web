@@ -58,7 +58,7 @@ export default function Header() {
       <nav className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 -ml-3">
+          <Link href="/" className="flex items-center gap-0 -ml-3">
             <Image
               src="/images/ppi-logo.png"
               alt="Pro Plastics Inc. logo"
