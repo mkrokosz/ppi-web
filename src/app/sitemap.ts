@@ -1,40 +1,52 @@
 import { MetadataRoute } from 'next';
+import { locales, defaultLocale } from '@/i18n/config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://proplastics.us';
 
-  // Main pages
-  const mainPages = [
+  // All pages (without locale prefix)
+  const pages = [
     '',
     '/about',
     '/capabilities',
+    '/capabilities/cnc-machining',
+    '/capabilities/fabrication',
+    '/capabilities/secondary-operations',
     '/materials',
+    '/materials/comparison',
+    '/materials/chemical-resistance',
     '/industries',
     '/portfolio',
     '/contact',
     '/quote',
   ];
 
-  // Capability sub-pages
-  const capabilityPages = [
-    '/capabilities/cnc-machining',
-    '/capabilities/fabrication',
-    '/capabilities/secondary-operations',
-  ];
+  const sitemapEntries: MetadataRoute.Sitemap = [];
 
-  // Material sub-pages
-  const materialPages = [
-    '/materials/comparison',
-    '/materials/chemical-resistance',
-    '/materials/military-specs',
-  ];
+  // Generate entries for each page in each locale
+  pages.forEach((page) => {
+    locales.forEach((locale) => {
+      const url = `${baseUrl}/${locale}${page}`;
 
-  const allPages = [...mainPages, ...capabilityPages, ...materialPages];
+      // Build alternates object for hreflang
+      const languages: Record<string, string> = {};
+      locales.forEach((altLocale) => {
+        languages[altLocale] = `${baseUrl}/${altLocale}${page}`;
+      });
+      // Add x-default pointing to default locale
+      languages['x-default'] = `${baseUrl}/${defaultLocale}${page}`;
 
-  return allPages.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route === '' ? 'weekly' : 'monthly',
-    priority: route === '' ? 1 : route.includes('/') && route.split('/').length > 2 ? 0.6 : 0.8,
-  }));
+      sitemapEntries.push({
+        url,
+        lastModified: new Date(),
+        changeFrequency: page === '' ? 'weekly' : 'monthly',
+        priority: page === '' ? 1 : page.split('/').length > 2 ? 0.6 : 0.8,
+        alternates: {
+          languages,
+        },
+      });
+    });
+  });
+
+  return sitemapEntries;
 }

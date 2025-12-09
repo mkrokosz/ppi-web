@@ -83,7 +83,7 @@ export const metadata: Metadata = {
 };
 
 // Root layout with required html/body tags
-// The locale layout will override the lang attribute
+// The locale layout handles the dynamic lang attribute via metadata
 export default function RootLayout({
   children,
 }: {

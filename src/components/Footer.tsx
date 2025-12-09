@@ -169,7 +169,7 @@ export default function Footer() {
           </p>
           {/* Language selector - mobile only, centered */}
           <div className="sm:hidden">
-            <LanguageSelector />
+            <LanguageSelector showFullName openAbove />
           </div>
         </div>
       </div>
