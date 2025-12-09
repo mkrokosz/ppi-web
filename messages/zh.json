@@ -1,0 +1,901 @@
+{
+  "metadata": {
+    "title": "Pro Plastics Inc. | 1968年创立的精密塑料制造商",
+    "description": "美国新泽西州林登的定制塑料制造商。自1968年起为航空航天、医疗和半导体行业提供CNC加工、制造和材料分销服务。"
+  },
+  "nav": {
+    "home": "首页",
+    "capabilities": "制造能力",
+    "cncMachining": "CNC加工",
+    "fabrication": "定制加工",
+    "secondaryOperations": "二次加工",
+    "materials": "材料",
+    "materialDatabase": "材料数据库",
+    "comparisonCharts": "对比图表",
+    "chemicalResistance": "耐化学性",
+    "industries": "服务行业",
+    "portfolio": "产品展示",
+    "about": "关于我们",
+    "contact": "联系我们"
+  },
+  "common": {
+    "phone": "+1 (866) 925-5000",
+    "email": "sales@proplasticsinc.com",
+    "address": "1190 Sylvan St",
+    "cityStateZip": "Linden, NJ 07036, USA",
+    "hours": "周一至周五: 8:30 AM - 4:00 PM EST（美国东部时间）",
+    "tollFree": "免费电话",
+    "learnMore": "了解更多",
+    "getStarted": "开始",
+    "viewDetails": "查看详情",
+    "downloadPdf": "下载PDF",
+    "contactUs": "联系我们",
+    "getDirections": "获取路线",
+    "since1968": "1968年创立的精密制造商",
+    "requestQuote": "获取报价",
+    "callUs": "致电 +1 (866) 925-5000"
+  },
+  "home": {
+    "hero": {
+      "trustedSince": "值得信赖，始于1968年",
+      "subtitle": "精密塑料制造",
+      "description": "从原型到量产，一站式定制塑料零件解决方案。专业的CNC加工、制造和材料分销服务，满足各行业严苛需求。",
+      "getQuote": "获取免费报价",
+      "viewCapabilities": "查看制造能力"
+    },
+    "stats": {
+      "yearsExperience": "年行业经验",
+      "industriesServed": "服务行业",
+      "materialsAvailable": "可用材料",
+      "quoteTurnaround": "报价周期"
+    },
+    "capabilities": {
+      "cncMachining": {
+        "title": "CNC加工",
+        "description": "高精度CNC卧式和立式加工中心，可实现复杂几何形状的严格公差加工。"
+      },
+      "customFabrication": {
+        "title": "定制加工",
+        "description": "全方位塑料加工服务，包括铣削、钻孔和冲压等。"
+      },
+      "materialDistribution": {
+        "title": "材料分销",
+        "description": "工程级塑料板材、棒材和管材的全面库存。"
+      },
+      "prototyping": {
+        "title": "原型制作",
+        "description": "从概念到量产级零件的快速原型开发。"
+      }
+    },
+    "trustIndicators": {
+      "isoQuality": "ISO质量标准",
+      "madeInUsa": "美国制造",
+      "fastTurnaround": "快速交付",
+      "expertSupport": "专家支持"
+    },
+    "sections": {
+      "capabilities": {
+        "title": "我们的能力",
+        "subtitle": "从复杂的CNC加工到大规模生产，我们提供满足您需求的精密塑料解决方案。"
+      },
+      "industries": {
+        "title": "服务行业",
+        "subtitle": "为各行业领先企业提供关键塑料零部件，赢得广泛信赖。"
+      },
+      "whyChooseUs": {
+        "title": "为什么选择Pro Plastics？",
+        "subtitle": "凭借55年以上的经验，我们将传统工艺与现代精密制造相结合，每次都能交付卓越成果。",
+        "learnMore": "了解更多关于我们"
+      },
+      "testimonials": {
+        "title": "客户评价",
+        "subtitle": "不仅是我们的承诺——听听信任我们精密塑料加工的企业怎么说。"
+      }
+    },
+    "features": {
+      "zeroDefect": "零缺陷质量承诺",
+      "onTimeDelivery": "准时交付保证",
+      "expertGuidance": "专业材料指导",
+      "competitivePricing": "具有竞争力的价格",
+      "rapidQuote": "快速报价响应",
+      "customSolutions": "任何行业的定制解决方案"
+    },
+    "quickTurnaround": {
+      "title": "快速响应",
+      "subtitle": "24小时内提供报价"
+    },
+    "testimonials": {
+      "testimonial1": {
+        "quote": "Pro Plastics十多年来一直是我们精密零部件的首选供应商。他们的质量和交付速度无与伦比。",
+        "author": "工程总监",
+        "company": "航空航天制造公司"
+      },
+      "testimonial2": {
+        "quote": "Pro Plastics的材料专业知识帮助我们为医疗设备应用选择了最佳的FDA合规塑料。",
+        "author": "产品开发经理",
+        "company": "医疗设备初创公司"
+      },
+      "testimonial3": {
+        "quote": "从原型到量产，Pro Plastics提供了我们需要的一切。强烈推荐用于半导体应用。",
+        "author": "运营主管",
+        "company": "半导体设备供应商"
+      }
+    },
+    "cta": {
+      "title": "准备开始您的项目？",
+      "subtitle": "上传您的图纸，24小时内获得详细报价。我们的团队随时准备帮助实现您的愿景。"
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "对我们的能力有疑问或需要报价？我们随时为您服务。请联系我们，我们的团队将尽快回复。",
+    "getInTouch": "联系方式",
+    "phone": "电话",
+    "emailLabel": "邮箱",
+    "salesQuotes": "销售与报价",
+    "addressLabel": "地址",
+    "hoursLabel": "营业时间",
+    "mondayFriday": "周一至周五",
+    "closedWeekend": "周六和周日休息",
+    "needQuote": "需要报价？",
+    "quoteDescription": "为了更快的服务，请使用我们的报价申请表直接上传您的图纸。",
+    "sendMessage": "发送消息",
+    "form": {
+      "firstName": "名",
+      "lastName": "姓",
+      "email": "邮箱",
+      "phone": "电话（选填）",
+      "company": "公司（选填）",
+      "subject": "主题",
+      "selectSubject": "选择主题...",
+      "subjectQuote": "报价请求",
+      "subjectCapabilities": "制造能力咨询",
+      "subjectMaterials": "材料信息",
+      "subjectOrder": "订单状态",
+      "subjectOther": "其他",
+      "message": "消息",
+      "messagePlaceholder": "我们能为您提供什么帮助？",
+      "send": "发送消息",
+      "sending": "发送中...",
+      "required": "*"
+    }
+  },
+  "quote": {
+    "title": "获取报价",
+    "subtitle": "获取定制塑料零件的详细报价。上传您的图纸和规格，我们将在24小时内回复。",
+    "ndaAvailable": "可应要求提供保密协议",
+    "questions": "问题请致电 +1 (866) 925-5000"
+  },
+  "materials": {
+    "title": "材料数据库",
+    "subtitle": "浏览我们全面的工程塑料库存。使用可搜索的数据库为您的应用找到完美的材料。",
+    "searchPlaceholder": "按名称或描述搜索材料...",
+    "showing": "（显示{count}/{total}种材料）",
+    "tempRange": "温度范围",
+    "availableForms": "可用形式",
+    "keyProperties": "主要特性",
+    "filters": "筛选",
+    "properties": "特性",
+    "applications": "应用",
+    "activeFilters": "已应用筛选：",
+    "clearAll": "清除全部",
+    "noResults": "没有符合当前筛选条件的材料。",
+    "clearFilters": "清除筛选",
+    "viewDetails": "查看详情",
+    "categories": {
+      "all": "全部",
+      "highPerformance": "高性能",
+      "engineering": "工程级",
+      "fluoropolymer": "氟聚合物",
+      "thermoset": "热固性",
+      "standard": "通用型"
+    },
+    "propertyNames": {
+      "highTemperature": "高温耐性",
+      "chemicalResistant": "耐化学性",
+      "fdaCompliant": "FDA合规",
+      "lowFriction": "低摩擦",
+      "flameRetardant": "阻燃性",
+      "wearResistant": "耐磨性",
+      "machinable": "易加工性",
+      "impactResistant": "耐冲击性",
+      "electricalInsulation": "电气绝缘性",
+      "opticallyClear": "光学透明性",
+      "uvResistant": "耐紫外线性",
+      "highStrength": "高强度"
+    },
+    "applicationNames": {
+      "aerospace": "航空航天",
+      "medical": "医疗",
+      "semiconductor": "半导体",
+      "electronics": "电子",
+      "automotive": "汽车",
+      "foodProcessing": "食品加工",
+      "chemicalProcessing": "化学加工",
+      "materialHandling": "物料搬运",
+      "industrial": "工业",
+      "safety": "安全",
+      "glazing": "玻璃",
+      "display": "显示",
+      "lighting": "照明",
+      "electrical": "电气",
+      "waterTreatment": "水处理"
+    },
+    "forms": {
+      "sheet": "板材",
+      "rod": "棒材",
+      "tube": "管材"
+    },
+    "resources": {
+      "title": "材料资源",
+      "subtitle": "帮助您选择合适材料的额外工具。",
+      "comparison": {
+        "title": "对比图表",
+        "description": "并排比较材料特性，帮助您做出选择。"
+      },
+      "chemicalResistance": {
+        "title": "耐化学性指南",
+        "description": "材料与各种化学品兼容性的综合指南。"
+      },
+      "milSpec": {
+        "title": "军用规格",
+        "description": "满足国防应用MIL-SPEC要求的材料。"
+      },
+      "viewCharts": "查看图表",
+      "viewGuide": "查看指南",
+      "viewSpecs": "查看规格"
+    },
+    "cta": {
+      "title": "需要材料选择帮助？",
+      "subtitle": "我们的材料专家可以帮助您为特定应用要求选择合适的塑料。",
+      "contactExperts": "联系专家"
+    },
+    "expertHelp": {
+      "title": "需要材料选择帮助？",
+      "subtitle": "我们的工程师可以帮助您为特定应用要求选择最佳材料。",
+      "cta": "联系专家"
+    },
+    "items": {
+      "peek": {
+        "name": "PEEK（聚醚醚酮）",
+        "description": "高性能热塑性塑料，在高温下具有优异的机械性能。"
+      },
+      "ultem": {
+        "name": "Ultem（PEI）",
+        "description": "具有高强度、高刚性和广泛耐化学性的聚醚酰亚胺。"
+      },
+      "delrin": {
+        "name": "Delrin（缩醛）",
+        "description": "具有优异尺寸稳定性和可加工性的高强度缩醛均聚物。"
+      },
+      "nylon": {
+        "name": "尼龙6/6",
+        "description": "具有优异耐磨性和机械性能的通用工程塑料。"
+      },
+      "teflon": {
+        "name": "PTFE（特氟龙）",
+        "description": "卓越的耐化学性和所有固体材料中最低的摩擦系数。"
+      },
+      "uhmw": {
+        "name": "UHMW聚乙烯",
+        "description": "具有出色耐磨性和冲击强度的超高分子量聚乙烯。"
+      },
+      "polycarbonate": {
+        "name": "聚碳酸酯",
+        "description": "几乎不碎，具有优异的光学透明度和耐冲击性。"
+      },
+      "acrylic": {
+        "name": "亚克力（PMMA）",
+        "description": "具有优异光学性能和耐候性的透明热塑性塑料。"
+      },
+      "phenolic": {
+        "name": "酚醛（帆布/亚麻）",
+        "description": "具有优异电气和机械性能的织物增强层压板。"
+      },
+      "g10": {
+        "name": "G-10/FR-4（玻璃环氧）",
+        "description": "具有优越电气和机械性能的玻璃布增强环氧树脂。"
+      },
+      "pvc": {
+        "name": "PVC（I型和II型）",
+        "description": "具有良好耐化学性和阻燃性的经济型材料。"
+      },
+      "hdpe": {
+        "name": "HDPE",
+        "description": "具有优异耐化学性和低吸湿性的高密度聚乙烯。"
+      }
+    }
+  },
+  "comparison": {
+    "title": "材料对比图表",
+    "subtitle": "并排比较材料特性，帮助您为应用选择合适的材料。",
+    "tableTitle": "工程塑料对比",
+    "tableSubtitle": "比较常见工程塑料的关键特性",
+    "property": "特性",
+    "downloadPdf": "下载PDF",
+    "quickGuide": "快速选择指南",
+    "disclaimer": "* 显示的数值为典型值，可能因等级而异。详细材料数据表请联系我们。",
+    "breadcrumb": {
+      "materials": "材料",
+      "comparison": "对比图表"
+    },
+    "properties": {
+      "maxServiceTemp": "最高使用温度",
+      "tensileStrength": "拉伸强度 (psi)",
+      "flexuralModulus": "弯曲模量 (psi)",
+      "impactStrength": "冲击强度",
+      "chemicalResistance": "耐化学性",
+      "wearResistance": "耐磨性",
+      "machinability": "可加工性",
+      "fdaCompliant": "FDA合规",
+      "relativeCost": "相对成本"
+    },
+    "ratings": {
+      "excellent": "优秀",
+      "good": "良好",
+      "fair": "一般",
+      "yes": "是",
+      "no": "否"
+    },
+    "selectionGuide": {
+      "highTemperature": {
+        "need": "高温耐性",
+        "materials": "PEEK、Ultem、PTFE",
+        "note": "适用于250°F以上的应用"
+      },
+      "chemicalResistance": {
+        "need": "耐化学性",
+        "materials": "PTFE、PEEK、UHMW",
+        "note": "适用于苛刻的化学环境"
+      },
+      "wearResistance": {
+        "need": "耐磨性",
+        "materials": "UHMW、Delrin、PEEK",
+        "note": "适用于滑动和轴承应用"
+      },
+      "fdaCompliance": {
+        "need": "FDA合规",
+        "materials": "UHMW、Delrin、PTFE、尼龙",
+        "note": "适用于食品接触应用"
+      },
+      "lowCost": {
+        "need": "低成本",
+        "materials": "UHMW、尼龙、Delrin",
+        "note": "经济实惠的选择"
+      },
+      "easyMachining": {
+        "need": "易加工性",
+        "materials": "Delrin、尼龙、UHMW",
+        "note": "适用于复杂几何形状"
+      }
+    },
+    "needHelp": {
+      "title": "需要选择帮助？",
+      "subtitle": "我们的材料专家可以帮助您为特定应用要求选择最佳塑料。",
+      "contactExperts": "联系专家",
+      "browseAll": "浏览所有材料"
+    }
+  },
+  "chemicalResistance": {
+    "title": "耐化学性指南",
+    "subtitle": "塑料材料与各种化学品兼容性的综合指南。为您的化学环境找到合适的材料。",
+    "legend": "图例：",
+    "excellent": "E = 优秀",
+    "good": "G = 良好",
+    "fair": "F = 一般",
+    "notRecommended": "N = 不推荐",
+    "searchPlaceholder": "搜索化学品...",
+    "showing": "显示{count}/{total}种化学品",
+    "chemical": "化学品",
+    "category": "类别",
+    "downloadPdf": "下载PDF",
+    "disclaimer": "* 显示的数据是室温下的一般指导。实际性能可能因浓度、温度和暴露时间而异。请务必针对您的特定应用进行测试。",
+    "breadcrumb": {
+      "materials": "材料",
+      "chemicalResistance": "耐化学性指南"
+    },
+    "categories": {
+      "all": "全部",
+      "acids": "酸",
+      "bases": "碱",
+      "solvents": "溶剂",
+      "fuels": "燃料",
+      "alcohols": "醇",
+      "oxidizers": "氧化剂",
+      "oils": "油",
+      "water": "水"
+    },
+    "needData": {
+      "title": "需要特定的化学兼容性数据？",
+      "subtitle": "如需详细的耐化学性信息或讨论您的特定应用要求，请联系我们。",
+      "contactExperts": "联系专家",
+      "browseAll": "浏览所有材料"
+    }
+  },
+  "industries": {
+    "title": "服务行业",
+    "subtitle": "从航空航天到食品加工，我们为世界上要求最严苛的行业提供精密塑料解决方案。",
+    "aerospace": "航空航天",
+    "medical": "医疗",
+    "semiconductor": "半导体",
+    "electronics": "电子",
+    "automotive": "汽车",
+    "chemicalProcessing": "化学加工",
+    "waterTreatment": "水处理",
+    "construction": "建筑",
+    "foodProcessing": "食品加工",
+    "commonMaterials": "常用材料",
+    "typicalApplications": "典型应用",
+    "compliance": "合规认证",
+    "items": {
+      "aerospace": {
+        "name": "航空航天",
+        "description": "用于飞机、卫星和国防应用的精密零部件。材料和工艺符合严格的航空航天标准。",
+        "applications": ["结构绝缘体", "轴承部件", "耐磨零件", "电气外壳"],
+        "compliance": ["AS9100能力", "ITAR注册", "MIL-SPEC材料"]
+      },
+      "medical": {
+        "name": "医疗与生命科学",
+        "description": "用于医疗设备、实验室设备和制药应用的FDA合规材料。",
+        "applications": ["手术器械", "诊断设备", "实验室夹具", "植入物部件"],
+        "compliance": ["FDA合规材料", "USP VI级", "ISO 13485能力"]
+      },
+      "semiconductor": {
+        "name": "半导体",
+        "description": "用于晶圆处理、芯片加工和洁净室环境的超洁净部件。",
+        "applications": ["晶圆处理", "化学品输送", "工艺腔室", "测试夹具"],
+        "compliance": ["洁净室兼容", "低释气", "ESD安全选项"]
+      },
+      "electronics": {
+        "name": "电子",
+        "description": "用于电子设备和系统的绝缘部件、连接器和外壳。",
+        "applications": ["电路板支架", "连接器壳体", "绝缘垫片", "EMI屏蔽"],
+        "compliance": ["UL认可", "RoHS合规", "阻燃选项"]
+      },
+      "automotive": {
+        "name": "汽车",
+        "description": "用于车辆的耐用部件，从发动机舱应用到内饰装饰件。",
+        "applications": ["衬套和轴承", "燃油系统部件", "电气绝缘体", "耐磨零件"],
+        "compliance": ["IATF 16949能力", "汽车级材料"]
+      },
+      "chemical": {
+        "name": "化学加工",
+        "description": "用于苛刻化学环境和加工设备的耐腐蚀部件。",
+        "applications": ["阀座", "泵部件", "储罐衬里", "垫片和密封件"],
+        "compliance": ["耐化学性认证", "FDA合规选项"]
+      },
+      "water": {
+        "name": "水处理",
+        "description": "用于过滤系统、泵和水处理设备的部件。",
+        "applications": ["过滤器外壳", "泵部件", "阀门零件", "管道系统"],
+        "compliance": ["NSF/ANSI 61材料", "饮用水安全"]
+      },
+      "food": {
+        "name": "食品加工",
+        "description": "用于食品接触和加工应用的FDA合规和USDA认可材料。",
+        "applications": ["输送机零件", "切割面", "导轨", "包装设备"],
+        "compliance": ["FDA合规", "USDA认可", "3-A乳制品"]
+      },
+      "construction": {
+        "name": "建筑与工业",
+        "description": "用于建筑设备、物料搬运和工业机械的重型部件。",
+        "applications": ["耐磨条", "衬套", "滚轮导轨", "结构部件"],
+        "compliance": ["高承载能力", "耐候性"]
+      }
+    },
+    "crossIndustry": {
+      "title": "跨行业专业知识",
+      "description": "凭借55年以上的经验，我们了解每个行业都有独特的要求。我们的团队与您紧密合作，确保每个零件都符合您的特定标准。",
+      "features": [
+        "针对您应用的材料选择指导",
+        "可制造性设计（DFM）支持",
+        "行业特定的合规和认证",
+        "质量文档和可追溯性",
+        "从原型到量产的可扩展性"
+      ]
+    },
+    "dontSee": {
+      "title": "没有看到您的行业？",
+      "description": "除了列出的行业外，我们还服务于许多专业领域。请联系我们讨论您的特定应用要求。"
+    },
+    "cta": {
+      "title": "准备开始了吗？",
+      "subtitle": "发送您的规格，让我们的专家帮助您找到适合您行业应用的解决方案。"
+    }
+  },
+  "portfolio": {
+    "title": "产品展示",
+    "subtitle": "浏览我们为各行业客户制造的精密塑料零部件示例。",
+    "photoComingSoon": "照片即将上传",
+    "process": "加工工艺",
+    "tolerance": "公差",
+    "confidentiality": "由于与客户的保密协议，我们只能分享项目的有限细节。如需了解我们针对您特定应用的能力，请联系我们。",
+    "whatWeDo": "我们能为您做什么",
+    "whatWeDoSubtitle": "我们的产品组合只是我们制造能力的一个样本。",
+    "filterAll": "全部",
+    "processes": {
+      "cncMachining": "CNC加工",
+      "cncTurning": "CNC车削",
+      "fabrication": "定制加工"
+    },
+    "categories": {
+      "aerospace": "航空航天",
+      "medical": "医疗",
+      "semiconductor": "半导体",
+      "electronics": "电子",
+      "automotive": "汽车",
+      "chemical": "化学",
+      "foodProcessing": "食品加工",
+      "industrial": "工业",
+      "waterTreatment": "水处理"
+    },
+    "capabilities": {
+      "cncMachining": {
+        "title": "CNC加工",
+        "desc": "复杂几何形状，公差可达±0.001\""
+      },
+      "fabrication": {
+        "title": "定制加工",
+        "desc": "切割、铣削、粘接和组装"
+      },
+      "materialDistribution": {
+        "title": "材料分销",
+        "desc": "1000多种材料库存"
+      },
+      "secondaryOps": {
+        "title": "二次加工",
+        "desc": "攻丝、表面处理等"
+      }
+    },
+    "items": {
+      "peekInsulators": {
+        "title": "精密PEEK绝缘体",
+        "description": "用于飞机电气系统的高温绝缘体，按严格公差加工。"
+      },
+      "medicalDevice": {
+        "title": "医疗设备部件",
+        "description": "用于诊断成像设备的FDA合规外壳和支架。"
+      },
+      "semiconductorWafer": {
+        "title": "半导体晶圆处理",
+        "description": "用于洁净室环境的超洁净晶圆载体和处理夹具。"
+      },
+      "nylonBushings": {
+        "title": "定制尼龙衬套",
+        "description": "用于汽车悬挂系统的大批量耐磨衬套。"
+      },
+      "valveSeats": {
+        "title": "化工阀座",
+        "description": "用于苛刻化学环境的耐腐蚀阀门部件。"
+      },
+      "conveyorParts": {
+        "title": "食品级输送机零件",
+        "description": "用于食品包装线的FDA合规耐磨条和导轨。"
+      },
+      "circuitBoardStandoffs": {
+        "title": "电路板支架",
+        "description": "用于高密度PCB组装的阻燃绝缘支架。"
+      },
+      "opticalHousings": {
+        "title": "光学镜头外壳",
+        "description": "用于工业光学测量设备的精密外壳。"
+      },
+      "waterTreatment": {
+        "title": "水处理部件",
+        "description": "用于市政供水系统的耐化学性接头和歧管。"
+      }
+    },
+    "cta": {
+      "title": "有类似的项目？",
+      "subtitle": "发送您的图纸，我们将在24小时内提供详细报价。任何复杂的项目都可以。"
+    }
+  },
+  "about": {
+    "title": "关于Pro Plastics Inc.",
+    "subtitle": "55年以来，我们一直是塑料零件制造和加工的可信赖合作伙伴，以精准、质量和奉献精神为全球各行业提供服务。",
+    "story": {
+      "title": "我们的故事",
+      "paragraph1": "Pro Plastics Inc.成立于1968年，最初是新泽西州林登的一家小型塑料加工厂。从本地运营起步，现已发展成为服务全球企业的可信赖制造合作伙伴。",
+      "paragraph2": "我们的创始人相信，精密制造应该对各种规模的公司都是可及的。这一理念延续至今——无论您需要单个原型还是数千个量产零件，我们都提供同样卓越的质量和对细节的关注。",
+      "paragraph3": "五十多年来，我们投资于最新的CNC技术，扩展材料专业知识，建立了一支为每个生产零件感到自豪的熟练技术团队。今天，我们很自豪能够服务于从航空航天到医疗设备等12个不同的行业。",
+      "facilityCaption": "我们位于美国新泽西州林登的工厂"
+    },
+    "timeline": {
+      "title": "我们的历程",
+      "subtitle": "55年以上的持续增长、创新和对卓越的承诺。",
+      "1968": {
+        "title": "公司成立",
+        "description": "Pro Plastics Inc.在新泽西州林登成立，从基本的塑料加工服务起步。"
+      },
+      "1980s": {
+        "title": "扩张与增长",
+        "description": "扩展能力以包括CNC加工，开始服务航空航天和医疗行业。"
+      },
+      "1990s": {
+        "title": "技术投资",
+        "description": "对精密CNC设备进行重大投资，建立紧公差加工的声誉。"
+      },
+      "2000s": {
+        "title": "材料分销",
+        "description": "启动全面的材料分销部门，成为客户的一站式服务商。"
+      },
+      "2010s": {
+        "title": "行业领导地位",
+        "description": "被认可为服务12个以上行业、具有全球影响力的领先塑料制造商。"
+      },
+      "today": {
+        "title": "持续创新",
+        "description": "继续投资先进制造技术，同时保持对质量的承诺。"
+      }
+    },
+    "values": {
+      "title": "核心价值观",
+      "subtitle": "指导我们所做一切的原则。",
+      "qualityFirst": {
+        "title": "质量第一",
+        "description": "从材料选择到最终检验的零缺陷承诺。每个零件都符合精确规格。"
+      },
+      "onTimeDelivery": {
+        "title": "准时交付",
+        "description": "我们理解您的生产计划依赖于我们。可靠的交付是我们的承诺。"
+      },
+      "customerPartnership": {
+        "title": "客户伙伴关系",
+        "description": "我们与您的工程团队一起合作，为您的特定应用找到最佳解决方案。"
+      },
+      "integrity": {
+        "title": "诚信",
+        "description": "诚实沟通、公平定价，并对我们制造的每一个产品负责。"
+      }
+    },
+    "team": {
+      "title": "我们的团队",
+      "subtitle": "致力于提供精密成果的专业人才。",
+      "leadership": {
+        "title": "领导团队",
+        "description": "拥有数十年制造经验的资深管理团队。"
+      },
+      "engineering": {
+        "title": "工程团队",
+        "description": "帮助优化您的设计以提高可制造性的技术专家。"
+      },
+      "production": {
+        "title": "生产团队",
+        "description": "为每个零件带来精准度的熟练机械师和加工技术人员。"
+      }
+    },
+    "quality": {
+      "title": "质量与认证",
+      "description": "质量不仅仅是目标——它融入每个流程。从进料检验到最终质量检查，我们保持严格的标准，达到或超过行业要求。",
+      "certifications": {
+        "iso": "ISO 9001:2015质量管理",
+        "fda": "FDA合规材料",
+        "rohs": "RoHS合规",
+        "itar": "ITAR注册",
+        "ul": "UL认可材料",
+        "milSpec": "军用规格能力"
+      },
+      "promise": {
+        "title": "质量承诺",
+        "item1": "关键尺寸100%检验",
+        "item2": "完整的材料可追溯性和认证",
+        "item3": "必要时的统计过程控制",
+        "item4": "可提供首件检验报告"
+      }
+    },
+    "cta": {
+      "title": "让我们一起合作",
+      "subtitle": "与一家提供55年以上精密塑料制造经验的公司合作。"
+    }
+  },
+  "capabilities": {
+    "title": "制造能力",
+    "subtitle": "从精密CNC加工到完整的制造服务，我们拥有处理最苛刻塑料制造要求的设备和专业知识。",
+    "whatWeDo": "我们的服务",
+    "whatWeDoSubtitle": "一站式综合塑料制造服务。",
+    "keyFeatures": "主要特点：",
+    "compatibleMaterials": "兼容材料：",
+    "ourEquipment": "我们的设备",
+    "ourEquipmentSubtitle": "按最高标准维护的现代制造设备。",
+    "precisionTolerances": "精密公差",
+    "precisionTolerancesSubtitle": "能够满足您最苛刻的尺寸要求。",
+    "ourProcess": "我们的流程",
+    "ourProcessSubtitle": "从报价到交付，我们确保每一步的质量。",
+    "servingIndustries": "服务关键行业",
+    "servingIndustriesSubtitle": "我们的能力支持航空航天、医疗、半导体和其他精密行业的苛刻应用。",
+    "viewIndustries": "查看行业",
+    "projectCta": {
+      "title": "有项目想法？",
+      "subtitle": "发送您的图纸和规格。我们将在24小时内提供详细报价和制造建议。"
+    },
+    "items": {
+      "cncMachining": {
+        "title": "CNC加工",
+        "description": "先进的CNC卧式和立式加工中心，用于复杂几何形状和严格公差加工。",
+        "features": ["卧式和立式加工中心", "多轴加工能力", "公差可达±0.001\"", "复杂3D轮廓", "大型加工能力"]
+      },
+      "fabrication": {
+        "title": "定制加工",
+        "description": "全方位塑料加工服务，包括切割、铣削、粘接和定制零件组装。",
+        "features": ["精密切割和铣削", "钻孔和攻丝", "弯曲和成型", "溶剂和胶粘剂粘接", "组装服务"]
+      },
+      "secondaryOperations": {
+        "title": "二次加工",
+        "description": "完整的精加工服务，包括攻丝、热处理和表面处理。",
+        "features": ["攻丝", "热处理/退火", "表面研磨", "抛光和精加工", "标记和雕刻"]
+      }
+    },
+    "equipment": {
+      "cncHorizontalMills": "CNC卧式铣床",
+      "cncVerticalMills": "CNC立式铣床",
+      "cncLathes": "CNC车床",
+      "manualMills": "手动铣床",
+      "bandSaws": "带锯",
+      "routers": "铣刀"
+    },
+    "toleranceTypes": {
+      "standard": "标准",
+      "precision": "精密",
+      "highPrecision": "高精密",
+      "surfaceFinish": "表面光洁度"
+    },
+    "processSteps": {
+      "step1": { "title": "报价请求", "desc": "提交图纸审核" },
+      "step2": { "title": "工程审核", "desc": "DFM分析和材料选择" },
+      "step3": { "title": "生产", "desc": "精密制造" },
+      "step4": { "title": "质量检查", "desc": "检验和验证" },
+      "step5": { "title": "交付", "desc": "安全包装和运输" }
+    },
+    "industries": {
+      "aerospace": "航空航天",
+      "medical": "医疗",
+      "semiconductor": "半导体",
+      "electronics": "电子",
+      "automotive": "汽车",
+      "chemical": "化学"
+    },
+    "cncMachining": {
+      "title": "CNC加工",
+      "breadcrumb": "CNC加工",
+      "subtitle": "先进的CNC加工中心，为最苛刻的应用提供公差可达±0.001\"的精密塑料零部件。",
+      "overviewTitle": "精密CNC加工服务",
+      "overviewParagraph1": "我们的CNC加工部门将先进的多轴设备与数十年的塑料加工专业知识相结合。与金属加工不同，塑料需要对材料行为、切削参数和热管理有专业知识才能获得最佳结果。",
+      "overviewParagraph2": "我们加工从简单的车削零件到复杂的5轴零部件，在保持严格公差的同时确保优异的表面光洁度。我们的团队从设计到生产全程与您合作，优化零件的可制造性。",
+      "equipmentTitle": "设备与能力",
+      "features": [
+        "卧式加工中心",
+        "立式加工中心",
+        "多轴加工能力（3轴、4轴和5轴）",
+        "大型加工可达48\" x 96\"",
+        "高速加工实现精细表面",
+        "复杂3D轮廓和几何形状"
+      ],
+      "applicationsTitle": "行业应用",
+      "applications": {
+        "aerospace": { "name": "航空航天", "parts": "结构绝缘体、轴承座、耐磨部件" },
+        "medical": { "name": "医疗", "parts": "手术器械部件、诊断外壳" },
+        "semiconductor": { "name": "半导体", "parts": "晶圆处理、工艺腔室部件" },
+        "electronics": { "name": "电子", "parts": "连接器壳体、绝缘垫片" }
+      },
+      "tolerances": "公差",
+      "materialsTitle": "我们加工的材料",
+      "viewAllMaterials": "查看所有材料",
+      "haveProject": "有项目？",
+      "haveProjectDesc": "发送您的图纸，24小时内获得详细报价。",
+      "otherCapabilities": "其他能力"
+    },
+    "fabrication": {
+      "title": "定制加工",
+      "breadcrumb": "定制加工",
+      "subtitle": "全方位塑料加工服务，包括切割、铣削、弯曲、粘接和定制零部件组装。",
+      "overviewTitle": "完整的加工服务",
+      "overviewParagraph1": "我们的加工部门处理从简单的切割尺寸板材到复杂的多部件组装的所有工作。我们将传统加工技术与现代CNC设备相结合，提供一致的高质量结果。",
+      "overviewParagraph2": "无论您需要单个原型还是批量生产，我们经验丰富的加工技术人员都能使用各种塑料材料满足您的规格要求。",
+      "capabilitiesTitle": "加工能力",
+      "features": [
+        "精密切割和锯切",
+        "CNC铣削",
+        "钻孔和攻丝",
+        "弯曲和成型",
+        "溶剂和胶粘剂粘接",
+        "焊接（热风、超声波）",
+        "组装服务",
+        "定制夹具和固定装置"
+      ],
+      "applicationsTitle": "常见应用",
+      "applications": {
+        "industrial": { "name": "工业", "parts": "机器防护罩、盖板、外壳" },
+        "display": { "name": "展示", "parts": "销售点展示架、标牌" },
+        "foodProcessing": { "name": "食品加工", "parts": "输送机部件、防护罩" },
+        "waterTreatment": { "name": "水处理", "parts": "储罐、接头、歧管" }
+      },
+      "materialsTitle": "我们加工的材料",
+      "viewAllMaterials": "查看所有材料",
+      "sizeCapabilities": "尺寸能力",
+      "maxSheetSize": "最大板材尺寸",
+      "maxThickness": "最大厚度",
+      "minOrder": "最小订单",
+      "haveProject": "有项目？",
+      "haveProjectDesc": "发送您的图纸，24小时内获得详细报价。",
+      "otherCapabilities": "其他能力"
+    },
+    "secondaryOperations": {
+      "title": "二次加工",
+      "breadcrumb": "二次加工",
+      "subtitle": "完整的精加工服务，包括攻丝、热处理、表面处理、标记和组装，提供即用零件。",
+      "overviewTitle": "完整的零件精加工",
+      "overviewParagraph1": "我们的二次加工部门确保您的零件以即用状态交付。从简单的去毛刺到复杂的组装，我们处理将加工零部件转化为成品的所有精加工工序。",
+      "overviewParagraph2": "通过内部处理二次加工，我们在整个流程中保持质量控制，并与外包这些服务相比缩短交货时间。",
+      "servicesTitle": "可用服务",
+      "operations": {
+        "threading": { "name": "攻丝", "description": "内螺纹和外螺纹、螺纹护套、螺纹嵌件" },
+        "heatTreatment": { "name": "热处理", "description": "退火以消除应力并提高尺寸稳定性" },
+        "surfaceGrinding": { "name": "表面研磨", "description": "用于严格平面度要求的精密表面精加工" },
+        "polishing": { "name": "抛光和精加工", "description": "火焰抛光、抛光和定制表面处理" },
+        "marking": { "name": "标记和雕刻", "description": "激光标记、雕刻和零件标识" },
+        "bonding": { "name": "粘接和焊接", "description": "溶剂粘接、超声波焊接、热风焊接" },
+        "assembly": { "name": "组装", "description": "带硬件的子组装和完整组装服务" },
+        "packaging": { "name": "包装", "description": "用于运输和展示的定制包装" }
+      },
+      "surfaceFinishes": "表面光洁度",
+      "finishes": ["加工态", "火焰抛光", "抛光/打磨", "喷砂", "砂纸打磨（各种目数）", "蒸汽抛光"],
+      "benefitsTitle": "内部精加工的优势",
+      "benefits": ["单一联系点", "一致的质量控制", "缩短交货时间", "更低的总成本", "更好的沟通"],
+      "haveProject": "有项目？",
+      "haveProjectDesc": "发送您的图纸，24小时内获得详细报价。",
+      "otherCapabilities": "其他能力",
+      "otherCaps": {
+        "cncMachining": { "name": "CNC加工", "desc": "精密加工公差±0.001\"" },
+        "fabrication": { "name": "定制加工", "desc": "切割、铣削、粘接和组装" }
+      }
+    }
+  },
+  "footer": {
+    "tagline": "您值得信赖的定制塑料零件制造和加工合作伙伴。服务航空航天、医疗、半导体等行业。",
+    "company": "公司",
+    "capabilities": "制造能力",
+    "resources": "资源",
+    "industries": "行业",
+    "copyright": "Pro Plastics Inc. 版权所有。",
+    "links": {
+      "aboutUs": "关于我们",
+      "ourTeam": "我们的团队",
+      "facilityTour": "工厂参观",
+      "qualityCertifications": "质量与认证",
+      "chemicalResistanceGuide": "耐化学性指南"
+    }
+  },
+  "errors": {
+    "notFound": "页面未找到",
+    "notFoundDescription": "您查找的页面不存在或已被移动。",
+    "backHome": "返回首页"
+  },
+  "thankYou": {
+    "contact": {
+      "heroTitle": "联系我们",
+      "title": "消息已发送！",
+      "description": "感谢您的联系。我们将在一个工作日内回复您。",
+      "whatHappensNext": "接下来会发生什么？",
+      "step1": "我们的团队会审阅您的消息",
+      "step2": "我们将通过邮件或电话与您联系",
+      "step3": "您将在一个工作日内收到回复",
+      "returnHome": "返回首页",
+      "viewCapabilities": "查看制造能力",
+      "needImmediate": "需要立即帮助？",
+      "callUs": "致电 +1 (866) 925-5000"
+    },
+    "quote": {
+      "heroTitle": "获取报价",
+      "title": "报价请求已提交！",
+      "description": "感谢您的报价请求。我们的团队将审核您的要求，并在24小时内提供详细报价。",
+      "whatHappensNext": "接下来会发生什么？",
+      "step1": "我们的工程团队将审核您的图纸和要求",
+      "step2": "如需任何澄清，我们会与您联系",
+      "step3": "您将在24小时内通过邮件收到详细报价",
+      "returnHome": "返回首页",
+      "viewCapabilities": "查看制造能力",
+      "needImmediate": "需要立即帮助？",
+      "callUs": "致电 +1 (866) 925-5000"
+    }
+  }
+}
