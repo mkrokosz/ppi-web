@@ -11,9 +11,14 @@ import {
 import Breadcrumb from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'CNC Machining',
+  title: 'CNC Machining Services',
   description:
-    'Precision CNC machining of engineering plastics with tolerances to ±0.001". PEEK, Delrin, UHMW, Teflon, and more. Horizontal and vertical machining centers.',
+    'Precision CNC machining with tolerances to ±0.001". PEEK, Delrin, UHMW, Teflon. 3, 4 & 5-axis machining centers.',
+  openGraph: {
+    title: 'CNC Machining Services | Pro Plastics Inc.',
+    description:
+      'Precision CNC machining of engineering plastics. Tolerances to ±0.001".',
+  },
 };
 
 const features = [

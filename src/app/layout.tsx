@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: '%s | Pro Plastics Inc.',
   },
   description:
-    'Custom plastic parts manufacturing and fabrication in Linden, NJ. CNC machining, fabrication, and material distribution. Serving aerospace, medical, semiconductor, and electronics industries for 55+ years.',
+    'Custom plastic manufacturing in Linden, NJ. CNC machining, fabrication & material distribution for aerospace, medical & semiconductor industries since 1968.',
   keywords: [
     'plastic manufacturing',
     'CNC machining',

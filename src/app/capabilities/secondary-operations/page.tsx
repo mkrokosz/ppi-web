@@ -10,9 +10,14 @@ import {
 import Breadcrumb from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'Secondary Operations',
+  title: 'Secondary Operations & Finishing',
   description:
-    'Complete plastic finishing services including threading, heat treating, surface grinding, polishing, marking, engraving, and assembly.',
+    'Plastic finishing: threading, heat treating, grinding, polishing, marking & engraving. Complete part finishing services.',
+  openGraph: {
+    title: 'Secondary Operations | Pro Plastics Inc.',
+    description:
+      'Complete plastic finishing including threading, heat treating, polishing & engraving.',
+  },
 };
 
 const operations = [

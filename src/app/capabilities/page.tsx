@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: 'Manufacturing Capabilities',
   description:
-    'CNC machining, custom fabrication, and secondary operations. Tolerances to +/-0.001". PEEK, Delrin, UHMW, Teflon, and 1000+ materials.',
+    'Precision CNC machining, custom fabrication & finishing. Tolerances to +/-0.001". PEEK, Delrin, UHMW & 1000+ materials.',
   openGraph: {
     title: 'Manufacturing Capabilities | Pro Plastics Inc.',
     description:

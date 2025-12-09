@@ -3,11 +3,11 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Contact Pro Plastics Inc. in Linden, NJ. Call (866) 925-5000 or email for quotes, technical questions, or material inquiries. Fast response guaranteed.',
+    'Contact Pro Plastics Inc. for quotes, questions, or support. Call (866) 925-5000 or visit us in Linden, NJ.',
   openGraph: {
-    title: 'Contact Pro Plastics Inc. | Get in Touch',
+    title: 'Contact Pro Plastics Inc.',
     description:
-      'Contact our team for quotes, technical support, or material inquiries. Located in Linden, NJ. Call (866) 925-5000.',
+      'Get in touch with our team. Call (866) 925-5000 or send us a message.',
   },
 };
 

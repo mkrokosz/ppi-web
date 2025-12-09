@@ -13,9 +13,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'About Us',
+  title: 'About Pro Plastics Inc.',
   description:
-    'Learn about Pro Plastics Inc., a precision plastic manufacturing company founded in 1968 in Linden, NJ. Over 55 years of experience serving aerospace, medical, and semiconductor industries.',
+    'Precision plastic manufacturing since 1968 in Linden, NJ. 55+ years serving aerospace, medical & semiconductor industries.',
   openGraph: {
     title: 'About Pro Plastics Inc. | 55+ Years of Precision Manufacturing',
     description:

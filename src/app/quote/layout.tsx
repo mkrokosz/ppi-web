@@ -3,11 +3,11 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Request a Quote',
   description:
-    'Get a free quote for custom plastic parts within 24 hours. Upload your drawings and specifications. CNC machining, fabrication, and material distribution.',
+    'Request a free quote from Pro Plastics Inc. Fast turnaround on CNC machining, fabrication & custom plastic parts.',
   openGraph: {
     title: 'Request a Quote | Pro Plastics Inc.',
     description:
-      'Free quotes within 24 hours. Upload drawings for CNC machining, fabrication, or material orders. No minimum quantities.',
+      'Get a free quote for precision plastic manufacturing. 24-hour quote turnaround available.',
   },
 };
 

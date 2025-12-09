@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: 'Industries We Serve',
   description:
-    'Pro Plastics serves aerospace, medical, semiconductor, electronics, automotive, chemical processing, water treatment, food processing, and construction industries with precision plastic components.',
+    'Precision plastic components for aerospace, medical, semiconductor, electronics, automotive & more. FDA compliant, MIL-SPEC capable.',
   openGraph: {
     title: 'Industries We Serve | Pro Plastics Inc.',
     description:

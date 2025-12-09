@@ -11,9 +11,14 @@ import {
 import Breadcrumb from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'Custom Fabrication',
+  title: 'Custom Plastic Fabrication',
   description:
-    'Custom plastic fabrication services including cutting, routing, drilling, bending, bonding, and assembly. Acrylic, polycarbonate, HDPE, PVC, and more.',
+    'Custom plastic fabrication: cutting, routing, drilling, bending, bonding & assembly. Acrylic, polycarbonate, HDPE & more.',
+  openGraph: {
+    title: 'Custom Plastic Fabrication | Pro Plastics Inc.',
+    description:
+      'Complete plastic fabrication services including cutting, routing, bonding & assembly.',
+  },
 };
 
 const features = [
