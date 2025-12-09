@@ -116,10 +116,10 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="container-custom relative py-24 md:py-32">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container-custom relative pt-2 pb-6 md:py-8 lg:py-12">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm mb-6">
+              <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm mb-4">
                 <Award className="w-4 h-4 text-precision-orange-400" />
                 <span>Trusted Since 1968</span>
               </div>
