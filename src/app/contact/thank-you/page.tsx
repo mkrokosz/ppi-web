@@ -1,6 +1,12 @@
 import { redirect } from 'next/navigation';
-import { defaultLocale } from '@/i18n/config';
+import { defaultLocale, locales } from '@/i18n/config';
 
-export default function ContactThankYouRedirect() {
-  redirect(`/${defaultLocale}/contact/thank-you`);
+export default function ContactThankYouRedirect({
+  searchParams,
+}: {
+  searchParams: { lang?: string };
+}) {
+  const lang = searchParams.lang;
+  const locale = lang && locales.includes(lang as typeof locales[number]) ? lang : defaultLocale;
+  redirect(`/${locale}/contact/thank-you`);
 }

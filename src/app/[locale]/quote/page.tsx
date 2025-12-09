@@ -15,6 +15,7 @@ import {
   Phone,
 } from 'lucide-react';
 import { trackQuoteRequest } from '@/lib/firebase';
+import { useLocale } from 'next-intl';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -27,6 +28,7 @@ interface FileInfo {
 
 export default function QuotePage() {
   const router = useRouter();
+  const locale = useLocale();
   const [currentStep, setCurrentStep] = useState<Step>(1);
   const [formStatus, setFormStatus] = useState<FormStatus>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -117,7 +119,7 @@ TIMELINE:
       console.log('Quote form submission:', { ...formData, message: quoteMessage });
       await new Promise((resolve) => setTimeout(resolve, 1500));
       trackQuoteRequest(formData.partType, formData.material);
-      router.push('/quote/thank-you');
+      router.push(`/quote/thank-you?lang=${locale}`);
       return;
     }
 
@@ -146,7 +148,7 @@ TIMELINE:
       }
 
       trackQuoteRequest(formData.partType, formData.material);
-      router.push('/quote/thank-you');
+      router.push(`/quote/thank-you?lang=${locale}`);
     } catch (error) {
       console.error('Quote form error:', error);
       setErrorMessage(error instanceof Error ? error.message : 'Failed to submit quote request. Please try again.');

@@ -12,10 +12,11 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { trackContactFormSubmit, trackPhoneClick, trackEmailClick } from '@/lib/firebase';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function ContactPage() {
   const router = useRouter();
+  const locale = useLocale();
   const t = useTranslations('contact');
   const tCommon = useTranslations('common');
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -42,7 +43,7 @@ export default function ContactPage() {
       // Fallback for development or if API not configured
       console.log('Contact form submission:', formData);
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      router.push('/contact/thank-you');
+      router.push(`/contact/thank-you?lang=${locale}`);
       return;
     }
 
@@ -62,7 +63,7 @@ export default function ContactPage() {
       }
 
       trackContactFormSubmit(formData.subject);
-      router.push('/contact/thank-you');
+      router.push(`/contact/thank-you?lang=${locale}`);
     } catch (error) {
       console.error('Contact form error:', error);
       setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
