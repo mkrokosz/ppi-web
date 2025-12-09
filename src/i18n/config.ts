@@ -1,4 +1,4 @@
-export const locales = ['en', 'es', 'fr', 'it', 'pt', 'hi'] as const;
+export const locales = ['en', 'es', 'fr', 'it', 'ja', 'pt', 'hi'] as const;
 export const defaultLocale = 'en' as const;
 
 export type Locale = (typeof locales)[number];
@@ -9,6 +9,7 @@ export const localeNames: Record<Locale, string> = {
   es: 'Español',
   fr: 'Français',
   it: 'Italiano',
+  ja: '日本語',
   pt: 'Português',
   hi: 'हिन्दी',
 };
@@ -21,6 +22,7 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     es: 'Spanish',
     fr: 'French',
     it: 'Italian',
+    ja: 'Japanese',
     pt: 'Portuguese',
     hi: 'Hindi',
   },
@@ -29,6 +31,7 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     es: 'Español',
     fr: 'Francés',
     it: 'Italiano',
+    ja: 'Japonés',
     pt: 'Portugués',
     hi: 'Hindi',
   },
@@ -37,6 +40,7 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     es: 'Espagnol',
     fr: 'Français',
     it: 'Italien',
+    ja: 'Japonais',
     pt: 'Portugais',
     hi: 'Hindi',
   },
@@ -45,14 +49,25 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     es: 'Spagnolo',
     fr: 'Francese',
     it: 'Italiano',
+    ja: 'Giapponese',
     pt: 'Portoghese',
     hi: 'Hindi',
+  },
+  ja: {
+    en: '英語 (English)',
+    es: 'スペイン語',
+    fr: 'フランス語',
+    it: 'イタリア語',
+    ja: '日本語',
+    pt: 'ポルトガル語',
+    hi: 'ヒンディー語',
   },
   pt: {
     en: 'Inglês (English)',
     es: 'Espanhol',
     fr: 'Francês',
     it: 'Italiano',
+    ja: 'Japonês',
     pt: 'Português',
     hi: 'Hindi',
   },
@@ -61,6 +76,7 @@ export const localeNamesLocalized: Record<Locale, Record<Locale, string>> = {
     es: 'स्पेनिश',
     fr: 'फ़्रेंच',
     it: 'इतालवी',
+    ja: 'जापानी',
     pt: 'पुर्तगाली',
     hi: 'हिन्दी',
   },

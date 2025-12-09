@@ -1,0 +1,901 @@
+{
+  "metadata": {
+    "title": "プロ・プラスチックス社 | 1968年創業の精密プラスチック製造",
+    "description": "米国ニュージャージー州リンデンのカスタムプラスチック製造。1968年より航空宇宙、医療、半導体産業向けにCNC加工、ファブリケーション、材料販売を提供。"
+  },
+  "nav": {
+    "home": "ホーム",
+    "capabilities": "製造能力",
+    "cncMachining": "CNC加工",
+    "fabrication": "ファブリケーション",
+    "secondaryOperations": "二次加工",
+    "materials": "材料",
+    "materialDatabase": "材料データベース",
+    "comparisonCharts": "比較表",
+    "chemicalResistance": "耐薬品性",
+    "industries": "対応業界",
+    "portfolio": "製品紹介",
+    "about": "会社概要",
+    "contact": "お問い合わせ"
+  },
+  "common": {
+    "phone": "+1 (866) 925-5000",
+    "email": "sales@proplasticsinc.com",
+    "address": "1190 Sylvan St",
+    "cityStateZip": "Linden, NJ 07036, USA",
+    "hours": "月〜金: 8:30 AM - 4:00 PM EST（米国東部時間）",
+    "tollFree": "フリーダイヤル",
+    "learnMore": "詳細を見る",
+    "getStarted": "はじめる",
+    "viewDetails": "詳細を見る",
+    "downloadPdf": "PDFダウンロード",
+    "contactUs": "お問い合わせ",
+    "getDirections": "道順を見る",
+    "since1968": "1968年創業の精密製造",
+    "requestQuote": "見積もり依頼",
+    "callUs": "+1 (866) 925-5000 にお電話"
+  },
+  "home": {
+    "hero": {
+      "trustedSince": "1968年から信頼",
+      "subtitle": "精密プラスチック製造",
+      "description": "試作から量産まで、カスタムプラスチック部品のワンストップソリューション。精密CNC加工、ファブリケーション、そして幅広い業界向け材料販売を提供します。",
+      "getQuote": "無料見積もりを取得",
+      "viewCapabilities": "製造能力を見る"
+    },
+    "stats": {
+      "yearsExperience": "年の経験",
+      "industriesServed": "対応業界",
+      "materialsAvailable": "取扱材料",
+      "quoteTurnaround": "見積もり回答"
+    },
+    "capabilities": {
+      "cncMachining": {
+        "title": "CNC加工",
+        "description": "複雑な形状に対応した高精度CNC横型・縦型マシニング。厳しい公差要求に対応します。"
+      },
+      "customFabrication": {
+        "title": "カスタムファブリケーション",
+        "description": "ルーティング、フライス加工、穴あけ、パンチングを含むフルサービスのプラスチック加工。"
+      },
+      "materialDistribution": {
+        "title": "材料販売",
+        "description": "エンジニアリンググレードのプラスチックシート、ロッド、チューブを豊富に在庫。"
+      },
+      "prototyping": {
+        "title": "試作",
+        "description": "コンセプトから量産対応部品まで、迅速な試作開発を実現。"
+      }
+    },
+    "trustIndicators": {
+      "isoQuality": "ISO品質基準",
+      "madeInUsa": "米国製",
+      "fastTurnaround": "迅速な納期",
+      "expertSupport": "専門家サポート"
+    },
+    "sections": {
+      "capabilities": {
+        "title": "製造能力",
+        "subtitle": "複雑なCNC加工から大量生産まで、お客様のニーズに合わせた精密プラスチックソリューションを提供します。"
+      },
+      "industries": {
+        "title": "対応業界",
+        "subtitle": "ミッションクリティカルなプラスチック部品について、様々な業界のリーディングカンパニーから信頼されています。"
+      },
+      "whyChooseUs": {
+        "title": "プロ・プラスチックスが選ばれる理由",
+        "subtitle": "55年以上の経験を持ち、伝統的な職人技と最新の精密製造技術を融合し、毎回優れた結果をお届けします。",
+        "learnMore": "会社について詳しく見る"
+      },
+      "testimonials": {
+        "title": "お客様の声",
+        "subtitle": "私たちの言葉だけでなく、精密プラスチック加工を信頼してくださっている企業の声をお聞きください。"
+      }
+    },
+    "features": {
+      "zeroDefect": "ゼロ欠陥品質へのコミットメント",
+      "onTimeDelivery": "納期厳守保証",
+      "expertGuidance": "材料選定の専門アドバイス",
+      "competitivePricing": "競争力のある価格設定",
+      "rapidQuote": "迅速な見積もり対応",
+      "customSolutions": "あらゆる業界向けカスタムソリューション"
+    },
+    "quickTurnaround": {
+      "title": "迅速な対応",
+      "subtitle": "24時間以内に見積もり"
+    },
+    "testimonials": {
+      "testimonial1": {
+        "quote": "プロ・プラスチックスは10年以上、精密部品の主要サプライヤーです。品質と納期は他に類を見ません。",
+        "author": "技術部長",
+        "company": "航空宇宙製造会社"
+      },
+      "testimonial2": {
+        "quote": "プロ・プラスチックスの材料に関する専門知識により、医療機器用途に最適なFDA準拠プラスチックを選定できました。",
+        "author": "製品開発マネージャー",
+        "company": "医療機器スタートアップ"
+      },
+      "testimonial3": {
+        "quote": "試作から量産まで、まさに必要なものを提供してくれました。半導体用途に強くお勧めします。",
+        "author": "オペレーションリーダー",
+        "company": "半導体装置サプライヤー"
+      }
+    },
+    "cta": {
+      "title": "プロジェクトを始めませんか？",
+      "subtitle": "図面をアップロードすれば、24時間以内に詳細な見積もりをお届けします。お客様のビジョン実現をサポートいたします。"
+    }
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "製造能力についてのご質問や見積もりのご依頼がございましたら、お気軽にご連絡ください。迅速に対応いたします。",
+    "getInTouch": "お問い合わせ先",
+    "phone": "電話",
+    "emailLabel": "メール",
+    "salesQuotes": "営業・見積もり",
+    "addressLabel": "住所",
+    "hoursLabel": "営業時間",
+    "mondayFriday": "月曜日〜金曜日",
+    "closedWeekend": "土曜日・日曜日は休業",
+    "needQuote": "見積もりが必要ですか？",
+    "quoteDescription": "より迅速な対応のために、見積もり依頼フォームから直接図面をアップロードしてください。",
+    "sendMessage": "メッセージを送る",
+    "form": {
+      "firstName": "名",
+      "lastName": "姓",
+      "email": "メールアドレス",
+      "phone": "電話番号（任意）",
+      "company": "会社名（任意）",
+      "subject": "件名",
+      "selectSubject": "件名を選択...",
+      "subjectQuote": "見積もり依頼",
+      "subjectCapabilities": "製造能力に関する質問",
+      "subjectMaterials": "材料情報",
+      "subjectOrder": "注文状況",
+      "subjectOther": "その他",
+      "message": "メッセージ",
+      "messagePlaceholder": "どのようなご用件でしょうか？",
+      "send": "送信する",
+      "sending": "送信中...",
+      "required": "*"
+    }
+  },
+  "quote": {
+    "title": "見積もり依頼",
+    "subtitle": "カスタムプラスチック部品の詳細見積もりを取得できます。図面と仕様をアップロードしていただければ、24時間以内にご連絡いたします。",
+    "ndaAvailable": "ご要望に応じてNDA対応可能",
+    "questions": "ご質問は +1 (866) 925-5000 まで"
+  },
+  "materials": {
+    "title": "材料データベース",
+    "subtitle": "エンジニアリングプラスチックの総合在庫をご覧ください。検索可能なデータベースで、用途に最適な材料を見つけてください。",
+    "searchPlaceholder": "材料名や説明で検索...",
+    "showing": "（全{total}材料中{count}件表示）",
+    "tempRange": "使用温度範囲",
+    "availableForms": "利用可能な形状",
+    "keyProperties": "主要特性",
+    "filters": "フィルター",
+    "properties": "特性",
+    "applications": "用途",
+    "activeFilters": "適用中のフィルター：",
+    "clearAll": "すべてクリア",
+    "noResults": "現在のフィルターに一致する材料がありません。",
+    "clearFilters": "フィルターをクリア",
+    "viewDetails": "詳細を見る",
+    "categories": {
+      "all": "すべて",
+      "highPerformance": "高性能",
+      "engineering": "エンジニアリング",
+      "fluoropolymer": "フッ素樹脂",
+      "thermoset": "熱硬化性",
+      "standard": "汎用"
+    },
+    "propertyNames": {
+      "highTemperature": "高温耐性",
+      "chemicalResistant": "耐薬品性",
+      "fdaCompliant": "FDA準拠",
+      "lowFriction": "低摩擦",
+      "flameRetardant": "難燃性",
+      "wearResistant": "耐摩耗性",
+      "machinable": "加工性良好",
+      "impactResistant": "耐衝撃性",
+      "electricalInsulation": "電気絶縁性",
+      "opticallyClear": "光学的透明性",
+      "uvResistant": "耐紫外線性",
+      "highStrength": "高強度"
+    },
+    "applicationNames": {
+      "aerospace": "航空宇宙",
+      "medical": "医療",
+      "semiconductor": "半導体",
+      "electronics": "電子機器",
+      "automotive": "自動車",
+      "foodProcessing": "食品加工",
+      "chemicalProcessing": "化学プロセス",
+      "materialHandling": "マテリアルハンドリング",
+      "industrial": "産業用",
+      "safety": "安全",
+      "glazing": "グレージング",
+      "display": "ディスプレイ",
+      "lighting": "照明",
+      "electrical": "電気",
+      "waterTreatment": "水処理"
+    },
+    "forms": {
+      "sheet": "シート",
+      "rod": "ロッド",
+      "tube": "チューブ"
+    },
+    "resources": {
+      "title": "材料リソース",
+      "subtitle": "適切な材料選定に役立つ追加ツール。",
+      "comparison": {
+        "title": "比較表",
+        "description": "材料選定を支援する特性の並列比較。"
+      },
+      "chemicalResistance": {
+        "title": "耐薬品性ガイド",
+        "description": "各種化学物質との材料適合性に関する総合ガイド。"
+      },
+      "milSpec": {
+        "title": "軍事仕様",
+        "description": "防衛用途向けMIL-SPEC要件を満たす材料。"
+      },
+      "viewCharts": "比較表を見る",
+      "viewGuide": "ガイドを見る",
+      "viewSpecs": "仕様を見る"
+    },
+    "cta": {
+      "title": "材料選定でお困りですか？",
+      "subtitle": "当社の材料専門家が、お客様の具体的な用途要件に適したプラスチックの選定をお手伝いします。",
+      "contactExperts": "専門家に相談する"
+    },
+    "expertHelp": {
+      "title": "材料選定でお困りですか？",
+      "subtitle": "当社のエンジニアが、お客様の具体的な用途要件に最適な材料の選定をお手伝いします。",
+      "cta": "専門家に相談する"
+    },
+    "items": {
+      "peek": {
+        "name": "PEEK（ポリエーテルエーテルケトン）",
+        "description": "高温での優れた機械的特性を持つプレミアム高性能熱可塑性樹脂。"
+      },
+      "ultem": {
+        "name": "Ultem（PEI）",
+        "description": "高強度、高剛性、広範な耐薬品性を持つポリエーテルイミド。"
+      },
+      "delrin": {
+        "name": "Delrin（アセタール）",
+        "description": "優れた寸法安定性と加工性を持つ高強度アセタールホモポリマー。"
+      },
+      "nylon": {
+        "name": "ナイロン6/6",
+        "description": "優れた耐摩耗性と機械的特性を持つ汎用エンジニアリングプラスチック。"
+      },
+      "teflon": {
+        "name": "PTFE（テフロン）",
+        "description": "固体材料中最低の摩擦係数と卓越した耐薬品性。"
+      },
+      "uhmw": {
+        "name": "UHMW ポリエチレン",
+        "description": "優れた耐摩耗性と耐衝撃性を持つ超高分子量ポリエチレン。"
+      },
+      "polycarbonate": {
+        "name": "ポリカーボネート",
+        "description": "事実上割れにくく、優れた光学的透明性と耐衝撃性を持つ。"
+      },
+      "acrylic": {
+        "name": "アクリル（PMMA）",
+        "description": "優れた光学特性と耐候性を持つクリスタルクリアな熱可塑性樹脂。"
+      },
+      "phenolic": {
+        "name": "フェノール（キャンバス/リネン）",
+        "description": "優れた電気的・機械的特性を持つ布強化積層板。"
+      },
+      "g10": {
+        "name": "G-10/FR-4（ガラスエポキシ）",
+        "description": "優れた電気的・機械的特性を持つガラス布強化エポキシ。"
+      },
+      "pvc": {
+        "name": "PVC（タイプI & II）",
+        "description": "良好な耐薬品性と難燃性を持つコスト効率の高い材料。"
+      },
+      "hdpe": {
+        "name": "HDPE",
+        "description": "優れた耐薬品性と低吸水性を持つ高密度ポリエチレン。"
+      }
+    }
+  },
+  "comparison": {
+    "title": "材料比較表",
+    "subtitle": "用途に適した材料を選定するための特性並列比較。",
+    "tableTitle": "エンジニアリングプラスチック比較",
+    "tableSubtitle": "一般的なエンジニアリングプラスチックの主要特性を比較",
+    "property": "特性",
+    "downloadPdf": "PDFダウンロード",
+    "quickGuide": "材料選定クイックガイド",
+    "disclaimer": "* 表示値は代表値であり、グレードにより異なる場合があります。詳細な材料データシートについてはお問い合わせください。",
+    "breadcrumb": {
+      "materials": "材料",
+      "comparison": "比較表"
+    },
+    "properties": {
+      "maxServiceTemp": "最高使用温度",
+      "tensileStrength": "引張強度 (psi)",
+      "flexuralModulus": "曲げ弾性率 (psi)",
+      "impactStrength": "衝撃強度",
+      "chemicalResistance": "耐薬品性",
+      "wearResistance": "耐摩耗性",
+      "machinability": "加工性",
+      "fdaCompliant": "FDA準拠",
+      "relativeCost": "相対コスト"
+    },
+    "ratings": {
+      "excellent": "優秀",
+      "good": "良好",
+      "fair": "普通",
+      "yes": "はい",
+      "no": "いいえ"
+    },
+    "selectionGuide": {
+      "highTemperature": {
+        "need": "高温耐性",
+        "materials": "PEEK、Ultem、PTFE",
+        "note": "250°F以上の用途向け"
+      },
+      "chemicalResistance": {
+        "need": "耐薬品性",
+        "materials": "PTFE、PEEK、UHMW",
+        "note": "過酷な化学環境向け"
+      },
+      "wearResistance": {
+        "need": "耐摩耗性",
+        "materials": "UHMW、Delrin、PEEK",
+        "note": "摺動・ベアリング用途向け"
+      },
+      "fdaCompliance": {
+        "need": "FDA準拠",
+        "materials": "UHMW、Delrin、PTFE、ナイロン",
+        "note": "食品接触用途向け"
+      },
+      "lowCost": {
+        "need": "低コスト",
+        "materials": "UHMW、ナイロン、Delrin",
+        "note": "予算重視の選択肢"
+      },
+      "easyMachining": {
+        "need": "易加工性",
+        "materials": "Delrin、ナイロン、UHMW",
+        "note": "複雑な形状向け"
+      }
+    },
+    "needHelp": {
+      "title": "材料選定でお困りですか？",
+      "subtitle": "当社の材料専門家が、お客様の具体的な用途要件に最適なプラスチックの選定をお手伝いします。",
+      "contactExperts": "専門家に相談する",
+      "browseAll": "全材料を見る"
+    }
+  },
+  "chemicalResistance": {
+    "title": "耐薬品性ガイド",
+    "subtitle": "各種化学物質とプラスチック材料の適合性に関する総合ガイド。化学環境に適した材料を見つけてください。",
+    "legend": "凡例：",
+    "excellent": "E = 優秀",
+    "good": "G = 良好",
+    "fair": "F = 普通",
+    "notRecommended": "N = 非推奨",
+    "searchPlaceholder": "化学物質を検索...",
+    "showing": "{total}件中{count}件表示",
+    "chemical": "化学物質",
+    "category": "カテゴリ",
+    "downloadPdf": "PDFダウンロード",
+    "disclaimer": "* 表示データは室温での一般的なガイダンスです。実際の性能は濃度、温度、曝露時間により異なる場合があります。具体的な用途については必ずテストを行ってください。",
+    "breadcrumb": {
+      "materials": "材料",
+      "chemicalResistance": "耐薬品性ガイド"
+    },
+    "categories": {
+      "all": "すべて",
+      "acids": "酸",
+      "bases": "塩基",
+      "solvents": "溶剤",
+      "fuels": "燃料",
+      "alcohols": "アルコール",
+      "oxidizers": "酸化剤",
+      "oils": "油",
+      "water": "水"
+    },
+    "needData": {
+      "title": "特定の化学適合性データが必要ですか？",
+      "subtitle": "詳細な耐薬品性情報や具体的な用途要件についてはお問い合わせください。",
+      "contactExperts": "専門家に相談する",
+      "browseAll": "全材料を見る"
+    }
+  },
+  "industries": {
+    "title": "対応業界",
+    "subtitle": "航空宇宙から食品加工まで、世界で最も要求の厳しい業界に精密プラスチックソリューションを提供します。",
+    "aerospace": "航空宇宙",
+    "medical": "医療",
+    "semiconductor": "半導体",
+    "electronics": "電子機器",
+    "automotive": "自動車",
+    "chemicalProcessing": "化学プロセス",
+    "waterTreatment": "水処理",
+    "construction": "建設",
+    "foodProcessing": "食品加工",
+    "commonMaterials": "一般的な材料",
+    "typicalApplications": "代表的な用途",
+    "compliance": "適合規格",
+    "items": {
+      "aerospace": {
+        "name": "航空宇宙",
+        "description": "航空機、人工衛星、防衛用途向けの精密部品。厳格な航空宇宙基準に適合した材料と工程。",
+        "applications": ["構造絶縁体", "ベアリング部品", "摩耗部品", "電気ハウジング"],
+        "compliance": ["AS9100対応可能", "ITAR登録済み", "MIL-SPEC材料"]
+      },
+      "medical": {
+        "name": "医療・ライフサイエンス",
+        "description": "医療機器、研究機器、製薬用途向けのFDA準拠材料。",
+        "applications": ["手術器具", "診断装置", "研究用固定具", "インプラント部品"],
+        "compliance": ["FDA準拠材料", "USPクラスVI", "ISO 13485対応可能"]
+      },
+      "semiconductor": {
+        "name": "半導体",
+        "description": "ウェーハハンドリング、チップ加工、クリーンルーム環境向けの超清浄部品。",
+        "applications": ["ウェーハハンドリング", "薬液供給", "プロセスチャンバー", "テスト治具"],
+        "compliance": ["クリーンルーム対応", "低アウトガス", "ESDセーフオプション"]
+      },
+      "electronics": {
+        "name": "電子機器",
+        "description": "電子機器・システム向けの絶縁部品、コネクタ、ハウジング。",
+        "applications": ["基板スタンドオフ", "コネクタボディ", "絶縁スペーサー", "EMIシールド"],
+        "compliance": ["UL認定", "RoHS準拠", "難燃性オプション"]
+      },
+      "automotive": {
+        "name": "自動車",
+        "description": "エンジンルーム部品から内装トリム部品まで、車両用の耐久性部品。",
+        "applications": ["ブッシング・ベアリング", "燃料系部品", "電気絶縁体", "摩耗部品"],
+        "compliance": ["IATF 16949対応可能", "自動車グレード材料"]
+      },
+      "chemical": {
+        "name": "化学プロセス",
+        "description": "過酷な化学環境および処理装置向けの耐腐食性部品。",
+        "applications": ["バルブシート", "ポンプ部品", "タンクライニング", "ガスケット・シール"],
+        "compliance": ["耐薬品性認証", "FDA準拠オプション"]
+      },
+      "water": {
+        "name": "水処理",
+        "description": "ろ過システム、ポンプ、水処理装置向け部品。",
+        "applications": ["フィルターハウジング", "ポンプ部品", "バルブ部品", "配管システム"],
+        "compliance": ["NSF/ANSI 61材料", "飲料水適合"]
+      },
+      "food": {
+        "name": "食品加工",
+        "description": "食品接触・加工用途向けのFDA準拠・USDA認定材料。",
+        "applications": ["コンベア部品", "カッティング面", "ガイドレール", "包装装置"],
+        "compliance": ["FDA準拠", "USDA認定", "3-A乳製品"]
+      },
+      "construction": {
+        "name": "建設・産業",
+        "description": "建設機器、マテリアルハンドリング、産業機械向けの高耐久部品。",
+        "applications": ["摩耗ストリップ", "ブッシング", "ローラーガイド", "構造部品"],
+        "compliance": ["高荷重対応", "耐候性"]
+      }
+    },
+    "crossIndustry": {
+      "title": "業界横断的な専門知識",
+      "description": "55年以上の経験により、各業界には固有の要件があることを理解しています。お客様と緊密に連携し、すべての部品がお客様固有の基準を満たすようにします。",
+      "features": [
+        "用途に応じた材料選定ガイダンス",
+        "製造性を考慮した設計（DFM）サポート",
+        "業界固有の適合規格・認証",
+        "品質文書とトレーサビリティ",
+        "試作から量産へのスケーラビリティ"
+      ]
+    },
+    "dontSee": {
+      "title": "お探しの業界がありませんか？",
+      "description": "リストにある以外にも多くの専門分野に対応しています。具体的な用途要件についてはお問い合わせください。"
+    },
+    "cta": {
+      "title": "始める準備はできましたか？",
+      "subtitle": "仕様書をお送りください。専門家がお客様の業界用途に適したソリューションをご提案します。"
+    }
+  },
+  "portfolio": {
+    "title": "製品紹介",
+    "subtitle": "様々な業界のお客様向けに製造した精密プラスチック部品の例をご覧ください。",
+    "photoComingSoon": "写真準備中",
+    "process": "加工方法",
+    "tolerance": "公差",
+    "confidentiality": "お客様との機密保持契約により、プロジェクトの詳細を一部のみ公開しています。具体的な用途の製造能力については、お問い合わせください。",
+    "whatWeDo": "提供可能なサービス",
+    "whatWeDoSubtitle": "当社のポートフォリオは製造能力の一例です。",
+    "filterAll": "すべて",
+    "processes": {
+      "cncMachining": "CNC加工",
+      "cncTurning": "CNC旋盤加工",
+      "fabrication": "ファブリケーション"
+    },
+    "categories": {
+      "aerospace": "航空宇宙",
+      "medical": "医療",
+      "semiconductor": "半導体",
+      "electronics": "電子機器",
+      "automotive": "自動車",
+      "chemical": "化学",
+      "foodProcessing": "食品加工",
+      "industrial": "産業用",
+      "waterTreatment": "水処理"
+    },
+    "capabilities": {
+      "cncMachining": {
+        "title": "CNC加工",
+        "desc": "公差±0.001\"の複雑な形状に対応"
+      },
+      "fabrication": {
+        "title": "ファブリケーション",
+        "desc": "切断、ルーティング、接着、組立"
+      },
+      "materialDistribution": {
+        "title": "材料販売",
+        "desc": "1000種以上の材料在庫"
+      },
+      "secondaryOps": {
+        "title": "二次加工",
+        "desc": "ねじ切り、仕上げなど"
+      }
+    },
+    "items": {
+      "peekInsulators": {
+        "title": "高精度PEEK絶縁体",
+        "description": "航空機電気系統向けの高温絶縁体、厳密な公差で加工。"
+      },
+      "medicalDevice": {
+        "title": "医療機器部品",
+        "description": "診断画像装置向けFDA準拠ハウジングおよびブラケット。"
+      },
+      "semiconductorWafer": {
+        "title": "半導体ウェーハハンドリング",
+        "description": "クリーンルーム環境向け超清浄ウェーハキャリアおよびハンドリング治具。"
+      },
+      "nylonBushings": {
+        "title": "カスタムナイロンブッシング",
+        "description": "自動車サスペンションシステム向け大量生産耐摩耗ブッシング。"
+      },
+      "valveSeats": {
+        "title": "化学プロセス用バルブシート",
+        "description": "過酷な化学環境向け耐腐食性バルブ部品。"
+      },
+      "conveyorParts": {
+        "title": "食品グレードコンベア部品",
+        "description": "食品包装ライン向けFDA準拠摩耗ストリップおよびガイドレール。"
+      },
+      "circuitBoardStandoffs": {
+        "title": "基板スタンドオフ",
+        "description": "高密度PCBアセンブリ向け難燃性絶縁スタンドオフ。"
+      },
+      "opticalHousings": {
+        "title": "光学レンズハウジング",
+        "description": "産業用光学計測装置向け精密ハウジング。"
+      },
+      "waterTreatment": {
+        "title": "水処理部品",
+        "description": "自治体水道システム向け耐薬品性フィッティングおよびマニホールド。"
+      }
+    },
+    "cta": {
+      "title": "同様のプロジェクトがありますか？",
+      "subtitle": "図面をお送りいただければ、24時間以内に詳細な見積もりをご提供します。複雑な案件でもお任せください。"
+    }
+  },
+  "about": {
+    "title": "プロ・プラスチックス社について",
+    "subtitle": "55年以上にわたり、プラスチック部品製造とファブリケーションの信頼されるパートナーとして、精度、品質、献身をもって世界中の多様な業界にサービスを提供しています。",
+    "story": {
+      "title": "私たちの歴史",
+      "paragraph1": "1968年創業のプロ・プラスチックス社は、ニュージャージー州リンデンの小さなプラスチック加工工場から始まりました。地域密着の事業からスタートし、現在では世界中の企業から信頼される製造パートナーに成長しました。",
+      "paragraph2": "創業者は、精密製造は企業規模に関係なく利用可能であるべきと考えていました。その理念は今日も受け継がれています。試作品1個から数千個の量産部品まで、同じ卓越した品質と細部へのこだわりをお届けします。",
+      "paragraph3": "50年以上にわたり、最新のCNC技術への投資、材料知識の拡大、そしてすべての製造部品に誇りを持つ熟練技術者チームの育成を続けてきました。現在、航空宇宙から医療機器まで12の異なる業界にサービスを提供していることを誇りに思います。",
+      "facilityCaption": "ニュージャージー州リンデン工場"
+    },
+    "timeline": {
+      "title": "私たちの歩み",
+      "subtitle": "55年以上にわたる継続的な成長、革新、そして卓越性へのコミットメント。",
+      "1968": {
+        "title": "会社設立",
+        "description": "ニュージャージー州リンデンにプロ・プラスチックス社を設立、基本的なプラスチック加工サービスを開始。"
+      },
+      "1980s": {
+        "title": "拡大と成長",
+        "description": "CNC加工を含む製造能力を拡大、航空宇宙および医療業界へのサービスを開始。"
+      },
+      "1990s": {
+        "title": "技術投資",
+        "description": "精密CNC設備への大規模投資により、高精度加工における評価を確立。"
+      },
+      "2000s": {
+        "title": "材料販売事業",
+        "description": "包括的な材料販売部門を立ち上げ、お客様へのワンストップサービスを実現。"
+      },
+      "2010s": {
+        "title": "業界リーダーシップ",
+        "description": "12以上の業界にサービスを提供し、グローバルな展開で主要プラスチックメーカーとして認知。"
+      },
+      "today": {
+        "title": "革新の継続",
+        "description": "品質へのコミットメントを維持しながら、先進製造技術への投資を継続。"
+      }
+    },
+    "values": {
+      "title": "コアバリュー",
+      "subtitle": "すべての行動を導く原則。",
+      "qualityFirst": {
+        "title": "品質第一",
+        "description": "材料選定から最終検査まで、ゼロ欠陥へのコミットメント。すべての部品が正確な仕様を満たします。"
+      },
+      "onTimeDelivery": {
+        "title": "納期厳守",
+        "description": "お客様の生産スケジュールは私たちに依存しています。確実な納品は私たちの約束です。"
+      },
+      "customerPartnership": {
+        "title": "顧客パートナーシップ",
+        "description": "お客様のエンジニアリングチームと共に、具体的な用途に最適なソリューションを見つけます。"
+      },
+      "integrity": {
+        "title": "誠実さ",
+        "description": "正直なコミュニケーション、公正な価格設定、そして製造するすべての製品への責任。"
+      }
+    },
+    "team": {
+      "title": "私たちのチーム",
+      "subtitle": "精密な結果を提供することに専念する熟練した専門家たち。",
+      "leadership": {
+        "title": "経営陣",
+        "description": "数十年の製造経験を持つ経験豊富なマネジメントチーム。"
+      },
+      "engineering": {
+        "title": "エンジニアリング",
+        "description": "製造性を考慮した設計最適化を支援する技術専門家。"
+      },
+      "production": {
+        "title": "製造",
+        "description": "すべての部品に精度をもたらす熟練機械工とファブリケーター。"
+      }
+    },
+    "quality": {
+      "title": "品質と認証",
+      "description": "品質は単なる目標ではなく、すべてのプロセスに組み込まれています。入荷材料検査から最終品質チェックまで、業界要件を満たすまたは超える厳格な基準を維持しています。",
+      "certifications": {
+        "iso": "ISO 9001:2015 品質マネジメント",
+        "fda": "FDA準拠材料",
+        "rohs": "RoHS準拠",
+        "itar": "ITAR登録済み",
+        "ul": "UL認定材料",
+        "milSpec": "軍事仕様対応可能"
+      },
+      "promise": {
+        "title": "品質保証",
+        "item1": "重要寸法の100%検査",
+        "item2": "完全な材料トレーサビリティと認証",
+        "item3": "必要に応じた統計的工程管理",
+        "item4": "初品検査報告書対応可能"
+      }
+    },
+    "cta": {
+      "title": "一緒に働きましょう",
+      "subtitle": "55年以上精密プラスチック製造を提供してきた企業とパートナーシップを結びませんか。"
+    }
+  },
+  "capabilities": {
+    "title": "製造能力",
+    "subtitle": "精密CNC加工から完全なファブリケーションサービスまで、最も要求の厳しいプラスチック製造要件に対応する設備と専門知識を備えています。",
+    "whatWeDo": "サービス内容",
+    "whatWeDoSubtitle": "一つ屋根の下で包括的なプラスチック製造サービスを提供。",
+    "keyFeatures": "主な特徴：",
+    "compatibleMaterials": "対応材料：",
+    "ourEquipment": "設備",
+    "ourEquipmentSubtitle": "最高基準で維持された近代的な製造設備。",
+    "precisionTolerances": "精密公差",
+    "precisionTolerancesSubtitle": "最も厳しい寸法要件に対応可能。",
+    "ourProcess": "製造プロセス",
+    "ourProcessSubtitle": "見積もりから納品まで、すべての段階で品質を確保。",
+    "servingIndustries": "重要産業へのサービス",
+    "servingIndustriesSubtitle": "航空宇宙、医療、半導体、その他の精密産業の要求の厳しい用途をサポート。",
+    "viewIndustries": "対応業界を見る",
+    "projectCta": {
+      "title": "プロジェクトをお持ちですか？",
+      "subtitle": "図面と仕様をお送りください。24時間以内に詳細な見積もりと製造に関するアドバイスをご提供します。"
+    },
+    "items": {
+      "cncMachining": {
+        "title": "CNC加工",
+        "description": "複雑な形状と厳しい公差に対応した最新のCNC横型・縦型マシニングセンター。",
+        "features": ["横型・縦型マシニングセンター", "多軸加工能力", "公差±0.001\"まで対応", "複雑な3D輪郭", "大型加工対応可能"]
+      },
+      "fabrication": {
+        "title": "カスタムファブリケーション",
+        "description": "切断、ルーティング、接着、カスタム部品組立を含むフルサービスのプラスチック加工。",
+        "features": ["精密切断・ルーティング", "穴あけ・タッピング", "曲げ・成形", "溶剤・接着剤接合", "組立サービス"]
+      },
+      "secondaryOperations": {
+        "title": "二次加工",
+        "description": "ねじ切り、熱処理、表面仕上げを含む完全な仕上げサービス。",
+        "features": ["ねじ切り・タッピング", "熱処理/アニーリング", "表面研削", "研磨・仕上げ", "マーキング・刻印"]
+      }
+    },
+    "equipment": {
+      "cncHorizontalMills": "CNC横型フライス盤",
+      "cncVerticalMills": "CNC縦型フライス盤",
+      "cncLathes": "CNC旋盤",
+      "manualMills": "汎用フライス盤",
+      "bandSaws": "バンドソー",
+      "routers": "ルーター"
+    },
+    "toleranceTypes": {
+      "standard": "標準",
+      "precision": "精密",
+      "highPrecision": "高精密",
+      "surfaceFinish": "表面仕上げ"
+    },
+    "processSteps": {
+      "step1": { "title": "見積もり依頼", "desc": "図面を提出してレビュー" },
+      "step2": { "title": "エンジニアリングレビュー", "desc": "DFM分析と材料選定" },
+      "step3": { "title": "製造", "desc": "精密加工" },
+      "step4": { "title": "品質検査", "desc": "検査と検証" },
+      "step5": { "title": "納品", "desc": "安全な梱包と出荷" }
+    },
+    "industries": {
+      "aerospace": "航空宇宙",
+      "medical": "医療",
+      "semiconductor": "半導体",
+      "electronics": "電子機器",
+      "automotive": "自動車",
+      "chemical": "化学"
+    },
+    "cncMachining": {
+      "title": "CNC加工",
+      "breadcrumb": "CNC加工",
+      "subtitle": "最も要求の厳しい用途に対して公差±0.001\"の精密プラスチック部品を提供する最新のCNCマシニングセンター。",
+      "overviewTitle": "精密CNC加工サービス",
+      "overviewParagraph1": "当社のCNC加工部門は、高度な多軸設備と数十年のプラスチック加工の専門知識を組み合わせています。金属加工とは異なり、プラスチックは最適な結果を得るために材料挙動、切削条件、熱管理に関する専門知識が必要です。",
+      "overviewParagraph2": "単純な旋盤加工品から複雑な5軸部品まで、優れた表面仕上げを確保しながら厳しい公差を維持して加工します。設計から量産まで、製造性を最適化するためにお客様と協力します。",
+      "equipmentTitle": "設備と能力",
+      "features": [
+        "横型マシニングセンター",
+        "縦型マシニングセンター",
+        "多軸加工能力（3軸、4軸、5軸）",
+        "48\" x 96\"までの大型加工",
+        "高速加工による精密仕上げ",
+        "複雑な3D輪郭と形状"
+      ],
+      "applicationsTitle": "業界用途",
+      "applications": {
+        "aerospace": { "name": "航空宇宙", "parts": "構造絶縁体、ベアリングハウジング、摩耗部品" },
+        "medical": { "name": "医療", "parts": "手術器具部品、診断ハウジング" },
+        "semiconductor": { "name": "半導体", "parts": "ウェーハハンドリング、プロセスチャンバー部品" },
+        "electronics": { "name": "電子機器", "parts": "コネクタボディ、絶縁スペーサー" }
+      },
+      "tolerances": "公差",
+      "materialsTitle": "加工対応材料",
+      "viewAllMaterials": "全材料を見る",
+      "haveProject": "プロジェクトがありますか？",
+      "haveProjectDesc": "図面をお送りいただければ、24時間以内に詳細な見積もりをご提供します。",
+      "otherCapabilities": "その他の製造能力"
+    },
+    "fabrication": {
+      "title": "カスタムファブリケーション",
+      "breadcrumb": "ファブリケーション",
+      "subtitle": "カスタム部品・アセンブリ向けの切断、ルーティング、曲げ、接着、組立を含むフルサービスのプラスチック加工。",
+      "overviewTitle": "完全なファブリケーションサービス",
+      "overviewParagraph1": "当社のファブリケーション部門は、単純なシート切断から複雑な複数部品アセンブリまですべてに対応します。伝統的なファブリケーション技術と最新のCNC設備を組み合わせ、一貫した高品質な結果を提供します。",
+      "overviewParagraph2": "試作品1個から量産まで、経験豊富なファブリケーターが幅広いプラスチック材料を加工し、仕様を満たします。",
+      "capabilitiesTitle": "ファブリケーション能力",
+      "features": [
+        "精密切断・鋸加工",
+        "CNCルーティング",
+        "穴あけ・タッピング",
+        "曲げ・成形",
+        "溶剤・接着剤接合",
+        "溶接（熱風、超音波）",
+        "組立サービス",
+        "カスタム治具・固定具"
+      ],
+      "applicationsTitle": "一般的な用途",
+      "applications": {
+        "industrial": { "name": "産業用", "parts": "機械ガード、カバー、エンクロージャー" },
+        "display": { "name": "ディスプレイ", "parts": "店頭ディスプレイ、サイネージ" },
+        "foodProcessing": { "name": "食品加工", "parts": "コンベア部品、ガード" },
+        "waterTreatment": { "name": "水処理", "parts": "タンク、フィッティング、マニホールド" }
+      },
+      "materialsTitle": "ファブリケーション対応材料",
+      "viewAllMaterials": "全材料を見る",
+      "sizeCapabilities": "サイズ対応範囲",
+      "maxSheetSize": "最大シートサイズ",
+      "maxThickness": "最大厚さ",
+      "minOrder": "最小注文数",
+      "haveProject": "プロジェクトがありますか？",
+      "haveProjectDesc": "図面をお送りいただければ、24時間以内に詳細な見積もりをご提供します。",
+      "otherCapabilities": "その他の製造能力"
+    },
+    "secondaryOperations": {
+      "title": "二次加工",
+      "breadcrumb": "二次加工",
+      "subtitle": "すぐに使用可能な部品を納品するためのねじ切り、熱処理、表面仕上げ、マーキング、組立を含む完全な仕上げサービス。",
+      "overviewTitle": "完全な部品仕上げ",
+      "overviewParagraph1": "当社の二次加工部門は、お客様の部品がすぐに使用可能な状態で納品されることを保証します。単純なバリ取りから複雑な組立まで、加工部品を完成品に仕上げるすべての作業に対応します。",
+      "overviewParagraph2": "二次加工を社内で行うことで、製造プロセス全体を通じて品質管理を維持し、これらのサービスを外注する場合と比較してリードタイムを短縮します。",
+      "servicesTitle": "利用可能なサービス",
+      "operations": {
+        "threading": { "name": "ねじ切り・タッピング", "description": "内ねじ・外ねじ、ヘリコイルインサート、ねじインサート" },
+        "heatTreatment": { "name": "熱処理", "description": "応力除去と寸法安定性向上のためのアニーリング" },
+        "surfaceGrinding": { "name": "表面研削", "description": "厳しい平面度要件のための精密表面仕上げ" },
+        "polishing": { "name": "研磨・仕上げ", "description": "フレームポリッシュ、バフ研磨、カスタム表面処理" },
+        "marking": { "name": "マーキング・刻印", "description": "レーザーマーキング、刻印、部品識別" },
+        "bonding": { "name": "接合・溶接", "description": "溶剤接合、超音波溶接、熱風溶接" },
+        "assembly": { "name": "組立", "description": "ハードウェア付きサブアセンブリおよびフルアセンブリサービス" },
+        "packaging": { "name": "梱包", "description": "出荷およびプレゼンテーション用カスタム梱包" }
+      },
+      "surfaceFinishes": "表面仕上げ",
+      "finishes": ["加工そのまま", "フレームポリッシュ", "バフ/研磨", "ビーズブラスト", "サンディング（各種グリット）", "ベーパーポリッシュ"],
+      "benefitsTitle": "社内仕上げのメリット",
+      "benefits": ["単一の連絡窓口", "一貫した品質管理", "短縮されたリードタイム", "低い総コスト", "より良いコミュニケーション"],
+      "haveProject": "プロジェクトがありますか？",
+      "haveProjectDesc": "図面をお送りいただければ、24時間以内に詳細な見積もりをご提供します。",
+      "otherCapabilities": "その他の製造能力",
+      "otherCaps": {
+        "cncMachining": { "name": "CNC加工", "desc": "公差±0.001\"の精密加工" },
+        "fabrication": { "name": "ファブリケーション", "desc": "切断、ルーティング、接着、組立" }
+      }
+    }
+  },
+  "footer": {
+    "tagline": "カスタムプラスチック部品製造およびファブリケーションの信頼されるパートナー。航空宇宙、医療、半導体などにサービスを提供。",
+    "company": "会社情報",
+    "capabilities": "製造能力",
+    "resources": "リソース",
+    "industries": "対応業界",
+    "copyright": "Pro Plastics Inc. All rights reserved.",
+    "links": {
+      "aboutUs": "会社概要",
+      "ourTeam": "チーム紹介",
+      "facilityTour": "工場見学",
+      "qualityCertifications": "品質と認証",
+      "chemicalResistanceGuide": "耐薬品性ガイド"
+    }
+  },
+  "errors": {
+    "notFound": "ページが見つかりません",
+    "notFoundDescription": "お探しのページは存在しないか、移動した可能性があります。",
+    "backHome": "ホームに戻る"
+  },
+  "thankYou": {
+    "contact": {
+      "heroTitle": "お問い合わせ",
+      "title": "メッセージ送信完了！",
+      "description": "お問い合わせありがとうございます。1営業日以内にご連絡いたします。",
+      "whatHappensNext": "今後の流れ",
+      "step1": "チームがメッセージを確認します",
+      "step2": "メールまたは電話でご連絡いたします",
+      "step3": "1営業日以内にお返事いたします",
+      "returnHome": "ホームに戻る",
+      "viewCapabilities": "製造能力を見る",
+      "needImmediate": "お急ぎの場合は？",
+      "callUs": "+1 (866) 925-5000 にお電話"
+    },
+    "quote": {
+      "heroTitle": "見積もり依頼",
+      "title": "見積もり依頼受付完了！",
+      "description": "見積もり依頼ありがとうございます。チームがご要件を確認し、24時間以内に詳細な見積もりをお送りします。",
+      "whatHappensNext": "今後の流れ",
+      "step1": "エンジニアリングチームが図面とご要件を確認します",
+      "step2": "不明点があればご連絡いたします",
+      "step3": "24時間以内にメールで詳細見積もりをお送りします",
+      "returnHome": "ホームに戻る",
+      "viewCapabilities": "製造能力を見る",
+      "needImmediate": "お急ぎの場合は？",
+      "callUs": "+1 (866) 925-5000 にお電話"
+    }
+  }
+}
