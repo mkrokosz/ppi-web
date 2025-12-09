@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Cog,
@@ -134,12 +135,14 @@ export default function CNCMachiningPage() {
                 </div>
               </div>
 
-              {/* Image placeholder */}
-              <div className="aspect-video bg-gradient-to-br from-steel-100 to-steel-200 rounded-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <Cog className="w-16 h-16 text-steel-400 mx-auto mb-4" />
-                  <p className="text-steel-500">[CNC machining center photo]</p>
-                </div>
+              {/* CNC Machining Image */}
+              <div className="relative aspect-video rounded-2xl overflow-hidden">
+                <Image
+                  src="https://proplasticsinc.com/wp-content/uploads/2023/02/PXL_20230207_151639432-Washers.jpg_1675962659-2048x1536.jpeg"
+                  alt="Precision CNC machined plastic washers"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
 

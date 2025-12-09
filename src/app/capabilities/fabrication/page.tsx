@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Layers,
@@ -127,12 +128,14 @@ export default function FabricationPage() {
                 </div>
               </div>
 
-              {/* Image placeholder */}
-              <div className="aspect-video bg-gradient-to-br from-steel-100 to-steel-200 rounded-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <Layers className="w-16 h-16 text-steel-400 mx-auto mb-4" />
-                  <p className="text-steel-500">[Fabrication shop photo]</p>
-                </div>
+              {/* Fabrication Image */}
+              <div className="relative aspect-video rounded-2xl overflow-hidden">
+                <Image
+                  src="https://proplasticsinc.com/wp-content/uploads/2023/02/PXL_20230207_153444714-Sheet-Mat-l.jpg_1675962529-CROPPED.jpg"
+                  alt="Plastic sheet material fabrication"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
 
