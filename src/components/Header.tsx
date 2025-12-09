@@ -42,7 +42,7 @@ export default function Header() {
       <div className="bg-industrial-blue-900 text-white py-2">
         <div className="container-custom flex justify-between items-center text-sm">
           <div className="hidden sm:flex items-center gap-6">
-            <span>Mon-Fri: 8:30 AM - 4:00 PM</span>
+            <span>Mon-Fri: 8:30 AM - 4:00 PM EST</span>
             <span>1190 Sylvan St, Linden, NJ 07036, USA</span>
           </div>
           <a
