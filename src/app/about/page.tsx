@@ -321,37 +321,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Facility Section */}
-      <section className="py-20 bg-steel-50" id="facility">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="section-heading">Our Facility</h2>
-            <p className="section-subheading mx-auto">
-              Modern equipment in a well-organized facility designed for efficiency.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { title: 'CNC Machining Center', desc: 'Horizontal & vertical CNC mills' },
-              { title: 'Turning Department', desc: 'Precision CNC lathes' },
-              { title: 'Fabrication Area', desc: 'Routing, milling, drilling' },
-              { title: 'Quality Lab', desc: 'CMM and inspection equipment' },
-              { title: 'Material Storage', desc: 'Climate-controlled inventory' },
-              { title: 'Shipping', desc: 'Secure packaging & logistics' },
-            ].map((area) => (
-              <div key={area.title} className="bg-white rounded-xl p-6 shadow-md">
-                <div className="aspect-video bg-steel-100 rounded-lg mb-4 flex items-center justify-center">
-                  <span className="text-steel-400 text-sm">[Photo placeholder]</span>
-                </div>
-                <h3 className="font-semibold text-industrial-blue-900">{area.title}</h3>
-                <p className="text-steel-500 text-sm">{area.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-industrial-blue-900 text-white">
         <div className="container-custom text-center">

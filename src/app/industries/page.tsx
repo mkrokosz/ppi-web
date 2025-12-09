@@ -198,12 +198,6 @@ export default function IndustriesPage() {
                   </div>
                 </div>
 
-                <Link
-                  href={`/industries/${industry.id}`}
-                  className="text-precision-orange-500 font-medium text-sm hover:underline flex items-center gap-1"
-                >
-                  Learn More <ArrowRight className="w-4 h-4" />
-                </Link>
               </div>
             ))}
           </div>
