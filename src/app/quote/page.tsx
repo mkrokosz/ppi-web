@@ -550,12 +550,11 @@ export default function QuotePage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-steel-700 mb-2">
-                      Phone *
+                      Phone (optional)
                     </label>
                     <input
                       type="tel"
                       name="phone"
-                      required
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="(555) 555-5555"
@@ -566,12 +565,11 @@ export default function QuotePage() {
 
                 <div>
                   <label className="block text-sm font-medium text-steel-700 mb-2">
-                    Company *
+                    Company (optional)
                   </label>
                   <input
                     type="text"
                     name="company"
-                    required
                     value={formData.company}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-steel-300 focus:border-industrial-blue-500 focus:ring-2 focus:ring-industrial-blue-200 outline-none transition-all"

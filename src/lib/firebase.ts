@@ -2,13 +2,13 @@ import { initializeApp, getApps } from "firebase/app";
 import { getAnalytics, isSupported, logEvent, Analytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBwaN3h1Ob24D5VSIvCKQh0ABfWJhjpsGk",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: "proplastics-c162d.firebaseapp.com",
   projectId: "proplastics-c162d",
   storageBucket: "proplastics-c162d.firebasestorage.app",
   messagingSenderId: "474568609148",
   appId: "1:474568609148:web:e287a6d099a2b8221168f9",
-  measurementId: "G-CG7964FG5H"
+  measurementId: "G-CG7964FG5H",
 };
 
 // Initialize Firebase (only once)

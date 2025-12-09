@@ -154,6 +154,7 @@ jobs:
       - name: Build
         env:
           NEXT_PUBLIC_CONTACT_API_URL: ${{ steps.cfn-outputs.outputs.contact_api_url }}
+          NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
         run: npm run build
 
       - name: Sync to S3
