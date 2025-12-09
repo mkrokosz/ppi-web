@@ -542,7 +542,7 @@ export default function MaterialsPage() {
               href="tel:+18669255000"
               className="btn-outline border-white text-white hover:bg-white hover:text-industrial-blue-900"
             >
-              Call (866) 925-5000
+              Call +1 (866) 925-5000
             </a>
           </div>
         </div>

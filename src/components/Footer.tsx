@@ -65,7 +65,7 @@ export default function Footer() {
                 onClick={() => trackPhoneClick('866-925-5000', 'footer')}
               >
                 <Phone className="w-5 h-5" />
-                <span>(866) 925-5000</span>
+                <span>+1 (866) 925-5000</span>
               </a>
               <a
                 href="mailto:sales@proplasticsinc.com"
@@ -77,7 +77,7 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-3 text-steel-300">
                 <MapPin className="w-5 h-5 mt-0.5" />
-                <span>1190 Sylvan St<br />Linden, NJ 07036</span>
+                <span>1190 Sylvan St<br />Linden, NJ 07036, USA</span>
               </div>
               <div className="flex items-center gap-3 text-steel-300">
                 <Clock className="w-5 h-5" />

@@ -43,7 +43,7 @@ export default function Header() {
         <div className="container-custom flex justify-between items-center text-sm">
           <div className="hidden sm:flex items-center gap-6">
             <span>Mon-Fri: 8:30 AM - 4:00 PM</span>
-            <span>1190 Sylvan St, Linden, NJ 07036</span>
+            <span>1190 Sylvan St, Linden, NJ 07036, USA</span>
           </div>
           <a
             href="tel:+18669255000"
@@ -51,7 +51,7 @@ export default function Header() {
             onClick={() => trackPhoneClick('866-925-5000', 'header-mobile')}
           >
             <Phone className="w-4 h-4" />
-            <span className="font-semibold">(866) 925-5000</span>
+            <span className="font-semibold">+1 (866) 925-5000</span>
           </a>
           <div className="hidden sm:flex items-center gap-4">
             <a
@@ -60,7 +60,7 @@ export default function Header() {
               onClick={() => trackPhoneClick('866-925-5000', 'header-desktop')}
             >
               <Phone className="w-4 h-4" />
-              <span className="font-semibold">(866) 925-5000</span>
+              <span className="font-semibold">+1 (866) 925-5000</span>
             </a>
             <Link
               href="/quote"

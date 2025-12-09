@@ -83,7 +83,7 @@ export default function QuoteThankYouPage() {
                 className="inline-flex items-center gap-2 text-precision-orange-500 font-medium hover:underline"
               >
                 <Phone className="w-4 h-4" />
-                Call (866) 925-5000
+                Call +1 (866) 925-5000
               </a>
             </div>
           </div>

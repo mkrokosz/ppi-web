@@ -115,7 +115,7 @@ export default function ContactPage() {
                       className="text-steel-600 hover:text-precision-orange-500 transition-colors"
                       onClick={() => trackPhoneClick('866-925-5000', 'contact-page')}
                     >
-                      (866) 925-5000
+                      +1 (866) 925-5000
                     </a>
                     <p className="text-steel-500 text-sm">Toll-free</p>
                   </div>
@@ -146,7 +146,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-industrial-blue-900">Address</h3>
                     <p className="text-steel-600">
                       1190 Sylvan St<br />
-                      Linden, NJ 07036
+                      Linden, NJ 07036, USA
                     </p>
                     <a
                       href="https://goo.gl/maps/R8fawsprvH5KirYK7"
@@ -406,7 +406,7 @@ export default function ContactPage() {
             <MapPin className="w-12 h-12 text-steel-400 mx-auto mb-4" />
             <p className="text-steel-500">
               [Google Maps embed placeholder]<br />
-              1190 Sylvan St, Linden, NJ 07036
+              1190 Sylvan St, Linden, NJ 07036, USA
             </p>
           </div>
         </div>

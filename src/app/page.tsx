@@ -406,7 +406,7 @@ export default function HomePage() {
               href="tel:+18669255000"
               className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors"
             >
-              Call (866) 925-5000
+              Call +1 (866) 925-5000
             </a>
           </div>
         </div>
