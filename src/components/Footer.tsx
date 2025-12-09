@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { trackPhoneClick, trackEmailClick } from '@/lib/firebase';
 import { useTranslations } from 'next-intl';
+import LanguageSelector from './LanguageSelector';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -166,6 +167,10 @@ export default function Footer() {
           <p className="text-steel-400 text-sm">
             &copy; {new Date().getFullYear()} {t('copyright')}
           </p>
+          {/* Language selector - mobile only, centered */}
+          <div className="sm:hidden">
+            <LanguageSelector />
+          </div>
         </div>
       </div>
     </footer>

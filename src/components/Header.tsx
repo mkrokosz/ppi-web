@@ -76,7 +76,6 @@ export default function Header() {
             </Link>
           </div>
           <div className="sm:hidden flex items-center gap-2">
-            <LanguageSelector />
             <Link
               href="/quote"
               className="bg-precision-orange-400 hover:bg-precision-orange-500 text-white px-3 py-1 rounded font-semibold transition-colors"
