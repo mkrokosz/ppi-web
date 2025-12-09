@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Pro Plastics Inc. Website Infrastructure - S3, CloudFront, ACM Certificate'
+Description: 'Pro Plastics Inc. Website Infrastructure - S3, CloudFront, ACM Certificate, Contact Form API'
 
 Parameters:
   DomainName:
@@ -10,6 +10,16 @@ Parameters:
   HostedZoneId:
     Type: String
     Description: The Route 53 Hosted Zone ID for the domain
+
+  ContactEmailRecipient:
+    Type: String
+    Default: mattkrokosz@gmail.com
+    Description: Email address to receive contact form submissions
+
+  SESFromEmail:
+    Type: String
+    Default: noreply@proplastics.us
+    Description: Verified SES email address to send from
 
 Resources:
   # S3 Bucket for website content
@@ -220,6 +230,231 @@ Resources:
         HostedZoneId: Z2FDTNDATAQYW2
         EvaluateTargetHealth: false
 
+  # ===========================================
+  # Contact Form API Resources
+  # ===========================================
+
+  # IAM Role for Contact Form Lambda
+  ContactFormLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${AWS::StackName}-contact-form-lambda-role'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: SESPermissions
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - ses:SendEmail
+                  - ses:SendRawEmail
+                Resource: '*'
+                Condition:
+                  StringEquals:
+                    ses:FromAddress: !Ref SESFromEmail
+      Tags:
+        - Key: Project
+          Value: ProPlasticsWebsite
+
+  # Lambda Function for Contact Form
+  ContactFormFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-contact-form'
+      Runtime: python3.12
+      Handler: index.handler
+      Role: !GetAtt ContactFormLambdaRole.Arn
+      Timeout: 10
+      MemorySize: 128
+      ReservedConcurrentExecutions: 2
+      Environment:
+        Variables:
+          RECIPIENT_EMAIL: !Ref ContactEmailRecipient
+          FROM_EMAIL: !Ref SESFromEmail
+          ALLOWED_ORIGIN: !Sub 'https://${DomainName}'
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+          import os
+          import re
+          from botocore.exceptions import ClientError
+
+          ses = boto3.client('ses', region_name='us-east-1')
+
+          def handler(event, context):
+              # CORS headers
+              allowed_origin = os.environ.get('ALLOWED_ORIGIN', '*')
+              headers = {
+                  'Content-Type': 'application/json',
+                  'Access-Control-Allow-Origin': allowed_origin,
+                  'Access-Control-Allow-Headers': 'Content-Type',
+                  'Access-Control-Allow-Methods': 'POST, OPTIONS'
+              }
+
+              # Handle preflight
+              if event.get('requestContext', {}).get('http', {}).get('method') == 'OPTIONS':
+                  return {'statusCode': 200, 'headers': headers, 'body': ''}
+
+              try:
+                  body = json.loads(event.get('body', '{}'))
+
+                  # Honeypot check - if filled, silently succeed (bot trap)
+                  if body.get('website', ''):
+                      return {
+                          'statusCode': 200,
+                          'headers': headers,
+                          'body': json.dumps({'message': 'Message sent successfully'})
+                      }
+
+                  # Validate required fields
+                  required = ['firstName', 'lastName', 'email', 'subject', 'message']
+                  for field in required:
+                      if not body.get(field, '').strip():
+                          return {
+                              'statusCode': 400,
+                              'headers': headers,
+                              'body': json.dumps({'error': f'Missing required field: {field}'})
+                          }
+
+                  # Basic email validation
+                  email = body['email'].strip()
+                  if not re.match(r'^[^\s@]+@[^\s@]+\.[^\s@]+$', email):
+                      return {
+                          'statusCode': 400,
+                          'headers': headers,
+                          'body': json.dumps({'error': 'Invalid email address'})
+                      }
+
+                  # Build email
+                  subject_map = {
+                      'quote': 'Quote Request',
+                      'capabilities': 'Capabilities Question',
+                      'materials': 'Material Information',
+                      'order': 'Order Status',
+                      'other': 'General Inquiry'
+                  }
+                  subject_text = subject_map.get(body['subject'], body['subject'])
+
+                  name = f"{body['firstName'].strip()} {body['lastName'].strip()}"
+                  company = body.get('company', '').strip()
+                  phone = body.get('phone', '').strip()
+
+                  email_body = f"""New contact form submission from Pro Plastics website:
+
+          Name: {name}
+          Email: {email}
+          Phone: {phone if phone else 'Not provided'}
+          Company: {company if company else 'Not provided'}
+          Subject: {subject_text}
+
+          Message:
+          {body['message'].strip()}
+          """
+
+                  # Send email
+                  ses.send_email(
+                      Source=os.environ['FROM_EMAIL'],
+                      Destination={'ToAddresses': [os.environ['RECIPIENT_EMAIL']]},
+                      ReplyToAddresses=[email],
+                      Message={
+                          'Subject': {'Data': f'[Pro Plastics Contact] {subject_text} - {name}'},
+                          'Body': {'Text': {'Data': email_body}}
+                      }
+                  )
+
+                  return {
+                      'statusCode': 200,
+                      'headers': headers,
+                      'body': json.dumps({'message': 'Message sent successfully'})
+                  }
+
+              except ClientError as e:
+                  print(f'SES Error: {e}')
+                  return {
+                      'statusCode': 500,
+                      'headers': headers,
+                      'body': json.dumps({'error': 'Failed to send email. Please try again later.'})
+                  }
+              except Exception as e:
+                  print(f'Error: {e}')
+                  return {
+                      'statusCode': 500,
+                      'headers': headers,
+                      'body': json.dumps({'error': 'An unexpected error occurred.'})
+                  }
+      Tags:
+        - Key: Project
+          Value: ProPlasticsWebsite
+
+  # API Gateway HTTP API
+  ContactFormApi:
+    Type: AWS::ApiGatewayV2::Api
+    Properties:
+      Name: !Sub '${AWS::StackName}-contact-api'
+      ProtocolType: HTTP
+      CorsConfiguration:
+        AllowOrigins:
+          - !Sub 'https://${DomainName}'
+          - !Sub 'https://www.${DomainName}'
+          - 'https://proplasticsinc.com'
+          - 'https://www.proplasticsinc.com'
+          - 'http://localhost:3000'
+        AllowMethods:
+          - POST
+          - OPTIONS
+        AllowHeaders:
+          - Content-Type
+        MaxAge: 300
+      Tags:
+        Project: ProPlasticsWebsite
+
+  # API Gateway Stage with throttling
+  ContactFormApiStage:
+    Type: AWS::ApiGatewayV2::Stage
+    Properties:
+      ApiId: !Ref ContactFormApi
+      StageName: '$default'
+      AutoDeploy: true
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 10
+        ThrottlingRateLimit: 5
+
+  # Lambda Integration
+  ContactFormIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId: !Ref ContactFormApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri: !GetAtt ContactFormFunction.Arn
+      PayloadFormatVersion: '2.0'
+
+  # API Route
+  ContactFormRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref ContactFormApi
+      RouteKey: 'POST /contact'
+      Target: !Sub 'integrations/${ContactFormIntegration}'
+
+  # Lambda Permission for API Gateway
+  ContactFormLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ContactFormFunction
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ContactFormApi}/*'
+
 Outputs:
   WebsiteBucketName:
     Description: Name of the S3 bucket
@@ -248,3 +483,9 @@ Outputs:
     Value: !Ref Certificate
     Export:
       Name: !Sub '${AWS::StackName}-CertificateArn'
+
+  ContactFormApiUrl:
+    Description: Contact Form API URL
+    Value: !Sub 'https://${ContactFormApi}.execute-api.${AWS::Region}.amazonaws.com/contact'
+    Export:
+      Name: !Sub '${AWS::StackName}-ContactFormApiUrl'

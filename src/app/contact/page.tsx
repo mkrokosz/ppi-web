@@ -24,15 +24,46 @@ export default function ContactPage() {
     company: '',
     subject: '',
     message: '',
+    website: '', // Honeypot field - hidden from real users
   });
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
+    setErrorMessage('');
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setFormStatus('success');
+    const apiUrl = process.env.NEXT_PUBLIC_CONTACT_API_URL;
+
+    if (!apiUrl) {
+      // Fallback for development or if API not configured
+      console.log('Contact form submission:', formData);
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      setFormStatus('success');
+      return;
+    }
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setFormStatus('success');
+    } catch (error) {
+      console.error('Contact form error:', error);
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
+      setFormStatus('error');
+    }
   };
 
   const handleChange = (
@@ -180,6 +211,7 @@ export default function ContactPage() {
                     <button
                       onClick={() => {
                         setFormStatus('idle');
+                        setErrorMessage('');
                         setFormData({
                           firstName: '',
                           lastName: '',
@@ -188,6 +220,7 @@ export default function ContactPage() {
                           company: '',
                           subject: '',
                           message: '',
+                          website: '',
                         });
                       }}
                       className="text-precision-orange-500 font-medium hover:underline"
@@ -257,7 +290,7 @@ export default function ContactPage() {
                           htmlFor="phone"
                           className="block text-sm font-medium text-steel-700 mb-2"
                         >
-                          Phone
+                          Phone (optional)
                         </label>
                         <input
                           type="tel"
@@ -276,7 +309,7 @@ export default function ContactPage() {
                         htmlFor="company"
                         className="block text-sm font-medium text-steel-700 mb-2"
                       >
-                        Company
+                        Company (optional)
                       </label>
                       <input
                         type="text"
@@ -330,6 +363,27 @@ export default function ContactPage() {
                         className="w-full px-4 py-3 rounded-lg border border-steel-300 focus:border-industrial-blue-500 focus:ring-2 focus:ring-industrial-blue-200 outline-none transition-all resize-none"
                       />
                     </div>
+
+                    {/* Honeypot field - hidden from real users, bots will fill it */}
+                    <div className="hidden" aria-hidden="true">
+                      <label htmlFor="website">Website</label>
+                      <input
+                        type="text"
+                        id="website"
+                        name="website"
+                        value={formData.website}
+                        onChange={handleChange}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
+
+                    {/* Error message */}
+                    {formStatus === 'error' && errorMessage && (
+                      <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                        {errorMessage}
+                      </div>
+                    )}
 
                     <button
                       type="submit"
