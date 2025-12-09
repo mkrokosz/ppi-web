@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Cog,
@@ -37,6 +38,8 @@ const capabilities = [
       'Large format capabilities',
     ],
     materials: ['PEEK', 'Ultem', 'Delrin', 'Nylon', 'UHMW', 'Teflon', 'Acetal'],
+    image: 'https://proplasticsinc.com/wp-content/uploads/2023/02/PXL_20230207_151639432-Washers.jpg_1675962659-2048x1536.jpeg',
+    imageAlt: 'Precision CNC machined plastic washers',
   },
   {
     id: 'fabrication',
@@ -52,6 +55,8 @@ const capabilities = [
       'Assembly services',
     ],
     materials: ['Acrylic', 'Polycarbonate', 'HDPE', 'PVC', 'ABS', 'Phenolic'],
+    image: 'https://proplasticsinc.com/wp-content/uploads/2023/02/PXL_20230207_153444714-Sheet-Mat-l.jpg_1675962529-CROPPED.jpg',
+    imageAlt: 'Plastic sheet material fabrication',
   },
   {
     id: 'secondary-operations',
@@ -67,6 +72,8 @@ const capabilities = [
       'Marking & engraving',
     ],
     materials: ['All engineering plastics'],
+    image: null,
+    imageAlt: '',
   },
 ];
 
@@ -168,17 +175,19 @@ export default function CapabilitiesPage() {
                   </div>
                 </div>
 
-                {/* Visual placeholder */}
-                <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                  <div className="aspect-video bg-gradient-to-br from-steel-100 to-steel-200 rounded-2xl flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <capability.icon className="w-16 h-16 text-steel-400 mx-auto mb-4" />
-                      <p className="text-steel-500">
-                        [{capability.title} photo placeholder]
-                      </p>
+                {/* Visual */}
+                {capability.image && (
+                  <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
+                    <div className="relative aspect-video rounded-2xl overflow-hidden">
+                      <Image
+                        src={capability.image}
+                        alt={capability.imageAlt}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             ))}
           </div>
