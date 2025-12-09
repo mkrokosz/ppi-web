@@ -46,11 +46,32 @@ export default function Header() {
           </div>
           <a
             href="tel:+18669255000"
-            className="flex items-center gap-2 hover:text-precision-orange-300 transition-colors"
+            className="flex sm:hidden items-center gap-2 hover:text-precision-orange-300 transition-colors"
           >
             <Phone className="w-4 h-4" />
             <span className="font-semibold">(866) 925-5000</span>
           </a>
+          <div className="hidden sm:flex items-center gap-4">
+            <a
+              href="tel:+18669255000"
+              className="flex items-center gap-2 hover:text-precision-orange-300 transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              <span className="font-semibold">(866) 925-5000</span>
+            </a>
+            <Link
+              href="/quote"
+              className="bg-precision-orange-400 hover:bg-precision-orange-500 text-white px-3 py-1 rounded font-semibold transition-colors"
+            >
+              Request Quote
+            </Link>
+          </div>
+          <Link
+            href="/quote"
+            className="sm:hidden bg-precision-orange-400 hover:bg-precision-orange-500 text-white px-3 py-1 rounded font-semibold transition-colors"
+          >
+            Request Quote
+          </Link>
         </div>
       </div>
 
@@ -111,12 +132,6 @@ export default function Header() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Link href="/quote" className="btn-primary">
-              Request Quote
-            </Link>
-          </div>
 
           {/* Mobile menu button */}
           <button
