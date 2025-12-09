@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Wind,
@@ -7,6 +8,13 @@ import {
   Settings,
   Target,
 } from 'lucide-react';
+import Breadcrumb from '@/components/Breadcrumb';
+
+export const metadata: Metadata = {
+  title: 'Vacuum Forming',
+  description:
+    'Thermoforming and vacuum forming services for plastic enclosures, covers, and custom-shaped components. ABS, PETG, polycarbonate, and more.',
+};
 
 const features = [
   'Custom tooling design & fabrication',
@@ -35,11 +43,12 @@ export default function VacuumFormingPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-industrial-blue-900 to-industrial-blue-800 text-white py-20">
         <div className="container-custom">
-          <div className="flex items-center gap-2 text-steel-300 text-sm mb-4">
-            <Link href="/capabilities" className="hover:text-white">Capabilities</Link>
-            <span>/</span>
-            <span>Vacuum Forming</span>
-          </div>
+          <Breadcrumb
+            items={[
+              { label: 'Capabilities', href: '/capabilities' },
+              { label: 'Vacuum Forming' },
+            ]}
+          />
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center">

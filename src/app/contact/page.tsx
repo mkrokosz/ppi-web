@@ -12,6 +12,8 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
+// Note: Metadata must be exported from a server component
+
 export default function ContactPage() {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({

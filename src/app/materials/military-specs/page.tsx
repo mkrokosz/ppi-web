@@ -1,5 +1,13 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Shield, CheckCircle, FileText, Download } from 'lucide-react';
+import Breadcrumb from '@/components/Breadcrumb';
+
+export const metadata: Metadata = {
+  title: 'Military Specifications',
+  description:
+    'MIL-SPEC plastics including PEEK, Nylon, Acetal, PTFE, and G-10/FR-4. ITAR registered, AS9100 capable, full material traceability.',
+};
 
 const milSpecMaterials = [
   {
@@ -55,13 +63,12 @@ export default function MilitarySpecsPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-industrial-blue-900 to-industrial-blue-800 text-white py-16">
         <div className="container-custom">
-          <Link
-            href="/materials"
-            className="inline-flex items-center text-steel-300 hover:text-white mb-6 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Materials
-          </Link>
+          <Breadcrumb
+            items={[
+              { label: 'Materials', href: '/materials' },
+              { label: 'Military Specifications' },
+            ]}
+          />
           <div className="flex items-center gap-4 mb-4">
             <Shield className="w-12 h-12 text-precision-orange-400" />
             <h1 className="text-4xl md:text-5xl font-bold">Military Specifications</h1>

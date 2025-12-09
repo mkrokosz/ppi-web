@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Wrench,
@@ -6,6 +7,13 @@ import {
   Settings,
   Target,
 } from 'lucide-react';
+import Breadcrumb from '@/components/Breadcrumb';
+
+export const metadata: Metadata = {
+  title: 'Secondary Operations',
+  description:
+    'Complete plastic finishing services including threading, heat treating, surface grinding, polishing, marking, engraving, and assembly.',
+};
 
 const operations = [
   {
@@ -57,11 +65,12 @@ export default function SecondaryOperationsPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-industrial-blue-900 to-industrial-blue-800 text-white py-20">
         <div className="container-custom">
-          <div className="flex items-center gap-2 text-steel-300 text-sm mb-4">
-            <Link href="/capabilities" className="hover:text-white">Capabilities</Link>
-            <span>/</span>
-            <span>Secondary Operations</span>
-          </div>
+          <Breadcrumb
+            items={[
+              { label: 'Capabilities', href: '/capabilities' },
+              { label: 'Secondary Operations' },
+            ]}
+          />
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center">

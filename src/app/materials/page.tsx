@@ -12,6 +12,9 @@ import {
   X,
 } from 'lucide-react';
 
+// Note: Metadata must be exported from a server component, so we use generateMetadata in a separate file
+// or rely on the parent layout for client components
+
 interface Material {
   id: string;
   name: string;

@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Plane,
@@ -14,6 +15,17 @@ import {
   ArrowRight,
   CheckCircle,
 } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Industries We Serve',
+  description:
+    'Pro Plastics serves aerospace, medical, semiconductor, electronics, automotive, chemical processing, water treatment, food processing, and construction industries with precision plastic components.',
+  openGraph: {
+    title: 'Industries We Serve | Pro Plastics Inc.',
+    description:
+      'Precision plastic components for aerospace, medical, semiconductor, and 9+ other industries. FDA compliant, MIL-SPEC, and ISO certified.',
+  },
+};
 
 const industries = [
   {

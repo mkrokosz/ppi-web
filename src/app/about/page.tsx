@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import {
   Award,
   Users,
@@ -10,6 +11,17 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'About Us',
+  description:
+    'Learn about Pro Plastics Inc., a precision plastic manufacturing company founded in 1968 in Linden, NJ. Over 55 years of experience serving aerospace, medical, and semiconductor industries.',
+  openGraph: {
+    title: 'About Pro Plastics Inc. | 55+ Years of Precision Manufacturing',
+    description:
+      'Family-owned precision plastic manufacturer since 1968. ISO certified, serving 12+ industries worldwide.',
+  },
+};
 
 const timeline = [
   {
@@ -138,8 +150,8 @@ export default function AboutPage() {
             <div className="relative">
               <div className="aspect-video relative rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/ppi-building.png"
-                  alt="Pro Plastics Inc. facility in Linden, NJ"
+                  src="/images/ppi-building.jpg"
+                  alt="Pro Plastics Inc. precision plastics manufacturing facility - Linden, New Jersey since 1968"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"

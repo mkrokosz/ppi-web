@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Cog,
@@ -10,6 +11,17 @@ import {
   Settings,
   Target,
 } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Manufacturing Capabilities',
+  description:
+    'CNC machining, custom fabrication, vacuum forming, and secondary operations. Tolerances to +/-0.001". PEEK, Delrin, UHMW, Teflon, and 1000+ materials.',
+  openGraph: {
+    title: 'Manufacturing Capabilities | Pro Plastics Inc.',
+    description:
+      'Precision CNC machining with tolerances to +/-0.001". Custom fabrication, vacuum forming, and complete finishing services.',
+  },
+};
 
 const capabilities = [
   {

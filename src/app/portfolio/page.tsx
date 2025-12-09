@@ -1,5 +1,17 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Filter, Cog, Layers, Package, Wrench } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Our Work',
+  description:
+    'View examples of precision plastic components manufactured by Pro Plastics Inc. for aerospace, medical, semiconductor, automotive, and other industries.',
+  openGraph: {
+    title: 'Portfolio | Pro Plastics Inc.',
+    description:
+      'Examples of precision CNC machined plastic parts for aerospace, medical devices, semiconductors, and more.',
+  },
+};
 
 const portfolioItems = [
   {

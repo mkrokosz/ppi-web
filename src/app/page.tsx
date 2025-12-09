@@ -158,7 +158,7 @@ export default function HomePage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/ppi-hero-image.jpeg"
-                  alt="CNC machining precision plastic part"
+                  alt="CNC machine drilling precision plastic component - Pro Plastics Inc. manufacturing"
                   width={600}
                   height={400}
                   className="object-cover"
@@ -310,8 +310,8 @@ export default function HomePage() {
             <div className="relative">
               <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/ppi-building.png"
-                  alt="Pro Plastics Inc. facility in Linden, NJ"
+                  src="/images/ppi-building.jpg"
+                  alt="Pro Plastics Inc. manufacturing facility exterior - Linden, New Jersey"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"

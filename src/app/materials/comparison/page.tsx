@@ -1,5 +1,13 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Download } from 'lucide-react';
+import Breadcrumb from '@/components/Breadcrumb';
+
+export const metadata: Metadata = {
+  title: 'Material Comparison Charts',
+  description:
+    'Compare engineering plastic properties side-by-side. Temperature, strength, chemical resistance, and more for PEEK, Ultem, Delrin, Nylon, PTFE, UHMW.',
+};
 
 const comparisonData = [
   {
@@ -93,11 +101,12 @@ export default function ComparisonPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-industrial-blue-900 to-industrial-blue-800 text-white py-20">
         <div className="container-custom">
-          <div className="flex items-center gap-2 text-steel-300 text-sm mb-4">
-            <Link href="/materials" className="hover:text-white">Materials</Link>
-            <span>/</span>
-            <span>Comparison Charts</span>
-          </div>
+          <Breadcrumb
+            items={[
+              { label: 'Materials', href: '/materials' },
+              { label: 'Comparison Charts' },
+            ]}
+          />
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Material Comparison Charts
