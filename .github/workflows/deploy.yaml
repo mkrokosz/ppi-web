@@ -24,46 +24,13 @@ permissions:
   contents: read
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-output
-          path: out/
-          retention-days: 1
-
   deploy:
-    name: Deploy to AWS
-    needs: build
+    name: Build and Deploy
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Checkout (for infrastructure template)
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build-output
-          path: out/
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -108,17 +75,38 @@ jobs:
             --parameter-overrides \
               DomainName=proplastics.us \
               HostedZoneId=${{ steps.hosted-zone.outputs.hosted_zone_id }} \
-            --capabilities CAPABILITY_IAM \
+            --capabilities CAPABILITY_NAMED_IAM \
             --no-fail-on-empty-changeset
 
           echo "✅ Infrastructure deployed"
+
+      - name: Update infrastructure (if changes)
+        if: steps.check-infra.outputs.stack_exists == 'true'
+        run: |
+          # Get existing hosted zone ID from stack parameters
+          HOSTED_ZONE_ID=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Parameters[?ParameterKey=='HostedZoneId'].ParameterValue" \
+            --output text)
+
+          echo "Updating CloudFormation stack..."
+          aws cloudformation deploy \
+            --template-file infrastructure/cloudformation.yaml \
+            --stack-name ${{ env.STACK_NAME }} \
+            --parameter-overrides \
+              DomainName=proplastics.us \
+              HostedZoneId=$HOSTED_ZONE_ID \
+            --capabilities CAPABILITY_NAMED_IAM \
+            --no-fail-on-empty-changeset
+
+          echo "✅ Infrastructure updated"
 
       - name: Get CloudFormation outputs
         id: cfn-outputs
         run: |
           echo "Fetching outputs from CloudFormation stack: ${{ env.STACK_NAME }}"
 
-          # Wait for stack to be ready if just created
+          # Wait for stack to be ready
           aws cloudformation wait stack-exists --stack-name ${{ env.STACK_NAME }}
 
           S3_BUCKET=$(aws cloudformation describe-stacks \
@@ -129,6 +117,11 @@ jobs:
           DISTRIBUTION_ID=$(aws cloudformation describe-stacks \
             --stack-name ${{ env.STACK_NAME }} \
             --query "Stacks[0].Outputs[?OutputKey=='CloudFrontDistributionId'].OutputValue" \
+            --output text)
+
+          CONTACT_API_URL=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='ContactFormApiUrl'].OutputValue" \
             --output text)
 
           if [ -z "$S3_BUCKET" ] || [ "$S3_BUCKET" == "None" ]; then
@@ -143,9 +136,25 @@ jobs:
 
           echo "S3 Bucket: $S3_BUCKET"
           echo "CloudFront Distribution: $DISTRIBUTION_ID"
+          echo "Contact API URL: $CONTACT_API_URL"
 
           echo "s3_bucket=$S3_BUCKET" >> $GITHUB_OUTPUT
           echo "distribution_id=$DISTRIBUTION_ID" >> $GITHUB_OUTPUT
+          echo "contact_api_url=$CONTACT_API_URL" >> $GITHUB_OUTPUT
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        env:
+          NEXT_PUBLIC_CONTACT_API_URL: ${{ steps.cfn-outputs.outputs.contact_api_url }}
+        run: npm run build
 
       - name: Sync to S3
         run: |
@@ -176,5 +185,7 @@ jobs:
           echo "**S3 Bucket:** ${{ steps.cfn-outputs.outputs.s3_bucket }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**CloudFront Distribution:** ${{ steps.cfn-outputs.outputs.distribution_id }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Contact Form API:** ${{ steps.cfn-outputs.outputs.contact_api_url }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Cache invalidation has been triggered. Changes may take a few minutes to propagate." >> $GITHUB_STEP_SUMMARY

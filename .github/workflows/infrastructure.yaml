@@ -65,7 +65,7 @@ jobs:
             --parameter-overrides \
               DomainName=proplastics.us \
               HostedZoneId=${{ steps.hosted-zone.outputs.hosted_zone_id }} \
-            --capabilities CAPABILITY_IAM \
+            --capabilities CAPABILITY_NAMED_IAM \
             --no-execute-changeset
 
           echo "## Change Set Preview" >> $GITHUB_STEP_SUMMARY
@@ -80,7 +80,7 @@ jobs:
             --parameter-overrides \
               DomainName=proplastics.us \
               HostedZoneId=${{ steps.hosted-zone.outputs.hosted_zone_id }} \
-            --capabilities CAPABILITY_IAM \
+            --capabilities CAPABILITY_NAMED_IAM \
             --no-fail-on-empty-changeset
 
       - name: Get stack outputs
@@ -104,13 +104,21 @@ jobs:
             --query "Stacks[0].Outputs[?OutputKey=='WebsiteURL'].OutputValue" \
             --output text)
 
+          CONTACT_API_URL=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='ContactFormApiUrl'].OutputValue" \
+            --output text)
+
           echo "**S3 Bucket:** \`$BUCKET_NAME\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**CloudFront Distribution ID:** \`$DISTRIBUTION_ID\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Website URL:** $WEBSITE_URL" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Contact Form API URL:** \`$CONTACT_API_URL\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Next Steps" >> $GITHUB_STEP_SUMMARY
           echo "Add these as GitHub Secrets:" >> $GITHUB_STEP_SUMMARY
           echo "- \`S3_BUCKET_NAME\`: $BUCKET_NAME" >> $GITHUB_STEP_SUMMARY
           echo "- \`CLOUDFRONT_DISTRIBUTION_ID\`: $DISTRIBUTION_ID" >> $GITHUB_STEP_SUMMARY
+          echo "- \`NEXT_PUBLIC_CONTACT_API_URL\`: $CONTACT_API_URL" >> $GITHUB_STEP_SUMMARY
