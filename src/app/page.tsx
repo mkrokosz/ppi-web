@@ -53,15 +53,15 @@ const capabilities = [
 ];
 
 const industries = [
-  { icon: Plane, name: 'Aerospace', href: '/industries/aerospace' },
-  { icon: Microscope, name: 'Medical', href: '/industries/medical' },
-  { icon: Cpu, name: 'Semiconductor', href: '/industries/semiconductor' },
-  { icon: Zap, name: 'Electronics', href: '/industries/electronics' },
-  { icon: Car, name: 'Automotive', href: '/industries/automotive' },
-  { icon: FlaskConical, name: 'Chemical Processing', href: '/industries/chemical' },
-  { icon: Droplets, name: 'Water Treatment', href: '/industries/water' },
-  { icon: Building2, name: 'Construction', href: '/industries/construction' },
-  { icon: Leaf, name: 'Food Processing', href: '/industries/food' },
+  { icon: Plane, name: 'Aerospace', href: '/industries/aerospace', image: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?w=400&q=80' },
+  { icon: Microscope, name: 'Medical', href: '/industries/medical', image: 'https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=400&q=80' },
+  { icon: Cpu, name: 'Semiconductor', href: '/industries/semiconductor', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80' },
+  { icon: Zap, name: 'Electronics', href: '/industries/electronics', image: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&q=80' },
+  { icon: Car, name: 'Automotive', href: '/industries/automotive', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&q=80' },
+  { icon: FlaskConical, name: 'Chemical Processing', href: '/industries/chemical', image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&q=80' },
+  { icon: Droplets, name: 'Water Treatment', href: '/industries/water', image: 'https://images.unsplash.com/photo-1504297050568-910d24c426d3?w=400&q=80' },
+  { icon: Building2, name: 'Construction', href: '/industries/construction', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80' },
+  { icon: Leaf, name: 'Food Processing', href: '/industries/food', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80' },
 ];
 
 const stats = [
@@ -254,19 +254,30 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-9 gap-3">
             {industries.map((industry) => (
               <Link
                 key={industry.name}
                 href={industry.href}
-                className="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow group"
+                className="flex flex-col bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow group overflow-hidden"
               >
-                <div className="w-12 h-12 bg-industrial-blue-100 rounded-full flex items-center justify-center mb-3 group-hover:bg-precision-orange-100 transition-colors">
-                  <industry.icon className="w-6 h-6 text-industrial-blue-900 group-hover:text-precision-orange-500 transition-colors" />
+                <div className="relative h-16 w-full rounded-t-xl overflow-hidden">
+                  <Image
+                    src={industry.image}
+                    alt={industry.name}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-industrial-blue-900/50 to-transparent" />
                 </div>
-                <span className="text-sm font-medium text-steel-700 text-center">
-                  {industry.name}
-                </span>
+                <div className="relative px-2 pt-5 pb-2 flex flex-col items-center">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-industrial-blue-100 rounded-full flex items-center justify-center border-2 border-white group-hover:bg-precision-orange-100 transition-colors">
+                    <industry.icon className="w-4 h-4 text-industrial-blue-900 group-hover:text-precision-orange-500 transition-colors" />
+                  </div>
+                  <span className="text-xs font-medium text-steel-700 text-center">
+                    {industry.name}
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
