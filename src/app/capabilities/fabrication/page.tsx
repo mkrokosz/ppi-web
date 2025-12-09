@@ -208,7 +208,6 @@ export default function FabricationPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { name: 'CNC Machining', href: '/capabilities/cnc-machining', desc: 'Precision machining to ±0.001"' },
-              { name: 'Vacuum Forming', href: '/capabilities/vacuum-forming', desc: 'Thermoforming for enclosures & covers' },
               { name: 'Secondary Operations', href: '/capabilities/secondary-operations', desc: 'Threading, finishing & more' },
             ].map((cap) => (
               <Link

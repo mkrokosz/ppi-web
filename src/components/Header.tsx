@@ -2,18 +2,17 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about' },
   {
     name: 'Capabilities',
     href: '/capabilities',
     children: [
       { name: 'CNC Machining', href: '/capabilities/cnc-machining' },
       { name: 'Fabrication', href: '/capabilities/fabrication' },
-      { name: 'Vacuum Forming', href: '/capabilities/vacuum-forming' },
       { name: 'Secondary Operations', href: '/capabilities/secondary-operations' },
     ],
   },
@@ -28,6 +27,7 @@ const navigation = [
   },
   { name: 'Industries', href: '/industries' },
   { name: 'Portfolio', href: '/portfolio' },
+  { name: 'About Us', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -58,13 +58,20 @@ export default function Header() {
       <nav className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-3 -ml-3">
+            <Image
+              src="/images/ppi-logo.png"
+              alt="Pro Plastics Inc. logo"
+              width={80}
+              height={80}
+              className="w-20 h-20"
+            />
             <div className="flex flex-col">
               <span className="text-2xl font-bold text-industrial-blue-900">
                 Pro Plastics
               </span>
-              <span className="text-xs text-steel-500 tracking-wider">
-                PRECISION MANUFACTURING SINCE 1968
+              <span className="text-xs text-steel-500 tracking-wider leading-tight">
+                PRECISION MANUFACTURING<br />SINCE 1968
               </span>
             </div>
           </Link>

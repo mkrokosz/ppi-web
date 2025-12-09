@@ -210,7 +210,6 @@ export default function SecondaryOperationsPage() {
             {[
               { name: 'CNC Machining', href: '/capabilities/cnc-machining', desc: 'Precision machining to ±0.001"' },
               { name: 'Fabrication', href: '/capabilities/fabrication', desc: 'Cutting, routing, bonding & assembly' },
-              { name: 'Vacuum Forming', href: '/capabilities/vacuum-forming', desc: 'Thermoforming for enclosures & covers' },
             ].map((cap) => (
               <Link
                 key={cap.name}

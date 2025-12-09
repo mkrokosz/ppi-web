@@ -118,7 +118,7 @@ export default function HomePage() {
 
         <div className="container-custom relative py-8 lg:py-12">
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
-            <div>
+            <div className="lg:pl-20">
               <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm mb-4">
                 <Award className="w-4 h-4 text-precision-orange-400" />
                 <span>Trusted Since 1968</span>
@@ -154,8 +154,8 @@ export default function HomePage() {
             </div>
 
             {/* Hero Image */}
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative w-fit">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl w-fit">
                 <Image
                   src="/images/ppi-hero-image.jpeg"
                   alt="CNC machine drilling precision plastic component - Pro Plastics Inc. manufacturing"
@@ -167,13 +167,13 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-industrial-blue-900/30 to-transparent" />
               </div>
               {/* Stats overlay */}
-              <div className="grid grid-cols-2 gap-3 mt-6">
+              <div className="grid grid-cols-2 gap-2 mt-4">
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center"
+                    className="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center"
                   >
-                    <div className="text-2xl font-bold text-precision-orange-400 mb-1">
+                    <div className="text-xl font-bold text-precision-orange-400 mb-0.5">
                       {stat.value}
                     </div>
                     <div className="text-steel-300 text-xs">{stat.label}</div>

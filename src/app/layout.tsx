@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: '%s | Pro Plastics Inc.',
   },
   description:
-    'Custom plastic parts manufacturing and fabrication in Linden, NJ. CNC machining, vacuum forming, and material distribution. Serving aerospace, medical, semiconductor, and electronics industries for 55+ years.',
+    'Custom plastic parts manufacturing and fabrication in Linden, NJ. CNC machining, fabrication, and material distribution. Serving aerospace, medical, semiconductor, and electronics industries for 55+ years.',
   keywords: [
     'plastic manufacturing',
     'CNC machining',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: 'Pro Plastics Inc.',
     title: 'Pro Plastics Inc. | Precision Plastic Manufacturing Since 1968',
     description:
-      'Custom plastic parts manufacturing and fabrication. CNC machining, vacuum forming, and material distribution. Serving aerospace, medical, and semiconductor industries.',
+      'Custom plastic parts manufacturing and fabrication. CNC machining, fabrication, and material distribution. Serving aerospace, medical, and semiconductor industries.',
     images: [
       {
         url: '/images/ppi-hero-image.jpeg',

@@ -3,7 +3,6 @@ import Link from 'next/link';
 import {
   Cog,
   Layers,
-  Wind,
   Wrench,
   ArrowRight,
   CheckCircle,
@@ -15,11 +14,11 @@ import {
 export const metadata: Metadata = {
   title: 'Manufacturing Capabilities',
   description:
-    'CNC machining, custom fabrication, vacuum forming, and secondary operations. Tolerances to +/-0.001". PEEK, Delrin, UHMW, Teflon, and 1000+ materials.',
+    'CNC machining, custom fabrication, and secondary operations. Tolerances to +/-0.001". PEEK, Delrin, UHMW, Teflon, and 1000+ materials.',
   openGraph: {
     title: 'Manufacturing Capabilities | Pro Plastics Inc.',
     description:
-      'Precision CNC machining with tolerances to +/-0.001". Custom fabrication, vacuum forming, and complete finishing services.',
+      'Precision CNC machining with tolerances to +/-0.001". Custom fabrication and complete finishing services.',
   },
 };
 
@@ -53,21 +52,6 @@ const capabilities = [
       'Assembly services',
     ],
     materials: ['Acrylic', 'Polycarbonate', 'HDPE', 'PVC', 'ABS', 'Phenolic'],
-  },
-  {
-    id: 'vacuum-forming',
-    icon: Wind,
-    title: 'Vacuum Forming',
-    description:
-      'Thermoforming and vacuum forming for enclosures, covers, and custom-shaped components.',
-    features: [
-      'Custom tooling available',
-      'Low to medium volumes',
-      'Various thicknesses',
-      'Trimming & finishing',
-      'Prototype to production',
-    ],
-    materials: ['ABS', 'PETG', 'Polystyrene', 'Polycarbonate', 'HDPE'],
   },
   {
     id: 'secondary-operations',

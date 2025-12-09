@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 const footerLinks = {
@@ -11,7 +12,6 @@ const footerLinks = {
   capabilities: [
     { name: 'CNC Machining', href: '/capabilities/cnc-machining' },
     { name: 'Fabrication', href: '/capabilities/fabrication' },
-    { name: 'Vacuum Forming', href: '/capabilities/vacuum-forming' },
     { name: 'Secondary Operations', href: '/capabilities/secondary-operations' },
   ],
   resources: [
@@ -36,11 +36,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Company info */}
           <div className="lg:col-span-2">
-            <div className="mb-6">
-              <span className="text-2xl font-bold">Pro Plastics Inc.</span>
-              <p className="text-steel-300 text-sm mt-1">
-                Precision Manufacturing Since 1968
-              </p>
+            <div className="mb-6 flex items-center gap-3 -ml-5">
+              <Image
+                src="/images/ppi-logo.png"
+                alt="Pro Plastics Inc. logo"
+                width={64}
+                height={64}
+                className="w-16 h-16 drop-shadow-[0_0_4px_rgba(255,255,255,0.3)]"
+              />
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold">Pro Plastics Inc.</span>
+                <span className="text-sm text-steel-300">
+                  Precision Manufacturing Since 1968
+                </span>
+              </div>
             </div>
             <p className="text-steel-300 mb-6 leading-relaxed">
               Your trusted partner for custom plastic parts manufacturing and

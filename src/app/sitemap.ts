@@ -19,7 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const capabilityPages = [
     '/capabilities/cnc-machining',
     '/capabilities/fabrication',
-    '/capabilities/vacuum-forming',
     '/capabilities/secondary-operations',
   ];
 
