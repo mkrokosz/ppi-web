@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { defaultLocale, locales } from '@/i18n/config';
 
-export default function ContactThankYouRedirect() {
+function RedirectHandler() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -15,4 +15,12 @@ export default function ContactThankYouRedirect() {
   }, [searchParams, router]);
 
   return null;
+}
+
+export default function ContactThankYouRedirect() {
+  return (
+    <Suspense fallback={null}>
+      <RedirectHandler />
+    </Suspense>
+  );
 }
