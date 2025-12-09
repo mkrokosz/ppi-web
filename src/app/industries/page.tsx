@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Plane,
@@ -37,6 +38,8 @@ const industries = [
     materials: ['PEEK', 'Ultem', 'Torlon', 'G-10/FR-4'],
     applications: ['Structural insulators', 'Bearing components', 'Wear parts', 'Electrical housings'],
     compliance: ['AS9100 capable', 'ITAR registered', 'MIL-SPEC materials'],
+    image: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&q=80',
+    imageAlt: 'Rocket launch with flames and smoke',
   },
   {
     id: 'medical',
@@ -47,6 +50,8 @@ const industries = [
     materials: ['PEEK', 'UHMW', 'Acetal', 'Polycarbonate'],
     applications: ['Surgical instruments', 'Diagnostic equipment', 'Laboratory fixtures', 'Implant components'],
     compliance: ['FDA compliant materials', 'USP Class VI', 'ISO 13485 capable'],
+    image: 'https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=800&q=80',
+    imageAlt: 'Medical laboratory equipment and research',
   },
   {
     id: 'semiconductor',
@@ -57,6 +62,8 @@ const industries = [
     materials: ['PEEK', 'PTFE', 'PFA', 'Vespel'],
     applications: ['Wafer handling', 'Chemical delivery', 'Process chambers', 'Test fixtures'],
     compliance: ['Cleanroom compatible', 'Low outgassing', 'ESD safe options'],
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80',
+    imageAlt: 'Semiconductor chip and circuit board technology',
   },
   {
     id: 'electronics',
@@ -67,6 +74,8 @@ const industries = [
     materials: ['G-10/FR-4', 'Phenolic', 'Nylon', 'PBT'],
     applications: ['Circuit board standoffs', 'Connector bodies', 'Insulating spacers', 'EMI shielding'],
     compliance: ['UL recognized', 'RoHS compliant', 'Flame retardant options'],
+    image: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=800&q=80',
+    imageAlt: 'Electronic circuit board and components',
   },
   {
     id: 'automotive',
@@ -77,6 +86,8 @@ const industries = [
     materials: ['Nylon', 'Acetal', 'POM', 'HDPE'],
     applications: ['Bushings & bearings', 'Fuel system components', 'Electrical insulators', 'Wear parts'],
     compliance: ['IATF 16949 capable', 'Automotive grade materials'],
+    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80',
+    imageAlt: 'Automotive manufacturing and engineering',
   },
   {
     id: 'chemical',
@@ -87,6 +98,8 @@ const industries = [
     materials: ['PTFE', 'PVDF', 'PP', 'CPVC'],
     applications: ['Valve seats', 'Pump components', 'Tank linings', 'Gaskets & seals'],
     compliance: ['Chemical resistance certified', 'FDA compliant options'],
+    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80',
+    imageAlt: 'Chemical processing plant and industrial equipment',
   },
   {
     id: 'water',
@@ -97,6 +110,8 @@ const industries = [
     materials: ['UHMW', 'HDPE', 'PVC', 'CPVC'],
     applications: ['Filter housings', 'Pump components', 'Valve parts', 'Piping systems'],
     compliance: ['NSF/ANSI 61 materials', 'Potable water safe'],
+    image: 'https://images.unsplash.com/photo-1504297050568-910d24c426d3?w=800&q=80',
+    imageAlt: 'Water treatment facility and filtration systems',
   },
   {
     id: 'food',
@@ -107,6 +122,8 @@ const industries = [
     materials: ['UHMW', 'Acetal', 'HDPE', 'Polycarbonate'],
     applications: ['Conveyor parts', 'Cutting surfaces', 'Guide rails', 'Packaging equipment'],
     compliance: ['FDA compliant', 'USDA accepted', '3-A Dairy'],
+    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80',
+    imageAlt: 'Food processing and manufacturing facility',
   },
   {
     id: 'construction',
@@ -117,6 +134,8 @@ const industries = [
     materials: ['UHMW', 'Nylon', 'HDPE', 'Acetal'],
     applications: ['Wear strips', 'Bushings', 'Roller guides', 'Structural components'],
     compliance: ['High load capacity', 'Weather resistant'],
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+    imageAlt: 'Construction site with heavy industrial equipment',
   },
 ];
 
@@ -145,18 +164,29 @@ export default function IndustriesPage() {
             {industries.map((industry) => (
               <div
                 key={industry.id}
-                className="card border border-steel-200 hover:border-precision-orange-400 transition-colors group"
+                className="card border border-steel-200 hover:border-precision-orange-400 transition-colors group overflow-hidden p-0"
               >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 bg-industrial-blue-100 rounded-xl flex items-center justify-center group-hover:bg-precision-orange-100 transition-colors">
-                    <industry.icon className="w-7 h-7 text-industrial-blue-900 group-hover:text-precision-orange-500 transition-colors" />
+                {/* Industry Image */}
+                <div className="relative h-40 w-full">
+                  <Image
+                    src={industry.image}
+                    alt={industry.imageAlt}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-industrial-blue-900/60 to-transparent" />
+                  <div className="absolute bottom-3 left-4 flex items-center gap-3">
+                    <div className="w-10 h-10 bg-white/90 rounded-lg flex items-center justify-center">
+                      <industry.icon className="w-5 h-5 text-industrial-blue-900" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white">
+                      {industry.name}
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-bold text-industrial-blue-900">
-                    {industry.name}
-                  </h3>
                 </div>
 
-                <p className="text-steel-600 mb-4">{industry.description}</p>
+                <div className="p-6">
+                  <p className="text-steel-600 mb-4">{industry.description}</p>
 
                 <div className="space-y-4 mb-6">
                   <div>
@@ -209,7 +239,7 @@ export default function IndustriesPage() {
                     </div>
                   </div>
                 </div>
-
+                </div>
               </div>
             ))}
           </div>
