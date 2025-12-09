@@ -1,0 +1,901 @@
+{
+  "metadata": {
+    "title": "Pro Plastics Inc. | Fabrication de plastiques de précision depuis 1968",
+    "description": "Fabrication de plastiques sur mesure à Linden, NJ, USA. Usinage CNC, fabrication et distribution de matériaux pour les industries aérospatiale, médicale et des semi-conducteurs depuis 1968."
+  },
+  "nav": {
+    "home": "Accueil",
+    "capabilities": "Capacités",
+    "cncMachining": "Usinage CNC",
+    "fabrication": "Fabrication",
+    "secondaryOperations": "Opérations secondaires",
+    "materials": "Matériaux",
+    "materialDatabase": "Base de données des matériaux",
+    "comparisonCharts": "Tableaux comparatifs",
+    "chemicalResistance": "Résistance chimique",
+    "industries": "Industries",
+    "portfolio": "Portfolio",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "common": {
+    "phone": "+1 (866) 925-5000",
+    "email": "sales@proplasticsinc.com",
+    "address": "1190 Sylvan St",
+    "cityStateZip": "Linden, NJ 07036, USA",
+    "hours": "Lun-Ven : 8h30 - 16h00 EST",
+    "tollFree": "Numéro gratuit",
+    "learnMore": "En savoir plus",
+    "getStarted": "Commencer",
+    "viewDetails": "Voir les détails",
+    "downloadPdf": "Télécharger PDF",
+    "contactUs": "Contactez-nous",
+    "getDirections": "Obtenir l'itinéraire",
+    "since1968": "Fabrication de précision depuis 1968",
+    "requestQuote": "Demander un devis",
+    "callUs": "Appelez +1 (866) 925-5000"
+  },
+  "home": {
+    "hero": {
+      "trustedSince": "De confiance depuis 1968",
+      "subtitle": "Fabrication de plastiques de précision",
+      "description": "Votre source complète pour les pièces plastiques sur mesure — du prototype à la production. Usinage CNC expert, fabrication et distribution de matériaux pour les industries exigeantes.",
+      "getQuote": "Obtenir un devis gratuit",
+      "viewCapabilities": "Voir nos capacités"
+    },
+    "stats": {
+      "yearsExperience": "Années d'expérience",
+      "industriesServed": "Industries servies",
+      "materialsAvailable": "Matériaux disponibles",
+      "quoteTurnaround": "Délai de devis"
+    },
+    "capabilities": {
+      "cncMachining": {
+        "title": "Usinage CNC",
+        "description": "Usinage CNC horizontal et vertical de précision avec des tolérances serrées pour les géométries complexes."
+      },
+      "customFabrication": {
+        "title": "Fabrication sur mesure",
+        "description": "Service complet de fabrication plastique incluant routage, fraisage, perçage et poinçonnage."
+      },
+      "materialDistribution": {
+        "title": "Distribution de matériaux",
+        "description": "Inventaire complet de feuilles, tiges et tubes plastiques en matériaux de qualité ingénierie."
+      },
+      "prototyping": {
+        "title": "Prototypage",
+        "description": "Développement rapide de prototypes du concept aux pièces prêtes pour la production."
+      }
+    },
+    "trustIndicators": {
+      "isoQuality": "Normes de qualité ISO",
+      "madeInUsa": "Fabriqué aux USA",
+      "fastTurnaround": "Délai rapide",
+      "expertSupport": "Support expert"
+    },
+    "sections": {
+      "capabilities": {
+        "title": "Nos capacités",
+        "subtitle": "De l'usinage CNC complexe à la production à grande échelle, nous fournissons des solutions plastiques de précision adaptées à vos besoins."
+      },
+      "industries": {
+        "title": "Industries que nous servons",
+        "subtitle": "Reconnus par les entreprises leaders dans divers secteurs pour les composants plastiques critiques."
+      },
+      "whyChooseUs": {
+        "title": "Pourquoi choisir Pro Plastics ?",
+        "subtitle": "Avec plus de 55 ans d'expérience, nous combinons l'artisanat traditionnel avec la fabrication de précision moderne pour offrir des résultats exceptionnels à chaque fois.",
+        "learnMore": "En savoir plus sur nous"
+      },
+      "testimonials": {
+        "title": "Ce que disent nos clients",
+        "subtitle": "Ne nous croyez pas sur parole — écoutez les entreprises qui nous font confiance pour leurs besoins en plastiques de précision."
+      }
+    },
+    "features": {
+      "zeroDefect": "Engagement qualité zéro défaut",
+      "onTimeDelivery": "Garantie de livraison à temps",
+      "expertGuidance": "Conseils experts en matériaux",
+      "competitivePricing": "Prix compétitifs",
+      "rapidQuote": "Délai de devis rapide",
+      "customSolutions": "Solutions sur mesure pour toute industrie"
+    },
+    "quickTurnaround": {
+      "title": "Délai rapide",
+      "subtitle": "Devis sous 24 heures"
+    },
+    "testimonials": {
+      "testimonial1": {
+        "quote": "Pro Plastics est notre fournisseur de référence pour les composants de précision depuis plus d'une décennie. Leur qualité et leur délai sont inégalés.",
+        "author": "Directeur ingénierie",
+        "company": "Entreprise de fabrication aérospatiale"
+      },
+      "testimonial2": {
+        "quote": "L'expertise en matériaux de Pro Plastics nous a aidés à sélectionner le plastique parfait conforme FDA pour notre application de dispositif médical.",
+        "author": "Responsable développement produit",
+        "company": "Startup dispositifs médicaux"
+      },
+      "testimonial3": {
+        "quote": "Du prototype à la production, Pro Plastics a livré exactement ce dont nous avions besoin. Hautement recommandé pour les applications semi-conducteurs.",
+        "author": "Responsable opérations",
+        "company": "Fournisseur d'équipements semi-conducteurs"
+      }
+    },
+    "cta": {
+      "title": "Prêt à démarrer votre projet ?",
+      "subtitle": "Téléchargez vos dessins et obtenez un devis détaillé sous 24 heures. Notre équipe est prête à donner vie à votre vision."
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Des questions sur nos capacités ou besoin d'un devis ? Nous sommes là pour vous aider. Contactez-nous et notre équipe répondra rapidement.",
+    "getInTouch": "Entrer en contact",
+    "phone": "Téléphone",
+    "emailLabel": "Email",
+    "salesQuotes": "Ventes et devis",
+    "addressLabel": "Adresse",
+    "hoursLabel": "Horaires",
+    "mondayFriday": "Lundi - Vendredi",
+    "closedWeekend": "Fermé samedi et dimanche",
+    "needQuote": "Besoin d'un devis ?",
+    "quoteDescription": "Pour un service plus rapide, utilisez notre formulaire de demande de devis pour télécharger vos dessins directement.",
+    "sendMessage": "Envoyez-nous un message",
+    "form": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email",
+      "phone": "Téléphone (optionnel)",
+      "company": "Entreprise (optionnel)",
+      "subject": "Sujet",
+      "selectSubject": "Sélectionnez un sujet...",
+      "subjectQuote": "Demande de devis",
+      "subjectCapabilities": "Question sur les capacités",
+      "subjectMaterials": "Information sur les matériaux",
+      "subjectOrder": "État de la commande",
+      "subjectOther": "Autre",
+      "message": "Message",
+      "messagePlaceholder": "Comment pouvons-nous vous aider ?",
+      "send": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "required": "*"
+    }
+  },
+  "quote": {
+    "title": "Demander un devis",
+    "subtitle": "Obtenez un devis détaillé pour vos pièces plastiques sur mesure. Téléchargez vos dessins et spécifications, et nous répondrons sous 24 heures.",
+    "ndaAvailable": "NDA disponible sur demande",
+    "questions": "Questions ? Appelez +1 (866) 925-5000"
+  },
+  "materials": {
+    "title": "Base de données des matériaux",
+    "subtitle": "Explorez notre inventaire complet de plastiques techniques. Trouvez le matériau parfait pour votre application grâce à notre base de données consultable.",
+    "searchPlaceholder": "Rechercher des matériaux par nom ou description...",
+    "showing": "({count} sur {total} matériaux)",
+    "tempRange": "Plage de température",
+    "availableForms": "Formes disponibles",
+    "keyProperties": "Propriétés clés",
+    "filters": "Filtres",
+    "properties": "Propriétés",
+    "applications": "Applications",
+    "activeFilters": "Filtres actifs :",
+    "clearAll": "Tout effacer",
+    "noResults": "Aucun matériau ne correspond à vos filtres actuels.",
+    "clearFilters": "Effacer les filtres",
+    "viewDetails": "Voir les détails",
+    "categories": {
+      "all": "Tous",
+      "highPerformance": "Haute performance",
+      "engineering": "Ingénierie",
+      "fluoropolymer": "Fluoropolymère",
+      "thermoset": "Thermodurcissable",
+      "standard": "Standard"
+    },
+    "propertyNames": {
+      "highTemperature": "Haute température",
+      "chemicalResistant": "Résistant aux produits chimiques",
+      "fdaCompliant": "Conforme FDA",
+      "lowFriction": "Faible friction",
+      "flameRetardant": "Ignifuge",
+      "wearResistant": "Résistant à l'usure",
+      "machinable": "Usinable",
+      "impactResistant": "Résistant aux chocs",
+      "electricalInsulation": "Isolation électrique",
+      "opticallyClear": "Optiquement clair",
+      "uvResistant": "Résistant aux UV",
+      "highStrength": "Haute résistance"
+    },
+    "applicationNames": {
+      "aerospace": "Aérospatiale",
+      "medical": "Médical",
+      "semiconductor": "Semi-conducteur",
+      "electronics": "Électronique",
+      "automotive": "Automobile",
+      "foodProcessing": "Agroalimentaire",
+      "chemicalProcessing": "Traitement chimique",
+      "materialHandling": "Manutention",
+      "industrial": "Industriel",
+      "safety": "Sécurité",
+      "glazing": "Vitrage",
+      "display": "Affichage",
+      "lighting": "Éclairage",
+      "electrical": "Électrique",
+      "waterTreatment": "Traitement de l'eau"
+    },
+    "forms": {
+      "sheet": "Feuille",
+      "rod": "Tige",
+      "tube": "Tube"
+    },
+    "resources": {
+      "title": "Ressources matériaux",
+      "subtitle": "Outils supplémentaires pour vous aider à sélectionner le bon matériau.",
+      "comparison": {
+        "title": "Tableaux comparatifs",
+        "description": "Comparaisons côte à côte des propriétés pour vous aider à choisir entre les matériaux."
+      },
+      "chemicalResistance": {
+        "title": "Guide de résistance chimique",
+        "description": "Guide complet de compatibilité des matériaux avec divers produits chimiques."
+      },
+      "milSpec": {
+        "title": "Spécifications militaires",
+        "description": "Matériaux répondant aux exigences MIL-SPEC pour les applications de défense."
+      },
+      "viewCharts": "Voir les tableaux",
+      "viewGuide": "Voir le guide",
+      "viewSpecs": "Voir les spécifications"
+    },
+    "cta": {
+      "title": "Besoin d'aide pour choisir un matériau ?",
+      "subtitle": "Nos experts en matériaux peuvent vous aider à choisir le plastique adapté à vos besoins spécifiques.",
+      "contactExperts": "Contacter nos experts"
+    },
+    "expertHelp": {
+      "title": "Besoin d'aide pour choisir un matériau ?",
+      "subtitle": "Nos ingénieurs peuvent vous aider à choisir le matériau optimal pour vos besoins spécifiques.",
+      "cta": "Contacter nos experts"
+    },
+    "items": {
+      "peek": {
+        "name": "PEEK (Polyéther éther cétone)",
+        "description": "Thermoplastique haute performance premium avec d'excellentes propriétés mécaniques à températures élevées."
+      },
+      "ultem": {
+        "name": "Ultem (PEI)",
+        "description": "Polyétherimide avec haute résistance, rigidité et large résistance chimique."
+      },
+      "delrin": {
+        "name": "Delrin (Acétal)",
+        "description": "Homopolymère acétal haute résistance avec excellente stabilité dimensionnelle et usinabilité."
+      },
+      "nylon": {
+        "name": "Nylon 6/6",
+        "description": "Plastique technique polyvalent avec excellente résistance à l'usure et propriétés mécaniques."
+      },
+      "teflon": {
+        "name": "PTFE (Téflon)",
+        "description": "Résistance chimique exceptionnelle et coefficient de friction le plus bas de tous les matériaux solides."
+      },
+      "uhmw": {
+        "name": "UHMW Polyéthylène",
+        "description": "PE ultra haut poids moléculaire avec résistance à l'abrasion et résistance aux chocs exceptionnelles."
+      },
+      "polycarbonate": {
+        "name": "Polycarbonate",
+        "description": "Virtuellement incassable avec excellente clarté optique et résistance aux chocs."
+      },
+      "acrylic": {
+        "name": "Acrylique (PMMA)",
+        "description": "Thermoplastique cristallin avec excellentes propriétés optiques et résistance aux intempéries."
+      },
+      "phenolic": {
+        "name": "Phénolique (Toile/Lin)",
+        "description": "Stratifié renforcé de tissu avec excellentes propriétés électriques et mécaniques."
+      },
+      "g10": {
+        "name": "G-10/FR-4 (Époxy verre)",
+        "description": "Époxy renforcé de tissu de verre avec propriétés électriques et mécaniques supérieures."
+      },
+      "pvc": {
+        "name": "PVC (Type I et II)",
+        "description": "Matériau économique avec bonne résistance chimique et ignifugation."
+      },
+      "hdpe": {
+        "name": "HDPE",
+        "description": "Polyéthylène haute densité avec excellente résistance chimique et faible absorption d'humidité."
+      }
+    }
+  },
+  "comparison": {
+    "title": "Tableaux comparatifs des matériaux",
+    "subtitle": "Comparaisons côte à côte des propriétés pour vous aider à sélectionner le bon matériau pour votre application.",
+    "tableTitle": "Comparaison des plastiques techniques",
+    "tableSubtitle": "Comparez les propriétés clés des plastiques techniques courants",
+    "property": "Propriété",
+    "downloadPdf": "Télécharger PDF",
+    "quickGuide": "Guide de sélection rapide",
+    "disclaimer": "* Les valeurs indiquées sont typiques et peuvent varier selon le grade. Contactez-nous pour les fiches techniques spécifiques.",
+    "breadcrumb": {
+      "materials": "Matériaux",
+      "comparison": "Tableaux comparatifs"
+    },
+    "properties": {
+      "maxServiceTemp": "Temp. max de service",
+      "tensileStrength": "Résistance à la traction (psi)",
+      "flexuralModulus": "Module de flexion (psi)",
+      "impactStrength": "Résistance aux chocs",
+      "chemicalResistance": "Résistance chimique",
+      "wearResistance": "Résistance à l'usure",
+      "machinability": "Usinabilité",
+      "fdaCompliant": "Conforme FDA",
+      "relativeCost": "Coût relatif"
+    },
+    "ratings": {
+      "excellent": "Excellent",
+      "good": "Bon",
+      "fair": "Moyen",
+      "yes": "Oui",
+      "no": "Non"
+    },
+    "selectionGuide": {
+      "highTemperature": {
+        "need": "Haute température",
+        "materials": "PEEK, Ultem, PTFE",
+        "note": "Pour applications au-dessus de 120°C"
+      },
+      "chemicalResistance": {
+        "need": "Résistance chimique",
+        "materials": "PTFE, PEEK, UHMW",
+        "note": "Pour environnements chimiques agressifs"
+      },
+      "wearResistance": {
+        "need": "Résistance à l'usure",
+        "materials": "UHMW, Delrin, PEEK",
+        "note": "Pour applications de glissement et roulements"
+      },
+      "fdaCompliance": {
+        "need": "Conformité FDA",
+        "materials": "UHMW, Delrin, PTFE, Nylon",
+        "note": "Pour applications de contact alimentaire"
+      },
+      "lowCost": {
+        "need": "Faible coût",
+        "materials": "UHMW, Nylon, Delrin",
+        "note": "Options économiques"
+      },
+      "easyMachining": {
+        "need": "Usinage facile",
+        "materials": "Delrin, Nylon, UHMW",
+        "note": "Pour géométries complexes"
+      }
+    },
+    "needHelp": {
+      "title": "Besoin d'aide pour choisir ?",
+      "subtitle": "Nos experts en matériaux peuvent vous aider à sélectionner le plastique optimal pour vos besoins spécifiques.",
+      "contactExperts": "Contacter nos experts",
+      "browseAll": "Parcourir tous les matériaux"
+    }
+  },
+  "chemicalResistance": {
+    "title": "Guide de résistance chimique",
+    "subtitle": "Guide complet de compatibilité des matériaux plastiques avec divers produits chimiques. Trouvez le bon matériau pour votre environnement chimique.",
+    "legend": "Légende :",
+    "excellent": "E = Excellent",
+    "good": "G = Bon",
+    "fair": "F = Moyen",
+    "notRecommended": "N = Non recommandé",
+    "searchPlaceholder": "Rechercher des produits chimiques...",
+    "showing": "Affichage de {count} sur {total} produits chimiques",
+    "chemical": "Produit chimique",
+    "category": "Catégorie",
+    "downloadPdf": "Télécharger PDF",
+    "disclaimer": "* Les données présentées sont des indications générales à température ambiante. Les performances réelles peuvent varier selon la concentration, la température et le temps d'exposition. Testez toujours pour votre application spécifique.",
+    "breadcrumb": {
+      "materials": "Matériaux",
+      "chemicalResistance": "Guide de résistance chimique"
+    },
+    "categories": {
+      "all": "Tous",
+      "acids": "Acides",
+      "bases": "Bases",
+      "solvents": "Solvants",
+      "fuels": "Carburants",
+      "alcohols": "Alcools",
+      "oxidizers": "Oxydants",
+      "oils": "Huiles",
+      "water": "Eau"
+    },
+    "needData": {
+      "title": "Besoin de données de compatibilité chimique spécifiques ?",
+      "subtitle": "Contactez-nous pour des informations détaillées sur la résistance chimique ou pour discuter de vos besoins spécifiques.",
+      "contactExperts": "Contacter nos experts",
+      "browseAll": "Parcourir tous les matériaux"
+    }
+  },
+  "industries": {
+    "title": "Industries que nous servons",
+    "subtitle": "De l'aérospatiale à l'agroalimentaire, nous fournissons des solutions plastiques de précision pour les industries les plus exigeantes au monde.",
+    "aerospace": "Aérospatiale",
+    "medical": "Médical",
+    "semiconductor": "Semi-conducteur",
+    "electronics": "Électronique",
+    "automotive": "Automobile",
+    "chemicalProcessing": "Traitement chimique",
+    "waterTreatment": "Traitement de l'eau",
+    "construction": "Construction",
+    "foodProcessing": "Agroalimentaire",
+    "commonMaterials": "Matériaux courants",
+    "typicalApplications": "Applications typiques",
+    "compliance": "Conformité",
+    "items": {
+      "aerospace": {
+        "name": "Aérospatiale",
+        "description": "Composants de précision pour avions, satellites et applications de défense. Matériaux et procédés répondant aux normes aérospatiales strictes.",
+        "applications": ["Isolants structurels", "Composants de roulements", "Pièces d'usure", "Boîtiers électriques"],
+        "compliance": ["Capable AS9100", "Enregistré ITAR", "Matériaux MIL-SPEC"]
+      },
+      "medical": {
+        "name": "Médical et sciences de la vie",
+        "description": "Matériaux conformes FDA pour dispositifs médicaux, équipements de laboratoire et applications pharmaceutiques.",
+        "applications": ["Instruments chirurgicaux", "Équipements de diagnostic", "Fixtures de laboratoire", "Composants d'implants"],
+        "compliance": ["Matériaux conformes FDA", "USP Classe VI", "Capable ISO 13485"]
+      },
+      "semiconductor": {
+        "name": "Semi-conducteur",
+        "description": "Composants ultra-propres pour la manipulation de wafers, le traitement de puces et les environnements de salle blanche.",
+        "applications": ["Manipulation de wafers", "Distribution de produits chimiques", "Chambres de process", "Fixtures de test"],
+        "compliance": ["Compatible salle blanche", "Faible dégazage", "Options ESD safe"]
+      },
+      "electronics": {
+        "name": "Électronique",
+        "description": "Composants isolants, connecteurs et boîtiers pour appareils et systèmes électroniques.",
+        "applications": ["Entretoises de circuits imprimés", "Corps de connecteurs", "Espaceurs isolants", "Blindage EMI"],
+        "compliance": ["Reconnu UL", "Conforme RoHS", "Options ignifuges"]
+      },
+      "automotive": {
+        "name": "Automobile",
+        "description": "Composants durables pour véhicules, des applications sous capot aux pièces de garniture intérieure.",
+        "applications": ["Bagues et roulements", "Composants du système de carburant", "Isolants électriques", "Pièces d'usure"],
+        "compliance": ["Capable IATF 16949", "Matériaux de qualité automobile"]
+      },
+      "chemical": {
+        "name": "Traitement chimique",
+        "description": "Composants résistants à la corrosion pour environnements chimiques agressifs et équipements de traitement.",
+        "applications": ["Sièges de vannes", "Composants de pompes", "Revêtements de réservoirs", "Joints et garnitures"],
+        "compliance": ["Résistance chimique certifiée", "Options conformes FDA"]
+      },
+      "water": {
+        "name": "Traitement de l'eau",
+        "description": "Composants pour systèmes de filtration, pompes et équipements de manipulation de l'eau.",
+        "applications": ["Boîtiers de filtres", "Composants de pompes", "Pièces de vannes", "Systèmes de tuyauterie"],
+        "compliance": ["Matériaux NSF/ANSI 61", "Sûr pour eau potable"]
+      },
+      "food": {
+        "name": "Agroalimentaire",
+        "description": "Matériaux conformes FDA et acceptés USDA pour le contact alimentaire et les applications de traitement.",
+        "applications": ["Pièces de convoyeurs", "Surfaces de coupe", "Rails de guidage", "Équipements d'emballage"],
+        "compliance": ["Conforme FDA", "Accepté USDA", "3-A Dairy"]
+      },
+      "construction": {
+        "name": "Construction et industrie",
+        "description": "Composants robustes pour équipements de construction, manutention et machines industrielles.",
+        "applications": ["Bandes d'usure", "Bagues", "Guides de rouleaux", "Composants structurels"],
+        "compliance": ["Haute capacité de charge", "Résistant aux intempéries"]
+      }
+    },
+    "crossIndustry": {
+      "title": "Expertise inter-industries",
+      "description": "Avec plus de 55 ans d'expérience, nous comprenons que chaque industrie a des exigences uniques. Notre équipe travaille en étroite collaboration avec vous pour s'assurer que chaque pièce répond à vos normes spécifiques.",
+      "features": [
+        "Conseils de sélection de matériaux pour votre application",
+        "Support de conception pour la fabricabilité (DFM)",
+        "Conformité et certifications spécifiques à l'industrie",
+        "Documentation qualité et traçabilité",
+        "Évolutivité du prototype à la production"
+      ]
+    },
+    "dontSee": {
+      "title": "Vous ne voyez pas votre industrie ?",
+      "description": "Nous servons de nombreux secteurs spécialisés au-delà de ceux listés. Contactez-nous pour discuter de vos besoins spécifiques."
+    },
+    "cta": {
+      "title": "Prêt à commencer ?",
+      "subtitle": "Envoyez-nous vos spécifications et laissez nos experts vous aider à trouver la bonne solution pour votre application industrielle."
+    }
+  },
+  "portfolio": {
+    "title": "Nos réalisations",
+    "subtitle": "Découvrez des exemples de composants plastiques de précision que nous avons fabriqués pour des clients de diverses industries.",
+    "photoComingSoon": "Photo à venir",
+    "process": "Procédé",
+    "tolerance": "Tolérance",
+    "confidentiality": "En raison des accords de confidentialité avec nos clients, nous ne pouvons partager que des détails limités sur nos projets. Contactez-nous pour plus d'informations sur nos capacités pour votre application spécifique.",
+    "whatWeDo": "Ce que nous pouvons faire pour vous",
+    "whatWeDoSubtitle": "Notre portfolio ne représente qu'un échantillon de nos capacités de fabrication.",
+    "filterAll": "Tous",
+    "processes": {
+      "cncMachining": "Usinage CNC",
+      "cncTurning": "Tournage CNC",
+      "fabrication": "Fabrication"
+    },
+    "categories": {
+      "aerospace": "Aérospatiale",
+      "medical": "Médical",
+      "semiconductor": "Semi-conducteur",
+      "electronics": "Électronique",
+      "automotive": "Automobile",
+      "chemical": "Chimique",
+      "foodProcessing": "Agroalimentaire",
+      "industrial": "Industriel",
+      "waterTreatment": "Traitement de l'eau"
+    },
+    "capabilities": {
+      "cncMachining": {
+        "title": "Usinage CNC",
+        "desc": "Géométries complexes avec tolérances jusqu'à ±0.001\""
+      },
+      "fabrication": {
+        "title": "Fabrication",
+        "desc": "Découpe, routage, collage et assemblage"
+      },
+      "materialDistribution": {
+        "title": "Distribution de matériaux",
+        "desc": "Plus de 1000 matériaux en stock"
+      },
+      "secondaryOps": {
+        "title": "Opérations secondaires",
+        "desc": "Filetage, finition et plus"
+      }
+    },
+    "items": {
+      "peekInsulators": {
+        "title": "Isolants PEEK de précision",
+        "description": "Isolants haute température pour systèmes électriques d'avions, usinés avec des tolérances exactes."
+      },
+      "medicalDevice": {
+        "title": "Composants de dispositifs médicaux",
+        "description": "Boîtiers et supports conformes FDA pour équipements d'imagerie diagnostique."
+      },
+      "semiconductorWafer": {
+        "title": "Manipulation de wafers semi-conducteurs",
+        "description": "Supports de wafers ultra-propres et fixtures de manipulation pour environnements de salle blanche."
+      },
+      "nylonBushings": {
+        "title": "Bagues nylon sur mesure",
+        "description": "Bagues résistantes à l'usure en grande série pour systèmes de suspension automobile."
+      },
+      "valveSeats": {
+        "title": "Sièges de vannes traitement chimique",
+        "description": "Composants de vannes résistants à la corrosion pour environnements chimiques agressifs."
+      },
+      "conveyorParts": {
+        "title": "Pièces de convoyeur alimentaire",
+        "description": "Bandes d'usure et rails de guidage conformes FDA pour lignes d'emballage alimentaire."
+      },
+      "circuitBoardStandoffs": {
+        "title": "Entretoises de circuits imprimés",
+        "description": "Entretoises isolantes ignifuges pour assemblages PCB haute densité."
+      },
+      "opticalHousings": {
+        "title": "Boîtiers de lentilles optiques",
+        "description": "Boîtiers de précision pour équipements de mesure optique industriels."
+      },
+      "waterTreatment": {
+        "title": "Composants traitement de l'eau",
+        "description": "Raccords et collecteurs résistants aux produits chimiques pour systèmes d'eau municipaux."
+      }
+    },
+    "cta": {
+      "title": "Vous avez un projet similaire ?",
+      "subtitle": "Envoyez-nous vos dessins et nous fournirons un devis détaillé sous 24 heures. Aucun projet n'est trop complexe."
+    }
+  },
+  "about": {
+    "title": "À propos de Pro Plastics Inc.",
+    "subtitle": "Depuis plus de 55 ans, nous sommes un partenaire de confiance pour la fabrication et l'usinage de pièces plastiques, servant diverses industries dans le monde entier avec précision, qualité et dévouement.",
+    "story": {
+      "title": "Notre histoire",
+      "paragraph1": "Fondée en 1968, Pro Plastics Inc. a débuté comme un petit atelier de fabrication plastique à Linden, New Jersey. Ce qui a commencé comme une opération locale est devenu un partenaire de fabrication de confiance servant des entreprises à travers le monde.",
+      "paragraph2": "Notre fondateur croyait que la fabrication de précision devrait être accessible aux entreprises de toutes tailles. Cette philosophie continue aujourd'hui — que vous ayez besoin d'un seul prototype ou de milliers de pièces de production, nous offrons la même qualité exceptionnelle et attention aux détails.",
+      "paragraph3": "En cinq décennies, nous avons investi dans les dernières technologies CNC, élargi notre expertise en matériaux, et constitué une équipe d'artisans qualifiés qui sont fiers de chaque pièce que nous produisons. Aujourd'hui, nous sommes fiers de servir 12 industries distinctes, de l'aérospatiale aux dispositifs médicaux.",
+      "facilityCaption": "Notre installation à Linden, NJ, USA"
+    },
+    "timeline": {
+      "title": "Notre parcours",
+      "subtitle": "Plus de 55 ans de croissance continue, d'innovation et d'engagement envers l'excellence.",
+      "1968": {
+        "title": "Création de l'entreprise",
+        "description": "Pro Plastics Inc. établie à Linden, New Jersey, débutant avec des services de fabrication plastique de base."
+      },
+      "1980s": {
+        "title": "Expansion et croissance",
+        "description": "Extension des capacités pour inclure l'usinage CNC et début du service aux industries aérospatiale et médicale."
+      },
+      "1990s": {
+        "title": "Investissement technologique",
+        "description": "Investissement majeur dans les équipements CNC de précision, établissant une réputation pour l'usinage à tolérances serrées."
+      },
+      "2000s": {
+        "title": "Distribution de matériaux",
+        "description": "Lancement d'une division complète de distribution de matériaux, devenant un guichet unique pour les clients."
+      },
+      "2010s": {
+        "title": "Leadership industriel",
+        "description": "Reconnu comme fabricant de plastiques leader servant plus de 12 industries avec une portée mondiale."
+      },
+      "today": {
+        "title": "L'innovation continue",
+        "description": "Poursuite des investissements dans les technologies de fabrication avancées tout en maintenant notre engagement envers la qualité."
+      }
+    },
+    "values": {
+      "title": "Nos valeurs fondamentales",
+      "subtitle": "Les principes qui guident tout ce que nous faisons.",
+      "qualityFirst": {
+        "title": "Qualité d'abord",
+        "description": "Engagement zéro défaut de la sélection des matériaux à l'inspection finale. Chaque pièce répond aux spécifications exactes."
+      },
+      "onTimeDelivery": {
+        "title": "Livraison à temps",
+        "description": "Nous comprenons que vos plannings de production dépendent de nous. La livraison fiable est notre promesse."
+      },
+      "customerPartnership": {
+        "title": "Partenariat client",
+        "description": "Nous travaillons aux côtés de votre équipe d'ingénierie pour trouver des solutions optimales pour vos applications spécifiques."
+      },
+      "integrity": {
+        "title": "Intégrité",
+        "description": "Communication honnête, prix équitables, et soutien de chaque produit que nous fabriquons."
+      }
+    },
+    "team": {
+      "title": "Notre équipe",
+      "subtitle": "Professionnels qualifiés dédiés à fournir des résultats de précision.",
+      "leadership": {
+        "title": "Direction",
+        "description": "Équipe de direction expérimentée avec des décennies d'expertise en fabrication."
+      },
+      "engineering": {
+        "title": "Ingénierie",
+        "description": "Experts techniques qui aident à optimiser vos conceptions pour la fabricabilité."
+      },
+      "production": {
+        "title": "Production",
+        "description": "Machinistes et fabricants qualifiés qui apportent la précision à chaque pièce."
+      }
+    },
+    "quality": {
+      "title": "Qualité et certifications",
+      "description": "La qualité n'est pas qu'un objectif — elle est intégrée dans chaque processus. De l'inspection des matériaux entrants aux contrôles qualité finaux, nous maintenons des normes rigoureuses qui répondent ou dépassent les exigences de l'industrie.",
+      "certifications": {
+        "iso": "Gestion de la qualité ISO 9001:2015",
+        "fda": "Matériaux conformes FDA",
+        "rohs": "Conforme RoHS",
+        "itar": "Enregistré ITAR",
+        "ul": "Matériaux reconnus UL",
+        "milSpec": "Capable spécifications militaires"
+      },
+      "promise": {
+        "title": "Notre promesse qualité",
+        "item1": "Inspection 100% sur les dimensions critiques",
+        "item2": "Traçabilité et certification complètes des matériaux",
+        "item3": "Contrôle statistique des processus si requis",
+        "item4": "Rapports d'inspection premier article disponibles"
+      }
+    },
+    "cta": {
+      "title": "Travaillons ensemble",
+      "subtitle": "Associez-vous à une entreprise qui fournit de la fabrication plastique de précision depuis plus de 55 ans."
+    }
+  },
+  "capabilities": {
+    "title": "Capacités de fabrication",
+    "subtitle": "De l'usinage CNC de précision aux services de fabrication complets, nous avons l'équipement et l'expertise pour répondre à vos exigences de fabrication plastique les plus exigeantes.",
+    "whatWeDo": "Ce que nous faisons",
+    "whatWeDoSubtitle": "Services complets de fabrication plastique sous un même toit.",
+    "keyFeatures": "Caractéristiques clés :",
+    "compatibleMaterials": "Matériaux compatibles :",
+    "ourEquipment": "Notre équipement",
+    "ourEquipmentSubtitle": "Équipements de fabrication modernes maintenus aux plus hauts standards.",
+    "precisionTolerances": "Tolérances de précision",
+    "precisionTolerancesSubtitle": "Capables de répondre à vos exigences dimensionnelles les plus strictes.",
+    "ourProcess": "Notre processus",
+    "ourProcessSubtitle": "Du devis à la livraison, nous assurons la qualité à chaque étape.",
+    "servingIndustries": "Au service des industries critiques",
+    "servingIndustriesSubtitle": "Nos capacités supportent les applications exigeantes dans l'aérospatiale, le médical, les semi-conducteurs et autres industries de précision.",
+    "viewIndustries": "Voir les industries",
+    "projectCta": {
+      "title": "Vous avez un projet en tête ?",
+      "subtitle": "Envoyez-nous vos dessins et spécifications. Nous fournirons un devis détaillé et des recommandations de fabrication sous 24 heures."
+    },
+    "items": {
+      "cncMachining": {
+        "title": "Usinage CNC",
+        "description": "Centres d'usinage CNC horizontaux et verticaux de pointe pour géométries complexes et tolérances serrées.",
+        "features": ["Centres d'usinage horizontaux et verticaux", "Capacité multi-axes", "Tolérances jusqu'à ±0.001\"", "Contours 3D complexes", "Capacités grand format"]
+      },
+      "fabrication": {
+        "title": "Fabrication sur mesure",
+        "description": "Service complet de fabrication plastique incluant découpe, routage, collage et assemblage de composants sur mesure.",
+        "features": ["Découpe et routage de précision", "Perçage et taraudage", "Pliage et formage", "Collage solvant et adhésif", "Services d'assemblage"]
+      },
+      "secondaryOperations": {
+        "title": "Opérations secondaires",
+        "description": "Services de finition complets incluant filetage, traitement thermique et finition de surface.",
+        "features": ["Filetage et taraudage", "Traitement thermique/recuit", "Rectification de surface", "Polissage et finition", "Marquage et gravure"]
+      }
+    },
+    "equipment": {
+      "cncHorizontalMills": "Fraiseuses CNC horizontales",
+      "cncVerticalMills": "Fraiseuses CNC verticales",
+      "cncLathes": "Tours CNC",
+      "manualMills": "Fraiseuses manuelles",
+      "bandSaws": "Scies à ruban",
+      "routers": "Défonceuses"
+    },
+    "toleranceTypes": {
+      "standard": "Standard",
+      "precision": "Précision",
+      "highPrecision": "Haute précision",
+      "surfaceFinish": "Finition de surface"
+    },
+    "processSteps": {
+      "step1": { "title": "Demande de devis", "desc": "Soumettez vos dessins pour examen" },
+      "step2": { "title": "Revue d'ingénierie", "desc": "Analyse DFM et sélection des matériaux" },
+      "step3": { "title": "Production", "desc": "Fabrication de précision" },
+      "step4": { "title": "Contrôle qualité", "desc": "Inspection et vérification" },
+      "step5": { "title": "Livraison", "desc": "Emballage sécurisé et expédition" }
+    },
+    "industries": {
+      "aerospace": "Aérospatiale",
+      "medical": "Médical",
+      "semiconductor": "Semi-conducteur",
+      "electronics": "Électronique",
+      "automotive": "Automobile",
+      "chemical": "Chimique"
+    },
+    "cncMachining": {
+      "title": "Usinage CNC",
+      "breadcrumb": "Usinage CNC",
+      "subtitle": "Centres d'usinage CNC de pointe offrant des composants plastiques de précision avec des tolérances aussi serrées que ±0.001\" pour les applications les plus exigeantes.",
+      "overviewTitle": "Services d'usinage CNC de précision",
+      "overviewParagraph1": "Notre département d'usinage CNC combine des équipements multi-axes avancés avec des décennies d'expertise en usinage plastique. Contrairement à l'usinage des métaux, les plastiques nécessitent une connaissance spécialisée du comportement des matériaux, des paramètres de coupe et de la gestion thermique pour obtenir des résultats optimaux.",
+      "overviewParagraph2": "Nous usinons tout, des pièces tournées simples aux composants 5 axes complexes, maintenant des tolérances serrées tout en assurant d'excellentes finitions de surface. Notre équipe travaille avec vous de la conception à la production pour optimiser vos pièces pour la fabricabilité.",
+      "equipmentTitle": "Équipement et capacités",
+      "features": [
+        "Centres d'usinage horizontaux",
+        "Centres d'usinage verticaux",
+        "Capacité multi-axes (3, 4 et 5 axes)",
+        "Usinage grand format jusqu'à 48\" x 96\"",
+        "Usinage grande vitesse pour finitions fines",
+        "Contours et géométries 3D complexes"
+      ],
+      "applicationsTitle": "Applications industrielles",
+      "applications": {
+        "aerospace": { "name": "Aérospatiale", "parts": "Isolants structurels, boîtiers de roulements, composants d'usure" },
+        "medical": { "name": "Médical", "parts": "Composants d'instruments chirurgicaux, boîtiers de diagnostic" },
+        "semiconductor": { "name": "Semi-conducteur", "parts": "Manipulation de wafers, composants de chambre de process" },
+        "electronics": { "name": "Électronique", "parts": "Corps de connecteurs, espaceurs isolants" }
+      },
+      "tolerances": "Tolérances",
+      "materialsTitle": "Matériaux que nous usinons",
+      "viewAllMaterials": "Voir tous les matériaux",
+      "haveProject": "Vous avez un projet ?",
+      "haveProjectDesc": "Envoyez-nous vos dessins pour un devis détaillé sous 24 heures.",
+      "otherCapabilities": "Autres capacités"
+    },
+    "fabrication": {
+      "title": "Fabrication sur mesure",
+      "breadcrumb": "Fabrication",
+      "subtitle": "Service complet de fabrication plastique incluant découpe, routage, pliage, collage et assemblage pour composants et assemblages sur mesure.",
+      "overviewTitle": "Services de fabrication complets",
+      "overviewParagraph1": "Notre département de fabrication gère tout, des feuilles découpées sur mesure aux assemblages multi-composants complexes. Nous combinons les techniques de fabrication traditionnelles avec des équipements CNC modernes pour offrir des résultats cohérents et de haute qualité.",
+      "overviewParagraph2": "Que vous ayez besoin d'un seul prototype ou de quantités de production, nos fabricants expérimentés travaillent avec une large gamme de matériaux plastiques pour répondre à vos spécifications.",
+      "capabilitiesTitle": "Capacités de fabrication",
+      "features": [
+        "Découpe et sciage de précision",
+        "Routage CNC",
+        "Perçage et taraudage",
+        "Pliage et formage",
+        "Collage solvant et adhésif",
+        "Soudage (air chaud, ultrasons)",
+        "Services d'assemblage",
+        "Fixtures et gabarits sur mesure"
+      ],
+      "applicationsTitle": "Applications courantes",
+      "applications": {
+        "industrial": { "name": "Industriel", "parts": "Protections de machines, capots, enceintes" },
+        "display": { "name": "Affichage", "parts": "Présentoirs PLV, signalétique" },
+        "foodProcessing": { "name": "Agroalimentaire", "parts": "Composants de convoyeurs, protections" },
+        "waterTreatment": { "name": "Traitement de l'eau", "parts": "Réservoirs, raccords, collecteurs" }
+      },
+      "materialsTitle": "Matériaux que nous fabriquons",
+      "viewAllMaterials": "Voir tous les matériaux",
+      "sizeCapabilities": "Capacités de taille",
+      "maxSheetSize": "Taille de feuille max",
+      "maxThickness": "Épaisseur max",
+      "minOrder": "Commande min",
+      "haveProject": "Vous avez un projet ?",
+      "haveProjectDesc": "Envoyez-nous vos dessins pour un devis détaillé sous 24 heures.",
+      "otherCapabilities": "Autres capacités"
+    },
+    "secondaryOperations": {
+      "title": "Opérations secondaires",
+      "breadcrumb": "Opérations secondaires",
+      "subtitle": "Services de finition complets incluant filetage, traitement thermique, finition de surface, marquage et assemblage pour livrer des pièces prêtes à l'emploi.",
+      "overviewTitle": "Finition complète des pièces",
+      "overviewParagraph1": "Notre département d'opérations secondaires s'assure que vos pièces sont livrées prêtes à l'emploi. De l'ébavurage simple à l'assemblage complexe, nous gérons toutes les touches de finition qui transforment les composants usinés en produits finis.",
+      "overviewParagraph2": "En gérant les opérations secondaires en interne, nous maintenons le contrôle qualité tout au long du processus et réduisons les délais par rapport à l'externalisation de ces services.",
+      "servicesTitle": "Services disponibles",
+      "operations": {
+        "threading": { "name": "Filetage et taraudage", "description": "Filetages internes et externes, inserts hélicoïl, inserts filetés" },
+        "heatTreatment": { "name": "Traitement thermique", "description": "Recuit pour relâcher les contraintes et améliorer la stabilité dimensionnelle" },
+        "surfaceGrinding": { "name": "Rectification de surface", "description": "Finition de surface de précision pour exigences de planéité serrées" },
+        "polishing": { "name": "Polissage et finition", "description": "Polissage à la flamme, buffing et traitements de surface personnalisés" },
+        "marking": { "name": "Marquage et gravure", "description": "Marquage laser, gravure et identification des pièces" },
+        "bonding": { "name": "Collage et soudage", "description": "Collage solvant, soudage ultrasons, soudage air chaud" },
+        "assembly": { "name": "Assemblage", "description": "Sous-assemblage et services d'assemblage complet avec quincaillerie" },
+        "packaging": { "name": "Emballage", "description": "Emballage personnalisé pour expédition et présentation" }
+      },
+      "surfaceFinishes": "Finitions de surface",
+      "finishes": ["Brut d'usinage", "Poli à la flamme", "Buffé/poli", "Sablé", "Poncé (divers grains)", "Poli vapeur"],
+      "benefitsTitle": "Avantages de la finition interne",
+      "benefits": ["Point de contact unique", "Contrôle qualité cohérent", "Délais réduits", "Coût total inférieur", "Meilleure communication"],
+      "haveProject": "Vous avez un projet ?",
+      "haveProjectDesc": "Envoyez-nous vos dessins pour un devis détaillé sous 24 heures.",
+      "otherCapabilities": "Autres capacités",
+      "otherCaps": {
+        "cncMachining": { "name": "Usinage CNC", "desc": "Usinage de précision jusqu'à ±0.001\"" },
+        "fabrication": { "name": "Fabrication", "desc": "Découpe, routage, collage et assemblage" }
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Votre partenaire de confiance pour la fabrication et l'usinage de pièces plastiques sur mesure. Au service de l'aérospatiale, du médical, des semi-conducteurs et plus encore.",
+    "company": "Entreprise",
+    "capabilities": "Capacités",
+    "resources": "Ressources",
+    "industries": "Industries",
+    "copyright": "Pro Plastics Inc. Tous droits réservés.",
+    "links": {
+      "aboutUs": "À propos de nous",
+      "ourTeam": "Notre équipe",
+      "facilityTour": "Visite de l'usine",
+      "qualityCertifications": "Qualité et certifications",
+      "chemicalResistanceGuide": "Guide de résistance chimique"
+    }
+  },
+  "errors": {
+    "notFound": "Page non trouvée",
+    "notFoundDescription": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
+  },
+  "thankYou": {
+    "contact": {
+      "heroTitle": "Contactez-nous",
+      "title": "Message envoyé !",
+      "description": "Merci de nous avoir contactés. Nous vous répondrons dans un délai d'un jour ouvrable.",
+      "whatHappensNext": "Que se passe-t-il ensuite ?",
+      "step1": "Notre équipe examine votre message",
+      "step2": "Nous vous contacterons par email ou téléphone",
+      "step3": "Vous recevrez une réponse dans un délai d'un jour ouvrable",
+      "returnHome": "Retour à l'accueil",
+      "viewCapabilities": "Voir nos capacités",
+      "needImmediate": "Besoin d'aide immédiate ?",
+      "callUs": "Appelez +1 (866) 925-5000"
+    },
+    "quote": {
+      "heroTitle": "Demander un devis",
+      "title": "Demande de devis envoyée !",
+      "description": "Merci pour votre demande de devis. Notre équipe examinera vos besoins et vous contactera sous 24 heures avec un devis détaillé.",
+      "whatHappensNext": "Que se passe-t-il ensuite ?",
+      "step1": "Notre équipe d'ingénierie examine vos dessins et exigences",
+      "step2": "Nous vous contacterons si nous avons besoin de clarifications",
+      "step3": "Vous recevrez un devis détaillé par email sous 24 heures",
+      "returnHome": "Retour à l'accueil",
+      "viewCapabilities": "Voir nos capacités",
+      "needImmediate": "Besoin d'aide immédiate ?",
+      "callUs": "Appelez +1 (866) 925-5000"
+    }
+  }
+}
