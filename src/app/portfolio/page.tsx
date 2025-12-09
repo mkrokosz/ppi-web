@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, Filter, Cog, Layers, Package, Wrench } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Filter, Cog, Layers, Package, Wrench, Camera } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Our Work',
@@ -147,11 +148,11 @@ export default function PortfolioPage() {
                 key={item.id}
                 className="card border border-steel-200 hover:border-precision-orange-400 transition-colors group overflow-hidden"
               >
-                {/* Image Placeholder */}
-                <div className="aspect-video bg-gradient-to-br from-steel-100 to-steel-200 -mx-6 -mt-6 mb-6 flex items-center justify-center">
-                  <div className="text-center">
-                    <Cog className="w-12 h-12 text-steel-400 mx-auto mb-2" />
-                    <p className="text-steel-400 text-sm">[Part photo]</p>
+                {/* Coming Soon Image */}
+                <div className="h-16 bg-gradient-to-br from-steel-200 to-steel-300 -mx-6 -mt-6 mb-4 flex items-center justify-center relative overflow-hidden">
+                  <div className="flex items-center gap-2 z-10">
+                    <Camera className="w-4 h-4 text-steel-500" />
+                    <p className="text-steel-600 text-xs font-medium">Photo Coming Soon</p>
                   </div>
                 </div>
 
