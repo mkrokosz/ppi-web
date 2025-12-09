@@ -368,7 +368,7 @@ Resources:
                       Destination={'ToAddresses': [os.environ['RECIPIENT_EMAIL']]},
                       ReplyToAddresses=[email],
                       Message={
-                          'Subject': {'Data': f'[Pro Plastics Contact] {subject_text} - {name}'},
+                          'Subject': {'Data': f'[Pro Plastics Contact] {subject_text}'},
                           'Body': {'Text': {'Data': email_body}}
                       }
                   )
