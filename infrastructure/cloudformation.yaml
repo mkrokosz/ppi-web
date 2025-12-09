@@ -345,6 +345,21 @@ Resources:
                   }
                   subject_text = subject_map.get(body['subject'], body['subject'])
 
+                  # For quote requests, append part type to subject
+                  if body['subject'] == 'quote' and body.get('partType'):
+                      part_type_map = {
+                          'machined': 'CNC Machined Part',
+                          'fabricated': 'Fabricated Component',
+                          'sheet': 'Cut Sheet/Panel',
+                          'rod-tube': 'Rod/Tube Stock',
+                          'other': 'Other'
+                      }
+                      part_type_text = part_type_map.get(body['partType'], body['partType'])
+                      subject_text = f"Quote Request - {part_type_text}"
+                  else:
+                      # For contact form, format as "Contact - [Subject]"
+                      subject_text = f"Contact - {subject_text}"
+
                   name = f"{body['firstName'].strip()} {body['lastName'].strip()}"
                   company = body.get('company', '').strip()
                   phone = body.get('phone', '').strip()

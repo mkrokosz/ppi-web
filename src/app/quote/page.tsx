@@ -132,6 +132,7 @@ TIMELINE:
           phone: formData.phone,
           company: formData.company,
           subject: 'quote',
+          partType: formData.partType,
           message: quoteMessage,
         }),
       });
