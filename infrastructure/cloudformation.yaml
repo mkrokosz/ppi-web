@@ -1,5 +1,4 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Transform: AWS::Serverless-2016-10-31
 Description: 'Pro Plastics Inc. Website Infrastructure - S3, CloudFront, ACM Certificate, Contact Form API'
 
 Parameters:
@@ -278,7 +277,7 @@ Resources:
 
   # Lambda Function for Contact Form
   ContactFormFunction:
-    Type: AWS::Serverless::Function
+    Type: AWS::Lambda::Function
     Properties:
       FunctionName: !Sub '${AWS::StackName}-contact-form'
       Runtime: python3.12
@@ -287,7 +286,7 @@ Resources:
       Timeout: 10
       MemorySize: 128
       ReservedConcurrentExecutions: 2
-      CodeUri: lambda/
+      Code: lambda/
       Environment:
         Variables:
           RECIPIENT_EMAIL: !Ref ContactEmailRecipient
@@ -296,7 +295,8 @@ Resources:
           RECAPTCHA_SECRET_KEY: !Ref RecaptchaSecretKey
           RECAPTCHA_SCORE_THRESHOLD: !Ref RecaptchaScoreThreshold
       Tags:
-        Project: ProPlasticsWebsite
+        - Key: Project
+          Value: ProPlasticsWebsite
 
   # API Gateway HTTP API
   ContactFormApi:
