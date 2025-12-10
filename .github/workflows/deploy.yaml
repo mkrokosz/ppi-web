@@ -38,14 +38,6 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Setup Python (for SAM CLI)
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Setup SAM CLI
-        uses: aws-actions/setup-sam@v2
-
       - name: Look up Hosted Zone ID
         id: hosted-zone
         run: |
@@ -62,12 +54,23 @@ jobs:
           echo "Found Hosted Zone ID: $HOSTED_ZONE_ID"
           echo "hosted_zone_id=$HOSTED_ZONE_ID" >> $GITHUB_OUTPUT
 
-      - name: Deploy infrastructure with SAM
+      - name: Package and Deploy infrastructure
         working-directory: infrastructure
         run: |
-          echo "Deploying infrastructure with SAM..."
-          sam deploy \
+          echo "Packaging Lambda code..."
+          # Use the website bucket for Lambda artifacts
+          ARTIFACT_BUCKET="proplastics.us-website"
+
+          # Package the template (uploads Lambda code to S3)
+          aws cloudformation package \
             --template-file cloudformation.yaml \
+            --s3-bucket $ARTIFACT_BUCKET \
+            --s3-prefix lambda-artifacts \
+            --output-template-file packaged.yaml
+
+          echo "Deploying CloudFormation stack..."
+          aws cloudformation deploy \
+            --template-file packaged.yaml \
             --stack-name ${{ env.STACK_NAME }} \
             --parameter-overrides \
               DomainName=proplastics.us \
@@ -77,9 +80,7 @@ jobs:
               RecaptchaSecretKey=${{ secrets.RECAPTCHA_SECRET_KEY }} \
               RecaptchaScoreThreshold=0.5 \
             --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND \
-            --no-confirm-changeset \
-            --no-fail-on-empty-changeset \
-            --resolve-s3
+            --no-fail-on-empty-changeset
 
           echo "✅ Infrastructure deployed"
 
