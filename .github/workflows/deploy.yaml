@@ -102,10 +102,14 @@ jobs:
             --query "Stacks[0].Outputs[?OutputKey=='CloudFrontDistributionId'].OutputValue" \
             --output text)
 
-          CONTACT_API_URL=$(aws cloudformation describe-stacks \
+          # Use custom domain URL (api.proplastics.us) instead of raw API Gateway URL
+          API_CUSTOM_DOMAIN=$(aws cloudformation describe-stacks \
             --stack-name ${{ env.STACK_NAME }} \
-            --query "Stacks[0].Outputs[?OutputKey=='ContactFormApiUrl'].OutputValue" \
+            --query "Stacks[0].Outputs[?OutputKey=='ApiCustomDomainUrl'].OutputValue" \
             --output text)
+
+          # Contact form endpoint
+          CONTACT_API_URL="${API_CUSTOM_DOMAIN}/contact"
 
           if [ -z "$S3_BUCKET" ] || [ "$S3_BUCKET" == "None" ]; then
             echo "Error: Could not find S3 bucket name from stack outputs"
@@ -119,10 +123,12 @@ jobs:
 
           echo "S3 Bucket: $S3_BUCKET"
           echo "CloudFront Distribution: $DISTRIBUTION_ID"
+          echo "API Custom Domain: $API_CUSTOM_DOMAIN"
           echo "Contact API URL: $CONTACT_API_URL"
 
           echo "s3_bucket=$S3_BUCKET" >> $GITHUB_OUTPUT
           echo "distribution_id=$DISTRIBUTION_ID" >> $GITHUB_OUTPUT
+          echo "api_custom_domain=$API_CUSTOM_DOMAIN" >> $GITHUB_OUTPUT
           echo "contact_api_url=$CONTACT_API_URL" >> $GITHUB_OUTPUT
 
       - name: Setup Node.js
@@ -171,6 +177,10 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**CloudFront Distribution:** ${{ steps.cfn-outputs.outputs.distribution_id }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**API Custom Domain:** ${{ steps.cfn-outputs.outputs.api_custom_domain }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Contact Form API:** ${{ steps.cfn-outputs.outputs.contact_api_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Google Lead Webhook:** ${{ steps.cfn-outputs.outputs.api_custom_domain }}/google-lead" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Cache invalidation has been triggered. Changes may take a few minutes to propagate." >> $GITHUB_STEP_SUMMARY
