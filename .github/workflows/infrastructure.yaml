@@ -65,6 +65,8 @@ jobs:
             --parameter-overrides \
               DomainName=proplastics.us \
               HostedZoneId=${{ steps.hosted-zone.outputs.hosted_zone_id }} \
+              RecaptchaSecretKey=${{ secrets.RECAPTCHA_SECRET_KEY }} \
+              GoogleWebhookKey=${{ secrets.GOOGLE_WEBHOOK_KEY }} \
             --capabilities CAPABILITY_NAMED_IAM \
             --no-execute-changeset
 
@@ -80,6 +82,8 @@ jobs:
             --parameter-overrides \
               DomainName=proplastics.us \
               HostedZoneId=${{ steps.hosted-zone.outputs.hosted_zone_id }} \
+              RecaptchaSecretKey=${{ secrets.RECAPTCHA_SECRET_KEY }} \
+              GoogleWebhookKey=${{ secrets.GOOGLE_WEBHOOK_KEY }} \
             --capabilities CAPABILITY_NAMED_IAM \
             --no-fail-on-empty-changeset
 
@@ -109,13 +113,27 @@ jobs:
             --query "Stacks[0].Outputs[?OutputKey=='ContactFormApiUrl'].OutputValue" \
             --output text)
 
+          API_CUSTOM_DOMAIN_URL=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='ApiCustomDomainUrl'].OutputValue" \
+            --output text)
+
+          GOOGLE_LEAD_WEBHOOK_URL=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --query "Stacks[0].Outputs[?OutputKey=='GoogleLeadWebhookUrl'].OutputValue" \
+            --output text)
+
           echo "**S3 Bucket:** \`$BUCKET_NAME\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**CloudFront Distribution ID:** \`$DISTRIBUTION_ID\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Website URL:** $WEBSITE_URL" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**API Custom Domain:** \`$API_CUSTOM_DOMAIN_URL\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Contact Form API URL:** \`$CONTACT_API_URL\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Google Lead Webhook URL:** \`$GOOGLE_LEAD_WEBHOOK_URL\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Next Steps" >> $GITHUB_STEP_SUMMARY
           echo "Add these as GitHub Secrets:" >> $GITHUB_STEP_SUMMARY

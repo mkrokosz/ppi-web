@@ -11,8 +11,8 @@ confirm_changeset = true
 resolve_s3 = true
 
 # Parameter overrides - update these values before deploying
-# RecaptchaSecretKey should be passed via command line for security:
-# sam deploy --parameter-overrides RecaptchaSecretKey=YOUR_SECRET_KEY
+# RecaptchaSecretKey and GoogleWebhookKey should be passed via command line for security:
+# sam deploy --parameter-overrides RecaptchaSecretKey=YOUR_SECRET_KEY GoogleWebhookKey=YOUR_GOOGLE_KEY
 parameter_overrides = [
     "DomainName=proplastics.us",
     "HostedZoneId=YOUR_HOSTED_ZONE_ID",
