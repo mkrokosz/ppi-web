@@ -241,6 +241,32 @@ Resources:
         EvaluateTargetHealth: false
 
   # ===========================================
+  # Email Authentication Records (SPF, DMARC)
+  # ===========================================
+
+  # SPF Record - Authorizes Amazon SES to send email for this domain
+  SPFRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Ref DomainName
+      Type: TXT
+      TTL: 300
+      ResourceRecords:
+        - '"v=spf1 include:amazonses.com ~all"'
+
+  # DMARC Record - Email authentication policy
+  DMARCRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Sub '_dmarc.${DomainName}'
+      Type: TXT
+      TTL: 300
+      ResourceRecords:
+        - '"v=DMARC1; p=none; rua=mailto:mattkrokosz@gmail.com"'
+
+  # ===========================================
   # Contact Form API Resources
   # ===========================================
 
