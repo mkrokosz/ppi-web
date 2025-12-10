@@ -1,0 +1,901 @@
+{
+  "metadata": {
+    "title": "Pro Plastics Inc. | 1968년부터 정밀 플라스틱 제조",
+    "description": "미국 뉴저지주 린든의 맞춤형 플라스틱 제조. 1968년부터 항공우주, 의료 및 반도체 산업을 위한 CNC 가공, 제작 및 소재 유통."
+  },
+  "nav": {
+    "home": "홈",
+    "capabilities": "생산 역량",
+    "cncMachining": "CNC 가공",
+    "fabrication": "제작",
+    "secondaryOperations": "후가공",
+    "materials": "소재",
+    "materialDatabase": "소재 데이터베이스",
+    "comparisonCharts": "비교 차트",
+    "chemicalResistance": "내화학성",
+    "industries": "산업 분야",
+    "portfolio": "포트폴리오",
+    "about": "회사 소개",
+    "contact": "문의"
+  },
+  "common": {
+    "phone": "+1 (866) 925-5000",
+    "email": "sales@proplasticsinc.com",
+    "address": "1190 Sylvan St",
+    "cityStateZip": "Linden, NJ 07036, USA",
+    "hours": "월-금: 오전 8:30 - 오후 4:00 (미국 동부시간)",
+    "tollFree": "무료 전화",
+    "learnMore": "자세히 보기",
+    "getStarted": "시작하기",
+    "viewDetails": "상세 보기",
+    "downloadPdf": "PDF 다운로드",
+    "contactUs": "문의하기",
+    "getDirections": "길찾기",
+    "since1968": "1968년부터 정밀 제조",
+    "requestQuote": "견적 요청",
+    "callUs": "+1 (866) 925-5000 전화"
+  },
+  "home": {
+    "hero": {
+      "trustedSince": "1968년부터 신뢰받는 기업",
+      "subtitle": "정밀 플라스틱 제조",
+      "description": "프로토타입부터 양산까지 맞춤형 플라스틱 부품의 완벽한 솔루션. 까다로운 산업을 위한 전문 CNC 가공, 제작 및 소재 유통.",
+      "getQuote": "무료 견적 받기",
+      "viewCapabilities": "생산 역량 보기"
+    },
+    "stats": {
+      "yearsExperience": "년의 경험",
+      "industriesServed": "산업 분야 서비스",
+      "materialsAvailable": "가용 소재",
+      "quoteTurnaround": "견적 처리 시간"
+    },
+    "capabilities": {
+      "cncMachining": {
+        "title": "CNC 가공",
+        "description": "복잡한 형상을 위한 정밀 공차의 CNC 수평 및 수직 가공."
+      },
+      "customFabrication": {
+        "title": "맞춤 제작",
+        "description": "라우팅, 밀링, 드릴링, 펀칭을 포함한 종합 플라스틱 제작 서비스."
+      },
+      "materialDistribution": {
+        "title": "소재 유통",
+        "description": "엔지니어링 등급 소재의 플라스틱 시트, 봉, 튜브 종합 재고."
+      },
+      "prototyping": {
+        "title": "프로토타이핑",
+        "description": "컨셉에서 양산 가능한 부품까지 빠른 프로토타입 개발."
+      }
+    },
+    "trustIndicators": {
+      "isoQuality": "ISO 품질 표준",
+      "madeInUsa": "미국산",
+      "fastTurnaround": "빠른 처리",
+      "expertSupport": "전문가 지원"
+    },
+    "sections": {
+      "capabilities": {
+        "title": "생산 역량",
+        "subtitle": "복잡한 CNC 가공부터 대규모 생산까지, 고객의 요구에 맞춘 정밀 플라스틱 솔루션을 제공합니다."
+      },
+      "industries": {
+        "title": "서비스 산업",
+        "subtitle": "미션 크리티컬 플라스틱 부품을 위해 다양한 산업의 선도 기업들이 신뢰합니다."
+      },
+      "whyChooseUs": {
+        "title": "Pro Plastics를 선택하는 이유",
+        "subtitle": "55년 이상의 경험을 바탕으로 전통적인 장인정신과 현대적인 정밀 제조를 결합하여 매번 탁월한 결과를 제공합니다.",
+        "learnMore": "회사 소개 더 보기"
+      },
+      "testimonials": {
+        "title": "고객의 목소리",
+        "subtitle": "저희 말만 믿지 마세요. 정밀 플라스틱 요구사항을 맡기신 기업들의 이야기를 들어보세요."
+      }
+    },
+    "features": {
+      "zeroDefect": "무결점 품질 약속",
+      "onTimeDelivery": "정시 납품 보장",
+      "expertGuidance": "전문 소재 가이드",
+      "competitivePricing": "경쟁력 있는 가격",
+      "rapidQuote": "신속한 견적 처리",
+      "customSolutions": "모든 산업을 위한 맞춤 솔루션"
+    },
+    "quickTurnaround": {
+      "title": "빠른 처리",
+      "subtitle": "24시간 내 견적"
+    },
+    "testimonials": {
+      "testimonial1": {
+        "quote": "Pro Plastics는 10년 이상 정밀 부품의 주요 공급업체였습니다. 품질과 처리 시간이 타의 추종을 불허합니다.",
+        "author": "엔지니어링 이사",
+        "company": "항공우주 제조사"
+      },
+      "testimonial2": {
+        "quote": "Pro Plastics의 소재 전문성이 의료기기 애플리케이션에 완벽한 FDA 인증 플라스틱을 선택하는 데 도움을 주었습니다.",
+        "author": "제품 개발 관리자",
+        "company": "의료기기 스타트업"
+      },
+      "testimonial3": {
+        "quote": "프로토타입부터 생산까지, Pro Plastics는 우리가 필요로 하는 것을 정확히 제공했습니다. 반도체 애플리케이션에 강력 추천합니다.",
+        "author": "운영 책임자",
+        "company": "반도체 장비 공급업체"
+      }
+    },
+    "cta": {
+      "title": "프로젝트를 시작할 준비가 되셨나요?",
+      "subtitle": "도면을 업로드하시면 24시간 내에 상세 견적을 받아보실 수 있습니다. 저희 팀이 귀하의 비전을 실현하기 위해 준비하고 있습니다."
+    }
+  },
+  "contact": {
+    "title": "문의하기",
+    "subtitle": "역량에 대한 질문이 있으시거나 견적이 필요하신가요? 저희가 도와드리겠습니다. 연락 주시면 신속히 답변드리겠습니다.",
+    "getInTouch": "연락처",
+    "phone": "전화",
+    "emailLabel": "이메일",
+    "salesQuotes": "영업 & 견적",
+    "addressLabel": "주소",
+    "hoursLabel": "영업 시간",
+    "mondayFriday": "월요일 - 금요일",
+    "closedWeekend": "토요일 & 일요일 휴무",
+    "needQuote": "견적이 필요하신가요?",
+    "quoteDescription": "더 빠른 서비스를 위해 견적 요청 양식을 사용하여 도면을 직접 업로드하세요.",
+    "sendMessage": "메시지 보내기",
+    "form": {
+      "firstName": "이름",
+      "lastName": "성",
+      "email": "이메일",
+      "phone": "전화 (선택)",
+      "company": "회사 (선택)",
+      "subject": "제목",
+      "selectSubject": "제목 선택...",
+      "subjectQuote": "견적 요청",
+      "subjectCapabilities": "역량 문의",
+      "subjectMaterials": "소재 정보",
+      "subjectOrder": "주문 상태",
+      "subjectOther": "기타",
+      "message": "메시지",
+      "messagePlaceholder": "어떻게 도와드릴까요?",
+      "send": "메시지 보내기",
+      "sending": "전송 중...",
+      "required": "*"
+    }
+  },
+  "quote": {
+    "title": "견적 요청",
+    "subtitle": "맞춤형 플라스틱 부품에 대한 상세 견적을 받으세요. 도면과 사양을 업로드하시면 24시간 내에 답변드리겠습니다.",
+    "ndaAvailable": "요청 시 NDA 제공 가능",
+    "questions": "질문이 있으시면 +1 (866) 925-5000으로 전화주세요"
+  },
+  "materials": {
+    "title": "소재 데이터베이스",
+    "subtitle": "엔지니어링 플라스틱의 종합 재고를 살펴보세요. 검색 가능한 데이터베이스로 애플리케이션에 완벽한 소재를 찾으세요.",
+    "searchPlaceholder": "이름이나 설명으로 소재 검색...",
+    "showing": "({total}개 중 {count}개 소재)",
+    "tempRange": "온도 범위",
+    "availableForms": "가용 형태",
+    "keyProperties": "주요 특성",
+    "filters": "필터",
+    "properties": "특성",
+    "applications": "적용 분야",
+    "activeFilters": "활성 필터:",
+    "clearAll": "모두 지우기",
+    "noResults": "현재 필터와 일치하는 소재가 없습니다.",
+    "clearFilters": "필터 지우기",
+    "viewDetails": "상세 보기",
+    "categories": {
+      "all": "전체",
+      "highPerformance": "고성능",
+      "engineering": "엔지니어링",
+      "fluoropolymer": "불소수지",
+      "thermoset": "열경화성",
+      "standard": "표준"
+    },
+    "propertyNames": {
+      "highTemperature": "고온",
+      "chemicalResistant": "내화학성",
+      "fdaCompliant": "FDA 인증",
+      "lowFriction": "저마찰",
+      "flameRetardant": "난연성",
+      "wearResistant": "내마모성",
+      "machinable": "가공성",
+      "impactResistant": "내충격성",
+      "electricalInsulation": "전기 절연",
+      "opticallyClear": "광학적 투명성",
+      "uvResistant": "내UV성",
+      "highStrength": "고강도"
+    },
+    "applicationNames": {
+      "aerospace": "항공우주",
+      "medical": "의료",
+      "semiconductor": "반도체",
+      "electronics": "전자",
+      "automotive": "자동차",
+      "foodProcessing": "식품 가공",
+      "chemicalProcessing": "화학 처리",
+      "materialHandling": "물류 처리",
+      "industrial": "산업용",
+      "safety": "안전",
+      "glazing": "유리 대체",
+      "display": "디스플레이",
+      "lighting": "조명",
+      "electrical": "전기",
+      "waterTreatment": "수처리"
+    },
+    "forms": {
+      "sheet": "시트",
+      "rod": "봉",
+      "tube": "튜브"
+    },
+    "resources": {
+      "title": "소재 리소스",
+      "subtitle": "적합한 소재 선택을 위한 추가 도구.",
+      "comparison": {
+        "title": "비교 차트",
+        "description": "소재 간 선택을 돕는 속성 비교."
+      },
+      "chemicalResistance": {
+        "title": "내화학성 가이드",
+        "description": "다양한 화학물질과의 소재 호환성에 대한 종합 가이드."
+      },
+      "milSpec": {
+        "title": "군사 규격",
+        "description": "국방 애플리케이션을 위한 MIL-SPEC 요구사항을 충족하는 소재."
+      },
+      "viewCharts": "차트 보기",
+      "viewGuide": "가이드 보기",
+      "viewSpecs": "규격 보기"
+    },
+    "cta": {
+      "title": "소재 선택에 도움이 필요하신가요?",
+      "subtitle": "저희 소재 전문가가 특정 애플리케이션 요구사항에 맞는 올바른 플라스틱을 선택하는 데 도움을 드릴 수 있습니다.",
+      "contactExperts": "전문가 문의"
+    },
+    "expertHelp": {
+      "title": "소재 선택에 도움이 필요하신가요?",
+      "subtitle": "저희 엔지니어가 특정 애플리케이션 요구사항에 맞는 최적의 소재를 선택하는 데 도움을 드릴 수 있습니다.",
+      "cta": "전문가 문의"
+    },
+    "items": {
+      "peek": {
+        "name": "PEEK (폴리에테르에테르케톤)",
+        "description": "고온에서 우수한 기계적 특성을 가진 프리미엄 고성능 열가소성 수지."
+      },
+      "ultem": {
+        "name": "Ultem (PEI)",
+        "description": "높은 강도, 강성 및 광범위한 내화학성을 가진 폴리에테르이미드."
+      },
+      "delrin": {
+        "name": "Delrin (아세탈)",
+        "description": "우수한 치수 안정성과 가공성을 가진 고강도 아세탈 호모폴리머."
+      },
+      "nylon": {
+        "name": "나일론 6/6",
+        "description": "우수한 내마모성과 기계적 특성을 가진 다용도 엔지니어링 플라스틱."
+      },
+      "teflon": {
+        "name": "PTFE (테플론)",
+        "description": "탁월한 내화학성과 모든 고체 소재 중 가장 낮은 마찰 계수."
+      },
+      "uhmw": {
+        "name": "UHMW 폴리에틸렌",
+        "description": "뛰어난 내마모성과 충격 강도를 가진 초고분자량 PE."
+      },
+      "polycarbonate": {
+        "name": "폴리카보네이트",
+        "description": "우수한 광학적 투명성과 내충격성으로 거의 깨지지 않음."
+      },
+      "acrylic": {
+        "name": "아크릴 (PMMA)",
+        "description": "우수한 광학적 특성과 내후성을 가진 투명한 열가소성 수지."
+      },
+      "phenolic": {
+        "name": "페놀릭 (캔버스/리넨)",
+        "description": "우수한 전기적 및 기계적 특성을 가진 직물 강화 적층판."
+      },
+      "g10": {
+        "name": "G-10/FR-4 (유리 에폭시)",
+        "description": "우수한 전기적 및 기계적 특성을 가진 유리 직물 강화 에폭시."
+      },
+      "pvc": {
+        "name": "PVC (타입 I & II)",
+        "description": "좋은 내화학성과 난연성을 가진 비용 효율적인 소재."
+      },
+      "hdpe": {
+        "name": "HDPE",
+        "description": "우수한 내화학성과 낮은 흡습성을 가진 고밀도 폴리에틸렌."
+      }
+    }
+  },
+  "comparison": {
+    "title": "소재 비교 차트",
+    "subtitle": "애플리케이션에 적합한 소재를 선택하는 데 도움이 되는 속성 비교.",
+    "tableTitle": "엔지니어링 플라스틱 비교",
+    "tableSubtitle": "일반적인 엔지니어링 플라스틱의 주요 특성 비교",
+    "property": "특성",
+    "downloadPdf": "PDF 다운로드",
+    "quickGuide": "빠른 선택 가이드",
+    "disclaimer": "* 표시된 값은 일반적인 값이며 등급에 따라 다를 수 있습니다. 특정 소재 데이터 시트는 문의해 주세요.",
+    "breadcrumb": {
+      "materials": "소재",
+      "comparison": "비교 차트"
+    },
+    "properties": {
+      "maxServiceTemp": "최대 사용 온도",
+      "tensileStrength": "인장 강도 (psi)",
+      "flexuralModulus": "굽힘 탄성률 (psi)",
+      "impactStrength": "충격 강도",
+      "chemicalResistance": "내화학성",
+      "wearResistance": "내마모성",
+      "machinability": "가공성",
+      "fdaCompliant": "FDA 인증",
+      "relativeCost": "상대 비용"
+    },
+    "ratings": {
+      "excellent": "우수",
+      "good": "양호",
+      "fair": "보통",
+      "yes": "예",
+      "no": "아니오"
+    },
+    "selectionGuide": {
+      "highTemperature": {
+        "need": "고온",
+        "materials": "PEEK, Ultem, PTFE",
+        "note": "120°C 이상의 애플리케이션용"
+      },
+      "chemicalResistance": {
+        "need": "내화학성",
+        "materials": "PTFE, PEEK, UHMW",
+        "note": "가혹한 화학 환경용"
+      },
+      "wearResistance": {
+        "need": "내마모성",
+        "materials": "UHMW, Delrin, PEEK",
+        "note": "슬라이딩 및 베어링 애플리케이션용"
+      },
+      "fdaCompliance": {
+        "need": "FDA 인증",
+        "materials": "UHMW, Delrin, PTFE, Nylon",
+        "note": "식품 접촉 애플리케이션용"
+      },
+      "lowCost": {
+        "need": "저비용",
+        "materials": "UHMW, Nylon, Delrin",
+        "note": "예산 친화적 옵션"
+      },
+      "easyMachining": {
+        "need": "쉬운 가공",
+        "materials": "Delrin, Nylon, UHMW",
+        "note": "복잡한 형상용"
+      }
+    },
+    "needHelp": {
+      "title": "선택에 도움이 필요하신가요?",
+      "subtitle": "저희 소재 전문가가 특정 애플리케이션 요구사항에 맞는 최적의 플라스틱을 선택하는 데 도움을 드릴 수 있습니다.",
+      "contactExperts": "전문가 문의",
+      "browseAll": "모든 소재 보기"
+    }
+  },
+  "chemicalResistance": {
+    "title": "내화학성 가이드",
+    "subtitle": "다양한 화학물질과의 플라스틱 소재 호환성에 대한 종합 가이드. 화학 환경에 맞는 올바른 소재를 찾으세요.",
+    "legend": "범례:",
+    "excellent": "E = 우수",
+    "good": "G = 양호",
+    "fair": "F = 보통",
+    "notRecommended": "N = 권장하지 않음",
+    "searchPlaceholder": "화학물질 검색...",
+    "showing": "{total}개 중 {count}개 화학물질 표시",
+    "chemical": "화학물질",
+    "category": "카테고리",
+    "downloadPdf": "PDF 다운로드",
+    "disclaimer": "* 표시된 데이터는 상온에서의 일반적인 지침입니다. 실제 성능은 농도, 온도 및 노출 시간에 따라 다를 수 있습니다. 특정 애플리케이션에 대해 항상 테스트하세요.",
+    "breadcrumb": {
+      "materials": "소재",
+      "chemicalResistance": "내화학성 가이드"
+    },
+    "categories": {
+      "all": "전체",
+      "acids": "산",
+      "bases": "염기",
+      "solvents": "용제",
+      "fuels": "연료",
+      "alcohols": "알코올",
+      "oxidizers": "산화제",
+      "oils": "오일",
+      "water": "물"
+    },
+    "needData": {
+      "title": "특정 화학적 호환성 데이터가 필요하신가요?",
+      "subtitle": "상세한 내화학성 정보나 특정 애플리케이션 요구사항에 대해 문의해 주세요.",
+      "contactExperts": "전문가 문의",
+      "browseAll": "모든 소재 보기"
+    }
+  },
+  "industries": {
+    "title": "서비스 산업",
+    "subtitle": "항공우주부터 식품 가공까지, 세계에서 가장 까다로운 산업을 위한 정밀 플라스틱 솔루션을 제공합니다.",
+    "aerospace": "항공우주",
+    "medical": "의료",
+    "semiconductor": "반도체",
+    "electronics": "전자",
+    "automotive": "자동차",
+    "chemicalProcessing": "화학 처리",
+    "waterTreatment": "수처리",
+    "construction": "건설",
+    "foodProcessing": "식품 가공",
+    "commonMaterials": "일반 소재",
+    "typicalApplications": "일반적인 적용 분야",
+    "compliance": "규정 준수",
+    "items": {
+      "aerospace": {
+        "name": "항공우주",
+        "description": "항공기, 위성 및 국방 애플리케이션을 위한 정밀 부품. 엄격한 항공우주 표준을 충족하는 소재 및 프로세스.",
+        "applications": ["구조적 절연체", "베어링 부품", "마모 부품", "전기 하우징"],
+        "compliance": ["AS9100 가능", "ITAR 등록", "MIL-SPEC 소재"]
+      },
+      "medical": {
+        "name": "의료 & 생명과학",
+        "description": "의료기기, 실험실 장비 및 제약 애플리케이션을 위한 FDA 인증 소재.",
+        "applications": ["수술 기구", "진단 장비", "실험실 고정물", "임플란트 부품"],
+        "compliance": ["FDA 인증 소재", "USP 클래스 VI", "ISO 13485 가능"]
+      },
+      "semiconductor": {
+        "name": "반도체",
+        "description": "웨이퍼 핸들링, 칩 처리 및 클린룸 환경을 위한 초청정 부품.",
+        "applications": ["웨이퍼 핸들링", "화학물질 전달", "프로세스 챔버", "테스트 고정물"],
+        "compliance": ["클린룸 호환", "저 아웃가싱", "ESD 안전 옵션"]
+      },
+      "electronics": {
+        "name": "전자",
+        "description": "전자 장치 및 시스템을 위한 절연 부품, 커넥터 및 하우징.",
+        "applications": ["회로 기판 스탠드오프", "커넥터 바디", "절연 스페이서", "EMI 차폐"],
+        "compliance": ["UL 인정", "RoHS 인증", "난연 옵션"]
+      },
+      "automotive": {
+        "name": "자동차",
+        "description": "엔진룸 애플리케이션부터 인테리어 트림 부품까지 차량용 내구성 부품.",
+        "applications": ["부싱 & 베어링", "연료 시스템 부품", "전기 절연체", "마모 부품"],
+        "compliance": ["IATF 16949 가능", "자동차 등급 소재"]
+      },
+      "chemical": {
+        "name": "화학 처리",
+        "description": "가혹한 화학 환경 및 처리 장비를 위한 내식성 부품.",
+        "applications": ["밸브 시트", "펌프 부품", "탱크 라이닝", "가스켓 & 씰"],
+        "compliance": ["내화학성 인증", "FDA 인증 옵션"]
+      },
+      "water": {
+        "name": "수처리",
+        "description": "여과 시스템, 펌프 및 수처리 장비용 부품.",
+        "applications": ["필터 하우징", "펌프 부품", "밸브 부품", "배관 시스템"],
+        "compliance": ["NSF/ANSI 61 소재", "음용수 안전"]
+      },
+      "food": {
+        "name": "식품 가공",
+        "description": "식품 접촉 및 가공 애플리케이션을 위한 FDA 인증 및 USDA 승인 소재.",
+        "applications": ["컨베이어 부품", "절단면", "가이드 레일", "포장 장비"],
+        "compliance": ["FDA 인증", "USDA 승인", "3-A Dairy"]
+      },
+      "construction": {
+        "name": "건설 & 산업",
+        "description": "건설 장비, 물류 처리 및 산업 기계용 고강도 부품.",
+        "applications": ["마모 스트립", "부싱", "롤러 가이드", "구조 부품"],
+        "compliance": ["고하중 용량", "내후성"]
+      }
+    },
+    "crossIndustry": {
+      "title": "산업 간 전문성",
+      "description": "55년 이상의 경험을 바탕으로 각 산업의 고유한 요구사항을 이해합니다. 저희 팀은 모든 부품이 귀하의 특정 표준을 충족하도록 긴밀히 협력합니다.",
+      "features": [
+        "애플리케이션에 맞는 소재 선택 가이드",
+        "제조 용이성을 위한 설계(DFM) 지원",
+        "산업별 규정 준수 및 인증",
+        "품질 문서화 및 추적성",
+        "프로토타입에서 생산까지의 확장성"
+      ]
+    },
+    "dontSee": {
+      "title": "귀하의 산업이 보이지 않으시나요?",
+      "description": "나열된 것 외에도 많은 전문 분야에 서비스를 제공합니다. 특정 애플리케이션 요구사항에 대해 문의해 주세요."
+    },
+    "cta": {
+      "title": "시작할 준비가 되셨나요?",
+      "subtitle": "사양을 보내주시면 전문가들이 귀하의 산업 애플리케이션에 맞는 올바른 솔루션을 찾는 데 도움을 드리겠습니다."
+    }
+  },
+  "portfolio": {
+    "title": "작업 사례",
+    "subtitle": "다양한 산업의 고객을 위해 제조한 정밀 플라스틱 부품의 예시를 살펴보세요.",
+    "photoComingSoon": "사진 준비 중",
+    "process": "프로세스",
+    "tolerance": "공차",
+    "confidentiality": "고객과의 기밀 유지 계약으로 인해 프로젝트에 대한 제한된 세부 정보만 공유할 수 있습니다. 특정 애플리케이션에 대한 역량에 대해 자세히 알아보려면 문의해 주세요.",
+    "whatWeDo": "고객을 위해 할 수 있는 것",
+    "whatWeDoSubtitle": "저희 포트폴리오는 제조 역량의 일부 샘플을 보여줍니다.",
+    "filterAll": "전체",
+    "processes": {
+      "cncMachining": "CNC 가공",
+      "cncTurning": "CNC 선삭",
+      "fabrication": "제작"
+    },
+    "categories": {
+      "aerospace": "항공우주",
+      "medical": "의료",
+      "semiconductor": "반도체",
+      "electronics": "전자",
+      "automotive": "자동차",
+      "chemical": "화학",
+      "foodProcessing": "식품 가공",
+      "industrial": "산업용",
+      "waterTreatment": "수처리"
+    },
+    "capabilities": {
+      "cncMachining": {
+        "title": "CNC 가공",
+        "desc": "±0.025mm 공차의 복잡한 형상"
+      },
+      "fabrication": {
+        "title": "제작",
+        "desc": "절단, 라우팅, 접착 및 조립"
+      },
+      "materialDistribution": {
+        "title": "소재 유통",
+        "desc": "1000개 이상의 소재 재고"
+      },
+      "secondaryOps": {
+        "title": "후가공",
+        "desc": "나사 가공, 마감 처리 등"
+      }
+    },
+    "items": {
+      "peekInsulators": {
+        "title": "정밀 PEEK 절연체",
+        "description": "항공기 전기 시스템용 고온 절연체, 정밀 공차로 가공."
+      },
+      "medicalDevice": {
+        "title": "의료기기 부품",
+        "description": "진단 영상 장비용 FDA 인증 하우징 및 브래킷."
+      },
+      "semiconductorWafer": {
+        "title": "반도체 웨이퍼 핸들링",
+        "description": "클린룸 환경을 위한 초청정 웨이퍼 캐리어 및 핸들링 고정물."
+      },
+      "nylonBushings": {
+        "title": "맞춤형 나일론 부싱",
+        "description": "자동차 서스펜션 시스템용 대량 생산 내마모 부싱."
+      },
+      "valveSeats": {
+        "title": "화학 처리 밸브 시트",
+        "description": "공격적인 화학 환경을 위한 내식성 밸브 부품."
+      },
+      "conveyorParts": {
+        "title": "식품 등급 컨베이어 부품",
+        "description": "식품 포장 라인용 FDA 인증 마모 스트립 및 가이드 레일."
+      },
+      "circuitBoardStandoffs": {
+        "title": "회로 기판 스탠드오프",
+        "description": "고밀도 PCB 어셈블리용 난연성 절연 스탠드오프."
+      },
+      "opticalHousings": {
+        "title": "광학 렌즈 하우징",
+        "description": "산업용 광학 측정 장비용 정밀 하우징."
+      },
+      "waterTreatment": {
+        "title": "수처리 부품",
+        "description": "시립 수도 시스템용 내화학성 피팅 및 매니폴드."
+      }
+    },
+    "cta": {
+      "title": "비슷한 프로젝트가 있으신가요?",
+      "subtitle": "도면을 보내주시면 24시간 내에 상세 견적을 제공해 드립니다. 어떤 복잡한 프로젝트도 가능합니다."
+    }
+  },
+  "about": {
+    "title": "Pro Plastics Inc. 소개",
+    "subtitle": "55년 이상 정밀, 품질 및 헌신으로 전 세계 다양한 산업에 플라스틱 부품 제조 및 제작의 신뢰받는 파트너가 되어 왔습니다.",
+    "story": {
+      "title": "우리의 이야기",
+      "paragraph1": "1968년에 설립된 Pro Plastics Inc.는 뉴저지주 린든의 작은 플라스틱 제작 공장으로 시작했습니다. 지역 사업체로 시작한 것이 전 세계 기업들에게 서비스를 제공하는 신뢰받는 제조 파트너로 성장했습니다.",
+      "paragraph2": "우리 창립자는 정밀 제조가 모든 규모의 기업에게 접근 가능해야 한다고 믿었습니다. 그 철학은 오늘날에도 계속됩니다. 단일 프로토타입이든 수천 개의 생산 부품이든 동일한 탁월한 품질과 세심한 주의를 기울입니다.",
+      "paragraph3": "50년이 넘는 세월 동안 최신 CNC 기술에 투자하고, 소재 전문성을 확장하며, 우리가 생산하는 모든 부품에 자부심을 가진 숙련된 장인 팀을 구축했습니다. 오늘날 항공우주부터 의료기기까지 12개 이상의 산업에 서비스를 제공하게 되어 자랑스럽습니다.",
+      "facilityCaption": "미국 뉴저지주 린든 시설"
+    },
+    "timeline": {
+      "title": "우리의 여정",
+      "subtitle": "55년 이상의 지속적인 성장, 혁신 및 우수성에 대한 헌신.",
+      "1968": {
+        "title": "회사 설립",
+        "description": "Pro Plastics Inc.가 뉴저지주 린든에서 기본적인 플라스틱 제작 서비스로 설립되었습니다."
+      },
+      "1980s": {
+        "title": "확장 & 성장",
+        "description": "CNC 가공을 포함하도록 역량을 확장하고 항공우주 및 의료 산업 서비스를 시작했습니다."
+      },
+      "1990s": {
+        "title": "기술 투자",
+        "description": "정밀 CNC 장비에 대한 대규모 투자로 정밀 공차 가공의 명성을 확립했습니다."
+      },
+      "2000s": {
+        "title": "소재 유통",
+        "description": "종합 소재 유통 부문을 시작하여 고객을 위한 원스톱 샵이 되었습니다."
+      },
+      "2010s": {
+        "title": "산업 리더십",
+        "description": "글로벌 범위로 12개 이상의 산업에 서비스를 제공하는 선도적인 플라스틱 제조업체로 인정받았습니다."
+      },
+      "today": {
+        "title": "혁신은 계속됩니다",
+        "description": "품질에 대한 헌신을 유지하면서 첨단 제조 기술에 지속적으로 투자합니다."
+      }
+    },
+    "values": {
+      "title": "핵심 가치",
+      "subtitle": "우리가 하는 모든 것을 이끄는 원칙.",
+      "qualityFirst": {
+        "title": "품질 우선",
+        "description": "소재 선택부터 최종 검사까지 무결점 약속. 모든 부품이 정확한 사양을 충족합니다."
+      },
+      "onTimeDelivery": {
+        "title": "정시 배송",
+        "description": "귀하의 생산 일정이 우리에게 달려 있음을 이해합니다. 신뢰할 수 있는 배송이 우리의 약속입니다."
+      },
+      "customerPartnership": {
+        "title": "고객 파트너십",
+        "description": "귀하의 엔지니어링 팀과 함께 특정 애플리케이션에 대한 최적의 솔루션을 찾습니다."
+      },
+      "integrity": {
+        "title": "정직",
+        "description": "정직한 커뮤니케이션, 공정한 가격, 그리고 우리가 제조하는 모든 제품에 대한 책임."
+      }
+    },
+    "team": {
+      "title": "우리 팀",
+      "subtitle": "정밀한 결과를 제공하는 데 전념하는 숙련된 전문가들.",
+      "leadership": {
+        "title": "리더십",
+        "description": "수십 년의 제조 전문성을 가진 경험 많은 경영진."
+      },
+      "engineering": {
+        "title": "엔지니어링",
+        "description": "제조 용이성을 위해 설계를 최적화하는 기술 전문가."
+      },
+      "production": {
+        "title": "생산",
+        "description": "모든 부품에 정밀함을 가져다주는 숙련된 기계공과 제작자."
+      }
+    },
+    "quality": {
+      "title": "품질 & 인증",
+      "description": "품질은 단순한 목표가 아니라 모든 프로세스에 내장되어 있습니다. 입고 소재 검사부터 최종 품질 검사까지 업계 요구사항을 충족하거나 초과하는 엄격한 표준을 유지합니다.",
+      "certifications": {
+        "iso": "ISO 9001:2015 품질 관리",
+        "fda": "FDA 인증 소재",
+        "rohs": "RoHS 인증",
+        "itar": "ITAR 등록",
+        "ul": "UL 인정 소재",
+        "milSpec": "군사 규격 가능"
+      },
+      "promise": {
+        "title": "품질 약속",
+        "item1": "중요 치수 100% 검사",
+        "item2": "완전한 소재 추적성 및 인증",
+        "item3": "필요 시 통계적 프로세스 관리",
+        "item4": "초도품 검사 보고서 제공 가능"
+      }
+    },
+    "cta": {
+      "title": "함께 일해요",
+      "subtitle": "55년 이상 정밀 플라스틱 제조를 제공해온 회사와 파트너가 되세요."
+    }
+  },
+  "capabilities": {
+    "title": "제조 역량",
+    "subtitle": "정밀 CNC 가공부터 완전한 제작 서비스까지, 가장 까다로운 플라스틱 제조 요구사항을 처리할 수 있는 장비와 전문성을 갖추고 있습니다.",
+    "whatWeDo": "서비스 내용",
+    "whatWeDoSubtitle": "한 지붕 아래의 종합 플라스틱 제조 서비스.",
+    "keyFeatures": "주요 특징:",
+    "compatibleMaterials": "호환 소재:",
+    "ourEquipment": "장비",
+    "ourEquipmentSubtitle": "최고 수준으로 유지되는 현대적인 제조 장비.",
+    "precisionTolerances": "정밀 공차",
+    "precisionTolerancesSubtitle": "가장 까다로운 치수 요구사항을 충족할 수 있습니다.",
+    "ourProcess": "프로세스",
+    "ourProcessSubtitle": "견적부터 납품까지 모든 단계에서 품질을 보장합니다.",
+    "servingIndustries": "핵심 산업 서비스",
+    "servingIndustriesSubtitle": "저희 역량은 항공우주, 의료, 반도체 및 기타 정밀 산업의 까다로운 애플리케이션을 지원합니다.",
+    "viewIndustries": "산업 보기",
+    "projectCta": {
+      "title": "프로젝트가 있으신가요?",
+      "subtitle": "도면과 사양을 보내주세요. 24시간 내에 상세 견적과 제조 권장 사항을 제공해 드립니다."
+    },
+    "items": {
+      "cncMachining": {
+        "title": "CNC 가공",
+        "description": "복잡한 형상과 정밀 공차를 위한 최첨단 CNC 수평 및 수직 가공 센터.",
+        "features": ["수평 & 수직 가공 센터", "다축 기능", "±0.025mm 공차", "복잡한 3D 윤곽", "대형 가공 기능"]
+      },
+      "fabrication": {
+        "title": "맞춤 제작",
+        "description": "절단, 라우팅, 접착 및 맞춤 부품 조립을 포함한 풀 서비스 플라스틱 제작.",
+        "features": ["정밀 절단 & 라우팅", "드릴링 & 탭핑", "벤딩 & 성형", "용제 & 접착 본딩", "조립 서비스"]
+      },
+      "secondaryOperations": {
+        "title": "후가공",
+        "description": "나사 가공, 열처리 및 표면 마감을 포함한 완전한 마감 서비스.",
+        "features": ["나사 가공 & 탭핑", "열처리/어닐링", "표면 연삭", "폴리싱 & 마감", "마킹 & 각인"]
+      }
+    },
+    "equipment": {
+      "cncHorizontalMills": "CNC 수평 밀",
+      "cncVerticalMills": "CNC 수직 밀",
+      "cncLathes": "CNC 선반",
+      "manualMills": "수동 밀",
+      "bandSaws": "밴드쏘",
+      "routers": "라우터"
+    },
+    "toleranceTypes": {
+      "standard": "표준",
+      "precision": "정밀",
+      "highPrecision": "고정밀",
+      "surfaceFinish": "표면 조도"
+    },
+    "processSteps": {
+      "step1": { "title": "견적 요청", "desc": "검토를 위한 도면 제출" },
+      "step2": { "title": "기술 검토", "desc": "DFM 분석 & 소재 선택" },
+      "step3": { "title": "생산", "desc": "정밀 제조" },
+      "step4": { "title": "품질 검사", "desc": "검사 & 확인" },
+      "step5": { "title": "배송", "desc": "안전한 포장 & 배송" }
+    },
+    "industries": {
+      "aerospace": "항공우주",
+      "medical": "의료",
+      "semiconductor": "반도체",
+      "electronics": "전자",
+      "automotive": "자동차",
+      "chemical": "화학"
+    },
+    "cncMachining": {
+      "title": "CNC 가공",
+      "breadcrumb": "CNC 가공",
+      "subtitle": "가장 까다로운 애플리케이션을 위해 ±0.025mm 공차의 정밀 플라스틱 부품을 제공하는 최첨단 CNC 가공 센터.",
+      "overviewTitle": "정밀 CNC 가공 서비스",
+      "overviewParagraph1": "저희 CNC 가공 부서는 첨단 다축 장비와 수십 년의 플라스틱 가공 전문성을 결합합니다. 금속 가공과 달리 플라스틱은 최적의 결과를 위해 소재 거동, 절삭 매개변수 및 열 관리에 대한 전문 지식이 필요합니다.",
+      "overviewParagraph2": "단순한 선삭 부품부터 복잡한 5축 부품까지 모든 것을 가공하며, 정밀 공차를 유지하면서 우수한 표면 조도를 보장합니다. 저희 팀은 설계부터 생산까지 함께 작업하여 부품의 제조 용이성을 최적화합니다.",
+      "equipmentTitle": "장비 & 역량",
+      "features": [
+        "수평 가공 센터",
+        "수직 가공 센터",
+        "다축 기능 (3, 4, 5축)",
+        "1220mm x 2440mm까지 대형 가공",
+        "미세 표면을 위한 고속 가공",
+        "복잡한 3D 윤곽 및 형상"
+      ],
+      "applicationsTitle": "산업 적용 분야",
+      "applications": {
+        "aerospace": { "name": "항공우주", "parts": "구조적 절연체, 베어링 하우징, 마모 부품" },
+        "medical": { "name": "의료", "parts": "수술 기구 부품, 진단 하우징" },
+        "semiconductor": { "name": "반도체", "parts": "웨이퍼 핸들링, 프로세스 챔버 부품" },
+        "electronics": { "name": "전자", "parts": "커넥터 바디, 절연 스페이서" }
+      },
+      "tolerances": "공차",
+      "materialsTitle": "가공 소재",
+      "viewAllMaterials": "모든 소재 보기",
+      "haveProject": "프로젝트가 있으신가요?",
+      "haveProjectDesc": "24시간 내 상세 견적을 위해 도면을 보내주세요.",
+      "otherCapabilities": "기타 역량"
+    },
+    "fabrication": {
+      "title": "맞춤 제작",
+      "breadcrumb": "제작",
+      "subtitle": "맞춤 부품 및 어셈블리를 위한 절단, 라우팅, 벤딩, 본딩 및 조립을 포함한 풀 서비스 플라스틱 제작.",
+      "overviewTitle": "완전한 제작 서비스",
+      "overviewParagraph1": "저희 제작 부서는 단순한 절단 시트부터 복잡한 다부품 어셈블리까지 모든 것을 처리합니다. 전통적인 제작 기술과 현대 CNC 장비를 결합하여 일관되고 고품질의 결과물을 제공합니다.",
+      "overviewParagraph2": "단일 프로토타입이든 생산 수량이든, 숙련된 제작자들이 사양을 충족하기 위해 다양한 플라스틱 소재로 작업합니다.",
+      "capabilitiesTitle": "제작 역량",
+      "features": [
+        "정밀 절단 & 톱질",
+        "CNC 라우팅",
+        "드릴링 & 탭핑",
+        "벤딩 & 성형",
+        "용제 & 접착 본딩",
+        "용접 (열풍, 초음파)",
+        "조립 서비스",
+        "맞춤 치공구"
+      ],
+      "applicationsTitle": "일반적인 적용 분야",
+      "applications": {
+        "industrial": { "name": "산업용", "parts": "기계 가드, 커버, 인클로저" },
+        "display": { "name": "디스플레이", "parts": "POP 디스플레이, 사인물" },
+        "foodProcessing": { "name": "식품 가공", "parts": "컨베이어 부품, 가드" },
+        "waterTreatment": { "name": "수처리", "parts": "탱크, 피팅, 매니폴드" }
+      },
+      "materialsTitle": "제작 소재",
+      "viewAllMaterials": "모든 소재 보기",
+      "sizeCapabilities": "크기 역량",
+      "maxSheetSize": "최대 시트 크기",
+      "maxThickness": "최대 두께",
+      "minOrder": "최소 주문",
+      "haveProject": "프로젝트가 있으신가요?",
+      "haveProjectDesc": "24시간 내 상세 견적을 위해 도면을 보내주세요.",
+      "otherCapabilities": "기타 역량"
+    },
+    "secondaryOperations": {
+      "title": "후가공",
+      "breadcrumb": "후가공",
+      "subtitle": "바로 사용 가능한 부품을 위한 나사 가공, 열처리, 표면 마감, 마킹 및 조립을 포함한 완전한 마감 서비스.",
+      "overviewTitle": "완전한 부품 마감",
+      "overviewParagraph1": "저희 후가공 부서는 부품이 바로 사용할 수 있도록 배송되도록 합니다. 단순한 디버링부터 복잡한 조립까지, 가공된 부품을 완제품으로 만드는 모든 마감 작업을 처리합니다.",
+      "overviewParagraph2": "후가공을 사내에서 처리함으로써 전체 프로세스에 걸쳐 품질 관리를 유지하고 이러한 서비스를 외주할 때보다 리드 타임을 단축합니다.",
+      "servicesTitle": "가용 서비스",
+      "operations": {
+        "threading": { "name": "나사 가공 & 탭핑", "description": "내부 및 외부 나사, 헬리코일 인서트, 나사 인서트" },
+        "heatTreatment": { "name": "열처리", "description": "응력 제거 및 치수 안정성 향상을 위한 어닐링" },
+        "surfaceGrinding": { "name": "표면 연삭", "description": "정밀 평탄도 요구사항을 위한 정밀 표면 마감" },
+        "polishing": { "name": "폴리싱 & 마감", "description": "화염 폴리싱, 버핑 및 맞춤 표면 처리" },
+        "marking": { "name": "마킹 & 각인", "description": "레이저 마킹, 각인 및 부품 식별" },
+        "bonding": { "name": "본딩 & 용접", "description": "용제 본딩, 초음파 용접, 열풍 용접" },
+        "assembly": { "name": "조립", "description": "하드웨어를 포함한 서브 어셈블리 및 완전 조립 서비스" },
+        "packaging": { "name": "포장", "description": "배송 및 프레젠테이션을 위한 맞춤 포장" }
+      },
+      "surfaceFinishes": "표면 마감",
+      "finishes": ["가공 표면", "화염 폴리싱", "버핑/폴리싱", "비드 블라스팅", "샌딩 (다양한 그릿)", "증기 폴리싱"],
+      "benefitsTitle": "사내 마감의 이점",
+      "benefits": ["단일 연락 창구", "일관된 품질 관리", "리드 타임 단축", "총 비용 절감", "더 나은 커뮤니케이션"],
+      "haveProject": "프로젝트가 있으신가요?",
+      "haveProjectDesc": "24시간 내 상세 견적을 위해 도면을 보내주세요.",
+      "otherCapabilities": "기타 역량",
+      "otherCaps": {
+        "cncMachining": { "name": "CNC 가공", "desc": "±0.025mm 정밀 가공" },
+        "fabrication": { "name": "제작", "desc": "절단, 라우팅, 본딩 & 조립" }
+      }
+    }
+  },
+  "footer": {
+    "tagline": "맞춤형 플라스틱 부품 제조 및 제작의 신뢰받는 파트너. 항공우주, 의료, 반도체 등에 서비스 제공.",
+    "company": "회사",
+    "capabilities": "역량",
+    "resources": "리소스",
+    "industries": "산업",
+    "copyright": "Pro Plastics Inc. 모든 권리 보유.",
+    "links": {
+      "aboutUs": "회사 소개",
+      "ourTeam": "우리 팀",
+      "facilityTour": "시설 투어",
+      "qualityCertifications": "품질 & 인증",
+      "chemicalResistanceGuide": "내화학성 가이드"
+    }
+  },
+  "errors": {
+    "notFound": "페이지를 찾을 수 없습니다",
+    "notFoundDescription": "찾으시는 페이지가 존재하지 않거나 이동되었습니다.",
+    "backHome": "홈으로 돌아가기"
+  },
+  "thankYou": {
+    "contact": {
+      "heroTitle": "문의하기",
+      "title": "메시지가 전송되었습니다!",
+      "description": "연락해 주셔서 감사합니다. 영업일 기준 1일 이내에 답변드리겠습니다.",
+      "whatHappensNext": "다음 단계는?",
+      "step1": "저희 팀이 메시지를 검토합니다",
+      "step2": "이메일 또는 전화로 연락드리겠습니다",
+      "step3": "영업일 기준 1일 이내에 답변을 받으실 수 있습니다",
+      "returnHome": "홈으로 돌아가기",
+      "viewCapabilities": "역량 보기",
+      "needImmediate": "즉각적인 도움이 필요하신가요?",
+      "callUs": "+1 (866) 925-5000 전화"
+    },
+    "quote": {
+      "heroTitle": "견적 요청",
+      "title": "견적 요청이 제출되었습니다!",
+      "description": "견적 요청에 감사드립니다. 저희 팀이 요구사항을 검토하고 24시간 내에 상세 견적으로 답변드리겠습니다.",
+      "whatHappensNext": "다음 단계는?",
+      "step1": "엔지니어링 팀이 도면과 요구사항을 검토합니다",
+      "step2": "추가 설명이 필요하면 연락드리겠습니다",
+      "step3": "24시간 내에 이메일로 상세 견적을 받으실 수 있습니다",
+      "returnHome": "홈으로 돌아가기",
+      "viewCapabilities": "역량 보기",
+      "needImmediate": "즉각적인 도움이 필요하신가요?",
+      "callUs": "+1 (866) 925-5000 전화"
+    }
+  }
+}
