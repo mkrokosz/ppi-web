@@ -93,13 +93,17 @@ def handler(event, context):
         phone = user_data.get('phone', 'Not provided')
         company = user_data.get('company', 'Not provided')
 
-        # Include any additional fields
+        # Get the custom "Your Requirement" field specifically
+        requirement = user_data.get('Your Requirement', '')
+
+        # Include any other additional fields (excluding known fields)
         additional_fields = []
+        known_fields = ['full_name', 'email', 'phone', 'company', 'Your Requirement']
         for key, value in user_data.items():
-            if key not in ['full_name', 'email', 'phone', 'company']:
+            if key not in known_fields:
                 additional_fields.append(f"{key}: {value}")
 
-        additional_info = '\n'.join(additional_fields) if additional_fields else 'None'
+        additional_info = '\n'.join(additional_fields) if additional_fields else None
 
         test_indicator = "[TEST LEAD] " if is_test else ""
 
@@ -110,9 +114,18 @@ Email: {email}
 Phone: {phone}
 Company: {company}
 
+Requirement:
+{requirement if requirement else 'Not provided'}
+"""
+
+        # Add additional info section only if there are other custom fields
+        if additional_info:
+            email_body += f"""
 Additional Information:
 {additional_info}
+"""
 
+        email_body += f"""
 ---
 Lead Details:
 Lead ID: {lead_id}
