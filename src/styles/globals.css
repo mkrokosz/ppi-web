@@ -115,3 +115,8 @@
   margin-left: 0;
   margin-right: 2rem;
 }
+
+/* Hide reCAPTCHA badge - attribution is shown in footer per Google's TOS */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
