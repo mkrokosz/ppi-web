@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/portfolio',
     '/contact',
     '/quote',
+    '/privacy',
   ];
 
   const sitemapEntries: MetadataRoute.Sitemap = [];

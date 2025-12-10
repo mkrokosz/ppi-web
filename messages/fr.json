@@ -862,7 +862,81 @@
       "ourTeam": "Notre équipe",
       "facilityTour": "Visite de l'usine",
       "qualityCertifications": "Qualité et certifications",
-      "chemicalResistanceGuide": "Guide de résistance chimique"
+      "chemicalResistanceGuide": "Guide de résistance chimique",
+      "privacyPolicy": "Politique de Confidentialité"
+    }
+  },
+  "privacy": {
+    "title": "Politique de Confidentialité",
+    "lastUpdated": "Dernière Mise à Jour",
+    "intro": "Pro Plastics Inc. (« nous » ou « notre ») s'engage à protéger votre vie privée. Cette Politique de Confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site web ou faites affaire avec nous.",
+    "backToHome": "Retour à l'Accueil",
+    "sections": {
+      "informationCollect": {
+        "title": "Informations que Nous Collectons",
+        "description": "Nous pouvons collecter des informations vous concernant de diverses manières, notamment :",
+        "items": {
+          "contactInfo": "Coordonnées (nom, adresse email, numéro de téléphone, adresse postale)",
+          "companyInfo": "Nom de l'entreprise et fonction",
+          "projectDetails": "Spécifications du projet et exigences techniques que vous fournissez",
+          "communications": "Enregistrements de correspondance et communications avec nous",
+          "websiteUsage": "Données d'utilisation du site web via les cookies et outils d'analyse"
+        }
+      },
+      "howWeUse": {
+        "title": "Comment Nous Utilisons Vos Informations",
+        "description": "Nous utilisons les informations collectées pour :",
+        "items": {
+          "processQuotes": "Traiter les demandes de devis et fournir des estimations",
+          "communicateOrders": "Communiquer avec vous concernant les commandes et projets",
+          "improveServices": "Améliorer notre site web et nos services",
+          "sendUpdates": "Vous envoyer des mises à jour pertinentes sur nos capacités (avec votre consentement)",
+          "legalCompliance": "Respecter les obligations légales"
+        }
+      },
+      "informationSharing": {
+        "title": "Partage d'Informations",
+        "description": "Nous ne vendons pas vos informations personnelles. Nous pouvons partager vos informations avec :",
+        "items": {
+          "serviceProviders": "Prestataires de services qui assistent nos opérations (expédition, traitement des paiements)",
+          "legalRequirements": "Autorités légales lorsque la loi l'exige",
+          "businessTransfers": "Successeurs commerciaux en cas de fusion ou acquisition"
+        }
+      },
+      "dataSecurity": {
+        "title": "Sécurité des Données",
+        "description": "Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos informations personnelles contre tout accès, modification, divulgation ou destruction non autorisés. Cependant, aucune méthode de transmission sur Internet n'est sécurisée à 100%."
+      },
+      "cookies": {
+        "title": "Cookies et Suivi",
+        "description": "Notre site web utilise des cookies et des technologies de suivi similaires pour améliorer votre expérience, analyser le trafic du site et comprendre d'où viennent nos visiteurs. Vous pouvez contrôler les paramètres des cookies via les préférences de votre navigateur."
+      },
+      "yourRights": {
+        "title": "Vos Droits",
+        "description": "Selon votre localisation, vous pouvez avoir certains droits concernant vos informations personnelles :",
+        "items": {
+          "access": "Accéder aux informations personnelles que nous détenons sur vous",
+          "correction": "Demander la correction d'informations inexactes",
+          "deletion": "Demander la suppression de vos informations",
+          "optOut": "Vous désinscrire des communications marketing"
+        }
+      },
+      "thirdParty": {
+        "title": "Services Tiers",
+        "description": "Notre site web peut contenir des liens vers des sites web tiers. Nous ne sommes pas responsables des pratiques de confidentialité de ces sites externes. Nous vous encourageons à consulter leurs politiques de confidentialité."
+      },
+      "children": {
+        "title": "Confidentialité des Enfants",
+        "description": "Notre site web n'est pas destiné aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans."
+      },
+      "changes": {
+        "title": "Modifications de Cette Politique",
+        "description": "Nous pouvons mettre à jour cette Politique de Confidentialité de temps à autre. Nous vous informerons de tout changement en publiant la nouvelle Politique de Confidentialité sur cette page et en mettant à jour la date de « Dernière Mise à Jour »."
+      },
+      "contact": {
+        "title": "Nous Contacter",
+        "description": "Si vous avez des questions concernant cette Politique de Confidentialité ou nos pratiques de confidentialité, veuillez nous contacter :"
+      }
     }
   },
   "errors": {

@@ -19,6 +19,7 @@ export default function Footer() {
       { name: t('links.ourTeam'), href: '/about#team' },
       { name: t('links.facilityTour'), href: '/about#facility' },
       { name: t('links.qualityCertifications'), href: '/about#quality' },
+      { name: t('links.privacyPolicy'), href: '/privacy' },
     ],
     capabilities: [
       { name: tNav('cncMachining'), href: '/capabilities/cnc-machining' },

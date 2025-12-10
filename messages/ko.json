@@ -862,7 +862,81 @@
       "ourTeam": "우리 팀",
       "facilityTour": "시설 투어",
       "qualityCertifications": "품질 & 인증",
-      "chemicalResistanceGuide": "내화학성 가이드"
+      "chemicalResistanceGuide": "내화학성 가이드",
+      "privacyPolicy": "개인정보 보호정책"
+    }
+  },
+  "privacy": {
+    "title": "개인정보 보호정책",
+    "lastUpdated": "최종 업데이트",
+    "intro": "Pro Plastics Inc.(\"당사\")는 귀하의 개인정보 보호를 위해 최선을 다하고 있습니다. 본 개인정보 보호정책은 귀하가 당사 웹사이트를 방문하거나 당사와 거래할 때 당사가 어떻게 정보를 수집, 사용, 공개 및 보호하는지 설명합니다.",
+    "backToHome": "홈으로 돌아가기",
+    "sections": {
+      "informationCollect": {
+        "title": "수집하는 정보",
+        "description": "당사는 다음을 포함한 다양한 방법으로 귀하에 관한 정보를 수집할 수 있습니다:",
+        "items": {
+          "contactInfo": "연락처 정보(이름, 이메일 주소, 전화번호, 우편 주소)",
+          "companyInfo": "회사명 및 직책",
+          "projectDetails": "귀하가 제공하는 프로젝트 사양 및 기술 요구사항",
+          "communications": "당사와의 서신 및 커뮤니케이션 기록",
+          "websiteUsage": "쿠키 및 분석 도구를 통한 웹사이트 사용 데이터"
+        }
+      },
+      "howWeUse": {
+        "title": "정보 사용 방법",
+        "description": "수집된 정보는 다음 용도로 사용됩니다:",
+        "items": {
+          "processQuotes": "견적 요청 처리 및 견적 제공",
+          "communicateOrders": "주문 및 프로젝트에 대한 소통",
+          "improveServices": "웹사이트 및 서비스 개선",
+          "sendUpdates": "당사 역량에 대한 관련 업데이트 전송(귀하의 동의 하에)",
+          "legalCompliance": "법적 의무 준수"
+        }
+      },
+      "informationSharing": {
+        "title": "정보 공유",
+        "description": "당사는 귀하의 개인정보를 판매하지 않습니다. 다음과 정보를 공유할 수 있습니다:",
+        "items": {
+          "serviceProviders": "당사 운영을 지원하는 서비스 제공업체(배송, 결제 처리)",
+          "legalRequirements": "법률에서 요구하는 경우 법적 기관",
+          "businessTransfers": "합병 또는 인수 시 사업 승계자"
+        }
+      },
+      "dataSecurity": {
+        "title": "데이터 보안",
+        "description": "당사는 귀하의 개인정보를 무단 접근, 변경, 공개 또는 파기로부터 보호하기 위해 적절한 기술적 및 조직적 조치를 시행합니다. 그러나 인터넷을 통한 전송 방법은 100% 안전하지 않습니다."
+      },
+      "cookies": {
+        "title": "쿠키 및 추적",
+        "description": "당사 웹사이트는 귀하의 경험을 향상시키고, 사이트 트래픽을 분석하며, 방문자의 출처를 파악하기 위해 쿠키 및 유사한 추적 기술을 사용합니다. 브라우저 환경설정을 통해 쿠키 설정을 제어할 수 있습니다."
+      },
+      "yourRights": {
+        "title": "귀하의 권리",
+        "description": "귀하의 위치에 따라 개인정보에 관한 특정 권리가 있을 수 있습니다:",
+        "items": {
+          "access": "당사가 보유한 귀하의 개인정보에 접근",
+          "correction": "부정확한 정보의 수정 요청",
+          "deletion": "정보 삭제 요청",
+          "optOut": "마케팅 커뮤니케이션 수신 거부"
+        }
+      },
+      "thirdParty": {
+        "title": "제3자 서비스",
+        "description": "당사 웹사이트에는 제3자 웹사이트 링크가 포함될 수 있습니다. 당사는 이러한 외부 사이트의 개인정보 보호 관행에 대해 책임지지 않습니다. 해당 사이트의 개인정보 보호정책을 검토하시기 바랍니다."
+      },
+      "children": {
+        "title": "아동 개인정보 보호",
+        "description": "당사 웹사이트는 13세 미만의 아동을 대상으로 하지 않습니다. 당사는 13세 미만 아동의 개인정보를 의도적으로 수집하지 않습니다."
+      },
+      "changes": {
+        "title": "정책 변경",
+        "description": "당사는 본 개인정보 보호정책을 수시로 업데이트할 수 있습니다. 변경 사항이 있을 경우 이 페이지에 새로운 개인정보 보호정책을 게시하고 \"최종 업데이트\" 날짜를 업데이트하여 알려드립니다."
+      },
+      "contact": {
+        "title": "문의하기",
+        "description": "본 개인정보 보호정책이나 당사의 개인정보 보호 관행에 대해 질문이 있으시면 연락주시기 바랍니다:"
+      }
     }
   },
   "errors": {
