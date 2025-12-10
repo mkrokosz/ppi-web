@@ -7,6 +7,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    background-color: #f8fafc; /* steel-50 - reduces white flash on navigation */
   }
 
   body {
