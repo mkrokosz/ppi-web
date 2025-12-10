@@ -4,12 +4,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Link } from '@/i18n/routing';
 import {
-  Upload,
-  FileText,
   CheckCircle,
   ArrowRight,
   ArrowLeft,
-  X,
   Clock,
   Shield,
   Phone,
@@ -20,12 +17,7 @@ import { useReCaptcha } from '@/components/ReCaptchaProvider';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
-type Step = 1 | 2 | 3 | 4;
-
-interface FileInfo {
-  name: string;
-  size: string;
-}
+type Step = 1 | 2;
 
 export default function QuotePage() {
   const router = useRouter();
@@ -34,19 +26,15 @@ export default function QuotePage() {
   const [currentStep, setCurrentStep] = useState<Step>(1);
   const [formStatus, setFormStatus] = useState<FormStatus>('idle');
   const [errorMessage, setErrorMessage] = useState('');
-  const [uploadedFiles, setUploadedFiles] = useState<FileInfo[]>([]);
   const [formData, setFormData] = useState({
-    // Step 1 - Part Details
+    // Step 1 - Project Details
     partType: '',
     quantity: '',
-    tolerance: '',
-    // Step 2 - Material
     material: '',
     materialOther: '',
-    // Step 3 - Timeline
     timeline: '',
     additionalInfo: '',
-    // Step 4 - Contact
+    // Step 2 - Contact
     firstName: '',
     lastName: '',
     email: '',
@@ -63,30 +51,15 @@ export default function QuotePage() {
     }));
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (files) {
-      const newFiles: FileInfo[] = Array.from(files).map((file) => ({
-        name: file.name,
-        size: `${(file.size / 1024 / 1024).toFixed(2)} MB`,
-      }));
-      setUploadedFiles((prev) => [...prev, ...newFiles]);
-    }
-  };
-
-  const removeFile = (index: number) => {
-    setUploadedFiles((prev) => prev.filter((_, i) => i !== index));
-  };
-
   const nextStep = () => {
-    if (currentStep < 4) {
-      setCurrentStep((prev) => (prev + 1) as Step);
+    if (currentStep < 2) {
+      setCurrentStep(2);
     }
   };
 
   const prevStep = () => {
     if (currentStep > 1) {
-      setCurrentStep((prev) => (prev - 1) as Step);
+      setCurrentStep(1);
     }
   };
 
@@ -105,18 +78,13 @@ export default function QuotePage() {
 QUOTE REQUEST DETAILS
 =====================
 
-PART DETAILS:
+PROJECT INFO:
 - Part Type: ${formData.partType}
 - Quantity: ${formData.quantity}
-- Tolerance: ${formData.tolerance || 'Not specified'}
-- Uploaded Files: ${uploadedFiles.length > 0 ? uploadedFiles.map(f => f.name).join(', ') : 'None'}
-
-MATERIAL:
 - Material: ${formData.material}${formData.material === 'other' ? ` (${formData.materialOther})` : ''}
+- Timeline: ${formData.timeline}
 
-TIMELINE:
-- Required Timeline: ${formData.timeline}
-- Additional Info: ${formData.additionalInfo || 'None'}
+Additional Info: ${formData.additionalInfo || 'None'}
     `.trim();
 
     if (!apiUrl) {
@@ -164,10 +132,8 @@ TIMELINE:
   };
 
   const steps = [
-    { number: 1, title: 'Part Details' },
-    { number: 2, title: 'Material' },
-    { number: 3, title: 'Timeline' },
-    { number: 4, title: 'Contact Info' },
+    { number: 1, title: 'Project Details' },
+    { number: 2, title: 'Contact Info' },
   ];
 
   return (
@@ -180,8 +146,8 @@ TIMELINE:
               Request a Quote
             </h1>
             <p className="text-xl text-steel-300 leading-relaxed">
-              Upload your drawings and specifications. We&apos;ll provide a
-              detailed quote within 24 hours.
+              Tell us about your project. We&apos;ll provide a detailed quote
+              within 24 hours.
             </p>
           </div>
         </div>
@@ -253,34 +219,35 @@ TIMELINE:
 
           {/* Form */}
           <form onSubmit={handleSubmit}>
-            {/* Step 1: Part Details */}
+            {/* Step 1: Project Details */}
             {currentStep === 1 && (
               <div className="space-y-6">
                 <h2 className="text-2xl font-bold text-industrial-blue-900 mb-6">
-                  Tell Us About Your Part
+                  Tell Us About Your Project
                 </h2>
 
-                <div>
-                  <label className="block text-sm font-medium text-steel-700 mb-2">
-                    Part Type *
-                  </label>
-                  <select
-                    name="partType"
-                    required
-                    value={formData.partType}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-steel-300 focus:border-industrial-blue-500 focus:ring-2 focus:ring-industrial-blue-200 outline-none transition-all"
-                  >
-                    <option value="">Select part type...</option>
-                    <option value="machined">CNC Machined Part</option>
-                    <option value="fabricated">Fabricated Component</option>
-                    <option value="sheet">Cut Sheet/Panel</option>
-                    <option value="rod-tube">Rod/Tube Stock</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
+                {/* Part Type and Quantity */}
                 <div className="grid sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-steel-700 mb-2">
+                      Part Type *
+                    </label>
+                    <select
+                      name="partType"
+                      required
+                      value={formData.partType}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-steel-300 focus:border-industrial-blue-500 focus:ring-2 focus:ring-industrial-blue-200 outline-none transition-all"
+                    >
+                      <option value="">Select part type...</option>
+                      <option value="machined">CNC Machined Part</option>
+                      <option value="fabricated">Fabricated Component</option>
+                      <option value="sheet">Cut Sheet/Panel</option>
+                      <option value="rod-tube">Rod/Tube Stock</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
                   <div>
                     <label className="block text-sm font-medium text-steel-700 mb-2">
                       Quantity *
@@ -300,133 +267,70 @@ TIMELINE:
                       <option value="500+">500+ pieces</option>
                     </select>
                   </div>
+                </div>
 
+                {/* Material and Timeline */}
+                <div className="grid sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-steel-700 mb-2">
-                      Tolerance Required
+                      Preferred Material *
                     </label>
                     <select
-                      name="tolerance"
-                      value={formData.tolerance}
+                      name="material"
+                      required
+                      value={formData.material}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-steel-300 focus:border-industrial-blue-500 focus:ring-2 focus:ring-industrial-blue-200 outline-none transition-all"
                     >
-                      <option value="">Select tolerance...</option>
-                      <option value="standard">Standard (±0.005")</option>
-                      <option value="precision">Precision (±0.002")</option>
-                      <option value="high-precision">High Precision (±0.001")</option>
-                      <option value="as-drawn">As Specified on Drawing</option>
+                      <option value="">Select material...</option>
+                      <optgroup label="High Performance">
+                        <option value="peek">PEEK</option>
+                        <option value="ultem">Ultem (PEI)</option>
+                        <option value="torlon">Torlon (PAI)</option>
+                      </optgroup>
+                      <optgroup label="Engineering">
+                        <option value="delrin">Delrin (Acetal)</option>
+                        <option value="nylon">Nylon 6/6</option>
+                        <option value="acetal">Acetal Copolymer</option>
+                      </optgroup>
+                      <optgroup label="Fluoropolymer">
+                        <option value="ptfe">PTFE (Teflon)</option>
+                        <option value="pvdf">PVDF (Kynar)</option>
+                      </optgroup>
+                      <optgroup label="Standard">
+                        <option value="uhmw">UHMW</option>
+                        <option value="hdpe">HDPE</option>
+                        <option value="polycarbonate">Polycarbonate</option>
+                        <option value="acrylic">Acrylic</option>
+                        <option value="pvc">PVC</option>
+                      </optgroup>
+                      <optgroup label="Thermoset">
+                        <option value="phenolic">Phenolic</option>
+                        <option value="g10">G-10/FR-4</option>
+                      </optgroup>
+                      <option value="need-help">Need help selecting</option>
+                      <option value="other">Other (specify below)</option>
                     </select>
                   </div>
-                </div>
 
-                {/* File Upload */}
-                <div>
-                  <label className="block text-sm font-medium text-steel-700 mb-2">
-                    Upload Drawings (PDF, DXF, DWG, STEP, IGES)
-                  </label>
-                  <div className="border-2 border-dashed border-steel-300 rounded-xl p-8 text-center hover:border-precision-orange-400 transition-colors">
-                    <input
-                      type="file"
-                      multiple
-                      accept=".pdf,.dxf,.dwg,.step,.stp,.iges,.igs"
-                      onChange={handleFileUpload}
-                      className="hidden"
-                      id="file-upload"
-                    />
-                    <label htmlFor="file-upload" className="cursor-pointer">
-                      <Upload className="w-12 h-12 text-steel-400 mx-auto mb-4" />
-                      <p className="text-steel-600 mb-2">
-                        Drag and drop files here, or{' '}
-                        <span className="text-precision-orange-500 font-medium">
-                          browse
-                        </span>
-                      </p>
-                      <p className="text-steel-400 text-sm">
-                        Max file size: 50MB
-                      </p>
+                  <div>
+                    <label className="block text-sm font-medium text-steel-700 mb-2">
+                      Timeline *
                     </label>
+                    <select
+                      name="timeline"
+                      required
+                      value={formData.timeline}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-steel-300 focus:border-industrial-blue-500 focus:ring-2 focus:ring-industrial-blue-200 outline-none transition-all"
+                    >
+                      <option value="">Select timeline...</option>
+                      <option value="rush">Rush (1-3 business days)</option>
+                      <option value="expedited">Expedited (1 week)</option>
+                      <option value="standard">Standard (2-3 weeks)</option>
+                      <option value="flexible">Flexible / Best Price</option>
+                    </select>
                   </div>
-
-                  {/* Uploaded Files List */}
-                  {uploadedFiles.length > 0 && (
-                    <div className="mt-4 space-y-2">
-                      {uploadedFiles.map((file, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center justify-between bg-steel-50 rounded-lg p-3"
-                        >
-                          <div className="flex items-center gap-3">
-                            <FileText className="w-5 h-5 text-steel-500" />
-                            <div>
-                              <p className="text-sm font-medium text-steel-700">
-                                {file.name}
-                              </p>
-                              <p className="text-xs text-steel-400">{file.size}</p>
-                            </div>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => removeFile(index)}
-                            className="text-steel-400 hover:text-red-500 transition-colors"
-                          >
-                            <X className="w-5 h-5" />
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-
-            {/* Step 2: Material */}
-            {currentStep === 2 && (
-              <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-industrial-blue-900 mb-6">
-                  Material Selection
-                </h2>
-
-                <div>
-                  <label className="block text-sm font-medium text-steel-700 mb-2">
-                    Preferred Material *
-                  </label>
-                  <select
-                    name="material"
-                    required
-                    value={formData.material}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-steel-300 focus:border-industrial-blue-500 focus:ring-2 focus:ring-industrial-blue-200 outline-none transition-all"
-                  >
-                    <option value="">Select material...</option>
-                    <optgroup label="High Performance">
-                      <option value="peek">PEEK</option>
-                      <option value="ultem">Ultem (PEI)</option>
-                      <option value="torlon">Torlon (PAI)</option>
-                    </optgroup>
-                    <optgroup label="Engineering">
-                      <option value="delrin">Delrin (Acetal)</option>
-                      <option value="nylon">Nylon 6/6</option>
-                      <option value="acetal">Acetal Copolymer</option>
-                    </optgroup>
-                    <optgroup label="Fluoropolymer">
-                      <option value="ptfe">PTFE (Teflon)</option>
-                      <option value="pvdf">PVDF (Kynar)</option>
-                    </optgroup>
-                    <optgroup label="Standard">
-                      <option value="uhmw">UHMW</option>
-                      <option value="hdpe">HDPE</option>
-                      <option value="polycarbonate">Polycarbonate</option>
-                      <option value="acrylic">Acrylic</option>
-                      <option value="pvc">PVC</option>
-                    </optgroup>
-                    <optgroup label="Thermoset">
-                      <option value="phenolic">Phenolic</option>
-                      <option value="g10">G-10/FR-4</option>
-                    </optgroup>
-                    <option value="need-help">Need help selecting</option>
-                    <option value="other">Other (specify below)</option>
-                  </select>
                 </div>
 
                 {formData.material === 'other' && (
@@ -444,6 +348,20 @@ TIMELINE:
                     />
                   </div>
                 )}
+
+                <div>
+                  <label className="block text-sm font-medium text-steel-700 mb-2">
+                    Additional Information
+                  </label>
+                  <textarea
+                    name="additionalInfo"
+                    rows={4}
+                    value={formData.additionalInfo}
+                    onChange={handleChange}
+                    placeholder="Any special requirements, certifications needed, surface finish specifications, or other details..."
+                    className="w-full px-4 py-3 rounded-lg border border-steel-300 focus:border-industrial-blue-500 focus:ring-2 focus:ring-industrial-blue-200 outline-none transition-all resize-none"
+                  />
+                </div>
 
                 <div className="bg-industrial-blue-50 rounded-xl p-6">
                   <h3 className="font-semibold text-industrial-blue-900 mb-2">
@@ -463,50 +381,8 @@ TIMELINE:
               </div>
             )}
 
-            {/* Step 3: Timeline */}
-            {currentStep === 3 && (
-              <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-industrial-blue-900 mb-6">
-                  Timeline & Additional Details
-                </h2>
-
-                <div>
-                  <label className="block text-sm font-medium text-steel-700 mb-2">
-                    Required Timeline *
-                  </label>
-                  <select
-                    name="timeline"
-                    required
-                    value={formData.timeline}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-steel-300 focus:border-industrial-blue-500 focus:ring-2 focus:ring-industrial-blue-200 outline-none transition-all"
-                  >
-                    <option value="">Select timeline...</option>
-                    <option value="rush">Rush (1-3 business days)</option>
-                    <option value="expedited">Expedited (1 week)</option>
-                    <option value="standard">Standard (2-3 weeks)</option>
-                    <option value="flexible">Flexible / Best Price</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-steel-700 mb-2">
-                    Additional Information
-                  </label>
-                  <textarea
-                    name="additionalInfo"
-                    rows={5}
-                    value={formData.additionalInfo}
-                    onChange={handleChange}
-                    placeholder="Any special requirements, certifications needed, surface finish specifications, or other details..."
-                    className="w-full px-4 py-3 rounded-lg border border-steel-300 focus:border-industrial-blue-500 focus:ring-2 focus:ring-industrial-blue-200 outline-none transition-all resize-none"
-                  />
-                </div>
-              </div>
-            )}
-
-            {/* Step 4: Contact Info */}
-            {currentStep === 4 && (
+            {/* Step 2: Contact Info */}
+            {currentStep === 2 && (
               <div className="space-y-6">
                 <h2 className="text-2xl font-bold text-industrial-blue-900 mb-6">
                   Your Contact Information
@@ -607,7 +483,7 @@ TIMELINE:
                 <div />
               )}
 
-              {currentStep < 4 ? (
+              {currentStep < 2 ? (
                 <button
                   type="button"
                   onClick={nextStep}
