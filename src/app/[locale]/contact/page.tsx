@@ -13,12 +13,14 @@ import {
 } from 'lucide-react';
 import { trackContactFormSubmit, trackPhoneClick, trackEmailClick } from '@/lib/firebase';
 import { useTranslations, useLocale } from 'next-intl';
+import { useReCaptcha } from '@/components/ReCaptchaProvider';
 
 export default function ContactPage() {
   const router = useRouter();
   const locale = useLocale();
   const t = useTranslations('contact');
   const tCommon = useTranslations('common');
+  const { executeRecaptcha } = useReCaptcha();
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({
     firstName: '',
@@ -39,9 +41,13 @@ export default function ContactPage() {
 
     const apiUrl = process.env.NEXT_PUBLIC_CONTACT_API_URL;
 
+    // Get reCAPTCHA token
+    const recaptchaToken = await executeRecaptcha('contact_form');
+
     if (!apiUrl) {
       // Fallback for development or if API not configured
       console.log('Contact form submission:', formData);
+      console.log('reCAPTCHA token:', recaptchaToken);
       await new Promise((resolve) => setTimeout(resolve, 1500));
       router.push(`/contact/thank-you?lang=${locale}`);
       return;
@@ -53,7 +59,10 @@ export default function ContactPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken,
+        }),
       });
 
       const data = await response.json();

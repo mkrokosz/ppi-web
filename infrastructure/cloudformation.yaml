@@ -1,4 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
 Description: 'Pro Plastics Inc. Website Infrastructure - S3, CloudFront, ACM Certificate, Contact Form API'
 
 Parameters:
@@ -20,6 +21,16 @@ Parameters:
     Type: String
     Default: noreply@proplastics.us
     Description: Verified SES email address to send from
+
+  RecaptchaSecretKey:
+    Type: String
+    NoEcho: true
+    Description: Google reCAPTCHA v3 secret key for form verification
+
+  RecaptchaScoreThreshold:
+    Type: String
+    Default: '0.5'
+    Description: Minimum reCAPTCHA score (0.0-1.0) to accept submissions
 
 Resources:
   # S3 Bucket for website content
@@ -267,150 +278,25 @@ Resources:
 
   # Lambda Function for Contact Form
   ContactFormFunction:
-    Type: AWS::Lambda::Function
+    Type: AWS::Serverless::Function
     Properties:
       FunctionName: !Sub '${AWS::StackName}-contact-form'
       Runtime: python3.12
-      Handler: index.handler
+      Handler: contact_form.handler
       Role: !GetAtt ContactFormLambdaRole.Arn
       Timeout: 10
       MemorySize: 128
       ReservedConcurrentExecutions: 2
+      CodeUri: lambda/
       Environment:
         Variables:
           RECIPIENT_EMAIL: !Ref ContactEmailRecipient
           FROM_EMAIL: !Ref SESFromEmail
           ALLOWED_ORIGIN: !Sub 'https://${DomainName}'
-      Code:
-        ZipFile: |
-          import json
-          import boto3
-          import os
-          import re
-          from botocore.exceptions import ClientError
-
-          ses = boto3.client('ses', region_name='us-east-1')
-
-          def handler(event, context):
-              # CORS headers
-              allowed_origin = os.environ.get('ALLOWED_ORIGIN', '*')
-              headers = {
-                  'Content-Type': 'application/json',
-                  'Access-Control-Allow-Origin': allowed_origin,
-                  'Access-Control-Allow-Headers': 'Content-Type',
-                  'Access-Control-Allow-Methods': 'POST, OPTIONS'
-              }
-
-              # Handle preflight
-              if event.get('requestContext', {}).get('http', {}).get('method') == 'OPTIONS':
-                  return {'statusCode': 200, 'headers': headers, 'body': ''}
-
-              try:
-                  body = json.loads(event.get('body', '{}'))
-
-                  # Honeypot check - if filled, silently succeed (bot trap)
-                  if body.get('website', ''):
-                      return {
-                          'statusCode': 200,
-                          'headers': headers,
-                          'body': json.dumps({'message': 'Message sent successfully'})
-                      }
-
-                  # Validate required fields
-                  required = ['firstName', 'lastName', 'email', 'subject', 'message']
-                  for field in required:
-                      if not body.get(field, '').strip():
-                          return {
-                              'statusCode': 400,
-                              'headers': headers,
-                              'body': json.dumps({'error': f'Missing required field: {field}'})
-                          }
-
-                  # Basic email validation
-                  email = body['email'].strip()
-                  if not re.match(r'^[^\s@]+@[^\s@]+\.[^\s@]+$', email):
-                      return {
-                          'statusCode': 400,
-                          'headers': headers,
-                          'body': json.dumps({'error': 'Invalid email address'})
-                      }
-
-                  # Build email
-                  subject_map = {
-                      'quote': 'Quote Request',
-                      'capabilities': 'Capabilities Question',
-                      'materials': 'Material Information',
-                      'order': 'Order Status',
-                      'other': 'General Inquiry'
-                  }
-                  subject_text = subject_map.get(body['subject'], body['subject'])
-
-                  # For quote requests, append part type to subject
-                  if body['subject'] == 'quote' and body.get('partType'):
-                      part_type_map = {
-                          'machined': 'CNC Machined Part',
-                          'fabricated': 'Fabricated Component',
-                          'sheet': 'Cut Sheet/Panel',
-                          'rod-tube': 'Rod/Tube Stock',
-                          'other': 'Other'
-                      }
-                      part_type_text = part_type_map.get(body['partType'], body['partType'])
-                      subject_text = f"Quote Request - {part_type_text}"
-                  else:
-                      # For contact form, format as "Contact - [Subject]"
-                      subject_text = f"Contact - {subject_text}"
-
-                  name = f"{body['firstName'].strip()} {body['lastName'].strip()}"
-                  company = body.get('company', '').strip()
-                  phone = body.get('phone', '').strip()
-
-                  email_body = f"""New contact form submission from Pro Plastics website:
-
-          Name: {name}
-          Email: {email}
-          Phone: {phone if phone else 'Not provided'}
-          Company: {company if company else 'Not provided'}
-          Subject: {subject_text}
-
-          Message:
-          {body['message'].strip()}
-          """
-
-                  # Send email with user's name as the From display name
-                  from_address = f'"{name}" <{os.environ["FROM_EMAIL"]}>'
-                  ses.send_email(
-                      Source=from_address,
-                      Destination={'ToAddresses': [os.environ['RECIPIENT_EMAIL']]},
-                      ReplyToAddresses=[email],
-                      Message={
-                          'Subject': {'Data': f'[Pro Plastics Contact] {subject_text}'},
-                          'Body': {'Text': {'Data': email_body}}
-                      }
-                  )
-
-                  return {
-                      'statusCode': 200,
-                      'headers': headers,
-                      'body': json.dumps({'message': 'Message sent successfully'})
-                  }
-
-              except ClientError as e:
-                  print(f'SES Error: {e}')
-                  return {
-                      'statusCode': 500,
-                      'headers': headers,
-                      'body': json.dumps({'error': 'Failed to send email. Please try again later.'})
-                  }
-              except Exception as e:
-                  print(f'Error: {e}')
-                  return {
-                      'statusCode': 500,
-                      'headers': headers,
-                      'body': json.dumps({'error': 'An unexpected error occurred.'})
-                  }
+          RECAPTCHA_SECRET_KEY: !Ref RecaptchaSecretKey
+          RECAPTCHA_SCORE_THRESHOLD: !Ref RecaptchaScoreThreshold
       Tags:
-        - Key: Project
-          Value: ProPlasticsWebsite
+        Project: ProPlasticsWebsite
 
   # API Gateway HTTP API
   ContactFormApi:

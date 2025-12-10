@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { trackQuoteRequest } from '@/lib/firebase';
 import { useLocale } from 'next-intl';
+import { useReCaptcha } from '@/components/ReCaptchaProvider';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -29,6 +30,7 @@ interface FileInfo {
 export default function QuotePage() {
   const router = useRouter();
   const locale = useLocale();
+  const { executeRecaptcha } = useReCaptcha();
   const [currentStep, setCurrentStep] = useState<Step>(1);
   const [formStatus, setFormStatus] = useState<FormStatus>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -95,6 +97,9 @@ export default function QuotePage() {
 
     const apiUrl = process.env.NEXT_PUBLIC_CONTACT_API_URL;
 
+    // Get reCAPTCHA token
+    const recaptchaToken = await executeRecaptcha('quote_form');
+
     // Build the message with all quote details
     const quoteMessage = `
 QUOTE REQUEST DETAILS
@@ -117,6 +122,7 @@ TIMELINE:
     if (!apiUrl) {
       // Fallback for development
       console.log('Quote form submission:', { ...formData, message: quoteMessage });
+      console.log('reCAPTCHA token:', recaptchaToken);
       await new Promise((resolve) => setTimeout(resolve, 1500));
       trackQuoteRequest(formData.partType, formData.material);
       router.push(`/quote/thank-you?lang=${locale}`);
@@ -138,6 +144,7 @@ TIMELINE:
           subject: 'quote',
           partType: formData.partType,
           message: quoteMessage,
+          recaptchaToken,
         }),
       });
 

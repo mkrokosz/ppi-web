@@ -1,0 +1,22 @@
+# SAM CLI Configuration for Pro Plastics Website Infrastructure
+# Usage: cd infrastructure && sam deploy
+
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "proplastics-website"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND"
+confirm_changeset = true
+resolve_s3 = true
+
+# Parameter overrides - update these values before deploying
+# RecaptchaSecretKey should be passed via command line for security:
+# sam deploy --parameter-overrides RecaptchaSecretKey=YOUR_SECRET_KEY
+parameter_overrides = [
+    "DomainName=proplastics.us",
+    "HostedZoneId=YOUR_HOSTED_ZONE_ID",
+    "ContactEmailRecipient=mattkrokosz@gmail.com",
+    "SESFromEmail=noreply@proplastics.us",
+    "RecaptchaScoreThreshold=0.5"
+]
