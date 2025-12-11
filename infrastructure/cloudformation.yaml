@@ -75,6 +75,7 @@ Resources:
                 AWS:SourceArn: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistribution}'
 
   # ACM Certificate (must be in us-east-1 for CloudFront)
+  # Note: www.proplasticsinc.com requires manual DNS validation at GoDaddy
   Certificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
@@ -82,6 +83,7 @@ Resources:
       SubjectAlternativeNames:
         - !Sub 'www.${DomainName}'
         - !Sub 'api.${DomainName}'
+        - 'www.proplasticsinc.com'
       ValidationMethod: DNS
       DomainValidationOptions:
         - DomainName: !Ref DomainName
@@ -90,6 +92,7 @@ Resources:
           HostedZoneId: !Ref HostedZoneId
         - DomainName: !Sub 'api.${DomainName}'
           HostedZoneId: !Ref HostedZoneId
+        # www.proplasticsinc.com - DNS is at GoDaddy, validation must be done manually
       Tags:
         - Key: Project
           Value: ProPlasticsWebsite
@@ -162,6 +165,7 @@ Resources:
         Aliases:
           - !Ref DomainName
           - !Sub 'www.${DomainName}'
+          - 'www.proplasticsinc.com'
         Origins:
           - Id: S3Origin
             DomainName: !GetAtt WebsiteBucket.RegionalDomainName
