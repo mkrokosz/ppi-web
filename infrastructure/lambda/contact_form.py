@@ -162,9 +162,19 @@ Message:
 
         # Send email with user's name as the From display name
         from_address = f'"{name}" <{os.environ["FROM_EMAIL"]}>'
+        destination = {'ToAddresses': [os.environ['RECIPIENT_EMAIL']]}
+
+        cc_email = os.environ.get('CC_EMAIL', '')
+        if cc_email:
+            destination['CcAddresses'] = [cc_email]
+
+        bcc_email = os.environ.get('BCC_EMAIL', '')
+        if bcc_email:
+            destination['BccAddresses'] = [bcc_email]
+
         ses.send_email(
             Source=from_address,
-            Destination={'ToAddresses': [os.environ['RECIPIENT_EMAIL']]},
+            Destination=destination,
             ReplyToAddresses=[email],
             Message={
                 'Subject': {'Data': f'[Pro Plastics Contact] {subject_text}'},

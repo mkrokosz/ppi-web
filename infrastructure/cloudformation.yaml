@@ -13,8 +13,18 @@ Parameters:
 
   ContactEmailRecipient:
     Type: String
-    Default: mattkrokosz@gmail.com
+    Default: sales@proplasticsinc.com
     Description: Email address to receive contact form submissions
+
+  ContactEmailCc:
+    Type: String
+    Default: dennisk@proplasticsinc.com
+    Description: Email address to CC on contact form submissions
+
+  ContactEmailBcc:
+    Type: String
+    Default: mattkrokosz@gmail.com
+    Description: Email address to BCC on contact form submissions
 
   SESFromEmail:
     Type: String
@@ -305,6 +315,8 @@ Resources:
       Environment:
         Variables:
           RECIPIENT_EMAIL: !Ref ContactEmailRecipient
+          CC_EMAIL: !Ref ContactEmailCc
+          BCC_EMAIL: !Ref ContactEmailBcc
           FROM_EMAIL: !Ref SESFromEmail
           ALLOWED_ORIGIN: !Sub 'https://${DomainName}'
           RECAPTCHA_SECRET_KEY: !Ref RecaptchaSecretKey
@@ -391,6 +403,8 @@ Resources:
       Environment:
         Variables:
           RECIPIENT_EMAIL: !Ref ContactEmailRecipient
+          CC_EMAIL: !Ref ContactEmailCc
+          BCC_EMAIL: !Ref ContactEmailBcc
           FROM_EMAIL: !Ref SESFromEmail
           GOOGLE_WEBHOOK_KEY: !Ref GoogleWebhookKey
       Tags:

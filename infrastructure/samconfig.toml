@@ -16,7 +16,9 @@ resolve_s3 = true
 parameter_overrides = [
     "DomainName=proplastics.us",
     "HostedZoneId=YOUR_HOSTED_ZONE_ID",
-    "ContactEmailRecipient=mattkrokosz@gmail.com",
+    "ContactEmailRecipient=sales@proplasticsinc.com",
+    "ContactEmailCc=dennisk@proplasticsinc.com",
+    "ContactEmailBcc=mattkrokosz@gmail.com",
     "SESFromEmail=noreply@proplastics.us",
     "RecaptchaScoreThreshold=0.5"
 ]
