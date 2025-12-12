@@ -158,15 +158,17 @@ GCL ID: {body.get('gcl_id', 'N/A')}
             destination = {'ToAddresses': [TEST_EMAIL]}
             print(f'Test mode: routing email only to {TEST_EMAIL}')
         else:
-            destination = {'ToAddresses': [recipient_email]}
+            # Support comma-separated recipient emails
+            recipient_emails = [e.strip() for e in recipient_email.split(',') if e.strip()]
+            destination = {'ToAddresses': recipient_emails}
 
             cc_email = os.environ.get('CC_EMAIL', '')
             if cc_email:
-                destination['CcAddresses'] = [cc_email]
+                destination['CcAddresses'] = [e.strip() for e in cc_email.split(',') if e.strip()]
 
             bcc_email = os.environ.get('BCC_EMAIL', '')
             if bcc_email:
-                destination['BccAddresses'] = [bcc_email]
+                destination['BccAddresses'] = [e.strip() for e in bcc_email.split(',') if e.strip()]
 
         ses.send_email(
             Source=from_address,

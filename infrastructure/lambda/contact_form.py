@@ -192,15 +192,17 @@ Message:
             destination = {'ToAddresses': [TEST_EMAIL]}
             print(f'Test mode: routing email only to {TEST_EMAIL}')
         else:
-            destination = {'ToAddresses': [os.environ['RECIPIENT_EMAIL']]}
+            # Support comma-separated recipient emails
+            recipient_emails = [e.strip() for e in os.environ['RECIPIENT_EMAIL'].split(',') if e.strip()]
+            destination = {'ToAddresses': recipient_emails}
 
             cc_email = os.environ.get('CC_EMAIL', '')
             if cc_email:
-                destination['CcAddresses'] = [cc_email]
+                destination['CcAddresses'] = [e.strip() for e in cc_email.split(',') if e.strip()]
 
             bcc_email = os.environ.get('BCC_EMAIL', '')
             if bcc_email:
-                destination['BccAddresses'] = [bcc_email]
+                destination['BccAddresses'] = [e.strip() for e in bcc_email.split(',') if e.strip()]
 
         # Check for file attachment
         attachment = body.get('attachment')

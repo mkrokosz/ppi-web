@@ -13,18 +13,18 @@ Parameters:
 
   ContactEmailRecipient:
     Type: String
-    Default: sales@proplasticsinc.com
-    Description: Email address to receive contact form submissions
+    Default: dennisk@proplasticsinc.com,mattk@proplasticsinc.com
+    Description: Email addresses to receive contact form submissions (comma-separated)
 
   ContactEmailCc:
     Type: String
-    Default: dennisk@proplasticsinc.com
+    Default: mattkrokosz@gmail.com
     Description: Email address to CC on contact form submissions
 
   ContactEmailBcc:
     Type: String
-    Default: mattkrokosz@gmail.com
-    Description: Email address to BCC on contact form submissions
+    Default: ''
+    Description: Email address to BCC on contact form submissions (optional)
 
   SESFromEmail:
     Type: String

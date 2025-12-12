@@ -76,9 +76,9 @@ jobs:
             --parameter-overrides \
               DomainName=proplastics.us \
               HostedZoneId=${{ steps.hosted-zone.outputs.hosted_zone_id }} \
-              ContactEmailRecipient=sales@proplasticsinc.com \
-              ContactEmailCc=dennisk@proplasticsinc.com \
-              ContactEmailBcc=mattkrokosz@gmail.com \
+              ContactEmailRecipient=dennisk@proplasticsinc.com,mattk@proplasticsinc.com \
+              ContactEmailCc=mattkrokosz@gmail.com \
+              ContactEmailBcc= \
               SESFromEmail=noreply@proplastics.us \
               RecaptchaSecretKey=${{ secrets.RECAPTCHA_SECRET_KEY }} \
               RecaptchaScoreThreshold=0.5 \
