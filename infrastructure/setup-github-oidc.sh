@@ -93,9 +93,43 @@ cat > /tmp/permissions-policy.json << EOF
         "s3:PutBucketTagging",
         "s3:GetBucketTagging",
         "s3:DeleteBucket",
-        "s3:GetBucketLocation"
+        "s3:GetBucketLocation",
+        "s3:PutLifecycleConfiguration",
+        "s3:GetLifecycleConfiguration"
       ],
-      "Resource": "arn:aws:s3:::proplastics.us-website"
+      "Resource": [
+        "arn:aws:s3:::proplastics.us-website",
+        "arn:aws:s3:::proplastics.us-quote-attachments"
+      ]
+    },
+    {
+      "Sid": "S3QuoteAttachmentsBucket",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::proplastics.us-quote-attachments",
+        "arn:aws:s3:::proplastics.us-quote-attachments/*"
+      ]
+    },
+    {
+      "Sid": "EventBridgeRules",
+      "Effect": "Allow",
+      "Action": [
+        "events:PutRule",
+        "events:DeleteRule",
+        "events:DescribeRule",
+        "events:EnableRule",
+        "events:DisableRule",
+        "events:PutTargets",
+        "events:RemoveTargets",
+        "events:ListTargetsByRule"
+      ],
+      "Resource": "arn:aws:events:us-east-1:${AWS_ACCOUNT_ID}:rule/proplastics-website-*"
     },
     {
       "Sid": "CloudFrontInvalidation",
@@ -195,6 +229,67 @@ cat > /tmp/permissions-policy.json << EOF
         "route53:ListHostedZones"
       ],
       "Resource": "*"
+    },
+    {
+      "Sid": "LambdaManagement",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:CreateFunction",
+        "lambda:UpdateFunctionCode",
+        "lambda:UpdateFunctionConfiguration",
+        "lambda:DeleteFunction",
+        "lambda:GetFunction",
+        "lambda:GetFunctionConfiguration",
+        "lambda:ListFunctions",
+        "lambda:AddPermission",
+        "lambda:RemovePermission",
+        "lambda:GetPolicy",
+        "lambda:TagResource",
+        "lambda:UntagResource",
+        "lambda:ListTags",
+        "lambda:PutFunctionConcurrency",
+        "lambda:DeleteFunctionConcurrency"
+      ],
+      "Resource": "arn:aws:lambda:us-east-1:${AWS_ACCOUNT_ID}:function:proplastics-website-*"
+    },
+    {
+      "Sid": "IAMRoleManagement",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateRole",
+        "iam:DeleteRole",
+        "iam:GetRole",
+        "iam:UpdateRole",
+        "iam:PassRole",
+        "iam:AttachRolePolicy",
+        "iam:DetachRolePolicy",
+        "iam:PutRolePolicy",
+        "iam:DeleteRolePolicy",
+        "iam:GetRolePolicy",
+        "iam:ListRolePolicies",
+        "iam:ListAttachedRolePolicies",
+        "iam:TagRole",
+        "iam:UntagRole"
+      ],
+      "Resource": "arn:aws:iam::${AWS_ACCOUNT_ID}:role/proplastics-website-*"
+    },
+    {
+      "Sid": "APIGatewayManagement",
+      "Effect": "Allow",
+      "Action": [
+        "apigateway:POST",
+        "apigateway:GET",
+        "apigateway:PUT",
+        "apigateway:DELETE",
+        "apigateway:PATCH"
+      ],
+      "Resource": [
+        "arn:aws:apigateway:us-east-1::/apis",
+        "arn:aws:apigateway:us-east-1::/apis/*",
+        "arn:aws:apigateway:us-east-1::/domainnames",
+        "arn:aws:apigateway:us-east-1::/domainnames/*",
+        "arn:aws:apigateway:us-east-1::/tags/*"
+      ]
     }
   ]
 }
