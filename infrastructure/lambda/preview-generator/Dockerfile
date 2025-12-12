@@ -1,16 +1,16 @@
 # Preview Generator Lambda
 # Generates preview images from CAD files (DXF, STL, STEP, IGES, PDF, images)
 
-FROM public.ecr.aws/lambda/python:3.11
+FROM public.ecr.aws/lambda/python:3.12
 
-# Install system dependencies (Amazon Linux 2 uses yum)
-RUN yum install -y \
+# Install system dependencies (Amazon Linux 2023 uses dnf)
+RUN dnf install -y \
     mesa-libGL \
     mesa-libGLU \
     libXrender \
     libXext \
     poppler-utils \
-    && yum clean all
+    && dnf clean all
 
 # Install Python dependencies
 # Note: Using cadquery which includes OCP (Open CASCADE Python bindings)
