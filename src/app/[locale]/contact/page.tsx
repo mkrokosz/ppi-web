@@ -418,6 +418,12 @@ function ContactPageContent() {
                         </>
                       )}
                     </button>
+                    <p className="text-xs text-steel-400 mt-4">
+                      Protected by reCAPTCHA.{' '}
+                      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-steel-600">Privacy</a>
+                      {' & '}
+                      <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-steel-600">Terms</a>
+                    </p>
                 </form>
               </div>
             </div>

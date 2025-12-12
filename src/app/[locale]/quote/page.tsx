@@ -680,6 +680,12 @@ Additional Info: ${formData.additionalInfo || 'None'}
                 </button>
               )}
             </div>
+            <p className="text-xs text-steel-400 mt-4 text-center">
+              Protected by reCAPTCHA.{' '}
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-steel-600">Privacy</a>
+              {' & '}
+              <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-steel-600">Terms</a>
+            </p>
           </form>
         </div>
       </section>

@@ -165,18 +165,9 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-industrial-blue-800">
         <div className="container-custom py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-            <p className="text-steel-400 text-sm">
-              &copy; {new Date().getFullYear()} {t('copyright')}
-            </p>
-            <span className="hidden md:inline text-steel-600">|</span>
-            <p className="text-steel-500 text-xs">
-              Protected by reCAPTCHA.{' '}
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-steel-300">Privacy</a>
-              {' '}&{' '}
-              <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="hover:text-steel-300">Terms</a>
-            </p>
-          </div>
+          <p className="text-steel-400 text-sm">
+            &copy; {new Date().getFullYear()} {t('copyright')}
+          </p>
           {/* Language selector - mobile only, centered */}
           <div className="sm:hidden">
             <LanguageSelector showFullName openAbove />
