@@ -158,6 +158,7 @@ export default function Header() {
             type="button"
             className="lg:hidden p-2 text-steel-600"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6" />
