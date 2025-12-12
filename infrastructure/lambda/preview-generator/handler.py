@@ -2,8 +2,7 @@
 Preview Generator Lambda
 
 Generates preview images (PNG) from various CAD and document formats.
-Supports: DXF, STL, PDF, PNG, JPG, JPEG, TIFF, TIF
-TODO: STEP/IGES support requires OpenCASCADE (complex dependencies)
+Supports: DXF, STL, STEP, STP, IGES, IGS, PDF, PNG, JPG, JPEG, TIFF, TIF
 """
 
 import base64
@@ -80,13 +79,7 @@ def lambda_handler(event, context):
             elif ext == '.stl':
                 generate_stl_preview(input_path, output_path)
             elif ext in ['.step', '.stp', '.iges', '.igs']:
-                # STEP/IGES support requires OpenCASCADE which has complex dependencies
-                # TODO: Add support via conda-based image or alternative library
-                print(f"STEP/IGES preview not yet supported: {ext}")
-                return {
-                    'success': False,
-                    'error': f'STEP/IGES preview not yet supported'
-                }
+                generate_step_preview(input_path, output_path)
             elif ext == '.pdf':
                 generate_pdf_preview(input_path, output_path)
             elif ext in ['.png', '.jpg', '.jpeg', '.tiff', '.tif']:
@@ -158,6 +151,134 @@ def generate_dxf_preview(input_path: str, output_path: str):
     plt.close(fig)
 
     print("DXF preview generated")
+
+
+def generate_step_preview(input_path: str, output_path: str):
+    """Generate preview from STEP/IGES file using OpenCASCADE (OCP)."""
+    from OCP.STEPControl import STEPControl_Reader
+    from OCP.IGESControl import IGESControl_Reader
+    from OCP.IFSelect import IFSelect_RetDone
+    from OCP.Bnd import Bnd_Box
+    from OCP.BRepBndLib import BRepBndLib
+    from OCP.BRepMesh import BRepMesh_IncrementalMesh
+    from OCP.TopExp import TopExp_Explorer
+    from OCP.TopAbs import TopAbs_FACE
+    from OCP.TopoDS import TopoDS
+    from OCP.BRep import BRep_Tool
+    from OCP.TopLoc import TopLoc_Location
+    import matplotlib.pyplot as plt
+    from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+    import numpy as np
+
+    print("Generating STEP/IGES preview...")
+
+    ext = Path(input_path).suffix.lower()
+
+    # Read the file based on extension
+    if ext in ['.step', '.stp']:
+        reader = STEPControl_Reader()
+        status = reader.ReadFile(input_path)
+    else:  # IGES
+        reader = IGESControl_Reader()
+        status = reader.ReadFile(input_path)
+
+    if status != IFSelect_RetDone:
+        raise Exception(f"Failed to read {ext} file")
+
+    reader.TransferRoots()
+    shape = reader.OneShape()
+
+    # Get bounding box for scale
+    bbox = Bnd_Box()
+    BRepBndLib.AddClose_s(shape, bbox)
+    xmin, ymin, zmin, xmax, ymax, zmax = bbox.Get()
+
+    # Calculate mesh deflection based on size
+    max_dim = max(xmax - xmin, ymax - ymin, zmax - zmin)
+    deflection = max_dim / 50.0  # Adjust for quality vs speed
+
+    # Mesh the shape
+    mesh = BRepMesh_IncrementalMesh(shape, deflection)
+    mesh.Perform()
+
+    # Extract triangles from all faces
+    all_vertices = []
+    all_faces = []
+    vertex_offset = 0
+
+    explorer = TopExp_Explorer(shape, TopAbs_FACE)
+    while explorer.More():
+        face = TopoDS.Face_s(explorer.Current())
+        location = TopLoc_Location()
+        triangulation = BRep_Tool.Triangulation_s(face, location)
+
+        if triangulation is not None:
+            # Get vertices
+            nodes = []
+            for i in range(1, triangulation.NbNodes() + 1):
+                node = triangulation.Node(i)
+                if not location.IsIdentity():
+                    node = node.Transformed(location.Transformation())
+                nodes.append([node.X(), node.Y(), node.Z()])
+
+            # Get triangles
+            for i in range(1, triangulation.NbTriangles() + 1):
+                tri = triangulation.Triangle(i)
+                n1, n2, n3 = tri.Get()
+                all_faces.append([
+                    vertex_offset + n1 - 1,
+                    vertex_offset + n2 - 1,
+                    vertex_offset + n3 - 1
+                ])
+
+            all_vertices.extend(nodes)
+            vertex_offset += len(nodes)
+
+        explorer.Next()
+
+    if not all_vertices:
+        raise Exception("No geometry found in file")
+
+    vertices = np.array(all_vertices)
+    faces = np.array(all_faces)
+
+    # Create matplotlib 3D plot
+    fig = plt.figure(figsize=(10, 8))
+    ax = fig.add_subplot(111, projection='3d')
+
+    # Create polygon collection
+    mesh_collection = Poly3DCollection(vertices[faces], alpha=0.8)
+    mesh_collection.set_facecolor('steelblue')
+    mesh_collection.set_edgecolor('darkblue')
+    mesh_collection.set_linewidth(0.1)
+
+    ax.add_collection3d(mesh_collection)
+
+    # Set axis limits
+    ax.set_xlim(xmin, xmax)
+    ax.set_ylim(ymin, ymax)
+    ax.set_zlim(zmin, zmax)
+
+    # Set equal aspect ratio
+    max_range = max(xmax - xmin, ymax - ymin, zmax - zmin) / 2.0
+    mid_x = (xmax + xmin) / 2.0
+    mid_y = (ymax + ymin) / 2.0
+    mid_z = (zmax + zmin) / 2.0
+    ax.set_xlim(mid_x - max_range, mid_x + max_range)
+    ax.set_ylim(mid_y - max_range, mid_y + max_range)
+    ax.set_zlim(mid_z - max_range, mid_z + max_range)
+
+    # Style
+    ax.set_facecolor(BACKGROUND_COLOR)
+    fig.patch.set_facecolor(BACKGROUND_COLOR)
+    ax.set_axis_off()
+
+    # Save
+    fig.savefig(output_path, format='png', bbox_inches='tight',
+                facecolor=BACKGROUND_COLOR, dpi=100)
+    plt.close(fig)
+
+    print("STEP/IGES preview generated")
 
 
 def generate_stl_preview(input_path: str, output_path: str):

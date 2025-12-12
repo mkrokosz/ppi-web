@@ -316,6 +316,7 @@ Resources:
                 Action:
                   - s3:GetObject
                   - s3:DeleteObject
+                  - s3:PutObject
                 Resource: !Sub '${QuoteAttachmentsBucket.Arn}/*'
               - Effect: Allow
                 Action:
