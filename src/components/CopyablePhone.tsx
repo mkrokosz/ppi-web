@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Phone, Copy, Check } from 'lucide-react';
-import { trackPhoneCopy, trackPhoneClick } from '@/lib/firebase';
+import { trackPhoneCopy, trackPhoneClick, gtagPhoneCopy, gtagPhoneClick } from '@/lib/firebase';
 
 interface CopyablePhoneProps {
   phone: string;
@@ -29,6 +29,7 @@ export default function CopyablePhone({
     try {
       await navigator.clipboard.writeText(phone);
       trackPhoneCopy(phone, location);
+      gtagPhoneCopy();
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -38,6 +39,7 @@ export default function CopyablePhone({
 
   const handlePhoneClick = () => {
     trackPhoneClick(phone, location);
+    gtagPhoneClick();
   };
 
   const linkClass = variant === 'dark'

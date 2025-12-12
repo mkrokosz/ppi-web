@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { MapPin, Copy, Check } from 'lucide-react';
-import { trackAddressCopy, trackDirectionsClick } from '@/lib/firebase';
+import { trackAddressCopy, trackDirectionsClick, gtagAddressCopy, gtagDirectionsClick } from '@/lib/firebase';
 
 interface CopyableAddressProps {
   address: string;
@@ -35,6 +35,7 @@ export default function CopyableAddress({
     try {
       await navigator.clipboard.writeText(fullAddress);
       trackAddressCopy(location);
+      gtagAddressCopy();
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -44,6 +45,7 @@ export default function CopyableAddress({
 
   const handleAddressClick = () => {
     trackDirectionsClick(location);
+    gtagDirectionsClick();
   };
 
   const linkClass = variant === 'dark'

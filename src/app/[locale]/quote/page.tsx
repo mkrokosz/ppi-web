@@ -11,7 +11,7 @@ import {
   Shield,
   Phone,
 } from 'lucide-react';
-import { trackQuoteRequest } from '@/lib/firebase';
+import { trackQuoteRequest, gtagQuoteFormSubmit } from '@/lib/firebase';
 import { useLocale } from 'next-intl';
 import { useReCaptcha } from '@/components/ReCaptchaProvider';
 
@@ -93,6 +93,7 @@ Additional Info: ${formData.additionalInfo || 'None'}
       console.log('reCAPTCHA token:', recaptchaToken);
       await new Promise((resolve) => setTimeout(resolve, 1500));
       trackQuoteRequest(formData.partType, formData.material);
+      gtagQuoteFormSubmit();
       router.push(`/quote/thank-you?lang=${locale}`);
       return;
     }
@@ -123,6 +124,7 @@ Additional Info: ${formData.additionalInfo || 'None'}
       }
 
       trackQuoteRequest(formData.partType, formData.material);
+      gtagQuoteFormSubmit();
       router.push(`/quote/thank-you?lang=${locale}`);
     } catch (error) {
       console.error('Quote form error:', error);

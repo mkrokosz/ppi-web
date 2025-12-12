@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Mail, Copy, Check } from 'lucide-react';
-import { trackEmailCopy, trackEmailClick } from '@/lib/firebase';
+import { trackEmailCopy, trackEmailClick, gtagEmailCopy, gtagEmailClick } from '@/lib/firebase';
 
 interface CopyableEmailProps {
   email: string;
@@ -25,6 +25,7 @@ export default function CopyableEmail({
     try {
       await navigator.clipboard.writeText(email);
       trackEmailCopy(email, location);
+      gtagEmailCopy();
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -34,6 +35,7 @@ export default function CopyableEmail({
 
   const handleEmailClick = () => {
     trackEmailClick(email, location);
+    gtagEmailClick();
   };
 
   const linkClass = variant === 'dark'

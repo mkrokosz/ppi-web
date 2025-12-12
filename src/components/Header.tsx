@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
-import { trackPhoneClick, trackQuoteButtonClick } from '@/lib/firebase';
+import { trackPhoneClick, trackQuoteButtonClick, gtagPhoneClick, gtagRequestQuoteButton } from '@/lib/firebase';
 import { useTranslations } from 'next-intl';
 import LanguageSelector from './LanguageSelector';
 import CopyableAddress from './CopyableAddress';
@@ -60,7 +60,7 @@ export default function Header() {
           <a
             href="tel:+18669255000"
             className="flex sm:hidden items-center gap-2 hover:text-precision-orange-300 transition-colors"
-            onClick={() => trackPhoneClick('866-925-5000', 'header-mobile')}
+            onClick={() => { trackPhoneClick('866-925-5000', 'header-mobile'); gtagPhoneClick(); }}
           >
             <Phone className="w-4 h-4" />
             <span className="font-semibold select-none">+1 (866) 925-5000</span>
@@ -70,7 +70,7 @@ export default function Header() {
             <a
               href="tel:+18669255000"
               className="flex items-center gap-2 hover:text-precision-orange-300 transition-colors"
-              onClick={() => trackPhoneClick('866-925-5000', 'header-desktop')}
+              onClick={() => { trackPhoneClick('866-925-5000', 'header-desktop'); gtagPhoneClick(); }}
             >
               <Phone className="w-4 h-4" />
               <span className="font-semibold select-none">+1 (866) 925-5000</span>
@@ -78,7 +78,7 @@ export default function Header() {
             <Link
               href="/quote"
               className="bg-precision-orange-400 hover:bg-precision-orange-500 text-white px-3 py-1 rounded font-semibold transition-colors"
-              onClick={() => trackQuoteButtonClick('header-desktop')}
+              onClick={() => { trackQuoteButtonClick('header-desktop'); gtagRequestQuoteButton(); }}
             >
               {tCommon('requestQuote')}
             </Link>
@@ -87,7 +87,7 @@ export default function Header() {
             <Link
               href="/quote"
               className="bg-precision-orange-400 hover:bg-precision-orange-500 text-white px-3 py-1 rounded font-semibold transition-colors"
-              onClick={() => trackQuoteButtonClick('header-mobile')}
+              onClick={() => { trackQuoteButtonClick('header-mobile'); gtagRequestQuoteButton(); }}
             >
               {tCommon('requestQuote')}
             </Link>

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { locales, Locale, rtlLocales } from '@/i18n/config';
 import Layout from '@/components/Layout';
 import FirebaseAnalytics from '@/components/FirebaseAnalytics';
+import GoogleAdsTracking from '@/components/GoogleAdsTracking';
 
 // Generate static params for all locales
 export function generateStaticParams() {
@@ -111,6 +112,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <FirebaseAnalytics />
+        <GoogleAdsTracking />
         <NextIntlClientProvider messages={messages}>
           <Layout>{children}</Layout>
         </NextIntlClientProvider>

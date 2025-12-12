@@ -115,3 +115,49 @@ export const trackQuoteButtonClick = (location: string) => {
 };
 
 export { app };
+
+// ===========================================
+// Google Ads Conversion Tracking (gtag)
+// ===========================================
+
+// Declare gtag for TypeScript
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+// Google Ads conversion labels
+const GOOGLE_ADS_CONVERSIONS = {
+  email_click: 'AW-17791759320/-b45COCeqNAbENjn4qNC',
+  email_copy: 'AW-17791759320/g19FCOOeqNAbENjn4qNC',
+  phone_click: 'AW-17791759320/7ao8CLChqNAbENjn4qNC',
+  phone_copy: 'AW-17791759320/xix2CLOhqNAbENjn4qNC',
+  directions_click: 'AW-17791759320/eyCACLahqNAbENjn4qNC',
+  address_copy: 'AW-17791759320/ZrRrCLmhqNAbENjn4qNC',
+  click_to_call: 'AW-17791759320/vHH3CMOF5M4bENjn4qNC',
+  request_quote_button: 'AW-17791759320/s2OwCJiKhNAbENjn4qNC',
+  contact_form_submit: 'AW-17791759320/uK1RCKDgotAbENjn4qNC',
+  quote_form_submit: 'AW-17791759320/i0mVCKPgotAbENjn4qNC',
+} as const;
+
+// Send conversion to Google Ads
+const sendGoogleAdsConversion = (conversionLabel: string) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'conversion', {
+      send_to: conversionLabel,
+    });
+  }
+};
+
+// Google Ads conversion tracking functions
+export const gtagEmailClick = () => sendGoogleAdsConversion(GOOGLE_ADS_CONVERSIONS.email_click);
+export const gtagEmailCopy = () => sendGoogleAdsConversion(GOOGLE_ADS_CONVERSIONS.email_copy);
+export const gtagPhoneClick = () => sendGoogleAdsConversion(GOOGLE_ADS_CONVERSIONS.phone_click);
+export const gtagPhoneCopy = () => sendGoogleAdsConversion(GOOGLE_ADS_CONVERSIONS.phone_copy);
+export const gtagDirectionsClick = () => sendGoogleAdsConversion(GOOGLE_ADS_CONVERSIONS.directions_click);
+export const gtagAddressCopy = () => sendGoogleAdsConversion(GOOGLE_ADS_CONVERSIONS.address_copy);
+export const gtagClickToCall = () => sendGoogleAdsConversion(GOOGLE_ADS_CONVERSIONS.click_to_call);
+export const gtagRequestQuoteButton = () => sendGoogleAdsConversion(GOOGLE_ADS_CONVERSIONS.request_quote_button);
+export const gtagContactFormSubmit = () => sendGoogleAdsConversion(GOOGLE_ADS_CONVERSIONS.contact_form_submit);
+export const gtagQuoteFormSubmit = () => sendGoogleAdsConversion(GOOGLE_ADS_CONVERSIONS.quote_form_submit);

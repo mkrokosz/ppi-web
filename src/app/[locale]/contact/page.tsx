@@ -10,7 +10,7 @@ import {
   Send,
   ArrowRight,
 } from 'lucide-react';
-import { trackContactFormSubmit, trackDirectionsClick } from '@/lib/firebase';
+import { trackContactFormSubmit, trackDirectionsClick, gtagDirectionsClick, gtagContactFormSubmit } from '@/lib/firebase';
 import CopyableEmail from '@/components/CopyableEmail';
 import CopyablePhone from '@/components/CopyablePhone';
 import CopyableAddress from '@/components/CopyableAddress';
@@ -74,6 +74,7 @@ export default function ContactPage() {
       }
 
       trackContactFormSubmit(formData.subject);
+      gtagContactFormSubmit();
       router.push(`/contact/thank-you?lang=${locale}`);
     } catch (error) {
       console.error('Contact form error:', error);
@@ -169,7 +170,7 @@ export default function ContactPage() {
                       href="https://goo.gl/maps/R8fawsprvH5KirYK7"
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => trackDirectionsClick('contact-page-link')}
+                      onClick={() => { trackDirectionsClick('contact-page-link'); gtagDirectionsClick(); }}
                       className="text-precision-orange-500 text-sm hover:underline"
                     >
                       {tCommon('getDirections')} →
