@@ -389,35 +389,7 @@ Resources:
   # ===========================================
   # Converts DWG files to DXF format using LibreDWG.
   # Invoked synchronously by Quote Processor when a DWG file is uploaded.
-
-  # ECR Repository for DWG Converter container image
-  DwgConverterRepository:
-    Type: AWS::ECR::Repository
-    Properties:
-      RepositoryName: !Sub '${AWS::StackName}-dwg-converter'
-      ImageScanningConfiguration:
-        ScanOnPush: true
-      LifecyclePolicy:
-        LifecyclePolicyText: |
-          {
-            "rules": [
-              {
-                "rulePriority": 1,
-                "description": "Keep only 3 images",
-                "selection": {
-                  "tagStatus": "any",
-                  "countType": "imageCountMoreThan",
-                  "countNumber": 3
-                },
-                "action": {
-                  "type": "expire"
-                }
-              }
-            ]
-          }
-      Tags:
-        - Key: Project
-          Value: ProPlasticsWebsite
+  # NOTE: ECR repository is created by GitHub Actions workflow before this stack deploys.
 
   # IAM Role for DWG Converter Lambda
   DwgConverterLambdaRole:
@@ -447,11 +419,10 @@ Resources:
           Value: ProPlasticsWebsite
 
   # DWG Converter Lambda Function (Container Image)
-  # NOTE: First deployment will fail until the Docker image is pushed to ECR.
-  # The GitHub Actions workflow will build and push the image automatically.
+  # NOTE: ECR repository and image must exist before this stack deploys.
+  # The GitHub Actions workflow creates the ECR repo and pushes the image first.
   DwgConverterFunction:
     Type: AWS::Lambda::Function
-    DependsOn: DwgConverterRepository
     Properties:
       FunctionName: !Sub '${AWS::StackName}-dwg-converter'
       PackageType: Image
@@ -743,6 +714,6 @@ Outputs:
 
   DwgConverterRepositoryUri:
     Description: ECR repository URI for DWG converter
-    Value: !Sub '${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${DwgConverterRepository}'
+    Value: !Sub '${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${AWS::StackName}-dwg-converter'
     Export:
       Name: !Sub '${AWS::StackName}-DwgConverterRepositoryUri'

@@ -54,8 +54,39 @@ jobs:
           echo "Found Hosted Zone ID: $HOSTED_ZONE_ID"
           echo "hosted_zone_id=$HOSTED_ZONE_ID" >> $GITHUB_OUTPUT
 
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Create ECR repository and build DWG converter image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ env.STACK_NAME }}-dwg-converter
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          # Create ECR repository if it doesn't exist (needed before CloudFormation)
+          echo "Ensuring ECR repository exists..."
+          aws ecr describe-repositories --repository-names $ECR_REPOSITORY 2>/dev/null || \
+            aws ecr create-repository --repository-name $ECR_REPOSITORY --image-scanning-configuration scanOnPush=true
+
+          echo "Building DWG converter Docker image..."
+          cd infrastructure/lambda/dwg-converter
+
+          docker build --platform linux/amd64 -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+          echo "Pushing to ECR..."
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+          echo "✅ DWG converter image pushed to ECR"
+
       - name: Package and Deploy infrastructure
         working-directory: infrastructure
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ env.STACK_NAME }}-dwg-converter
+          IMAGE_TAG: ${{ github.sha }}
         run: |
           echo "Packaging Lambda code..."
           # Use the website bucket for Lambda artifacts
@@ -69,7 +100,6 @@ jobs:
             --output-template-file packaged.yaml
 
           echo "Deploying CloudFormation stack..."
-          # Note: First deployment may show Lambda error until Docker image is pushed
           aws cloudformation deploy \
             --template-file packaged.yaml \
             --stack-name ${{ env.STACK_NAME }} \
@@ -87,35 +117,7 @@ jobs:
 
           echo "✅ Infrastructure deployed"
 
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v2
-
-      - name: Build and push DWG converter image
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ env.STACK_NAME }}-dwg-converter
-          IMAGE_TAG: ${{ github.sha }}
-        run: |
-          echo "Building DWG converter Docker image..."
-          cd infrastructure/lambda/dwg-converter
-
-          docker build --platform linux/amd64 -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
-
-          echo "Pushing to ECR..."
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
-
-          echo "✅ DWG converter image pushed to ECR"
-
-      - name: Update DWG converter Lambda
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ env.STACK_NAME }}-dwg-converter
-          IMAGE_TAG: ${{ github.sha }}
-        run: |
-          # Update Lambda to use the new image
+          # Update DWG converter Lambda to use the specific image tag
           echo "Updating DWG converter Lambda with new image..."
           aws lambda update-function-code \
             --function-name ${{ env.STACK_NAME }}-dwg-converter \
