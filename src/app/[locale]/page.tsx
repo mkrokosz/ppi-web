@@ -57,15 +57,15 @@ export default function HomePage() {
   ];
 
   const industries = [
-    { icon: Plane, name: tIndustries('aerospace'), href: '/industries/aerospace', image: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?w=400&q=80' },
-    { icon: Microscope, name: tIndustries('medical'), href: '/industries/medical', image: 'https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=400&q=80' },
-    { icon: Cpu, name: tIndustries('semiconductor'), href: '/industries/semiconductor', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80' },
-    { icon: Zap, name: tIndustries('electronics'), href: '/industries/electronics', image: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&q=80' },
-    { icon: Car, name: tIndustries('automotive'), href: '/industries/automotive', image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&q=80' },
-    { icon: FlaskConical, name: tIndustries('chemicalProcessing'), href: '/industries/chemical', image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&q=80' },
-    { icon: Droplets, name: tIndustries('waterTreatment'), href: '/industries/water', image: 'https://images.unsplash.com/photo-1504297050568-910d24c426d3?w=400&q=80' },
-    { icon: Building2, name: tIndustries('construction'), href: '/industries/construction', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80' },
-    { icon: Leaf, name: tIndustries('foodProcessing'), href: '/industries/food', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80' },
+    { icon: Plane, name: tIndustries('aerospace'), href: '/industries/aerospace', image: '/images/industries/aerospace.jpg' },
+    { icon: Microscope, name: tIndustries('medical'), href: '/industries/medical', image: '/images/industries/medical.jpg' },
+    { icon: Cpu, name: tIndustries('semiconductor'), href: '/industries/semiconductor', image: '/images/industries/semiconductor.jpg' },
+    { icon: Zap, name: tIndustries('electronics'), href: '/industries/electronics', image: '/images/industries/electronics.jpg' },
+    { icon: Car, name: tIndustries('automotive'), href: '/industries/automotive', image: '/images/industries/automotive.jpg' },
+    { icon: FlaskConical, name: tIndustries('chemicalProcessing'), href: '/industries/chemical', image: '/images/industries/chemical.jpg' },
+    { icon: Droplets, name: tIndustries('waterTreatment'), href: '/industries/water', image: '/images/industries/water.jpg' },
+    { icon: Building2, name: tIndustries('construction'), href: '/industries/construction', image: '/images/industries/construction.jpg' },
+    { icon: Leaf, name: tIndustries('foodProcessing'), href: '/industries/food', image: '/images/industries/food.jpg' },
   ];
 
   const stats = [
