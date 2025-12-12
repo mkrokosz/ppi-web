@@ -1,0 +1,975 @@
+{
+  "metadata": {
+    "title": "Pro Plastics Inc. | Precyzyjna Produkcja Tworzyw Sztucznych od 1968",
+    "description": "Produkcja tworzyw sztucznych na zamówienie w Linden, NJ, USA. Obróbka CNC, produkcja i dystrybucja materiałów dla przemysłu lotniczego, medycznego i półprzewodnikowego od 1968 roku."
+  },
+  "nav": {
+    "home": "Strona główna",
+    "capabilities": "Możliwości",
+    "cncMachining": "Obróbka CNC",
+    "fabrication": "Produkcja",
+    "secondaryOperations": "Operacje wtórne",
+    "materials": "Materiały",
+    "materialDatabase": "Baza materiałów",
+    "comparisonCharts": "Tabele porównawcze",
+    "chemicalResistance": "Odporność chemiczna",
+    "industries": "Branże",
+    "portfolio": "Portfolio",
+    "about": "O nas",
+    "contact": "Kontakt"
+  },
+  "common": {
+    "phone": "+1 (866) 925-5000",
+    "email": "sales@proplasticsinc.com",
+    "address": "1190 Sylvan St",
+    "cityStateZip": "Linden, NJ 07036, USA",
+    "hours": "Pon-Pt: 8:30 - 16:00 EST",
+    "tollFree": "Bezpłatny",
+    "learnMore": "Dowiedz się więcej",
+    "getStarted": "Rozpocznij",
+    "viewDetails": "Zobacz szczegóły",
+    "downloadPdf": "Pobierz PDF",
+    "contactUs": "Skontaktuj się",
+    "getDirections": "Wyznacz trasę",
+    "since1968": "Precyzyjna produkcja od 1968",
+    "requestQuote": "Poproś o wycenę",
+    "callUs": "Zadzwoń +1 (866) 925-5000"
+  },
+  "home": {
+    "hero": {
+      "trustedSince": "Zaufanie od 1968",
+      "subtitle": "Precyzyjna produkcja tworzyw sztucznych",
+      "description": "Twoje kompletne źródło części z tworzyw sztucznych na zamówienie — od prototypu do produkcji. Ekspercka obróbka CNC, produkcja i dystrybucja materiałów dla wymagających branż.",
+      "getQuote": "Uzyskaj bezpłatną wycenę",
+      "viewCapabilities": "Zobacz możliwości"
+    },
+    "stats": {
+      "yearsExperience": "Lat doświadczenia",
+      "industriesServed": "Obsługiwanych branż",
+      "materialsAvailable": "Dostępnych materiałów",
+      "quoteTurnaround": "Czas wyceny"
+    },
+    "capabilities": {
+      "cncMachining": {
+        "title": "Obróbka CNC",
+        "description": "Precyzyjna obróbka CNC pozioma i pionowa z wąskimi tolerancjami dla złożonych geometrii."
+      },
+      "customFabrication": {
+        "title": "Produkcja na zamówienie",
+        "description": "Pełen zakres usług obróbki tworzyw sztucznych, w tym frezowanie, wiercenie i wykrawanie."
+      },
+      "materialDistribution": {
+        "title": "Dystrybucja materiałów",
+        "description": "Kompleksowy asortyment arkuszy, prętów i rur z tworzyw sztucznych klasy inżynierskiej."
+      },
+      "prototyping": {
+        "title": "Prototypowanie",
+        "description": "Szybki rozwój prototypów od koncepcji do części gotowych do produkcji."
+      }
+    },
+    "trustIndicators": {
+      "isoQuality": "Standardy jakości ISO",
+      "madeInUsa": "Wyprodukowano w USA",
+      "fastTurnaround": "Szybka realizacja",
+      "expertSupport": "Wsparcie ekspertów"
+    },
+    "sections": {
+      "capabilities": {
+        "title": "Nasze możliwości",
+        "subtitle": "Od złożonej obróbki CNC po produkcję na pełną skalę, dostarczamy precyzyjne rozwiązania z tworzyw sztucznych dostosowane do Twoich potrzeb."
+      },
+      "industries": {
+        "title": "Obsługiwane branże",
+        "subtitle": "Zaufanie wiodących firm z różnych branż dla krytycznych komponentów z tworzyw sztucznych."
+      },
+      "whyChooseUs": {
+        "title": "Dlaczego Pro Plastics?",
+        "subtitle": "Z ponad 55-letnim doświadczeniem łączymy tradycyjne rzemiosło z nowoczesną precyzyjną produkcją, aby za każdym razem dostarczać wyjątkowe rezultaty.",
+        "learnMore": "Dowiedz się więcej o nas"
+      },
+      "testimonials": {
+        "title": "Co mówią nasi klienci",
+        "subtitle": "Nie wierz nam na słowo — posłuchaj firm, które powierzają nam swoje precyzyjne potrzeby w zakresie tworzyw sztucznych."
+      }
+    },
+    "features": {
+      "zeroDefect": "Zobowiązanie do zerowych wad",
+      "onTimeDelivery": "Gwarancja terminowej dostawy",
+      "expertGuidance": "Eksperckie doradztwo materiałowe",
+      "competitivePricing": "Konkurencyjne ceny",
+      "rapidQuote": "Szybka wycena",
+      "customSolutions": "Rozwiązania niestandardowe dla każdej branży"
+    },
+    "quickTurnaround": {
+      "title": "Szybka realizacja",
+      "subtitle": "Wyceny w ciągu 24 godzin"
+    },
+    "testimonials": {
+      "testimonial1": {
+        "quote": "Pro Plastics jest naszym głównym dostawcą precyzyjnych komponentów od ponad dekady. Ich jakość i czas realizacji są niezrównane.",
+        "author": "Dyrektor ds. inżynierii",
+        "company": "Aerospace Manufacturing Co."
+      },
+      "testimonial2": {
+        "quote": "Ekspertyza materiałowa w Pro Plastics pomogła nam wybrać idealny tworzywo zgodne z FDA dla naszego urządzenia medycznego.",
+        "author": "Kierownik ds. rozwoju produktu",
+        "company": "Medical Device Startup"
+      },
+      "testimonial3": {
+        "quote": "Od prototypu do produkcji, Pro Plastics dostarczył dokładnie to, czego potrzebowaliśmy. Gorąco polecam dla zastosowań półprzewodnikowych.",
+        "author": "Kierownik operacyjny",
+        "company": "Semiconductor Equipment Supplier"
+      }
+    },
+    "cta": {
+      "title": "Gotowy rozpocząć swój projekt?",
+      "subtitle": "Prześlij swoje rysunki i otrzymaj szczegółową wycenę w ciągu 24 godzin. Nasz zespół jest gotowy, aby pomóc zrealizować Twoją wizję."
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Masz pytania dotyczące naszych możliwości lub potrzebujesz wyceny? Jesteśmy tu, aby pomóc. Skontaktuj się, a nasz zespół odpowie niezwłocznie.",
+    "getInTouch": "Skontaktuj się",
+    "phone": "Telefon",
+    "emailLabel": "E-mail",
+    "salesQuotes": "Sprzedaż i wyceny",
+    "addressLabel": "Adres",
+    "hoursLabel": "Godziny",
+    "mondayFriday": "Poniedziałek - Piątek",
+    "closedWeekend": "Zamknięte w sobotę i niedzielę",
+    "needQuote": "Potrzebujesz wyceny?",
+    "quoteDescription": "Dla szybszej obsługi użyj naszego formularza zapytania ofertowego, aby przesłać rysunki bezpośrednio.",
+    "sendMessage": "Wyślij nam wiadomość",
+    "form": {
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "email": "E-mail",
+      "phone": "Telefon (opcjonalnie)",
+      "company": "Firma (opcjonalnie)",
+      "subject": "Temat",
+      "selectSubject": "Wybierz temat...",
+      "subjectQuote": "Zapytanie ofertowe",
+      "subjectCapabilities": "Pytanie o możliwości",
+      "subjectMaterials": "Informacje o materiałach",
+      "subjectOrder": "Status zamówienia",
+      "subjectOther": "Inne",
+      "message": "Wiadomość",
+      "messagePlaceholder": "W czym możemy pomóc?",
+      "send": "Wyślij wiadomość",
+      "sending": "Wysyłanie...",
+      "required": "*"
+    }
+  },
+  "quote": {
+    "title": "Poproś o wycenę",
+    "subtitle": "Uzyskaj szczegółową wycenę dla swoich części z tworzyw sztucznych na zamówienie. Prześlij swoje rysunki i specyfikacje, a odpowiemy w ciągu 24 godzin.",
+    "ndaAvailable": "NDA dostępne na życzenie",
+    "questions": "Pytania? Zadzwoń +1 (866) 925-5000"
+  },
+  "materials": {
+    "title": "Baza materiałów",
+    "subtitle": "Przeglądaj nasz kompleksowy asortyment tworzyw sztucznych inżynierskich. Znajdź idealny materiał dla swojego zastosowania dzięki naszej wyszukiwalnej bazie danych.",
+    "searchPlaceholder": "Szukaj materiałów po nazwie lub opisie...",
+    "showing": "({count} z {total} materiałów)",
+    "tempRange": "Zakres temp.",
+    "availableForms": "Dostępne formy",
+    "keyProperties": "Kluczowe właściwości",
+    "filters": "Filtry",
+    "properties": "Właściwości",
+    "applications": "Zastosowania",
+    "activeFilters": "Aktywne filtry:",
+    "clearAll": "Wyczyść wszystko",
+    "noResults": "Żaden materiał nie pasuje do bieżących filtrów.",
+    "clearFilters": "Wyczyść filtry",
+    "viewDetails": "Zobacz szczegóły",
+    "categories": {
+      "all": "Wszystkie",
+      "highPerformance": "Wysokowydajne",
+      "engineering": "Inżynierskie",
+      "fluoropolymer": "Fluoropolimery",
+      "thermoset": "Termoutwardzalne",
+      "standard": "Standardowe"
+    },
+    "propertyNames": {
+      "highTemperature": "Wysokotemperaturowe",
+      "chemicalResistant": "Odporność chemiczna",
+      "fdaCompliant": "Zgodność z FDA",
+      "lowFriction": "Niskie tarcie",
+      "flameRetardant": "Trudnopalne",
+      "wearResistant": "Odporność na zużycie",
+      "machinable": "Łatwa obróbka",
+      "impactResistant": "Odporność na uderzenia",
+      "electricalInsulation": "Izolacja elektryczna",
+      "opticallyClear": "Przezroczystość optyczna",
+      "uvResistant": "Odporność na UV",
+      "highStrength": "Wysoka wytrzymałość"
+    },
+    "applicationNames": {
+      "aerospace": "Lotnictwo",
+      "medical": "Medycyna",
+      "semiconductor": "Półprzewodniki",
+      "electronics": "Elektronika",
+      "automotive": "Motoryzacja",
+      "foodProcessing": "Przemysł spożywczy",
+      "chemicalProcessing": "Przemysł chemiczny",
+      "materialHandling": "Transport materiałów",
+      "industrial": "Przemysłowe",
+      "safety": "Bezpieczeństwo",
+      "glazing": "Oszklenie",
+      "display": "Wyświetlacze",
+      "lighting": "Oświetlenie",
+      "electrical": "Elektryka",
+      "waterTreatment": "Uzdatnianie wody"
+    },
+    "forms": {
+      "sheet": "Arkusz",
+      "rod": "Pręt",
+      "tube": "Rura"
+    },
+    "resources": {
+      "title": "Zasoby materiałowe",
+      "subtitle": "Dodatkowe narzędzia pomocne przy wyborze odpowiedniego materiału.",
+      "comparison": {
+        "title": "Tabele porównawcze",
+        "description": "Porównania właściwości obok siebie, aby pomóc w wyborze między materiałami."
+      },
+      "chemicalResistance": {
+        "title": "Przewodnik odporności chemicznej",
+        "description": "Kompleksowy przewodnik kompatybilności materiałów z różnymi chemikaliami."
+      },
+      "milSpec": {
+        "title": "Specyfikacje wojskowe",
+        "description": "Materiały spełniające wymagania MIL-SPEC dla zastosowań obronnych."
+      },
+      "viewCharts": "Zobacz tabele",
+      "viewGuide": "Zobacz przewodnik",
+      "viewSpecs": "Zobacz specyfikacje"
+    },
+    "cta": {
+      "title": "Potrzebujesz pomocy w wyborze materiału?",
+      "subtitle": "Nasi eksperci materiałowi mogą pomóc w wyborze odpowiedniego tworzywa dla Twoich konkretnych wymagań.",
+      "contactExperts": "Skontaktuj się z ekspertami"
+    },
+    "expertHelp": {
+      "title": "Potrzebujesz pomocy w wyborze materiału?",
+      "subtitle": "Nasi inżynierowie mogą pomóc w wyborze optymalnego materiału dla Twoich konkretnych wymagań.",
+      "cta": "Skontaktuj się z ekspertami"
+    },
+    "items": {
+      "peek": {
+        "name": "PEEK (Polietereteroketon)",
+        "description": "Wysokowydajny termoplast premium o doskonałych właściwościach mechanicznych w podwyższonych temperaturach."
+      },
+      "ultem": {
+        "name": "Ultem (PEI)",
+        "description": "Polieterimid o wysokiej wytrzymałości, sztywności i szerokiej odporności chemicznej."
+      },
+      "delrin": {
+        "name": "Delrin (Acetal)",
+        "description": "Wysokowytrzymały homopolimer acetalowy o doskonałej stabilności wymiarowej i obrabialności."
+      },
+      "nylon": {
+        "name": "Nylon 6/6",
+        "description": "Wszechstronny plastik inżynierski o doskonałej odporności na zużycie i właściwościach mechanicznych."
+      },
+      "teflon": {
+        "name": "PTFE (Teflon)",
+        "description": "Wyjątkowa odporność chemiczna i najniższy współczynnik tarcia spośród wszystkich materiałów stałych."
+      },
+      "uhmw": {
+        "name": "UHMW Polietylen",
+        "description": "Polietylen o ultra wysokiej masie cząsteczkowej z wyjątkową odpornością na ścieranie i uderzenia."
+      },
+      "polycarbonate": {
+        "name": "Poliwęglan",
+        "description": "Praktycznie niezniszczalny, o doskonałej przejrzystości optycznej i odporności na uderzenia."
+      },
+      "acrylic": {
+        "name": "Akryl (PMMA)",
+        "description": "Krystalicznie czysty termoplast o doskonałych właściwościach optycznych i odporności na warunki atmosferyczne."
+      },
+      "phenolic": {
+        "name": "Fenol (płótno/len)",
+        "description": "Laminat wzmocniony tkaniną o doskonałych właściwościach elektrycznych i mechanicznych."
+      },
+      "g10": {
+        "name": "G-10/FR-4 (szkło-epoksyd)",
+        "description": "Epoksyd wzmocniony tkaniną szklaną o doskonałych właściwościach elektrycznych i mechanicznych."
+      },
+      "pvc": {
+        "name": "PVC (Typ I i II)",
+        "description": "Ekonomiczny materiał o dobrej odporności chemicznej i trudnopalności."
+      },
+      "hdpe": {
+        "name": "HDPE",
+        "description": "Polietylen o wysokiej gęstości z doskonałą odpornością chemiczną i niską absorpcją wilgoci."
+      }
+    }
+  },
+  "comparison": {
+    "title": "Tabele porównawcze materiałów",
+    "subtitle": "Porównania właściwości obok siebie, aby pomóc w wyborze odpowiedniego materiału dla Twojego zastosowania.",
+    "tableTitle": "Porównanie tworzyw inżynierskich",
+    "tableSubtitle": "Porównaj kluczowe właściwości popularnych tworzyw inżynierskich",
+    "property": "Właściwość",
+    "downloadPdf": "Pobierz PDF",
+    "quickGuide": "Szybki przewodnik wyboru",
+    "disclaimer": "* Pokazane wartości są typowe i mogą się różnić w zależności od gatunku. Skontaktuj się z nami, aby uzyskać szczegółowe karty danych materiałowych.",
+    "breadcrumb": {
+      "materials": "Materiały",
+      "comparison": "Tabele porównawcze"
+    },
+    "properties": {
+      "maxServiceTemp": "Maks. temp. pracy",
+      "tensileStrength": "Wytrzymałość na rozciąganie (psi)",
+      "flexuralModulus": "Moduł zginania (psi)",
+      "impactStrength": "Wytrzymałość na uderzenia",
+      "chemicalResistance": "Odporność chemiczna",
+      "wearResistance": "Odporność na zużycie",
+      "machinability": "Obrabialność",
+      "fdaCompliant": "Zgodność z FDA",
+      "relativeCost": "Względny koszt"
+    },
+    "ratings": {
+      "excellent": "Doskonała",
+      "good": "Dobra",
+      "fair": "Dostateczna",
+      "yes": "Tak",
+      "no": "Nie"
+    },
+    "selectionGuide": {
+      "highTemperature": {
+        "need": "Wysoka temperatura",
+        "materials": "PEEK, Ultem, PTFE",
+        "note": "Dla zastosowań powyżej 120°C"
+      },
+      "chemicalResistance": {
+        "need": "Odporność chemiczna",
+        "materials": "PTFE, PEEK, UHMW",
+        "note": "Dla agresywnych środowisk chemicznych"
+      },
+      "wearResistance": {
+        "need": "Odporność na zużycie",
+        "materials": "UHMW, Delrin, PEEK",
+        "note": "Dla zastosowań ślizgowych i łożyskowych"
+      },
+      "fdaCompliance": {
+        "need": "Zgodność z FDA",
+        "materials": "UHMW, Delrin, PTFE, Nylon",
+        "note": "Dla zastosowań kontaktu z żywnością"
+      },
+      "lowCost": {
+        "need": "Niski koszt",
+        "materials": "UHMW, Nylon, Delrin",
+        "note": "Opcje przyjazne dla budżetu"
+      },
+      "easyMachining": {
+        "need": "Łatwa obróbka",
+        "materials": "Delrin, Nylon, UHMW",
+        "note": "Dla złożonych geometrii"
+      }
+    },
+    "needHelp": {
+      "title": "Potrzebujesz pomocy w wyborze?",
+      "subtitle": "Nasi eksperci materiałowi mogą pomóc w wyborze optymalnego tworzywa dla Twoich konkretnych wymagań.",
+      "contactExperts": "Skontaktuj się z ekspertami",
+      "browseAll": "Przeglądaj wszystkie materiały"
+    }
+  },
+  "chemicalResistance": {
+    "title": "Przewodnik odporności chemicznej",
+    "subtitle": "Kompleksowy przewodnik kompatybilności materiałów z tworzyw sztucznych z różnymi chemikaliami. Znajdź odpowiedni materiał dla Twojego środowiska chemicznego.",
+    "legend": "Legenda:",
+    "excellent": "E = Doskonała",
+    "good": "G = Dobra",
+    "fair": "F = Dostateczna",
+    "notRecommended": "N = Niezalecane",
+    "searchPlaceholder": "Szukaj chemikaliów...",
+    "showing": "Wyświetlanie {count} z {total} chemikaliów",
+    "chemical": "Chemikalia",
+    "category": "Kategoria",
+    "downloadPdf": "Pobierz PDF",
+    "disclaimer": "* Pokazane dane służą jako ogólne wytyczne w temperaturze pokojowej. Rzeczywista wydajność może się różnić w zależności od stężenia, temperatury i czasu ekspozycji. Zawsze testuj dla swojego konkretnego zastosowania.",
+    "breadcrumb": {
+      "materials": "Materiały",
+      "chemicalResistance": "Przewodnik odporności chemicznej"
+    },
+    "categories": {
+      "all": "Wszystkie",
+      "acids": "Kwasy",
+      "bases": "Zasady",
+      "solvents": "Rozpuszczalniki",
+      "fuels": "Paliwa",
+      "alcohols": "Alkohole",
+      "oxidizers": "Utleniacze",
+      "oils": "Oleje",
+      "water": "Woda"
+    },
+    "needData": {
+      "title": "Potrzebujesz konkretnych danych o kompatybilności chemicznej?",
+      "subtitle": "Skontaktuj się z nami, aby uzyskać szczegółowe informacje o odporności chemicznej lub omówić wymagania dla Twojego konkretnego zastosowania.",
+      "contactExperts": "Skontaktuj się z ekspertami",
+      "browseAll": "Przeglądaj wszystkie materiały"
+    }
+  },
+  "industries": {
+    "title": "Obsługiwane branże",
+    "subtitle": "Od lotnictwa po przemysł spożywczy, dostarczamy precyzyjne rozwiązania z tworzyw sztucznych dla najbardziej wymagających branż na świecie.",
+    "aerospace": "Lotnictwo",
+    "medical": "Medycyna",
+    "semiconductor": "Półprzewodniki",
+    "electronics": "Elektronika",
+    "automotive": "Motoryzacja",
+    "chemicalProcessing": "Przemysł chemiczny",
+    "waterTreatment": "Uzdatnianie wody",
+    "construction": "Budownictwo",
+    "foodProcessing": "Przemysł spożywczy",
+    "commonMaterials": "Popularne materiały",
+    "typicalApplications": "Typowe zastosowania",
+    "compliance": "Zgodność",
+    "items": {
+      "aerospace": {
+        "name": "Lotnictwo",
+        "description": "Precyzyjne komponenty dla samolotów, satelitów i zastosowań obronnych. Materiały i procesy spełniające surowe normy lotnicze.",
+        "applications": ["Izolatory konstrukcyjne", "Komponenty łożyskowe", "Części zużywalne", "Obudowy elektryczne"],
+        "compliance": ["Zgodność z AS9100", "Rejestracja ITAR", "Materiały MIL-SPEC"]
+      },
+      "medical": {
+        "name": "Medycyna i nauki o życiu",
+        "description": "Materiały zgodne z FDA dla urządzeń medycznych, sprzętu laboratoryjnego i zastosowań farmaceutycznych.",
+        "applications": ["Instrumenty chirurgiczne", "Sprzęt diagnostyczny", "Wyposażenie laboratoryjne", "Komponenty implantów"],
+        "compliance": ["Materiały zgodne z FDA", "USP klasa VI", "Zgodność z ISO 13485"]
+      },
+      "semiconductor": {
+        "name": "Półprzewodniki",
+        "description": "Ultra-czyste komponenty do obsługi waferów, przetwarzania chipów i środowisk cleanroom.",
+        "applications": ["Obsługa waferów", "Dostarczanie chemikaliów", "Komory procesowe", "Uchwyty testowe"],
+        "compliance": ["Kompatybilność z cleanroom", "Niskie odgazowywanie", "Opcje ESD"]
+      },
+      "electronics": {
+        "name": "Elektronika",
+        "description": "Komponenty izolacyjne, złącza i obudowy dla urządzeń i systemów elektronicznych.",
+        "applications": ["Dystanse PCB", "Korpusy złączy", "Przekładki izolacyjne", "Ekranowanie EMI"],
+        "compliance": ["Uznane przez UL", "Zgodność z RoHS", "Opcje trudnopalne"]
+      },
+      "automotive": {
+        "name": "Motoryzacja",
+        "description": "Trwałe komponenty dla pojazdów, od zastosowań podkaporowych po elementy wykończenia wnętrza.",
+        "applications": ["Tuleje i łożyska", "Komponenty układu paliwowego", "Izolatory elektryczne", "Części zużywalne"],
+        "compliance": ["Zgodność z IATF 16949", "Materiały klasy motoryzacyjnej"]
+      },
+      "chemical": {
+        "name": "Przemysł chemiczny",
+        "description": "Komponenty odporne na korozję dla agresywnych środowisk chemicznych i urządzeń procesowych.",
+        "applications": ["Gniazda zaworowe", "Komponenty pomp", "Wykładziny zbiorników", "Uszczelki"],
+        "compliance": ["Certyfikowana odporność chemiczna", "Opcje zgodne z FDA"]
+      },
+      "water": {
+        "name": "Uzdatnianie wody",
+        "description": "Komponenty dla systemów filtracyjnych, pomp i urządzeń do obsługi wody.",
+        "applications": ["Obudowy filtrów", "Komponenty pomp", "Części zaworów", "Systemy rurociągowe"],
+        "compliance": ["Materiały NSF/ANSI 61", "Bezpieczne dla wody pitnej"]
+      },
+      "food": {
+        "name": "Przemysł spożywczy",
+        "description": "Materiały zgodne z FDA i zaakceptowane przez USDA do kontaktu z żywnością i zastosowań przetwórczych.",
+        "applications": ["Części przenośników", "Powierzchnie tnące", "Prowadnice", "Urządzenia pakujące"],
+        "compliance": ["Zgodność z FDA", "Akceptacja USDA", "3-A Dairy"]
+      },
+      "construction": {
+        "name": "Budownictwo i przemysł",
+        "description": "Wytrzymałe komponenty dla sprzętu budowlanego, transportu materiałów i maszyn przemysłowych.",
+        "applications": ["Listwy zużywalne", "Tuleje", "Prowadnice rolek", "Komponenty konstrukcyjne"],
+        "compliance": ["Wysoka nośność", "Odporność na warunki atmosferyczne"]
+      }
+    },
+    "crossIndustry": {
+      "title": "Doświadczenie międzybranżowe",
+      "description": "Z ponad 55-letnim doświadczeniem rozumiemy, że każda branża ma unikalne wymagania. Nasz zespół ściśle współpracuje z Tobą, aby zapewnić, że każda część spełnia Twoje konkretne standardy.",
+      "features": [
+        "Doradztwo w wyborze materiałów dla Twojego zastosowania",
+        "Wsparcie w projektowaniu pod kątem produkcji (DFM)",
+        "Zgodność i certyfikaty specyficzne dla branży",
+        "Dokumentacja jakości i identyfikowalność",
+        "Skalowalność od prototypu do produkcji"
+      ]
+    },
+    "dontSee": {
+      "title": "Nie widzisz swojej branży?",
+      "description": "Obsługujemy wiele wyspecjalizowanych sektorów poza wymienionymi. Skontaktuj się z nami, aby omówić wymagania dla Twojego konkretnego zastosowania."
+    },
+    "cta": {
+      "title": "Gotowy do rozpoczęcia?",
+      "subtitle": "Wyślij nam swoje specyfikacje, a nasi eksperci pomogą znaleźć odpowiednie rozwiązanie dla Twojego zastosowania branżowego."
+    }
+  },
+  "portfolio": {
+    "title": "Nasze prace",
+    "subtitle": "Przeglądaj przykłady precyzyjnych komponentów z tworzyw sztucznych, które wyprodukowaliśmy dla klientów z różnych branż.",
+    "photoComingSoon": "Zdjęcie wkrótce",
+    "process": "Proces",
+    "tolerance": "Tolerancja",
+    "confidentiality": "Ze względu na umowy o poufności z naszymi klientami możemy udostępnić tylko ograniczone szczegóły o naszych projektach. Skontaktuj się z nami, aby uzyskać więcej informacji o naszych możliwościach dla Twojego konkretnego zastosowania.",
+    "whatWeDo": "Co możemy dla Ciebie zrobić",
+    "whatWeDoSubtitle": "Nasze portfolio przedstawia tylko próbkę naszych możliwości produkcyjnych.",
+    "filterAll": "Wszystkie",
+    "processes": {
+      "cncMachining": "Obróbka CNC",
+      "cncTurning": "Toczenie CNC",
+      "fabrication": "Produkcja"
+    },
+    "categories": {
+      "aerospace": "Lotnictwo",
+      "medical": "Medycyna",
+      "semiconductor": "Półprzewodniki",
+      "electronics": "Elektronika",
+      "automotive": "Motoryzacja",
+      "chemical": "Chemiczne",
+      "foodProcessing": "Przemysł spożywczy",
+      "industrial": "Przemysłowe",
+      "waterTreatment": "Uzdatnianie wody"
+    },
+    "capabilities": {
+      "cncMachining": {
+        "title": "Obróbka CNC",
+        "desc": "Złożone geometrie z tolerancjami do ±0,025 mm"
+      },
+      "fabrication": {
+        "title": "Produkcja",
+        "desc": "Cięcie, frezowanie, klejenie i montaż"
+      },
+      "materialDistribution": {
+        "title": "Dystrybucja materiałów",
+        "desc": "Ponad 1000 materiałów w magazynie"
+      },
+      "secondaryOps": {
+        "title": "Operacje wtórne",
+        "desc": "Gwintowanie, wykańczanie i więcej"
+      }
+    },
+    "items": {
+      "peekInsulators": {
+        "title": "Precyzyjne izolatory PEEK",
+        "description": "Wysokotemperaturowe izolatory dla systemów elektrycznych samolotów, obrabiane z dokładnymi tolerancjami."
+      },
+      "medicalDevice": {
+        "title": "Komponenty urządzeń medycznych",
+        "description": "Obudowy i wsporniki zgodne z FDA dla sprzętu do obrazowania diagnostycznego."
+      },
+      "semiconductorWafer": {
+        "title": "Obsługa waferów półprzewodnikowych",
+        "description": "Ultra-czyste nośniki waferów i uchwyty do obsługi dla środowisk cleanroom."
+      },
+      "nylonBushings": {
+        "title": "Niestandardowe tuleje nylonowe",
+        "description": "Wysokonakładowe tuleje odporne na zużycie dla systemów zawieszenia samochodowego."
+      },
+      "valveSeats": {
+        "title": "Gniazda zaworów przemysłu chemicznego",
+        "description": "Komponenty zaworów odporne na korozję dla agresywnych środowisk chemicznych."
+      },
+      "conveyorParts": {
+        "title": "Części przenośników spożywczych",
+        "description": "Listwy zużywalne i prowadnice zgodne z FDA dla linii pakowania żywności."
+      },
+      "circuitBoardStandoffs": {
+        "title": "Dystanse płytek drukowanych",
+        "description": "Trudnopalne dystanse izolacyjne dla gęstych zespołów PCB."
+      },
+      "opticalHousings": {
+        "title": "Obudowy soczewek optycznych",
+        "description": "Precyzyjne obudowy dla przemysłowego sprzętu pomiarowego optycznego."
+      },
+      "waterTreatment": {
+        "title": "Komponenty uzdatniania wody",
+        "description": "Złączki i kolektory odporne na chemikalia dla miejskich systemów wodociągowych."
+      }
+    },
+    "cta": {
+      "title": "Masz podobny projekt?",
+      "subtitle": "Wyślij nam swoje rysunki, a dostarczymy szczegółową wycenę w ciągu 24 godzin. Żaden projekt nie jest zbyt złożony."
+    }
+  },
+  "about": {
+    "title": "O Pro Plastics Inc.",
+    "subtitle": "Od ponad 55 lat jesteśmy zaufanym partnerem w produkcji części z tworzyw sztucznych, obsługując różnorodne branże na całym świecie z precyzją, jakością i zaangażowaniem.",
+    "story": {
+      "title": "Nasza historia",
+      "paragraph1": "Założona w 1968 roku firma Pro Plastics Inc. rozpoczęła działalność jako mały warsztat obróbki tworzyw sztucznych w Linden w stanie New Jersey. To, co zaczęło się jako lokalna operacja, przekształciło się w zaufanego partnera produkcyjnego obsługującego firmy na całym świecie.",
+      "paragraph2": "Nasz założyciel wierzył, że precyzyjna produkcja powinna być dostępna dla firm każdej wielkości. Ta filozofia obowiązuje do dziś — niezależnie od tego, czy potrzebujesz pojedynczego prototypu, czy tysięcy części produkcyjnych, dostarczamy tę samą wyjątkową jakość i dbałość o szczegóły.",
+      "paragraph3": "Przez ponad pięć dekad inwestowaliśmy w najnowszą technologię CNC, rozszerzaliśmy naszą wiedzę o materiałach i zbudowaliśmy zespół wykwalifikowanych rzemieślników, którzy są dumni z każdej produkowanej przez nas części. Dziś z dumą obsługujemy 12 różnych branż, od lotnictwa po urządzenia medyczne.",
+      "facilityCaption": "Nasz zakład w Linden, NJ, USA"
+    },
+    "timeline": {
+      "title": "Nasza droga",
+      "subtitle": "Ponad 55 lat ciągłego rozwoju, innowacji i zaangażowania w doskonałość.",
+      "1968": {
+        "title": "Założenie firmy",
+        "description": "Pro Plastics Inc. założone w Linden w stanie New Jersey, zaczynając od podstawowych usług obróbki tworzyw sztucznych."
+      },
+      "1980s": {
+        "title": "Ekspansja i rozwój",
+        "description": "Rozszerzenie możliwości o obróbkę CNC i rozpoczęcie obsługi przemysłu lotniczego i medycznego."
+      },
+      "1990s": {
+        "title": "Inwestycje technologiczne",
+        "description": "Znaczące inwestycje w precyzyjny sprzęt CNC, budowanie reputacji w obróbce z wąskimi tolerancjami."
+      },
+      "2000s": {
+        "title": "Dystrybucja materiałów",
+        "description": "Uruchomienie kompleksowego działu dystrybucji materiałów, stając się punktem kompleksowej obsługi dla klientów."
+      },
+      "2010s": {
+        "title": "Pozycja lidera branży",
+        "description": "Uznanie jako wiodący producent tworzyw sztucznych obsługujący ponad 12 branż z globalnym zasięgiem."
+      },
+      "today": {
+        "title": "Innowacje trwają",
+        "description": "Kontynuacja inwestycji w zaawansowaną technologię produkcji przy zachowaniu naszego zaangażowania w jakość."
+      }
+    },
+    "values": {
+      "title": "Nasze wartości",
+      "subtitle": "Zasady, które kierują wszystkim, co robimy.",
+      "qualityFirst": {
+        "title": "Jakość przede wszystkim",
+        "description": "Zobowiązanie do zerowych wad od wyboru materiału po końcową kontrolę. Każda część spełnia dokładne specyfikacje."
+      },
+      "onTimeDelivery": {
+        "title": "Terminowa dostawa",
+        "description": "Rozumiemy, że Twoje harmonogramy produkcji zależą od nas. Niezawodna dostawa to nasza obietnica."
+      },
+      "customerPartnership": {
+        "title": "Partnerstwo z klientem",
+        "description": "Współpracujemy z Twoim zespołem inżynieryjnym, aby znaleźć optymalne rozwiązania dla Twoich konkretnych zastosowań."
+      },
+      "integrity": {
+        "title": "Uczciwość",
+        "description": "Uczciwa komunikacja, uczciwe ceny i stanie za każdym produktem, który wytwarzamy."
+      }
+    },
+    "team": {
+      "title": "Nasz zespół",
+      "subtitle": "Wykwalifikowani profesjonaliści oddani dostarczaniu precyzyjnych wyników.",
+      "leadership": {
+        "title": "Kierownictwo",
+        "description": "Doświadczony zespół zarządzający z wieloletnim doświadczeniem produkcyjnym."
+      },
+      "engineering": {
+        "title": "Inżynieria",
+        "description": "Eksperci techniczni, którzy pomagają optymalizować Twoje projekty pod kątem produkcji."
+      },
+      "production": {
+        "title": "Produkcja",
+        "description": "Wykwalifikowani operatorzy maszyn i monterzy, którzy wnoszą precyzję do każdej części."
+      }
+    },
+    "quality": {
+      "title": "Jakość i certyfikaty",
+      "description": "Jakość to nie tylko cel — jest wbudowana w każdy proces. Od kontroli przychodzących materiałów po końcowe sprawdzenia jakości, utrzymujemy rygorystyczne standardy, które spełniają lub przekraczają wymagania branżowe.",
+      "certifications": {
+        "iso": "Zarządzanie jakością ISO 9001:2015",
+        "fda": "Materiały zgodne z FDA",
+        "rohs": "Zgodność z RoHS",
+        "itar": "Rejestracja ITAR",
+        "ul": "Materiały uznane przez UL",
+        "milSpec": "Zgodność ze specyfikacjami wojskowymi"
+      },
+      "promise": {
+        "title": "Nasza obietnica jakości",
+        "item1": "100% kontrola wymiarów krytycznych",
+        "item2": "Pełna identyfikowalność i certyfikacja materiałów",
+        "item3": "Statystyczna kontrola procesu tam, gdzie jest wymagana",
+        "item4": "Dostępne raporty kontroli pierwszej części"
+      }
+    },
+    "cta": {
+      "title": "Współpracujmy",
+      "subtitle": "Nawiąż współpracę z firmą, która dostarcza precyzyjną produkcję tworzyw sztucznych od ponad 55 lat."
+    }
+  },
+  "capabilities": {
+    "title": "Możliwości produkcyjne",
+    "subtitle": "Od precyzyjnej obróbki CNC po kompletne usługi produkcyjne, posiadamy sprzęt i wiedzę, aby sprostać Twoim najbardziej wymagającym potrzebom w zakresie produkcji tworzyw sztucznych.",
+    "whatWeDo": "Co robimy",
+    "whatWeDoSubtitle": "Kompleksowe usługi produkcji tworzyw sztucznych pod jednym dachem.",
+    "keyFeatures": "Kluczowe cechy:",
+    "compatibleMaterials": "Kompatybilne materiały:",
+    "ourEquipment": "Nasz sprzęt",
+    "ourEquipmentSubtitle": "Nowoczesny sprzęt produkcyjny utrzymywany według najwyższych standardów.",
+    "precisionTolerances": "Precyzyjne tolerancje",
+    "precisionTolerancesSubtitle": "Zdolność do spełnienia najbardziej wymagających wymagań wymiarowych.",
+    "ourProcess": "Nasz proces",
+    "ourProcessSubtitle": "Od wyceny do dostawy zapewniamy jakość na każdym etapie.",
+    "servingIndustries": "Obsługujemy kluczowe branże",
+    "servingIndustriesSubtitle": "Nasze możliwości wspierają wymagające zastosowania w lotnictwie, medycynie, półprzewodnikach i innych precyzyjnych branżach.",
+    "viewIndustries": "Zobacz branże",
+    "projectCta": {
+      "title": "Masz projekt w planach?",
+      "subtitle": "Wyślij nam swoje rysunki i specyfikacje. Dostarczymy szczegółową wycenę i zalecenia produkcyjne w ciągu 24 godzin."
+    },
+    "items": {
+      "cncMachining": {
+        "title": "Obróbka CNC",
+        "description": "Najnowocześniejsze centra obróbcze CNC poziome i pionowe dla złożonych geometrii i wąskich tolerancji.",
+        "features": ["Poziome i pionowe centra obróbcze", "Możliwości wieloosiowe", "Tolerancje do ±0,025 mm", "Złożone kontury 3D", "Możliwości dużych formatów"]
+      },
+      "fabrication": {
+        "title": "Produkcja na zamówienie",
+        "description": "Pełen zakres usług obróbki tworzyw sztucznych, w tym cięcie, frezowanie, klejenie i montaż komponentów na zamówienie.",
+        "features": ["Precyzyjne cięcie i frezowanie", "Wiercenie i gwintowanie", "Gięcie i formowanie", "Klejenie rozpuszczalnikowe i adhezyjne", "Usługi montażowe"]
+      },
+      "secondaryOperations": {
+        "title": "Operacje wtórne",
+        "description": "Kompletne usługi wykończeniowe, w tym gwintowanie, obróbka cieplna i wykańczanie powierzchni.",
+        "features": ["Gwintowanie", "Obróbka cieplna/wyżarzanie", "Szlifowanie powierzchniowe", "Polerowanie i wykańczanie", "Znakowanie i grawerowanie"]
+      }
+    },
+    "equipment": {
+      "cncHorizontalMills": "Frezarki poziome CNC",
+      "cncVerticalMills": "Frezarki pionowe CNC",
+      "cncLathes": "Tokarki CNC",
+      "manualMills": "Frezarki manualne",
+      "bandSaws": "Piły taśmowe",
+      "routers": "Frezarki"
+    },
+    "toleranceTypes": {
+      "standard": "Standardowa",
+      "precision": "Precyzyjna",
+      "highPrecision": "Wysoka precyzja",
+      "surfaceFinish": "Wykończenie powierzchni"
+    },
+    "processSteps": {
+      "step1": { "title": "Zapytanie ofertowe", "desc": "Prześlij rysunki do przeglądu" },
+      "step2": { "title": "Przegląd inżynieryjny", "desc": "Analiza DFM i wybór materiału" },
+      "step3": { "title": "Produkcja", "desc": "Precyzyjna produkcja" },
+      "step4": { "title": "Kontrola jakości", "desc": "Inspekcja i weryfikacja" },
+      "step5": { "title": "Dostawa", "desc": "Bezpieczne pakowanie i wysyłka" }
+    },
+    "industries": {
+      "aerospace": "Lotnictwo",
+      "medical": "Medycyna",
+      "semiconductor": "Półprzewodniki",
+      "electronics": "Elektronika",
+      "automotive": "Motoryzacja",
+      "chemical": "Chemiczne"
+    },
+    "cncMachining": {
+      "title": "Obróbka CNC",
+      "breadcrumb": "Obróbka CNC",
+      "subtitle": "Najnowocześniejsze centra obróbcze CNC dostarczające precyzyjne komponenty z tworzyw sztucznych z tolerancjami tak wąskimi jak ±0,025 mm dla najbardziej wymagających zastosowań.",
+      "overviewTitle": "Usługi precyzyjnej obróbki CNC",
+      "overviewParagraph1": "Nasz dział obróbki CNC łączy zaawansowany sprzęt wieloosiowy z dziesięcioleciami wiedzy o obróbce tworzyw sztucznych. W przeciwieństwie do obróbki metali, tworzywa sztuczne wymagają specjalistycznej wiedzy o zachowaniu materiału, parametrach skrawania i zarządzaniu termicznym, aby osiągnąć optymalne wyniki.",
+      "overviewParagraph2": "Obrabiamy wszystko, od prostych części toczonych po złożone komponenty 5-osiowe, zachowując wąskie tolerancje przy zapewnieniu doskonałego wykończenia powierzchni. Nasz zespół współpracuje z Tobą od projektu do produkcji, aby zoptymalizować Twoje części pod kątem produkcji.",
+      "equipmentTitle": "Sprzęt i możliwości",
+      "features": [
+        "Poziome centra obróbcze",
+        "Pionowe centra obróbcze",
+        "Możliwości wieloosiowe (3, 4 i 5 osi)",
+        "Obróbka dużych formatów do 122 cm x 244 cm",
+        "Obróbka wysokoobrotowa dla doskonałego wykończenia",
+        "Złożone kontury i geometrie 3D"
+      ],
+      "applicationsTitle": "Zastosowania branżowe",
+      "applications": {
+        "aerospace": { "name": "Lotnictwo", "parts": "Izolatory konstrukcyjne, obudowy łożysk, komponenty zużywalne" },
+        "medical": { "name": "Medycyna", "parts": "Komponenty instrumentów chirurgicznych, obudowy diagnostyczne" },
+        "semiconductor": { "name": "Półprzewodniki", "parts": "Obsługa waferów, komponenty komór procesowych" },
+        "electronics": { "name": "Elektronika", "parts": "Korpusy złączy, przekładki izolacyjne" }
+      },
+      "tolerances": "Tolerancje",
+      "materialsTitle": "Materiały, które obrabiamy",
+      "viewAllMaterials": "Zobacz wszystkie materiały",
+      "haveProject": "Masz projekt?",
+      "haveProjectDesc": "Wyślij nam swoje rysunki, aby otrzymać szczegółową wycenę w ciągu 24 godzin.",
+      "otherCapabilities": "Inne możliwości"
+    },
+    "fabrication": {
+      "title": "Produkcja na zamówienie",
+      "breadcrumb": "Produkcja",
+      "subtitle": "Pełen zakres usług obróbki tworzyw sztucznych, w tym cięcie, frezowanie, gięcie, klejenie i montaż dla komponentów i zespołów na zamówienie.",
+      "overviewTitle": "Kompletne usługi produkcyjne",
+      "overviewParagraph1": "Nasz dział produkcji obsługuje wszystko, od prostych arkuszy ciętych na wymiar po złożone zespoły wielokomponentowe. Łączymy tradycyjne techniki obróbki z nowoczesnym sprzętem CNC, aby dostarczać spójne, wysokiej jakości wyniki.",
+      "overviewParagraph2": "Niezależnie od tego, czy potrzebujesz pojedynczego prototypu, czy ilości produkcyjnych, nasi doświadczeni monterzy pracują z szeroką gamą materiałów z tworzyw sztucznych, aby spełnić Twoje specyfikacje.",
+      "capabilitiesTitle": "Możliwości produkcyjne",
+      "features": [
+        "Precyzyjne cięcie i piłowanie",
+        "Frezowanie CNC",
+        "Wiercenie i gwintowanie",
+        "Gięcie i formowanie",
+        "Klejenie rozpuszczalnikowe i adhezyjne",
+        "Spawanie (gorącym powietrzem, ultradźwiękowe)",
+        "Usługi montażowe",
+        "Niestandardowe uchwyty i przyrządy"
+      ],
+      "applicationsTitle": "Typowe zastosowania",
+      "applications": {
+        "industrial": { "name": "Przemysłowe", "parts": "Osłony maszyn, pokrywy, obudowy" },
+        "display": { "name": "Wyświetlacze", "parts": "Wystawy POS, oznakowanie" },
+        "foodProcessing": { "name": "Przemysł spożywczy", "parts": "Komponenty przenośników, osłony" },
+        "waterTreatment": { "name": "Uzdatnianie wody", "parts": "Zbiorniki, złączki, kolektory" }
+      },
+      "materialsTitle": "Materiały, które przetwarzamy",
+      "viewAllMaterials": "Zobacz wszystkie materiały",
+      "sizeCapabilities": "Możliwości wymiarowe",
+      "maxSheetSize": "Maks. rozmiar arkusza",
+      "maxThickness": "Maks. grubość",
+      "minOrder": "Min. zamówienie",
+      "haveProject": "Masz projekt?",
+      "haveProjectDesc": "Wyślij nam swoje rysunki, aby otrzymać szczegółową wycenę w ciągu 24 godzin.",
+      "otherCapabilities": "Inne możliwości"
+    },
+    "secondaryOperations": {
+      "title": "Operacje wtórne",
+      "breadcrumb": "Operacje wtórne",
+      "subtitle": "Kompletne usługi wykończeniowe, w tym gwintowanie, obróbka cieplna, wykańczanie powierzchni, znakowanie i montaż dla dostarczania gotowych do użycia części.",
+      "overviewTitle": "Kompletne wykańczanie części",
+      "overviewParagraph1": "Nasz dział operacji wtórnych zapewnia, że Twoje części są dostarczane gotowe do użycia. Od prostego gratowania po złożony montaż, zajmujemy się wszystkimi wykończeniami, które przekształcają obrobione komponenty w gotowe produkty.",
+      "overviewParagraph2": "Wykonując operacje wtórne wewnętrznie, utrzymujemy kontrolę jakości przez cały proces i skracamy czas realizacji w porównaniu z outsourcingiem tych usług.",
+      "servicesTitle": "Dostępne usługi",
+      "operations": {
+        "threading": { "name": "Gwintowanie", "description": "Gwinty wewnętrzne i zewnętrzne, wkładki helicoil, wkładki gwintowane" },
+        "heatTreatment": { "name": "Obróbka cieplna", "description": "Wyżarzanie w celu odprężenia i poprawy stabilności wymiarowej" },
+        "surfaceGrinding": { "name": "Szlifowanie powierzchniowe", "description": "Precyzyjne wykańczanie powierzchni dla wymagań płaskości" },
+        "polishing": { "name": "Polerowanie i wykańczanie", "description": "Polerowanie płomieniowe, polerowanie, niestandardowe obróbki powierzchni" },
+        "marking": { "name": "Znakowanie i grawerowanie", "description": "Znakowanie laserowe, grawerowanie, identyfikacja części" },
+        "bonding": { "name": "Klejenie i spawanie", "description": "Klejenie rozpuszczalnikowe, spawanie ultradźwiękowe, spawanie gorącym powietrzem" },
+        "assembly": { "name": "Montaż", "description": "Usługi podmontażu i pełnego montażu z osprzętem" },
+        "packaging": { "name": "Pakowanie", "description": "Niestandardowe pakowanie do wysyłki i prezentacji" }
+      },
+      "surfaceFinishes": "Wykończenia powierzchni",
+      "finishes": ["Po obróbce", "Polerowane płomieniowo", "Polerowane/szlifowane", "Śrutowane", "Szlifowane (różne ziarnistości)", "Polerowane parą"],
+      "benefitsTitle": "Korzyści z wewnętrznego wykańczania",
+      "benefits": ["Jeden punkt kontaktu", "Spójna kontrola jakości", "Skrócone czasy realizacji", "Niższy całkowity koszt", "Lepsza komunikacja"],
+      "haveProject": "Masz projekt?",
+      "haveProjectDesc": "Wyślij nam swoje rysunki, aby otrzymać szczegółową wycenę w ciągu 24 godzin.",
+      "otherCapabilities": "Inne możliwości",
+      "otherCaps": {
+        "cncMachining": { "name": "Obróbka CNC", "desc": "Precyzyjna obróbka do ±0,025 mm" },
+        "fabrication": { "name": "Produkcja", "desc": "Cięcie, frezowanie, klejenie i montaż" }
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Twój zaufany partner w produkcji i obróbce części z tworzyw sztucznych na zamówienie. Obsługujemy przemysł lotniczy, medyczny, półprzewodnikowy i więcej.",
+    "company": "Firma",
+    "capabilities": "Możliwości",
+    "resources": "Zasoby",
+    "industries": "Branże",
+    "copyright": "Pro Plastics Inc. Wszelkie prawa zastrzeżone.",
+    "links": {
+      "aboutUs": "O nas",
+      "ourTeam": "Nasz zespół",
+      "facilityTour": "Wycieczka po zakładzie",
+      "qualityCertifications": "Jakość i certyfikaty",
+      "chemicalResistanceGuide": "Przewodnik odporności chemicznej",
+      "privacyPolicy": "Polityka prywatności"
+    }
+  },
+  "privacy": {
+    "title": "Polityka prywatności",
+    "lastUpdated": "Ostatnia aktualizacja",
+    "intro": "Pro Plastics Inc. ('my', 'nasz' lub 'nas') zobowiązuje się do ochrony Twojej prywatności. Niniejsza Polityka prywatności wyjaśnia, w jaki sposób zbieramy, wykorzystujemy, ujawniamy i chronimy Twoje informacje podczas odwiedzania naszej strony internetowej lub prowadzenia z nami działalności.",
+    "backToHome": "Powrót do strony głównej",
+    "sections": {
+      "informationCollect": {
+        "title": "Informacje, które zbieramy",
+        "description": "Możemy zbierać informacje o Tobie na różne sposoby, w tym:",
+        "items": {
+          "contactInfo": "Dane kontaktowe (imię i nazwisko, adres e-mail, numer telefonu, adres pocztowy)",
+          "companyInfo": "Nazwa firmy i stanowisko",
+          "projectDetails": "Specyfikacje projektu i wymagania techniczne, które podajesz",
+          "communications": "Zapisy korespondencji i komunikacji z nami",
+          "websiteUsage": "Dane o użytkowaniu strony internetowej za pomocą plików cookie i narzędzi analitycznych"
+        }
+      },
+      "howWeUse": {
+        "title": "Jak wykorzystujemy Twoje informacje",
+        "description": "Wykorzystujemy zebrane informacje, aby:",
+        "items": {
+          "processQuotes": "Przetwarzać zapytania ofertowe i dostarczać wyceny",
+          "communicateOrders": "Komunikować się z Tobą w sprawie zamówień i projektów",
+          "improveServices": "Ulepszać naszą stronę internetową i usługi",
+          "sendUpdates": "Wysyłać Ci istotne aktualizacje o naszych możliwościach (za Twoją zgodą)",
+          "legalCompliance": "Przestrzegać zobowiązań prawnych"
+        }
+      },
+      "informationSharing": {
+        "title": "Udostępnianie informacji",
+        "description": "Nie sprzedajemy Twoich danych osobowych. Możemy udostępniać Twoje informacje:",
+        "items": {
+          "serviceProviders": "Dostawcom usług, którzy pomagają w naszych operacjach (wysyłka, przetwarzanie płatności)",
+          "legalRequirements": "Organom prawnym, gdy jest to wymagane przez prawo",
+          "businessTransfers": "Następcom prawnym w przypadku fuzji lub przejęcia"
+        }
+      },
+      "dataSecurity": {
+        "title": "Bezpieczeństwo danych",
+        "description": "Wdrażamy odpowiednie środki techniczne i organizacyjne w celu ochrony Twoich danych osobowych przed nieuprawnionym dostępem, zmianą, ujawnieniem lub zniszczeniem. Jednak żadna metoda transmisji przez Internet nie jest w 100% bezpieczna."
+      },
+      "cookies": {
+        "title": "Pliki cookie i śledzenie",
+        "description": "Nasza strona internetowa wykorzystuje pliki cookie i podobne technologie śledzenia, aby poprawić Twoje doświadczenie, analizować ruch na stronie i zrozumieć, skąd pochodzą nasi odwiedzający. Możesz kontrolować ustawienia plików cookie za pomocą preferencji przeglądarki."
+      },
+      "yourRights": {
+        "title": "Twoje prawa",
+        "description": "W zależności od Twojej lokalizacji możesz mieć określone prawa dotyczące Twoich danych osobowych:",
+        "items": {
+          "access": "Dostęp do danych osobowych, które przechowujemy o Tobie",
+          "correction": "Żądanie poprawienia nieprawidłowych informacji",
+          "deletion": "Żądanie usunięcia Twoich informacji",
+          "optOut": "Rezygnacja z komunikacji marketingowej"
+        }
+      },
+      "thirdParty": {
+        "title": "Usługi stron trzecich",
+        "description": "Nasza strona internetowa może zawierać linki do stron internetowych stron trzecich. Nie ponosimy odpowiedzialności za praktyki prywatności tych zewnętrznych stron. Zachęcamy do zapoznania się z ich politykami prywatności."
+      },
+      "children": {
+        "title": "Prywatność dzieci",
+        "description": "Nasza strona internetowa nie jest przeznaczona dla dzieci poniżej 13 roku życia. Nie zbieramy świadomie danych osobowych od dzieci poniżej 13 roku życia."
+      },
+      "changes": {
+        "title": "Zmiany w niniejszej polityce",
+        "description": "Możemy od czasu do czasu aktualizować niniejszą Politykę prywatności. Powiadomimy Cię o wszelkich zmianach, publikując nową Politykę prywatności na tej stronie i aktualizując datę 'Ostatnia aktualizacja'."
+      },
+      "contact": {
+        "title": "Kontakt",
+        "description": "Jeśli masz pytania dotyczące niniejszej Polityki prywatności lub naszych praktyk prywatności, skontaktuj się z nami:"
+      }
+    }
+  },
+  "errors": {
+    "notFound": "Strona nie znaleziona",
+    "notFoundDescription": "Strona, której szukasz, nie istnieje lub została przeniesiona.",
+    "backHome": "Powrót do strony głównej"
+  },
+  "thankYou": {
+    "contact": {
+      "heroTitle": "Kontakt",
+      "title": "Wiadomość wysłana!",
+      "description": "Dziękujemy za kontakt. Odpowiemy w ciągu jednego dnia roboczego.",
+      "whatHappensNext": "Co dalej?",
+      "step1": "Nasz zespół przegląda Twoją wiadomość",
+      "step2": "Skontaktujemy się przez e-mail lub telefon",
+      "step3": "Otrzymasz odpowiedź w ciągu jednego dnia roboczego",
+      "returnHome": "Powrót do strony głównej",
+      "viewCapabilities": "Zobacz możliwości",
+      "needImmediate": "Potrzebujesz natychmiastowej pomocy?",
+      "callUs": "Zadzwoń +1 (866) 925-5000"
+    },
+    "quote": {
+      "heroTitle": "Poproś o wycenę",
+      "title": "Zapytanie ofertowe wysłane!",
+      "description": "Dziękujemy za zapytanie ofertowe. Nasz zespół przejrzy Twoje wymagania i skontaktuje się z Tobą w ciągu 24 godzin ze szczegółową wyceną.",
+      "whatHappensNext": "Co dalej?",
+      "step1": "Nasz zespół inżynieryjny przegląda Twoje rysunki i wymagania",
+      "step2": "Skontaktujemy się, jeśli będziemy potrzebować wyjaśnień",
+      "step3": "Otrzymasz szczegółową wycenę e-mailem w ciągu 24 godzin",
+      "returnHome": "Powrót do strony głównej",
+      "viewCapabilities": "Zobacz możliwości",
+      "needImmediate": "Potrzebujesz natychmiastowej pomocy?",
+      "callUs": "Zadzwoń +1 (866) 925-5000"
+    }
+  }
+}
