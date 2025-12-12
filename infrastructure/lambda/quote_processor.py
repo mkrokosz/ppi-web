@@ -92,10 +92,12 @@ def handler(event, context):
             # If DWG file, also convert to DXF and attach both
             if original_filename.lower().endswith('.dwg'):
                 print("DWG file detected, attempting conversion to DXF")
-                dxf_content, dxf_filename = convert_dwg_to_dxf(bucket, key)
+                dxf_content, _ = convert_dwg_to_dxf(bucket, key)
                 if dxf_content:
+                    # Use original filename with .dxf extension
+                    dxf_filename = original_filename.rsplit('.', 1)[0] + '.dxf'
                     attachments.append((dxf_content, dxf_filename, 'application/dxf'))
-                    print(f"Will attach both DWG and DXF to email")
+                    print(f"Will attach both {original_filename} and {dxf_filename} to email")
                 else:
                     print("DXF conversion failed, will attach DWG only")
 
