@@ -55,8 +55,8 @@ When a user uploads a file with their quote request, the file is first uploaded 
 ## Components to Create/Modify
 
 ### 1. S3 Bucket (New)
-- **Name**: `ppi-quote-attachments-staging`
-- **Lifecycle rule**: Auto-delete objects after 1 day (cleanup failed scans)
+- **Name**: `proplastics.us-quote-attachments`
+- **Lifecycle rule**: Auto-delete objects after 30 days (safety net for failed scans)
 - **Encryption**: SSE-S3 (default)
 - **Public access**: Blocked
 
@@ -317,20 +317,51 @@ QuoteProcessorFunction:
 
 ## Implementation Steps
 
-### Phase 1: Infrastructure Setup (Day 1)
-1. [ ] Create S3 bucket with lifecycle rules
-2. [ ] Enable GuardDuty (if not already enabled)
-3. [ ] Enable GuardDuty Malware Protection for S3
-4. [ ] Configure protection for the new bucket
-5. [ ] Create EventBridge rule
+### Phase 1: Deploy CloudFormation Stack
+The following resources are created automatically via CloudFormation:
+- [x] S3 bucket (`proplastics.us-quote-attachments`) with 30-day lifecycle rule
+- [x] Quote Processor Lambda function
+- [x] EventBridge rule for GuardDuty scan completion
+- [x] IAM roles and permissions
+- [x] Contact Form Lambda updated to upload to S3
 
-### Phase 2: Lambda Development (Day 2-3)
-1. [ ] Create Quote Processor Lambda
-2. [ ] Modify Contact Form Lambda to upload to S3
-3. [ ] Update IAM roles/policies
-4. [ ] Update SAM template
+**Deploy command:**
+```bash
+cd infrastructure
+aws cloudformation deploy \
+  --template-file cloudformation.yaml \
+  --stack-name proplastics-website \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --parameter-overrides \
+    HostedZoneId=YOUR_HOSTED_ZONE_ID \
+    RecaptchaSecretKey=YOUR_RECAPTCHA_KEY
+```
 
-### Phase 3: Testing (Day 4)
+### Phase 2: Manual GuardDuty Setup (Required)
+GuardDuty Malware Protection for S3 cannot be configured via CloudFormation.
+You must complete these steps manually in the AWS Console:
+
+1. **Enable GuardDuty** (if not already enabled):
+   - Go to AWS Console → GuardDuty
+   - Click "Get Started" → "Enable GuardDuty"
+
+2. **Enable Malware Protection for S3**:
+   - In GuardDuty, go to "Protection plans" → "Malware Protection"
+   - Click "Configure" under "Malware Protection for S3"
+   - Click "Enable"
+
+3. **Add the S3 Bucket for Protection**:
+   - Click "Add bucket"
+   - Select `proplastics.us-quote-attachments`
+   - For "Object prefix", enter: `quotes/`
+   - Choose "Scan all objects" or keep defaults
+   - Click "Add bucket"
+
+4. **Verify EventBridge Integration**:
+   - GuardDuty automatically sends scan results to EventBridge
+   - The EventBridge rule (`proplastics-website-quote-scan-complete`) will trigger the Quote Processor Lambda
+
+### Phase 3: Testing
 **Flow A (No Attachment):**
 1. [ ] Test quote submission without attachment → email sent immediately
 2. [ ] Test contact form submission → email sent immediately (unchanged behavior)
@@ -338,17 +369,18 @@ QuoteProcessorFunction:
 **Flow B (With Attachment):**
 3. [ ] Test clean file upload → email with attachment after scan
 4. [ ] Test malicious file upload → email without attachment (use EICAR test file)
+   - EICAR test file: `X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*`
 5. [ ] Test oversized file rejection (client-side and server-side)
 6. [ ] Test invalid file type rejection (client-side and server-side)
-7. [ ] Verify S3 cleanup after processing
+7. [ ] Verify S3 cleanup after processing (check bucket is empty)
 
 **Both Flows:**
 8. [ ] Test email routing (mattkrokosz@gmail.com test mode)
 
-### Phase 4: Deployment (Day 5)
-1. [ ] Deploy to production
-2. [ ] Monitor CloudWatch logs
-3. [ ] Verify end-to-end flow
+### Phase 4: Monitoring
+1. [ ] Check CloudWatch Logs for `quote-processor` Lambda
+2. [ ] Check GuardDuty findings for any detected threats
+3. [ ] Verify S3 bucket objects are being cleaned up
 
 ---
 
@@ -378,7 +410,7 @@ If you prefer the user to wait and know immediately if their file was rejected:
 ## Security Notes
 
 1. **S3 bucket is private** - No public access
-2. **Files auto-delete** - 1-day lifecycle rule as safety net
+2. **Files auto-delete** - 30-day lifecycle rule as safety net
 3. **Malicious files never reach email** - Blocked before attachment
 4. **Audit logging** - GuardDuty findings logged for security review
 5. **Test email routing** - Still works (mattkrokosz@gmail.com logic preserved)

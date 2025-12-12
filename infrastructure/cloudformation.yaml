@@ -264,6 +264,122 @@ Resources:
         EvaluateTargetHealth: false
 
   # ===========================================
+  # Quote Attachment Virus Scanning Resources
+  # ===========================================
+  # NOTE: After deploying, you must manually enable GuardDuty Malware Protection
+  # for S3 in the AWS Console: GuardDuty > Malware Protection > S3 Protection
+  # Then add the QuoteAttachmentsBucket to the protected resources.
+
+  # S3 Bucket for staging quote attachments (for virus scanning)
+  QuoteAttachmentsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub '${DomainName}-quote-attachments'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      LifecycleConfiguration:
+        Rules:
+          - Id: DeleteOldFiles
+            Status: Enabled
+            ExpirationInDays: 30
+      Tags:
+        - Key: Project
+          Value: ProPlasticsWebsite
+
+  # IAM Role for Quote Processor Lambda
+  QuoteProcessorLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${AWS::StackName}-quote-processor-role'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: S3AndSESPermissions
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:DeleteObject
+                Resource: !Sub '${QuoteAttachmentsBucket.Arn}/*'
+              - Effect: Allow
+                Action:
+                  - ses:SendEmail
+                  - ses:SendRawEmail
+                Resource: '*'
+                Condition:
+                  StringEquals:
+                    ses:FromAddress: !Ref SESFromEmail
+      Tags:
+        - Key: Project
+          Value: ProPlasticsWebsite
+
+  # Lambda Function for Quote Processing (after virus scan)
+  QuoteProcessorFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-quote-processor'
+      Runtime: python3.12
+      Handler: quote_processor.handler
+      Role: !GetAtt QuoteProcessorLambdaRole.Arn
+      Timeout: 30
+      MemorySize: 256
+      Code: lambda/
+      Environment:
+        Variables:
+          RECIPIENT_EMAIL: !Ref ContactEmailRecipient
+          CC_EMAIL: !Ref ContactEmailCc
+          BCC_EMAIL: !Ref ContactEmailBcc
+          FROM_EMAIL: !Ref SESFromEmail
+          ATTACHMENTS_BUCKET: !Ref QuoteAttachmentsBucket
+      Tags:
+        - Key: Project
+          Value: ProPlasticsWebsite
+
+  # EventBridge Rule for GuardDuty Malware Scan Completion
+  QuoteScanCompleteRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: !Sub '${AWS::StackName}-quote-scan-complete'
+      Description: 'Trigger quote processor when GuardDuty malware scan completes'
+      EventPattern:
+        source:
+          - aws.guardduty
+        detail-type:
+          - 'GuardDuty Malware Protection Object Scan Result'
+        detail:
+          s3ObjectDetails:
+            bucketName:
+              - !Ref QuoteAttachmentsBucket
+      Targets:
+        - Id: QuoteProcessorLambda
+          Arn: !GetAtt QuoteProcessorFunction.Arn
+
+  # Permission for EventBridge to invoke Quote Processor Lambda
+  QuoteProcessorEventBridgePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref QuoteProcessorFunction
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt QuoteScanCompleteRule.Arn
+
+  # ===========================================
   # Contact Form API Resources
   # ===========================================
   # Note: SPF and DMARC records are managed outside CloudFormation
@@ -296,6 +412,14 @@ Resources:
                 Condition:
                   StringEquals:
                     ses:FromAddress: !Ref SESFromEmail
+        - PolicyName: S3Permissions
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                Resource: !Sub '${QuoteAttachmentsBucket.Arn}/*'
       Tags:
         - Key: Project
           Value: ProPlasticsWebsite
@@ -321,6 +445,7 @@ Resources:
           ALLOWED_ORIGIN: !Sub 'https://${DomainName}'
           RECAPTCHA_SECRET_KEY: !Ref RecaptchaSecretKey
           RECAPTCHA_SCORE_THRESHOLD: !Ref RecaptchaScoreThreshold
+          ATTACHMENTS_BUCKET: !Ref QuoteAttachmentsBucket
       Tags:
         - Key: Project
           Value: ProPlasticsWebsite
@@ -522,3 +647,9 @@ Outputs:
     Value: !Sub 'https://api.${DomainName}/google-lead'
     Export:
       Name: !Sub '${AWS::StackName}-GoogleLeadWebhookUrl'
+
+  QuoteAttachmentsBucketName:
+    Description: S3 bucket for quote attachments (virus scanning staging)
+    Value: !Ref QuoteAttachmentsBucket
+    Export:
+      Name: !Sub '${AWS::StackName}-QuoteAttachmentsBucket'

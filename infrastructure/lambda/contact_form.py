@@ -5,12 +5,15 @@ import re
 import urllib.request
 import urllib.parse
 import base64
+import uuid
+from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 from botocore.exceptions import ClientError
 
 ses = boto3.client('ses', region_name='us-east-1')
+s3 = boto3.client('s3')
 
 RECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
 
@@ -203,6 +206,9 @@ Message:
         attachment = body.get('attachment')
 
         if attachment:
+            # FLOW B: With attachment - upload to S3 for virus scanning
+            # Email will be sent by quote_processor Lambda after scan completes
+
             # Validate attachment
             filename = attachment.get('filename', '')
             if filename:
@@ -234,43 +240,63 @@ Message:
                     'body': json.dumps({'error': 'Invalid file attachment'})
                 }
 
-            # Use send_raw_email for messages with attachments
-            msg = MIMEMultipart()
-            msg['Subject'] = f'[Pro Plastics Contact] {subject_text}'
-            msg['From'] = from_address
-            msg['To'] = ', '.join(destination['ToAddresses'])
-            msg['Reply-To'] = email
+            # Upload to S3 for virus scanning
+            attachments_bucket = os.environ.get('ATTACHMENTS_BUCKET')
+            if not attachments_bucket:
+                print('Error: ATTACHMENTS_BUCKET not configured')
+                return {
+                    'statusCode': 500,
+                    'headers': headers,
+                    'body': json.dumps({'error': 'Server configuration error'})
+                }
 
-            if destination.get('CcAddresses'):
-                msg['Cc'] = ', '.join(destination['CcAddresses'])
+            submission_id = str(uuid.uuid4())
+            file_ext = filename.rsplit('.', 1)[-1].lower() if '.' in filename else 'bin'
+            s3_key = f"quotes/{submission_id}.{file_ext}"
 
-            # Add body text
-            msg.attach(MIMEText(email_body, 'plain'))
+            # Store form data in S3 metadata for quote_processor to use
+            form_data_for_processor = {
+                'firstName': body['firstName'].strip(),
+                'lastName': body['lastName'].strip(),
+                'email': email,
+                'phone': phone,
+                'company': company,
+                'subject_text': subject_text,
+                'email_body': email_body,
+            }
 
-            # Add attachment
-            content_type = attachment.get('contentType', 'application/octet-stream')
+            metadata = {
+                'form-data': base64.b64encode(json.dumps(form_data_for_processor).encode()).decode(),
+                'original-filename': filename,
+                'content-type': attachment.get('contentType', 'application/octet-stream'),
+                'submitted-at': datetime.utcnow().isoformat(),
+            }
 
-            att = MIMEApplication(file_content)
-            att.add_header('Content-Disposition', 'attachment', filename=filename)
-            att.add_header('Content-Type', content_type)
-            msg.attach(att)
+            try:
+                s3.put_object(
+                    Bucket=attachments_bucket,
+                    Key=s3_key,
+                    Body=file_content,
+                    Metadata=metadata
+                )
+                print(f'Uploaded attachment to s3://{attachments_bucket}/{s3_key} ({len(file_content)} bytes)')
+            except ClientError as s3_err:
+                print(f'Failed to upload to S3: {s3_err}')
+                return {
+                    'statusCode': 500,
+                    'headers': headers,
+                    'body': json.dumps({'error': 'Failed to process attachment. Please try again.'})
+                }
 
-            print(f'Attached file: {filename} ({len(file_content)} bytes)')
+            # Return success - email will be sent after virus scan completes
+            return {
+                'statusCode': 200,
+                'headers': headers,
+                'body': json.dumps({'message': 'Quote request received. You will receive a confirmation email shortly.'})
+            }
 
-            # Build recipient list for send_raw_email
-            destinations = destination['ToAddresses'][:]
-            if destination.get('CcAddresses'):
-                destinations.extend(destination['CcAddresses'])
-            if destination.get('BccAddresses'):
-                destinations.extend(destination['BccAddresses'])
-
-            ses.send_raw_email(
-                Source=from_address,
-                Destinations=destinations,
-                RawMessage={'Data': msg.as_string()}
-            )
         else:
-            # Use send_email for simple messages without attachments
+            # FLOW A: No attachment - send email directly
             ses.send_email(
                 Source=from_address,
                 Destination=destination,
@@ -281,11 +307,11 @@ Message:
                 }
             )
 
-        return {
-            'statusCode': 200,
-            'headers': headers,
-            'body': json.dumps({'message': 'Message sent successfully'})
-        }
+            return {
+                'statusCode': 200,
+                'headers': headers,
+                'body': json.dumps({'message': 'Message sent successfully'})
+            }
 
     except ClientError as e:
         print(f'SES Error: {e}')
