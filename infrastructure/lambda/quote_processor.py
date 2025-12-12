@@ -47,7 +47,7 @@ def handler(event, context):
 
         bucket = s3_details.get('bucketName')
         key = s3_details.get('objectKey')
-        scan_result = scan_details.get('scanResult', 'UNKNOWN')
+        scan_result = scan_details.get('scanResultStatus', 'UNKNOWN')
 
         if not bucket or not key:
             print("Missing bucket or key in event")
