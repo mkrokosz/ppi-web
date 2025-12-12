@@ -3,7 +3,7 @@ set -e
 
 # Configuration
 ROLE_NAME="GitHubActions-PPI-Web"
-GITHUB_ORG="matt"  # Change this to your GitHub org/username
+GITHUB_ORG="mkrokosz"  # GitHub org/username
 GITHUB_REPO="ppi-web"
 AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 OIDC_PROVIDER="token.actions.githubusercontent.com"
