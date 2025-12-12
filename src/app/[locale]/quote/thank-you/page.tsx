@@ -90,7 +90,7 @@ export default async function QuoteThankYouPage({
               </Link>
             </div>
 
-            <div className="mt-8 pt-8 border-t border-steel-200">
+            <div className="mt-8 pt-8 border-t border-steel-200 flex flex-col items-center">
               <p className="text-steel-500 text-sm mb-2">{t('needImmediate')}</p>
               <CopyablePhone
                 phone="+1 (866) 925-5000"
