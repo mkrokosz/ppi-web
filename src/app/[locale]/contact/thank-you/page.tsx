@@ -2,8 +2,9 @@ import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
-import { CheckCircle, Phone } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import { locales } from '@/i18n/config';
+import CopyablePhone from '@/components/CopyablePhone';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -89,13 +90,12 @@ export default async function ContactThankYouPage({
 
             <div className="mt-8 pt-8 border-t border-steel-200">
               <p className="text-steel-500 text-sm mb-2">{t('needImmediate')}</p>
-              <a
-                href="tel:+18669255000"
-                className="inline-flex items-center gap-2 text-precision-orange-500 font-medium hover:underline"
-              >
-                <Phone className="w-4 h-4" />
-                {t('callUs')}
-              </a>
+              <CopyablePhone
+                phone="+1 (866) 925-5000"
+                phoneRaw="+18669255000"
+                location="contact-thank-you"
+                variant="light"
+              />
             </div>
           </div>
         </div>
