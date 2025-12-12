@@ -5,6 +5,7 @@ Triggered by EventBridge when GuardDuty Malware Protection completes scanning
 a file uploaded to the quote attachments S3 bucket.
 
 Sends the quote request email with or without the attachment based on scan results.
+Includes inline preview images for supported file types.
 """
 
 import json
@@ -14,6 +15,7 @@ import base64
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
+from email.mime.image import MIMEImage
 from botocore.exceptions import ClientError
 
 s3 = boto3.client('s3')
@@ -21,6 +23,13 @@ ses = boto3.client('ses', region_name='us-east-1')
 lambda_client = boto3.client('lambda')
 
 DWG_CONVERTER_FUNCTION = os.environ.get('DWG_CONVERTER_FUNCTION', '')
+PREVIEW_GENERATOR_FUNCTION = os.environ.get('PREVIEW_GENERATOR_FUNCTION', '')
+
+# File extensions that support preview generation
+PREVIEW_SUPPORTED_EXTENSIONS = {
+    '.dxf', '.stl', '.step', '.stp', '.iges', '.igs',
+    '.pdf', '.png', '.jpg', '.jpeg', '.tiff', '.tif'
+}
 
 
 def handler(event, context):
@@ -89,6 +98,9 @@ def handler(event, context):
             # Build list of attachments (original file first)
             attachments = [(file_content, original_filename, content_type)]
 
+            # Track if we have a DXF for preview (converted from DWG)
+            dxf_content_for_preview = None
+
             # If DWG file, also convert to DXF and attach both
             if original_filename.lower().endswith('.dwg'):
                 print("DWG file detected, attempting conversion to DXF")
@@ -97,11 +109,28 @@ def handler(event, context):
                     # Use original filename with .dxf extension
                     dxf_filename = original_filename.rsplit('.', 1)[0] + '.dxf'
                     attachments.append((dxf_content, dxf_filename, 'application/dxf'))
+                    dxf_content_for_preview = dxf_content
                     print(f"Will attach both {original_filename} and {dxf_filename} to email")
                 else:
                     print("DXF conversion failed, will attach DWG only")
 
-            send_email_with_attachment(form_data, attachments)
+            # Generate preview image
+            preview_content = None
+            file_ext = get_file_extension(original_filename)
+
+            if original_filename.lower().endswith('.dwg') and dxf_content_for_preview:
+                # For DWG, generate preview from the converted DXF
+                print("Generating preview from converted DXF")
+                preview_content = generate_preview_from_content(
+                    dxf_content_for_preview,
+                    original_filename.rsplit('.', 1)[0] + '.dxf'
+                )
+            elif file_ext in PREVIEW_SUPPORTED_EXTENSIONS:
+                # Generate preview directly from the file
+                print(f"Generating preview for {file_ext} file")
+                preview_content = generate_preview(bucket, key)
+
+            send_email_with_attachment(form_data, attachments, preview_content)
 
         elif scan_result == 'THREATS_FOUND':
             # Malicious file - send email WITHOUT attachment
@@ -125,6 +154,13 @@ def handler(event, context):
     except Exception as e:
         print(f"Error processing event: {e}")
         raise
+
+
+def get_file_extension(filename):
+    """Get lowercase file extension including the dot."""
+    if '.' in filename:
+        return '.' + filename.rsplit('.', 1)[1].lower()
+    return ''
 
 
 def get_destination(email):
@@ -189,13 +225,89 @@ def convert_dwg_to_dxf(bucket, key):
         return None, None
 
 
-def send_email_with_attachment(form_data, attachments):
+def generate_preview(bucket, key):
     """
-    Send quote request email with file attachment(s).
+    Invoke preview generator Lambda to create a preview image.
+    Returns preview_content_bytes or None on failure.
+    """
+    if not PREVIEW_GENERATOR_FUNCTION:
+        print("Preview generator function not configured, skipping preview")
+        return None
+
+    try:
+        print(f"Invoking preview generator for s3://{bucket}/{key}")
+        response = lambda_client.invoke(
+            FunctionName=PREVIEW_GENERATOR_FUNCTION,
+            InvocationType='RequestResponse',
+            Payload=json.dumps({
+                'bucket': bucket,
+                'key': key
+            })
+        )
+
+        result = json.loads(response['Payload'].read())
+
+        if result.get('success'):
+            preview_content = base64.b64decode(result['preview_content'])
+            print(f"Preview generated successfully ({len(preview_content)} bytes)")
+            return preview_content
+        else:
+            print(f"Preview generation failed: {result.get('error', 'Unknown error')}")
+            return None
+
+    except Exception as e:
+        print(f"Error invoking preview generator: {e}")
+        return None
+
+
+def generate_preview_from_content(file_content, filename):
+    """
+    Generate preview by uploading content to S3 temporarily and invoking preview generator.
+    Used for DXF content converted from DWG.
+    Returns preview_content_bytes or None on failure.
+    """
+    if not PREVIEW_GENERATOR_FUNCTION:
+        print("Preview generator function not configured, skipping preview")
+        return None
+
+    bucket = os.environ.get('ATTACHMENTS_BUCKET', '')
+    if not bucket:
+        print("ATTACHMENTS_BUCKET not configured")
+        return None
+
+    # Upload to a temporary key
+    import uuid
+    temp_key = f"temp-preview/{uuid.uuid4()}/{filename}"
+
+    try:
+        # Upload the content
+        s3.put_object(Bucket=bucket, Key=temp_key, Body=file_content)
+        print(f"Uploaded temp file for preview: s3://{bucket}/{temp_key}")
+
+        # Generate preview
+        preview_content = generate_preview(bucket, temp_key)
+
+        # Clean up temp file
+        try:
+            s3.delete_object(Bucket=bucket, Key=temp_key)
+        except Exception:
+            pass
+
+        return preview_content
+
+    except Exception as e:
+        print(f"Error generating preview from content: {e}")
+        return None
+
+
+def send_email_with_attachment(form_data, attachments, preview_content=None):
+    """
+    Send quote request email with file attachment(s) and optional inline preview.
 
     Args:
         form_data: Form submission data dict
         attachments: List of (content_bytes, filename, content_type) tuples
+        preview_content: Optional PNG bytes for inline preview image
     """
     name = f"{form_data.get('firstName', '')} {form_data.get('lastName', '')}".strip()
     email = form_data.get('email', '')
@@ -205,7 +317,15 @@ def send_email_with_attachment(form_data, attachments):
     destination = get_destination(email)
 
     # Build MIME message
-    msg = MIMEMultipart()
+    # Structure: multipart/mixed
+    #   ├── multipart/alternative
+    #   │   ├── text/plain (fallback)
+    #   │   └── multipart/related (if preview)
+    #   │       ├── text/html
+    #   │       └── image/png (inline)
+    #   └── attachments...
+
+    msg = MIMEMultipart('mixed')
     msg['Subject'] = f'[Pro Plastics Contact] {subject_text}'
     msg['From'] = from_address
     msg['To'] = ', '.join(destination['ToAddresses'])
@@ -214,11 +334,39 @@ def send_email_with_attachment(form_data, attachments):
     if destination.get('CcAddresses'):
         msg['Cc'] = ', '.join(destination['CcAddresses'])
 
-    # Add body text
+    # Get email body text
     email_body = form_data.get('email_body', 'No message body')
-    msg.attach(MIMEText(email_body, 'plain'))
 
-    # Add all attachments
+    # Create alternative part for text/html
+    msg_alternative = MIMEMultipart('alternative')
+
+    # Plain text version (always included as fallback)
+    msg_alternative.attach(MIMEText(email_body, 'plain'))
+
+    # HTML version with optional preview
+    if preview_content:
+        # Create related part for HTML + inline image
+        msg_related = MIMEMultipart('related')
+
+        # Convert text to HTML and add preview image
+        html_body = create_html_email(email_body, attachments, has_preview=True)
+        msg_related.attach(MIMEText(html_body, 'html'))
+
+        # Add inline preview image
+        preview_image = MIMEImage(preview_content, _subtype='png')
+        preview_image.add_header('Content-ID', '<preview_image>')
+        preview_image.add_header('Content-Disposition', 'inline', filename='preview.png')
+        msg_related.attach(preview_image)
+
+        msg_alternative.attach(msg_related)
+    else:
+        # HTML version without preview
+        html_body = create_html_email(email_body, attachments, has_preview=False)
+        msg_alternative.attach(MIMEText(html_body, 'html'))
+
+    msg.attach(msg_alternative)
+
+    # Add all file attachments
     for file_content, filename, content_type in attachments:
         att = MIMEApplication(file_content)
         att.add_header('Content-Disposition', 'attachment', filename=filename)
@@ -239,7 +387,60 @@ def send_email_with_attachment(form_data, attachments):
     )
 
     attachment_names = [a[1] for a in attachments]
-    print(f"Email sent with {len(attachments)} attachment(s) to {destinations}: {attachment_names}")
+    preview_status = "with preview" if preview_content else "without preview"
+    print(f"Email sent {preview_status} with {len(attachments)} attachment(s) to {destinations}: {attachment_names}")
+
+
+def create_html_email(text_body, attachments, has_preview=False):
+    """
+    Create HTML email body from plain text.
+
+    Args:
+        text_body: Plain text email body
+        attachments: List of attachment tuples
+        has_preview: Whether to include preview image placeholder
+    """
+    # Escape HTML characters and convert newlines
+    import html
+    escaped_body = html.escape(text_body)
+    html_body = escaped_body.replace('\n', '<br>\n')
+
+    # Build attachment list
+    attachment_names = [a[1] for a in attachments]
+    attachments_html = ''
+    if attachment_names:
+        attachments_html = '<p><strong>Attachments:</strong> ' + ', '.join(attachment_names) + '</p>'
+
+    # Build preview section
+    preview_html = ''
+    if has_preview:
+        preview_html = '''
+        <div style="margin: 20px 0; padding: 15px; background-color: #f5f5f5; border-radius: 8px;">
+            <p style="margin: 0 0 10px 0; font-weight: bold; color: #333;">Part Preview:</p>
+            <img src="cid:preview_image" alt="Part Preview" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
+        </div>
+        '''
+
+    html_content = f'''<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;">
+    <div style="margin-bottom: 20px;">
+        {html_body}
+    </div>
+    {preview_html}
+    {attachments_html}
+    <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+    <p style="color: #666; font-size: 12px;">
+        This email was sent from the Pro Plastics website contact form.
+    </p>
+</body>
+</html>'''
+
+    return html_content
 
 
 def send_email_without_attachment(form_data, threat_detected=False, scan_failed=False, scan_result=None):

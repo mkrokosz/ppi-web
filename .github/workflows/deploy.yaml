@@ -81,6 +81,29 @@ jobs:
 
           echo "✅ DWG converter image pushed to ECR"
 
+      - name: Create ECR repository and build Preview generator image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ env.STACK_NAME }}-preview-generator
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          # Create ECR repository if it doesn't exist (needed before CloudFormation)
+          echo "Ensuring ECR repository exists..."
+          aws ecr describe-repositories --repository-names $ECR_REPOSITORY 2>/dev/null || \
+            aws ecr create-repository --repository-name $ECR_REPOSITORY --image-scanning-configuration scanOnPush=true
+
+          echo "Building Preview generator Docker image..."
+          cd infrastructure/lambda/preview-generator
+
+          docker build --platform linux/amd64 -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+          echo "Pushing to ECR..."
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+          echo "✅ Preview generator image pushed to ECR"
+
       - name: Package and Deploy infrastructure
         working-directory: infrastructure
         env:
@@ -125,6 +148,16 @@ jobs:
             --no-cli-pager || echo "Lambda update skipped (function may not exist yet)"
 
           echo "✅ DWG converter Lambda updated"
+
+          # Update Preview generator Lambda to use the specific image tag
+          PREVIEW_ECR_REPOSITORY="${{ env.STACK_NAME }}-preview-generator"
+          echo "Updating Preview generator Lambda with new image..."
+          aws lambda update-function-code \
+            --function-name ${{ env.STACK_NAME }}-preview-generator \
+            --image-uri $ECR_REGISTRY/$PREVIEW_ECR_REPOSITORY:$IMAGE_TAG \
+            --no-cli-pager || echo "Lambda update skipped (function may not exist yet)"
+
+          echo "✅ Preview generator Lambda updated"
 
       - name: Get CloudFormation outputs
         id: cfn-outputs
@@ -226,5 +259,7 @@ jobs:
           echo "**Google Lead Webhook:** ${{ steps.cfn-outputs.outputs.api_custom_domain }}/google-lead" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**DWG Converter:** ${{ env.STACK_NAME }}-dwg-converter (Lambda container)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Preview Generator:** ${{ env.STACK_NAME }}-preview-generator (Lambda container)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Cache invalidation has been triggered. Changes may take a few minutes to propagate." >> $GITHUB_STEP_SUMMARY

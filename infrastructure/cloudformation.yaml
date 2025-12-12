@@ -328,7 +328,9 @@ Resources:
               - Effect: Allow
                 Action:
                   - lambda:InvokeFunction
-                Resource: !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${AWS::StackName}-dwg-converter'
+                Resource:
+                  - !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${AWS::StackName}-dwg-converter'
+                  - !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${AWS::StackName}-preview-generator'
       Tags:
         - Key: Project
           Value: ProPlasticsWebsite
@@ -352,6 +354,7 @@ Resources:
           FROM_EMAIL: !Ref SESFromEmail
           ATTACHMENTS_BUCKET: !Ref QuoteAttachmentsBucket
           DWG_CONVERTER_FUNCTION: !Sub '${AWS::StackName}-dwg-converter'
+          PREVIEW_GENERATOR_FUNCTION: !Sub '${AWS::StackName}-preview-generator'
       Tags:
         - Key: Project
           Value: ProPlasticsWebsite
@@ -431,6 +434,56 @@ Resources:
       Role: !GetAtt DwgConverterLambdaRole.Arn
       Timeout: 60
       MemorySize: 512
+      Architectures:
+        - x86_64
+      Tags:
+        - Key: Project
+          Value: ProPlasticsWebsite
+
+  # ===========================================
+  # Preview Generator Lambda (Container Image)
+  # ===========================================
+  # Generates preview images from CAD files (DXF, STL, STEP, IGES, PDF, images).
+  # NOTE: ECR repository and image must exist before this stack deploys.
+
+  # IAM Role for Preview Generator Lambda
+  PreviewGeneratorLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${AWS::StackName}-preview-generator-role'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: S3ReadPermissions
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                Resource: !Sub '${QuoteAttachmentsBucket.Arn}/*'
+      Tags:
+        - Key: Project
+          Value: ProPlasticsWebsite
+
+  # Preview Generator Lambda Function (Container Image)
+  PreviewGeneratorFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-preview-generator'
+      PackageType: Image
+      Code:
+        ImageUri: !Sub '${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${AWS::StackName}-preview-generator:latest'
+      Role: !GetAtt PreviewGeneratorLambdaRole.Arn
+      Timeout: 120
+      MemorySize: 1024
       Architectures:
         - x86_64
       Tags:
