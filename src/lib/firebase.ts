@@ -68,6 +68,24 @@ export const trackEmailCopy = (email: string, location: string) => {
   }
 };
 
+// Track address copy (when user clicks copy button)
+export const trackAddressCopy = (location: string) => {
+  if (analyticsInstance) {
+    logEvent(analyticsInstance, 'address_copy', {
+      click_location: location,
+    });
+  }
+};
+
+// Track directions click (when user clicks address or "Get Directions" link)
+export const trackDirectionsClick = (location: string) => {
+  if (analyticsInstance) {
+    logEvent(analyticsInstance, 'directions_click', {
+      click_location: location,
+    });
+  }
+};
+
 // Track contact form submission
 export const trackContactFormSubmit = (subject: string) => {
   if (analyticsInstance) {

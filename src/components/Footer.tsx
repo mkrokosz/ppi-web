@@ -2,9 +2,10 @@
 
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
-import { MapPin, Clock } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import CopyableEmail from './CopyableEmail';
 import CopyablePhone from './CopyablePhone';
+import CopyableAddress from './CopyableAddress';
 import { useTranslations } from 'next-intl';
 import LanguageSelector from './LanguageSelector';
 
@@ -77,10 +78,13 @@ export default function Footer() {
                 location="footer"
                 variant="dark"
               />
-              <div className="flex items-start gap-3 text-steel-300">
-                <MapPin className="w-5 h-5 mt-0.5" />
-                <span>{tCommon('address')}<br />{tCommon('cityStateZip')}</span>
-              </div>
+              <CopyableAddress
+                address={tCommon('address')}
+                cityStateZip={tCommon('cityStateZip')}
+                location="footer"
+                variant="dark"
+                multiline
+              />
               <div className="flex items-center gap-3 text-steel-300">
                 <Clock className="w-5 h-5" />
                 <span>{tCommon('hours')}</span>

@@ -7,6 +7,7 @@ import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { trackPhoneClick, trackQuoteButtonClick } from '@/lib/firebase';
 import { useTranslations } from 'next-intl';
 import LanguageSelector from './LanguageSelector';
+import CopyableAddress from './CopyableAddress';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -46,8 +47,15 @@ export default function Header() {
       <div className="bg-industrial-blue-900 text-white py-2">
         <div className="container-custom flex justify-between items-center text-sm">
           <div className="hidden sm:flex items-center gap-6">
-            <span>{tCommon('hours')}</span>
-            <span>{tCommon('address')}, {tCommon('cityStateZip')}</span>
+            <span className="select-none">{tCommon('hours')}</span>
+            <CopyableAddress
+              address={tCommon('address')}
+              cityStateZip={tCommon('cityStateZip')}
+              location="header"
+              variant="dark"
+              showIcon={false}
+              showCopyButton={false}
+            />
           </div>
           <a
             href="tel:+18669255000"

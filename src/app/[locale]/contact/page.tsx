@@ -10,9 +10,10 @@ import {
   Send,
   ArrowRight,
 } from 'lucide-react';
-import { trackContactFormSubmit } from '@/lib/firebase';
+import { trackContactFormSubmit, trackDirectionsClick } from '@/lib/firebase';
 import CopyableEmail from '@/components/CopyableEmail';
 import CopyablePhone from '@/components/CopyablePhone';
+import CopyableAddress from '@/components/CopyableAddress';
 import { useTranslations, useLocale } from 'next-intl';
 import { useReCaptcha } from '@/components/ReCaptchaProvider';
 
@@ -156,14 +157,19 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-industrial-blue-900">{t('addressLabel')}</h3>
-                    <p className="text-steel-600">
-                      {tCommon('address')}<br />
-                      {tCommon('cityStateZip')}
-                    </p>
+                    <CopyableAddress
+                      address={tCommon('address')}
+                      cityStateZip={tCommon('cityStateZip')}
+                      location="contact-page"
+                      variant="light"
+                      showIcon={false}
+                      multiline
+                    />
                     <a
                       href="https://goo.gl/maps/R8fawsprvH5KirYK7"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackDirectionsClick('contact-page-link')}
                       className="text-precision-orange-500 text-sm hover:underline"
                     >
                       {tCommon('getDirections')} →
