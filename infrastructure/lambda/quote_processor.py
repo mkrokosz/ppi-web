@@ -18,6 +18,9 @@ from botocore.exceptions import ClientError
 
 s3 = boto3.client('s3')
 ses = boto3.client('ses', region_name='us-east-1')
+lambda_client = boto3.client('lambda')
+
+DWG_CONVERTER_FUNCTION = os.environ.get('DWG_CONVERTER_FUNCTION', '')
 
 
 def handler(event, context):
@@ -81,8 +84,22 @@ def handler(event, context):
         if scan_result == 'NO_THREATS_FOUND':
             # Clean file - send email with attachment
             file_content = obj['Body'].read()
-            print(f"File is clean. Sending email with attachment ({len(file_content)} bytes)")
-            send_email_with_attachment(form_data, file_content, original_filename, content_type)
+            print(f"File is clean: {original_filename} ({len(file_content)} bytes)")
+
+            # Build list of attachments (original file first)
+            attachments = [(file_content, original_filename, content_type)]
+
+            # If DWG file, also convert to DXF and attach both
+            if original_filename.lower().endswith('.dwg'):
+                print("DWG file detected, attempting conversion to DXF")
+                dxf_content, dxf_filename = convert_dwg_to_dxf(bucket, key)
+                if dxf_content:
+                    attachments.append((dxf_content, dxf_filename, 'application/dxf'))
+                    print(f"Will attach both DWG and DXF to email")
+                else:
+                    print("DXF conversion failed, will attach DWG only")
+
+            send_email_with_attachment(form_data, attachments)
 
         elif scan_result == 'THREATS_FOUND':
             # Malicious file - send email WITHOUT attachment
@@ -132,8 +149,50 @@ def get_destination(email):
     return destination
 
 
-def send_email_with_attachment(form_data, file_content, filename, content_type):
-    """Send quote request email with file attachment."""
+def convert_dwg_to_dxf(bucket, key):
+    """
+    Invoke DWG converter Lambda to convert file to DXF.
+    Returns (dxf_content_bytes, dxf_filename) or (None, None) on failure.
+    """
+    if not DWG_CONVERTER_FUNCTION:
+        print("DWG converter function not configured, skipping conversion")
+        return None, None
+
+    try:
+        print(f"Invoking DWG converter for s3://{bucket}/{key}")
+        response = lambda_client.invoke(
+            FunctionName=DWG_CONVERTER_FUNCTION,
+            InvocationType='RequestResponse',
+            Payload=json.dumps({
+                'bucket': bucket,
+                'key': key
+            })
+        )
+
+        result = json.loads(response['Payload'].read())
+
+        if result.get('success'):
+            dxf_content = base64.b64decode(result['dxf_content'])
+            dxf_filename = result['dxf_filename']
+            print(f"DWG converted successfully: {dxf_filename} ({len(dxf_content)} bytes)")
+            return dxf_content, dxf_filename
+        else:
+            print(f"DWG conversion failed: {result.get('error', 'Unknown error')}")
+            return None, None
+
+    except Exception as e:
+        print(f"Error invoking DWG converter: {e}")
+        return None, None
+
+
+def send_email_with_attachment(form_data, attachments):
+    """
+    Send quote request email with file attachment(s).
+
+    Args:
+        form_data: Form submission data dict
+        attachments: List of (content_bytes, filename, content_type) tuples
+    """
     name = f"{form_data.get('firstName', '')} {form_data.get('lastName', '')}".strip()
     email = form_data.get('email', '')
     subject_text = form_data.get('subject_text', 'Quote Request')
@@ -155,11 +214,12 @@ def send_email_with_attachment(form_data, file_content, filename, content_type):
     email_body = form_data.get('email_body', 'No message body')
     msg.attach(MIMEText(email_body, 'plain'))
 
-    # Add attachment
-    att = MIMEApplication(file_content)
-    att.add_header('Content-Disposition', 'attachment', filename=filename)
-    att.add_header('Content-Type', content_type)
-    msg.attach(att)
+    # Add all attachments
+    for file_content, filename, content_type in attachments:
+        att = MIMEApplication(file_content)
+        att.add_header('Content-Disposition', 'attachment', filename=filename)
+        att.add_header('Content-Type', content_type)
+        msg.attach(att)
 
     # Build recipient list for send_raw_email
     destinations = destination['ToAddresses'][:]
@@ -174,7 +234,8 @@ def send_email_with_attachment(form_data, file_content, filename, content_type):
         RawMessage={'Data': msg.as_string()}
     )
 
-    print(f"Email sent with attachment to {destinations}")
+    attachment_names = [a[1] for a in attachments]
+    print(f"Email sent with {len(attachments)} attachment(s) to {destinations}: {attachment_names}")
 
 
 def send_email_without_attachment(form_data, threat_detected=False, scan_failed=False, scan_result=None):

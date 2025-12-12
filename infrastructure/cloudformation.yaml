@@ -325,6 +325,10 @@ Resources:
                 Condition:
                   StringEquals:
                     ses:FromAddress: !Ref SESFromEmail
+              - Effect: Allow
+                Action:
+                  - lambda:InvokeFunction
+                Resource: !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${AWS::StackName}-dwg-converter'
       Tags:
         - Key: Project
           Value: ProPlasticsWebsite
@@ -337,7 +341,7 @@ Resources:
       Runtime: python3.12
       Handler: quote_processor.handler
       Role: !GetAtt QuoteProcessorLambdaRole.Arn
-      Timeout: 30
+      Timeout: 60
       MemorySize: 256
       Code: lambda/
       Environment:
@@ -347,6 +351,7 @@ Resources:
           BCC_EMAIL: !Ref ContactEmailBcc
           FROM_EMAIL: !Ref SESFromEmail
           ATTACHMENTS_BUCKET: !Ref QuoteAttachmentsBucket
+          DWG_CONVERTER_FUNCTION: !Sub '${AWS::StackName}-dwg-converter'
       Tags:
         - Key: Project
           Value: ProPlasticsWebsite
@@ -378,6 +383,88 @@ Resources:
       Action: lambda:InvokeFunction
       Principal: events.amazonaws.com
       SourceArn: !GetAtt QuoteScanCompleteRule.Arn
+
+  # ===========================================
+  # DWG to DXF Converter Lambda (Container Image)
+  # ===========================================
+  # Converts DWG files to DXF format using LibreDWG.
+  # Invoked synchronously by Quote Processor when a DWG file is uploaded.
+
+  # ECR Repository for DWG Converter container image
+  DwgConverterRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: !Sub '${AWS::StackName}-dwg-converter'
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      LifecyclePolicy:
+        LifecyclePolicyText: |
+          {
+            "rules": [
+              {
+                "rulePriority": 1,
+                "description": "Keep only 3 images",
+                "selection": {
+                  "tagStatus": "any",
+                  "countType": "imageCountMoreThan",
+                  "countNumber": 3
+                },
+                "action": {
+                  "type": "expire"
+                }
+              }
+            ]
+          }
+      Tags:
+        - Key: Project
+          Value: ProPlasticsWebsite
+
+  # IAM Role for DWG Converter Lambda
+  DwgConverterLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${AWS::StackName}-dwg-converter-role'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: S3ReadPermissions
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                Resource: !Sub '${QuoteAttachmentsBucket.Arn}/*'
+      Tags:
+        - Key: Project
+          Value: ProPlasticsWebsite
+
+  # DWG Converter Lambda Function (Container Image)
+  # NOTE: First deployment will fail until the Docker image is pushed to ECR.
+  # The GitHub Actions workflow will build and push the image automatically.
+  DwgConverterFunction:
+    Type: AWS::Lambda::Function
+    DependsOn: DwgConverterRepository
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-dwg-converter'
+      PackageType: Image
+      Code:
+        ImageUri: !Sub '${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${AWS::StackName}-dwg-converter:latest'
+      Role: !GetAtt DwgConverterLambdaRole.Arn
+      Timeout: 60
+      MemorySize: 512
+      Architectures:
+        - x86_64
+      Tags:
+        - Key: Project
+          Value: ProPlasticsWebsite
 
   # ===========================================
   # Contact Form API Resources
@@ -653,3 +740,9 @@ Outputs:
     Value: !Ref QuoteAttachmentsBucket
     Export:
       Name: !Sub '${AWS::StackName}-QuoteAttachmentsBucket'
+
+  DwgConverterRepositoryUri:
+    Description: ECR repository URI for DWG converter
+    Value: !Sub '${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${DwgConverterRepository}'
+    Export:
+      Name: !Sub '${AWS::StackName}-DwgConverterRepositoryUri'

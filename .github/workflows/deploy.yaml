@@ -69,6 +69,7 @@ jobs:
             --output-template-file packaged.yaml
 
           echo "Deploying CloudFormation stack..."
+          # Note: First deployment may show Lambda error until Docker image is pushed
           aws cloudformation deploy \
             --template-file packaged.yaml \
             --stack-name ${{ env.STACK_NAME }} \
@@ -85,6 +86,43 @@ jobs:
             --no-fail-on-empty-changeset
 
           echo "✅ Infrastructure deployed"
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build and push DWG converter image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ env.STACK_NAME }}-dwg-converter
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          echo "Building DWG converter Docker image..."
+          cd infrastructure/lambda/dwg-converter
+
+          docker build --platform linux/amd64 -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+          echo "Pushing to ECR..."
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+          echo "✅ DWG converter image pushed to ECR"
+
+      - name: Update DWG converter Lambda
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ env.STACK_NAME }}-dwg-converter
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          # Update Lambda to use the new image
+          echo "Updating DWG converter Lambda with new image..."
+          aws lambda update-function-code \
+            --function-name ${{ env.STACK_NAME }}-dwg-converter \
+            --image-uri $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
+            --no-cli-pager || echo "Lambda update skipped (function may not exist yet)"
+
+          echo "✅ DWG converter Lambda updated"
 
       - name: Get CloudFormation outputs
         id: cfn-outputs
@@ -184,5 +222,7 @@ jobs:
           echo "**Contact Form API:** ${{ steps.cfn-outputs.outputs.contact_api_url }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Google Lead Webhook:** ${{ steps.cfn-outputs.outputs.api_custom_domain }}/google-lead" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**DWG Converter:** ${{ env.STACK_NAME }}-dwg-converter (Lambda container)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Cache invalidation has been triggered. Changes may take a few minutes to propagate." >> $GITHUB_STEP_SUMMARY
