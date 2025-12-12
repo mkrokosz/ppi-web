@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { trackQuoteRequest, gtagQuoteFormSubmit } from '@/lib/firebase';
 import { useLocale } from 'next-intl';
-import { useReCaptcha } from '@/components/ReCaptchaProvider';
+import ReCaptchaProvider, { useReCaptcha } from '@/components/ReCaptchaProvider';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -39,6 +39,14 @@ const ACCEPTED_FILE_TYPES = [
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
 export default function QuotePage() {
+  return (
+    <ReCaptchaProvider>
+      <QuotePageContent />
+    </ReCaptchaProvider>
+  );
+}
+
+function QuotePageContent() {
   const router = useRouter();
   const locale = useLocale();
   const { executeRecaptcha } = useReCaptcha();

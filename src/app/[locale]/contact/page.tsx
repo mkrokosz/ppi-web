@@ -15,9 +15,17 @@ import CopyableEmail from '@/components/CopyableEmail';
 import CopyablePhone from '@/components/CopyablePhone';
 import CopyableAddress from '@/components/CopyableAddress';
 import { useTranslations, useLocale } from 'next-intl';
-import { useReCaptcha } from '@/components/ReCaptchaProvider';
+import ReCaptchaProvider, { useReCaptcha } from '@/components/ReCaptchaProvider';
 
 export default function ContactPage() {
+  return (
+    <ReCaptchaProvider>
+      <ContactPageContent />
+    </ReCaptchaProvider>
+  );
+}
+
+function ContactPageContent() {
   const router = useRouter();
   const locale = useLocale();
   const t = useTranslations('contact');
