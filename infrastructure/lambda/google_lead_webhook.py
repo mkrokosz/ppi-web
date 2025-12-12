@@ -151,15 +151,22 @@ GCL ID: {body.get('gcl_id', 'N/A')}
 
         # Use the lead's name as the display name in From address
         from_address = f'"{full_name}" <{from_email}>'
-        destination = {'ToAddresses': [recipient_email]}
 
-        cc_email = os.environ.get('CC_EMAIL', '')
-        if cc_email:
-            destination['CcAddresses'] = [cc_email]
+        # Test mode: if submitter email is test email, only send to them
+        TEST_EMAIL = 'mattkrokosz@gmail.com'
+        if email.lower() == TEST_EMAIL.lower():
+            destination = {'ToAddresses': [TEST_EMAIL]}
+            print(f'Test mode: routing email only to {TEST_EMAIL}')
+        else:
+            destination = {'ToAddresses': [recipient_email]}
 
-        bcc_email = os.environ.get('BCC_EMAIL', '')
-        if bcc_email:
-            destination['BccAddresses'] = [bcc_email]
+            cc_email = os.environ.get('CC_EMAIL', '')
+            if cc_email:
+                destination['CcAddresses'] = [cc_email]
+
+            bcc_email = os.environ.get('BCC_EMAIL', '')
+            if bcc_email:
+                destination['BccAddresses'] = [bcc_email]
 
         ses.send_email(
             Source=from_address,

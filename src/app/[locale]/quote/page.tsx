@@ -10,6 +10,9 @@ import {
   Clock,
   Shield,
   Phone,
+  Upload,
+  X,
+  FileText,
 } from 'lucide-react';
 import { trackQuoteRequest, gtagQuoteFormSubmit } from '@/lib/firebase';
 import { useLocale } from 'next-intl';
@@ -18,6 +21,22 @@ import { useReCaptcha } from '@/components/ReCaptchaProvider';
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 type Step = 1 | 2;
+
+// Supported file extensions for CAD drawings and documents
+const ACCEPTED_FILE_TYPES = [
+  '.pdf',
+  '.step', '.stp',    // STEP files
+  '.iges', '.igs',    // IGES files
+  '.dxf', '.dwg',     // AutoCAD files
+  '.stl',             // 3D printing
+  '.sldprt', '.sldasm', // SolidWorks
+  '.ipt', '.iam',     // Inventor
+  '.prt',             // Various CAD
+  '.x_t', '.sat',     // Parasolid/ACIS
+  '.png', '.jpg', '.jpeg', '.tif', '.tiff', // Images
+].join(',');
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
 export default function QuotePage() {
   const router = useRouter();
@@ -41,6 +60,8 @@ export default function QuotePage() {
     phone: '',
     company: '',
   });
+  const [file, setFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -49,6 +70,35 @@ export default function QuotePage() {
       ...prev,
       [e.target.name]: e.target.value,
     }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFileError('');
+    const selectedFile = e.target.files?.[0];
+
+    if (!selectedFile) {
+      setFile(null);
+      return;
+    }
+
+    if (selectedFile.size > MAX_FILE_SIZE) {
+      setFileError('File size must be less than 10MB');
+      e.target.value = '';
+      return;
+    }
+
+    setFile(selectedFile);
+  };
+
+  const removeFile = () => {
+    setFile(null);
+    setFileError('');
+  };
+
+  const formatFileSize = (bytes: number) => {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
   };
 
   const nextStep = () => {
@@ -61,6 +111,20 @@ export default function QuotePage() {
     if (currentStep > 1) {
       setCurrentStep(1);
     }
+  };
+
+  const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const result = reader.result as string;
+        // Remove the data URL prefix (e.g., "data:application/pdf;base64,")
+        const base64 = result.split(',')[1];
+        resolve(base64);
+      };
+      reader.onerror = (error) => reject(error);
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -83,13 +147,32 @@ PROJECT INFO:
 - Quantity: ${formData.quantity}
 - Material: ${formData.material}${formData.material === 'other' ? ` (${formData.materialOther})` : ''}
 - Timeline: ${formData.timeline}
+${file ? `- Attachment: ${file.name}` : ''}
 
 Additional Info: ${formData.additionalInfo || 'None'}
     `.trim();
 
+    // Prepare file attachment if present
+    let attachment = null;
+    if (file) {
+      try {
+        const base64Data = await fileToBase64(file);
+        attachment = {
+          filename: file.name,
+          content: base64Data,
+          contentType: file.type || 'application/octet-stream',
+        };
+      } catch {
+        console.error('Error encoding file');
+        setErrorMessage('Failed to process file attachment. Please try again.');
+        setFormStatus('error');
+        return;
+      }
+    }
+
     if (!apiUrl) {
       // Fallback for development
-      console.log('Quote form submission:', { ...formData, message: quoteMessage });
+      console.log('Quote form submission:', { ...formData, message: quoteMessage, attachment: attachment ? { filename: attachment.filename, size: file?.size } : null });
       console.log('reCAPTCHA token:', recaptchaToken);
       await new Promise((resolve) => setTimeout(resolve, 1500));
       trackQuoteRequest(formData.partType, formData.material);
@@ -114,6 +197,7 @@ Additional Info: ${formData.additionalInfo || 'None'}
           partType: formData.partType,
           message: quoteMessage,
           recaptchaToken,
+          attachment,
         }),
       });
 
@@ -363,6 +447,62 @@ Additional Info: ${formData.additionalInfo || 'None'}
                     placeholder="Any special requirements, certifications needed, surface finish specifications, or other details..."
                     className="w-full px-4 py-3 rounded-lg border border-steel-300 focus:border-industrial-blue-500 focus:ring-2 focus:ring-industrial-blue-200 outline-none transition-all resize-none"
                   />
+                </div>
+
+                {/* File Upload */}
+                <div>
+                  <label className="block text-sm font-medium text-steel-700 mb-2">
+                    Attach Drawing or Document (optional)
+                  </label>
+                  <p className="text-sm text-steel-500 mb-3">
+                    Upload CAD files, drawings, or images. Max 10MB.
+                  </p>
+
+                  {!file ? (
+                    <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-steel-300 border-dashed rounded-lg cursor-pointer bg-steel-50 hover:bg-steel-100 transition-colors">
+                      <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                        <Upload className="w-8 h-8 mb-2 text-steel-400" />
+                        <p className="text-sm text-steel-500">
+                          <span className="font-medium text-industrial-blue-600">Click to upload</span> or drag and drop
+                        </p>
+                        <p className="text-xs text-steel-400 mt-1">
+                          PDF, STEP, DXF, DWG, STL, SolidWorks, and more
+                        </p>
+                      </div>
+                      <input
+                        type="file"
+                        className="hidden"
+                        accept={ACCEPTED_FILE_TYPES}
+                        onChange={handleFileChange}
+                      />
+                    </label>
+                  ) : (
+                    <div className="flex items-center justify-between p-4 bg-steel-50 rounded-lg border border-steel-200">
+                      <div className="flex items-center gap-3">
+                        <FileText className="w-8 h-8 text-industrial-blue-600" />
+                        <div>
+                          <p className="text-sm font-medium text-steel-700 truncate max-w-[200px] sm:max-w-none">
+                            {file.name}
+                          </p>
+                          <p className="text-xs text-steel-500">
+                            {formatFileSize(file.size)}
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={removeFile}
+                        className="p-2 text-steel-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                        aria-label="Remove file"
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                    </div>
+                  )}
+
+                  {fileError && (
+                    <p className="mt-2 text-sm text-red-600">{fileError}</p>
+                  )}
                 </div>
 
                 <div className="bg-industrial-blue-50 rounded-xl p-6">

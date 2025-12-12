@@ -4,11 +4,31 @@ import os
 import re
 import urllib.request
 import urllib.parse
+import base64
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
 from botocore.exceptions import ClientError
 
 ses = boto3.client('ses', region_name='us-east-1')
 
 RECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
+
+# Allowed file extensions for attachments
+ALLOWED_EXTENSIONS = {
+    '.pdf',
+    '.step', '.stp',      # STEP files
+    '.iges', '.igs',      # IGES files
+    '.dxf', '.dwg',       # AutoCAD files
+    '.stl',               # 3D printing
+    '.sldprt', '.sldasm', # SolidWorks
+    '.ipt', '.iam',       # Inventor
+    '.prt',               # Various CAD
+    '.x_t', '.sat',       # Parasolid/ACIS
+    '.png', '.jpg', '.jpeg', '.tif', '.tiff',  # Images
+}
+
+MAX_ATTACHMENT_SIZE = 10 * 1024 * 1024  # 10MB
 
 
 def verify_recaptcha(token):
@@ -162,25 +182,104 @@ Message:
 
         # Send email with user's name as the From display name
         from_address = f'"{name}" <{os.environ["FROM_EMAIL"]}>'
-        destination = {'ToAddresses': [os.environ['RECIPIENT_EMAIL']]}
 
-        cc_email = os.environ.get('CC_EMAIL', '')
-        if cc_email:
-            destination['CcAddresses'] = [cc_email]
+        # Test mode: if submitter email is test email, only send to them
+        TEST_EMAIL = 'mattkrokosz@gmail.com'
+        if email.lower() == TEST_EMAIL.lower():
+            destination = {'ToAddresses': [TEST_EMAIL]}
+            print(f'Test mode: routing email only to {TEST_EMAIL}')
+        else:
+            destination = {'ToAddresses': [os.environ['RECIPIENT_EMAIL']]}
 
-        bcc_email = os.environ.get('BCC_EMAIL', '')
-        if bcc_email:
-            destination['BccAddresses'] = [bcc_email]
+            cc_email = os.environ.get('CC_EMAIL', '')
+            if cc_email:
+                destination['CcAddresses'] = [cc_email]
 
-        ses.send_email(
-            Source=from_address,
-            Destination=destination,
-            ReplyToAddresses=[email],
-            Message={
-                'Subject': {'Data': f'[Pro Plastics Contact] {subject_text}'},
-                'Body': {'Text': {'Data': email_body}}
-            }
-        )
+            bcc_email = os.environ.get('BCC_EMAIL', '')
+            if bcc_email:
+                destination['BccAddresses'] = [bcc_email]
+
+        # Check for file attachment
+        attachment = body.get('attachment')
+
+        if attachment:
+            # Validate attachment
+            filename = attachment.get('filename', '')
+            if filename:
+                # Check file extension
+                ext = '.' + filename.rsplit('.', 1)[-1].lower() if '.' in filename else ''
+                if ext not in ALLOWED_EXTENSIONS:
+                    print(f'Rejected file with extension: {ext}')
+                    return {
+                        'statusCode': 400,
+                        'headers': headers,
+                        'body': json.dumps({'error': f'File type not allowed: {ext}'})
+                    }
+
+            # Decode and check size
+            try:
+                file_content = base64.b64decode(attachment.get('content', ''))
+                if len(file_content) > MAX_ATTACHMENT_SIZE:
+                    print(f'Rejected file: size {len(file_content)} exceeds max {MAX_ATTACHMENT_SIZE}')
+                    return {
+                        'statusCode': 400,
+                        'headers': headers,
+                        'body': json.dumps({'error': 'File size exceeds 10MB limit'})
+                    }
+            except Exception as decode_err:
+                print(f'Failed to decode attachment: {decode_err}')
+                return {
+                    'statusCode': 400,
+                    'headers': headers,
+                    'body': json.dumps({'error': 'Invalid file attachment'})
+                }
+
+            # Use send_raw_email for messages with attachments
+            msg = MIMEMultipart()
+            msg['Subject'] = f'[Pro Plastics Contact] {subject_text}'
+            msg['From'] = from_address
+            msg['To'] = ', '.join(destination['ToAddresses'])
+            msg['Reply-To'] = email
+
+            if destination.get('CcAddresses'):
+                msg['Cc'] = ', '.join(destination['CcAddresses'])
+
+            # Add body text
+            msg.attach(MIMEText(email_body, 'plain'))
+
+            # Add attachment
+            content_type = attachment.get('contentType', 'application/octet-stream')
+
+            att = MIMEApplication(file_content)
+            att.add_header('Content-Disposition', 'attachment', filename=filename)
+            att.add_header('Content-Type', content_type)
+            msg.attach(att)
+
+            print(f'Attached file: {filename} ({len(file_content)} bytes)')
+
+            # Build recipient list for send_raw_email
+            destinations = destination['ToAddresses'][:]
+            if destination.get('CcAddresses'):
+                destinations.extend(destination['CcAddresses'])
+            if destination.get('BccAddresses'):
+                destinations.extend(destination['BccAddresses'])
+
+            ses.send_raw_email(
+                Source=from_address,
+                Destinations=destinations,
+                RawMessage={'Data': msg.as_string()}
+            )
+        else:
+            # Use send_email for simple messages without attachments
+            ses.send_email(
+                Source=from_address,
+                Destination=destination,
+                ReplyToAddresses=[email],
+                Message={
+                    'Subject': {'Data': f'[Pro Plastics Contact] {subject_text}'},
+                    'Body': {'Text': {'Data': email_body}}
+                }
+            )
 
         return {
             'statusCode': 200,
