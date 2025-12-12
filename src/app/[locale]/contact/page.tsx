@@ -4,14 +4,15 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Link } from '@/i18n/routing';
 import {
-  Phone,
   Mail,
   MapPin,
   Clock,
   Send,
   ArrowRight,
 } from 'lucide-react';
-import { trackContactFormSubmit, trackPhoneClick, trackEmailClick } from '@/lib/firebase';
+import { trackContactFormSubmit } from '@/lib/firebase';
+import CopyableEmail from '@/components/CopyableEmail';
+import CopyablePhone from '@/components/CopyablePhone';
 import { useTranslations, useLocale } from 'next-intl';
 import { useReCaptcha } from '@/components/ReCaptchaProvider';
 
@@ -116,17 +117,19 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-industrial-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-industrial-blue-900" />
+                    <span className="w-6 h-6 text-industrial-blue-900 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-industrial-blue-900">{t('phone')}</h3>
-                    <a
-                      href="tel:+18669255000"
-                      className="text-steel-600 hover:text-precision-orange-500 transition-colors"
-                      onClick={() => trackPhoneClick('866-925-5000', 'contact-page')}
-                    >
-                      {tCommon('phone')}
-                    </a>
+                    <CopyablePhone
+                      phone="+1 (866) 925-5000"
+                      phoneRaw="+18669255000"
+                      location="contact-page"
+                      variant="light"
+                      showIcon={false}
+                    />
                     <p className="text-steel-500 text-sm">{tCommon('tollFree')}</p>
                   </div>
                 </div>
@@ -137,13 +140,12 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-industrial-blue-900">{t('emailLabel')}</h3>
-                    <a
-                      href="mailto:sales@proplasticsinc.com"
-                      className="text-steel-600 hover:text-precision-orange-500 transition-colors"
-                      onClick={() => trackEmailClick('sales@proplasticsinc.com', 'contact-page')}
-                    >
-                      {tCommon('email')}
-                    </a>
+                    <CopyableEmail
+                      email="sales@proplasticsinc.com"
+                      location="contact-page"
+                      variant="light"
+                      showIcon={false}
+                    />
                     <p className="text-steel-500 text-sm">{t('salesQuotes')}</p>
                   </div>
                 </div>

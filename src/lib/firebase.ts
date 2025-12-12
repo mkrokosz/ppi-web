@@ -38,10 +38,30 @@ export const trackPhoneClick = (phoneNumber: string, location: string) => {
   }
 };
 
+// Track phone copy (when user clicks copy button)
+export const trackPhoneCopy = (phoneNumber: string, location: string) => {
+  if (analyticsInstance) {
+    logEvent(analyticsInstance, 'phone_copy', {
+      phone_number: phoneNumber,
+      click_location: location,
+    });
+  }
+};
+
 // Track email clicks
 export const trackEmailClick = (email: string, location: string) => {
   if (analyticsInstance) {
     logEvent(analyticsInstance, 'email_click', {
+      email_address: email,
+      click_location: location,
+    });
+  }
+};
+
+// Track email copy (when user clicks copy button)
+export const trackEmailCopy = (email: string, location: string) => {
+  if (analyticsInstance) {
+    logEvent(analyticsInstance, 'email_copy', {
       email_address: email,
       click_location: location,
     });

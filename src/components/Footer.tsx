@@ -2,8 +2,9 @@
 
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
-import { trackPhoneClick, trackEmailClick } from '@/lib/firebase';
+import { MapPin, Clock } from 'lucide-react';
+import CopyableEmail from './CopyableEmail';
+import CopyablePhone from './CopyablePhone';
 import { useTranslations } from 'next-intl';
 import LanguageSelector from './LanguageSelector';
 
@@ -65,22 +66,17 @@ export default function Footer() {
               {t('tagline')}
             </p>
             <div className="space-y-3">
-              <a
-                href="tel:+18669255000"
-                className="flex items-center gap-3 text-steel-300 hover:text-precision-orange-400 transition-colors"
-                onClick={() => trackPhoneClick('866-925-5000', 'footer')}
-              >
-                <Phone className="w-5 h-5" />
-                <span>+1 (866) 925-5000</span>
-              </a>
-              <a
-                href="mailto:sales@proplasticsinc.com"
-                className="flex items-center gap-3 text-steel-300 hover:text-precision-orange-400 transition-colors"
-                onClick={() => trackEmailClick('sales@proplasticsinc.com', 'footer')}
-              >
-                <Mail className="w-5 h-5" />
-                <span>sales@proplasticsinc.com</span>
-              </a>
+              <CopyablePhone
+                phone="+1 (866) 925-5000"
+                phoneRaw="+18669255000"
+                location="footer"
+                variant="dark"
+              />
+              <CopyableEmail
+                email="sales@proplasticsinc.com"
+                location="footer"
+                variant="dark"
+              />
               <div className="flex items-start gap-3 text-steel-300">
                 <MapPin className="w-5 h-5 mt-0.5" />
                 <span>{tCommon('address')}<br />{tCommon('cityStateZip')}</span>

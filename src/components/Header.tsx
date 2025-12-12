@@ -55,7 +55,7 @@ export default function Header() {
             onClick={() => trackPhoneClick('866-925-5000', 'header-mobile')}
           >
             <Phone className="w-4 h-4" />
-            <span className="font-semibold">+1 (866) 925-5000</span>
+            <span className="font-semibold select-none">+1 (866) 925-5000</span>
           </a>
           <div className="hidden sm:flex items-center gap-4">
             <LanguageSelector />
@@ -65,7 +65,7 @@ export default function Header() {
               onClick={() => trackPhoneClick('866-925-5000', 'header-desktop')}
             >
               <Phone className="w-4 h-4" />
-              <span className="font-semibold">+1 (866) 925-5000</span>
+              <span className="font-semibold select-none">+1 (866) 925-5000</span>
             </a>
             <Link
               href="/quote"
