@@ -180,6 +180,7 @@ cat > /tmp/permissions-policy.json << EOF
         "cloudformation:DescribeStackEvents",
         "cloudformation:DescribeStackResources",
         "cloudformation:GetTemplate",
+        "cloudformation:GetTemplateSummary",
         "cloudformation:CreateChangeSet",
         "cloudformation:DescribeChangeSet",
         "cloudformation:ExecuteChangeSet",
