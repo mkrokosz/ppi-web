@@ -3,14 +3,14 @@
 
 FROM public.ecr.aws/lambda/python:3.11
 
-# Install system dependencies
-RUN dnf install -y \
+# Install system dependencies (Amazon Linux 2 uses yum)
+RUN yum install -y \
     mesa-libGL \
     mesa-libGLU \
     libXrender \
     libXext \
     poppler-utils \
-    && dnf clean all
+    && yum clean all
 
 # Install Python dependencies
 # Note: Using cadquery which includes OCP (Open CASCADE Python bindings)
