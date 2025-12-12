@@ -35,10 +35,10 @@ export default function Footer() {
       { name: tCommon('requestQuote'), href: '/quote' },
     ],
     industries: [
-      { name: tIndustries('aerospace'), href: '/industries/aerospace' },
-      { name: tIndustries('medical'), href: '/industries/medical' },
-      { name: tIndustries('semiconductor'), href: '/industries/semiconductor' },
-      { name: tIndustries('electronics'), href: '/industries/electronics' },
+      { name: tIndustries('aerospace'), href: '/industries' },
+      { name: tIndustries('medical'), href: '/industries' },
+      { name: tIndustries('semiconductor'), href: '/industries' },
+      { name: tIndustries('electronics'), href: '/industries' },
     ],
   };
   return (
