@@ -153,14 +153,20 @@ export default function HomePage() {
             {/* Hero Image */}
             <div className="relative w-fit">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl w-fit">
-                <Image
-                  src="/images/ppi-hero-image.jpeg"
-                  alt="CNC machine drilling precision plastic component - Pro Plastics Inc. manufacturing"
-                  width={600}
-                  height={400}
-                  className="object-cover"
-                  priority
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcSet="/images/ppi-hero-image-mobile.jpeg"
+                  />
+                  <Image
+                    src="/images/ppi-hero-image.jpeg"
+                    alt="CNC machine drilling precision plastic component - Pro Plastics Inc. manufacturing"
+                    width={600}
+                    height={400}
+                    className="object-cover"
+                    priority
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-industrial-blue-900/30 to-transparent" />
               </div>
               {/* Stats overlay */}
