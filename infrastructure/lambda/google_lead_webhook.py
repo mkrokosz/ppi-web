@@ -3,6 +3,8 @@ import boto3
 import os
 from botocore.exceptions import ClientError
 
+from email_utils import get_destination
+
 ses = boto3.client('ses', region_name='us-east-1')
 
 
@@ -151,24 +153,7 @@ GCL ID: {body.get('gcl_id', 'N/A')}
 
         # Use the lead's name as the display name in From address
         from_address = f'"{full_name}" <{from_email}>'
-
-        # Test mode: if submitter email is test email, only send to them
-        TEST_EMAIL = 'mattkrokosz@gmail.com'
-        if email.lower() == TEST_EMAIL.lower():
-            destination = {'ToAddresses': [TEST_EMAIL]}
-            print(f'Test mode: routing email only to {TEST_EMAIL}')
-        else:
-            # Support comma-separated recipient emails
-            recipient_emails = [e.strip() for e in recipient_email.split(',') if e.strip()]
-            destination = {'ToAddresses': recipient_emails}
-
-            cc_email = os.environ.get('CC_EMAIL', '')
-            if cc_email:
-                destination['CcAddresses'] = [e.strip() for e in cc_email.split(',') if e.strip()]
-
-            bcc_email = os.environ.get('BCC_EMAIL', '')
-            if bcc_email:
-                destination['BccAddresses'] = [e.strip() for e in bcc_email.split(',') if e.strip()]
+        destination = get_destination(email)
 
         ses.send_email(
             Source=from_address,

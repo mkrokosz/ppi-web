@@ -18,6 +18,8 @@ from email.mime.application import MIMEApplication
 from email.mime.image import MIMEImage
 from botocore.exceptions import ClientError
 
+from email_utils import get_destination
+
 s3 = boto3.client('s3')
 ses = boto3.client('ses', region_name='us-east-1')
 lambda_client = boto3.client('lambda')
@@ -161,32 +163,6 @@ def get_file_extension(filename):
     if '.' in filename:
         return '.' + filename.rsplit('.', 1)[1].lower()
     return ''
-
-
-def get_destination(email):
-    """
-    Determine email destination based on test mode.
-    If submitter email is test email, only send to them.
-    """
-    TEST_EMAIL = 'mattkrokosz@gmail.com'
-
-    if email.lower() == TEST_EMAIL.lower():
-        print(f'Test mode: routing email only to {TEST_EMAIL}')
-        return {'ToAddresses': [TEST_EMAIL]}
-
-    # Support comma-separated recipient emails
-    recipient_emails = [e.strip() for e in os.environ['RECIPIENT_EMAIL'].split(',') if e.strip()]
-    destination = {'ToAddresses': recipient_emails}
-
-    cc_email = os.environ.get('CC_EMAIL', '')
-    if cc_email:
-        destination['CcAddresses'] = [e.strip() for e in cc_email.split(',') if e.strip()]
-
-    bcc_email = os.environ.get('BCC_EMAIL', '')
-    if bcc_email:
-        destination['BccAddresses'] = [e.strip() for e in bcc_email.split(',') if e.strip()]
-
-    return destination
 
 
 def convert_dwg_to_dxf(bucket, key):

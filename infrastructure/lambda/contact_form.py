@@ -12,6 +12,8 @@ from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 from botocore.exceptions import ClientError
 
+from email_utils import get_destination
+
 ses = boto3.client('ses', region_name='us-east-1')
 s3 = boto3.client('s3')
 
@@ -185,24 +187,7 @@ Message:
 
         # Send email with user's name as the From display name
         from_address = f'"{name}" <{os.environ["FROM_EMAIL"]}>'
-
-        # Test mode: if submitter email is test email, only send to them
-        TEST_EMAIL = 'mattkrokosz@gmail.com'
-        if email.lower() == TEST_EMAIL.lower():
-            destination = {'ToAddresses': [TEST_EMAIL]}
-            print(f'Test mode: routing email only to {TEST_EMAIL}')
-        else:
-            # Support comma-separated recipient emails
-            recipient_emails = [e.strip() for e in os.environ['RECIPIENT_EMAIL'].split(',') if e.strip()]
-            destination = {'ToAddresses': recipient_emails}
-
-            cc_email = os.environ.get('CC_EMAIL', '')
-            if cc_email:
-                destination['CcAddresses'] = [e.strip() for e in cc_email.split(',') if e.strip()]
-
-            bcc_email = os.environ.get('BCC_EMAIL', '')
-            if bcc_email:
-                destination['BccAddresses'] = [e.strip() for e in bcc_email.split(',') if e.strip()]
+        destination = get_destination(email)
 
         # Check for file attachment
         attachment = body.get('attachment')
