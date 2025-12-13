@@ -186,7 +186,7 @@ def handler(event, context):
         }
         subject_text = subject_map.get(body['subject'], body['subject'])
 
-        # For quote requests, append part type to subject
+        # Format subject with RFQ/RFI prefix
         if body['subject'] == 'quote' and body.get('partType'):
             part_type_map = {
                 'machined': 'CNC Machined Part',
@@ -195,10 +195,12 @@ def handler(event, context):
                 'rod-tube': 'Rod/Tube Stock',
                 'other': 'Other'
             }
-            subject_text = part_type_map.get(body['partType'], body['partType'])
+            part_type_text = part_type_map.get(body['partType'], body['partType'])
+            subject_text = f"RFQ - {part_type_text}"
             email_header_title = "Request for Quote (RFQ)"
         else:
-            # For contact form, use subject as-is
+            # For contact form, prefix with RFI
+            subject_text = f"RFI - {subject_text}"
             email_header_title = "Request for Information (RFI)"
 
         name = f"{body['firstName'].strip()} {body['lastName'].strip()}"
