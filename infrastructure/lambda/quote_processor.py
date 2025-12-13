@@ -326,7 +326,7 @@ def send_email_with_attachment(form_data, attachments, preview_content=None):
     #   └── attachments...
 
     msg = MIMEMultipart('mixed')
-    msg['Subject'] = f'[Pro Plastics Contact] {subject_text}'
+    msg['Subject'] = f'[Pro Plastics] {subject_text}'
     msg['From'] = from_address
     msg['To'] = ', '.join(destination['ToAddresses'])
     msg['Reply-To'] = email
@@ -465,7 +465,7 @@ def send_email_without_attachment(form_data, threat_detected=False, scan_failed=
         Destination=destination,
         ReplyToAddresses=[email],
         Message={
-            'Subject': {'Data': f'[Pro Plastics Contact] {subject_text}'},
+            'Subject': {'Data': f'[Pro Plastics] {subject_text}'},
             'Body': {'Text': {'Data': email_body}}
         }
     )

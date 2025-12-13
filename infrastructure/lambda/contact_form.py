@@ -304,7 +304,7 @@ Message:
                 Destination=destination,
                 ReplyToAddresses=[email],
                 Message={
-                    'Subject': {'Data': f'[Pro Plastics Contact] {subject_text}'},
+                    'Subject': {'Data': f'[Pro Plastics] {subject_text}'},
                     'Body': {'Text': {'Data': email_body}}
                 }
             )
