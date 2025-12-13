@@ -165,10 +165,10 @@ def build_html_email(
         <div class="header" style="background-color: #1a365d; color: white; padding: 6px 0 8px 0;">
             <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
                 <tr>
-                    <td style="vertical-align: middle; padding: 0 8px 0 16px;">
+                    <td style="vertical-align: middle; padding: 0 0 0 16px;">
                         <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="64" height="64" style="display: block;">
                     </td>
-                    <td style="vertical-align: middle; padding: 0;">
+                    <td style="vertical-align: middle; padding: 0 0 0 8px;">
                         <div style="font-size: 24px; font-weight: bold; color: #ed8936; line-height: 1.1;">Pro Plastics Inc.</div>
                         <div style="font-size: 13px; color: #a0aec0; font-style: italic;">Precision Manufacturing Since 1968</div>
                     </td>
