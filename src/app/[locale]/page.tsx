@@ -57,15 +57,15 @@ export default function HomePage() {
   ];
 
   const industries = [
-    { icon: Plane, name: tIndustries('aerospace'), href: '/industries/aerospace', image: '/images/industries/thumb/aerospace.jpg' },
-    { icon: Microscope, name: tIndustries('medical'), href: '/industries/medical', image: '/images/industries/thumb/medical.jpg' },
-    { icon: Cpu, name: tIndustries('semiconductor'), href: '/industries/semiconductor', image: '/images/industries/thumb/semiconductor.jpg' },
-    { icon: Zap, name: tIndustries('electronics'), href: '/industries/electronics', image: '/images/industries/thumb/electronics.jpg' },
-    { icon: Car, name: tIndustries('automotive'), href: '/industries/automotive', image: '/images/industries/thumb/automotive.jpg' },
-    { icon: FlaskConical, name: tIndustries('chemicalProcessing'), href: '/industries/chemical', image: '/images/industries/thumb/chemical.jpg' },
-    { icon: Droplets, name: tIndustries('waterTreatment'), href: '/industries/water', image: '/images/industries/thumb/water.jpg' },
-    { icon: Building2, name: tIndustries('construction'), href: '/industries/construction', image: '/images/industries/thumb/construction.jpg' },
-    { icon: Leaf, name: tIndustries('foodProcessing'), href: '/industries/food', image: '/images/industries/thumb/food.jpg' },
+    { icon: Plane, name: tIndustries('aerospace'), href: '/industries', image: '/images/industries/thumb/aerospace.jpg' },
+    { icon: Microscope, name: tIndustries('medical'), href: '/industries', image: '/images/industries/thumb/medical.jpg' },
+    { icon: Cpu, name: tIndustries('semiconductor'), href: '/industries', image: '/images/industries/thumb/semiconductor.jpg' },
+    { icon: Zap, name: tIndustries('electronics'), href: '/industries', image: '/images/industries/thumb/electronics.jpg' },
+    { icon: Car, name: tIndustries('automotive'), href: '/industries', image: '/images/industries/thumb/automotive.jpg' },
+    { icon: FlaskConical, name: tIndustries('chemicalProcessing'), href: '/industries', image: '/images/industries/thumb/chemical.jpg' },
+    { icon: Droplets, name: tIndustries('waterTreatment'), href: '/industries', image: '/images/industries/thumb/water.jpg' },
+    { icon: Building2, name: tIndustries('construction'), href: '/industries', image: '/images/industries/thumb/construction.jpg' },
+    { icon: Leaf, name: tIndustries('foodProcessing'), href: '/industries', image: '/images/industries/thumb/food.jpg' },
   ];
 
   const stats = [
