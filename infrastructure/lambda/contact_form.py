@@ -211,11 +211,11 @@ Email: {email}
 Phone: {phone if phone else 'Not provided'}
 Company: {company if company else 'Not provided'}
 Subject: {subject_text}
-reCAPTCHA Score: {score}
-Source IP: {client_ip} / {client_ip_location}
-
 Message:
 {body['message'].strip()}
+
+reCAPTCHA Score: {score}
+Source IP: {client_ip} / {client_ip_location}
 """
 
         # Send email with user's name as the From display name
