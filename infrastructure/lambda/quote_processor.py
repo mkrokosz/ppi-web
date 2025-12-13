@@ -450,7 +450,7 @@ def build_html_email_body(form_data, attachments=None, has_preview=False, warnin
         <div class="header" style="padding: 15px 20px;">
             <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 10px;">
                 <tr>
-                    <td style="vertical-align: middle; padding-right: 15px;">
+                    <td style="vertical-align: middle; padding-right: 8px;">
                         <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="70" height="70" style="display: block;">
                     </td>
                     <td style="vertical-align: middle;">
