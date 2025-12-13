@@ -138,9 +138,9 @@ def build_html_email(
         client_ip_location = html_lib.escape(str(security_info.get('client_ip_location', 'Unknown')))
         security_html = f'''
             <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd;">
-                <div style="font-size: 12px; font-weight: bold; color: #888; text-transform: uppercase; margin-bottom: 4px;">Security Check</div>
-                <div style="font-size: 12px; color: #666; margin-bottom: 2px;">reCAPTCHA Score: {recaptcha_score}</div>
-                <div style="font-size: 12px; color: #666; margin-bottom: 2px;">Source IP: {client_ip} / {client_ip_location}</div>
+                <div style="font-size: 10px; font-weight: bold; color: #999; text-transform: uppercase; margin-bottom: 3px;">Security Check</div>
+                <div style="font-size: 10px; color: #888; margin-bottom: 1px;">reCAPTCHA Score: {recaptcha_score}</div>
+                <div style="font-size: 10px; color: #888;">Source IP: {client_ip} / {client_ip_location}</div>
             </div>
         '''
 
