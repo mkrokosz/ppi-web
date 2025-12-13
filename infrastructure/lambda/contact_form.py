@@ -18,6 +18,7 @@ ses = boto3.client('ses', region_name='us-east-1')
 s3 = boto3.client('s3')
 
 RECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
+IP_GEOLOCATION_URL = 'http://ip-api.com/json/'
 
 # Allowed file extensions for attachments
 ALLOWED_EXTENSIONS = {
@@ -76,6 +77,28 @@ def verify_recaptcha(token):
         return True, 0.5
 
 
+def lookup_ip_location(ip):
+    """Look up geographic location for an IP address."""
+    if not ip or ip == 'unknown':
+        return 'Unknown'
+
+    try:
+        req = urllib.request.Request(f'{IP_GEOLOCATION_URL}{ip}?fields=status,city,regionName,country')
+        with urllib.request.urlopen(req, timeout=3) as response:
+            result = json.loads(response.read().decode('utf-8'))
+
+        if result.get('status') == 'success':
+            city = result.get('city', '')
+            region = result.get('regionName', '')
+            country = result.get('country', '')
+            parts = [p for p in [city, region, country] if p]
+            return ', '.join(parts) if parts else 'Unknown'
+        return 'Unknown'
+    except Exception as e:
+        print(f'IP geolocation lookup failed: {e}')
+        return 'Unknown'
+
+
 def handler(event, context):
     # CORS headers
     allowed_origin = os.environ.get('ALLOWED_ORIGIN', '*')
@@ -99,7 +122,8 @@ def handler(event, context):
         forwarded_for = headers_in.get('x-forwarded-for', headers_in.get('X-Forwarded-For', ''))
         client_ip = forwarded_for.split(',')[0].strip() if forwarded_for else 'unknown'
         user_agent = headers_in.get('user-agent', headers_in.get('User-Agent', 'unknown'))
-        print(f'Request from IP: {client_ip} | User-Agent: {user_agent}')
+        client_ip_location = lookup_ip_location(client_ip)
+        print(f'Request from IP: {client_ip} ({client_ip_location}) | User-Agent: {user_agent}')
 
         # Honeypot check - if filled, silently succeed (bot trap)
         if body.get('website', ''):
@@ -188,6 +212,7 @@ Phone: {phone if phone else 'Not provided'}
 Company: {company if company else 'Not provided'}
 Subject: {subject_text}
 reCAPTCHA Score: {score}
+Source IP: {client_ip} / {client_ip_location}
 
 Message:
 {body['message'].strip()}
