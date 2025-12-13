@@ -288,7 +288,8 @@ def send_email_with_attachment(form_data, attachments, preview_content=None):
     """
     name = f"{form_data.get('firstName', '')} {form_data.get('lastName', '')}".strip()
     email = form_data.get('email', '')
-    subject_text = form_data.get('subject_text', 'Quote Request')
+    email_subject = form_data.get('email_subject', 'Quote Request')
+    body_subject_text = form_data.get('body_subject_text', 'Quote Request')
 
     from_address = f'"{name}" <{os.environ["FROM_EMAIL"]}>'
     destination = get_destination(email)
@@ -303,7 +304,7 @@ def send_email_with_attachment(form_data, attachments, preview_content=None):
     #   └── attachments...
 
     msg = MIMEMultipart('mixed')
-    msg['Subject'] = f'[Pro Plastics] {subject_text}'
+    msg['Subject'] = f'[Pro Plastics] {email_subject}'
     msg['From'] = from_address
     msg['To'] = ', '.join(destination['ToAddresses'])
     msg['Reply-To'] = email
@@ -321,7 +322,7 @@ Name: {name}
 Email: {email}
 Phone: {form_data.get('phone') or 'Not provided'}
 Company: {form_data.get('company') or 'Not provided'}
-Subject: {subject_text}
+Subject: {body_subject_text}
 Message:
 {form_data.get('message', '')}
 
@@ -391,7 +392,7 @@ def build_html_email_body(form_data, attachments=None, has_preview=False, warnin
     email = form_data.get('email', '')
     phone = form_data.get('phone', '')
     company = form_data.get('company', '')
-    subject_text = form_data.get('subject_text', 'Quote Request')
+    body_subject_text = form_data.get('body_subject_text', 'Quote Request')
     email_header_title = form_data.get('email_header_title', 'Request for Quote (RFQ)')
     message = form_data.get('message', '')
     recaptcha_score = form_data.get('recaptcha_score', 'N/A')
@@ -441,9 +442,9 @@ def build_html_email_body(form_data, attachments=None, has_preview=False, warnin
         .field {{ margin-bottom: 12px; }}
         .label {{ font-weight: bold; color: #555; }}
         .message-box {{ background-color: white; padding: 15px; border: 1px solid #ddd; margin-top: 10px; }}
-        .security {{ margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd; }}
-        .security-header {{ font-size: 12px; font-weight: bold; color: #888; text-transform: uppercase; margin-bottom: 8px; }}
-        .security-item {{ font-size: 12px; color: #666; margin-bottom: 4px; }}
+        .security {{ margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd; }}
+        .security-header {{ font-size: 12px; font-weight: bold; color: #888; text-transform: uppercase; margin-bottom: 4px; }}
+        .security-item {{ font-size: 12px; color: #666; margin-bottom: 2px; }}
     </style>
 </head>
 <body>
@@ -467,7 +468,7 @@ def build_html_email_body(form_data, attachments=None, has_preview=False, warnin
             <div class="field"><span class="label">Email:</span> <a href="mailto:{html.escape(email)}">{html.escape(email)}</a></div>
             <div class="field"><span class="label">Phone:</span> {html.escape(phone) if phone else 'Not provided'}</div>
             <div class="field"><span class="label">Company:</span> {html.escape(company) if company else 'Not provided'}</div>
-            <div class="field"><span class="label">Subject:</span> {html.escape(subject_text)}</div>
+            <div class="field"><span class="label">Subject:</span> {html.escape(body_subject_text)}</div>
             <div class="field">
                 <span class="label">Message:</span>
                 <div class="message-box">{message_html}</div>
@@ -492,7 +493,7 @@ def send_email_without_attachment(form_data, threat_detected=False, scan_failed=
     """Send quote request email without file attachment."""
     name = f"{form_data.get('firstName', '')} {form_data.get('lastName', '')}".strip()
     email = form_data.get('email', '')
-    subject_text = form_data.get('subject_text', 'Quote Request')
+    email_subject = form_data.get('email_subject', 'Quote Request')
 
     from_address = f'"{name}" <{os.environ["FROM_EMAIL"]}>'
     destination = get_destination(email)
@@ -512,7 +513,7 @@ def send_email_without_attachment(form_data, threat_detected=False, scan_failed=
         Destination=destination,
         ReplyToAddresses=[email],
         Message={
-            'Subject': {'Data': f'[Pro Plastics] {subject_text}'},
+            'Subject': {'Data': f'[Pro Plastics] {email_subject}'},
             'Body': {'Html': {'Data': html_body}}
         }
     )

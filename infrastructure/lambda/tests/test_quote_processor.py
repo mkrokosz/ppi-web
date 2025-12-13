@@ -67,7 +67,9 @@ def create_form_data():
         'email': 'john@example.com',
         'phone': '555-1234',
         'company': 'Acme Inc',
-        'subject_text': 'RFQ-2412001: CNC Machined Part',
+        'email_subject': 'RFQ - CNC Machined Part',
+        'body_subject_text': 'CNC Machined Part',
+        'email_header_title': 'Request for Quote (RFQ)',
         'email_body': 'New quote request from Pro Plastics website:\n\nName: John Doe\nEmail: john@example.com'
     }
 
@@ -162,7 +164,7 @@ class TestBuildHtmlEmailBody:
             'lastName': 'Doe',
             'email': 'john@example.com',
             'message': 'Test <script>alert("xss")</script>',
-            'subject_text': 'Quote Request',
+            'body_subject_text': 'Quote Request',
         }
         result = quote_processor.build_html_email_body(form_data)
 
@@ -179,7 +181,7 @@ class TestBuildHtmlEmailBody:
             'lastName': 'Doe',
             'email': 'john@example.com',
             'message': 'Test body',
-            'subject_text': 'Quote Request',
+            'body_subject_text': 'Quote Request',
         }
         attachments = [
             (b'content1', 'part.step', 'application/step'),
@@ -201,7 +203,7 @@ class TestBuildHtmlEmailBody:
             'lastName': 'Doe',
             'email': 'john@example.com',
             'message': 'Test body',
-            'subject_text': 'Quote Request',
+            'body_subject_text': 'Quote Request',
         }
         result = quote_processor.build_html_email_body(form_data, has_preview=True)
 
@@ -218,7 +220,7 @@ class TestBuildHtmlEmailBody:
             'lastName': 'Doe',
             'email': 'john@example.com',
             'message': 'Test body',
-            'subject_text': 'Quote Request',
+            'body_subject_text': 'Quote Request',
         }
         result = quote_processor.build_html_email_body(form_data, has_preview=False)
 
@@ -376,7 +378,7 @@ class TestCleanFileFlow:
 
     @mock_aws
     def test_extracts_submission_id_from_metadata(self):
-        """Test that submission ID is extracted from S3 metadata."""
+        """Test that form data is extracted from S3 metadata."""
         s3 = boto3.client('s3', region_name='us-east-1')
         s3.create_bucket(Bucket='test-bucket')
 
@@ -389,7 +391,6 @@ class TestCleanFileFlow:
                 'form-data': base64.b64encode(json.dumps(form_data).encode()).decode(),
                 'original-filename': 'test.pdf',
                 'content-type': 'application/pdf',
-                'submission-id': 'RFQ-2412001'
             }
         )
 
@@ -399,13 +400,13 @@ class TestCleanFileFlow:
 
         event = create_guardduty_event('test-bucket', 'quotes/test.pdf', 'NO_THREATS_FOUND')
 
-        # Capture print output to verify submission ID is logged
+        # Capture print output to verify form data is logged
         with patch('builtins.print') as mock_print:
             quote_processor.handler(event, None)
 
-            # Check that submission ID was logged
+            # Check that form data was logged (includes email_subject from form data)
             print_calls = [str(call) for call in mock_print.call_args_list]
-            assert any('RFQ-2412001' in call for call in print_calls)
+            assert any('RFQ - CNC Machined Part' in call for call in print_calls)
 
 
 class TestThreatDetectedFlow:
@@ -722,7 +723,7 @@ class TestEmailSubjectFormat:
         s3.create_bucket(Bucket='test-bucket')
 
         form_data = create_form_data()
-        form_data['subject_text'] = 'RFQ-2412001: CNC Machined Part'
+        form_data['email_subject'] = 'RFQ - CNC Machined Part'
 
         s3.put_object(
             Bucket='test-bucket',
@@ -745,7 +746,7 @@ class TestEmailSubjectFormat:
         quote_processor.handler(event, None)
 
         raw_message = mock_ses.send_raw_email.call_args[1]['RawMessage']['Data']
-        assert '[Pro Plastics] RFQ-2412001: CNC Machined Part' in raw_message
+        assert '[Pro Plastics] RFQ - CNC Machined Part' in raw_message
 
     @mock_aws
     def test_subject_in_email_without_attachment(self):
@@ -754,7 +755,7 @@ class TestEmailSubjectFormat:
         s3.create_bucket(Bucket='test-bucket')
 
         form_data = create_form_data()
-        form_data['subject_text'] = 'RFI-2412002: Capabilities Question'
+        form_data['email_subject'] = 'RFI - Capabilities Question'
 
         s3.put_object(
             Bucket='test-bucket',
@@ -778,7 +779,7 @@ class TestEmailSubjectFormat:
 
         call_args = mock_ses.send_email.call_args
         subject = call_args[1]['Message']['Subject']['Data']
-        assert subject == '[Pro Plastics] RFI-2412002: Capabilities Question'
+        assert subject == '[Pro Plastics] RFI - Capabilities Question'
 
 
 class TestEmailRouting:

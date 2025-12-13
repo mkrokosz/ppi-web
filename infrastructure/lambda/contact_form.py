@@ -184,9 +184,9 @@ def handler(event, context):
             'order': 'Order Status',
             'other': 'General Inquiry'
         }
-        subject_text = subject_map.get(body['subject'], body['subject'])
+        body_subject_text = subject_map.get(body['subject'], body['subject'])
 
-        # Format subject with RFQ/RFI prefix
+        # Format email subject line with RFQ/RFI prefix (body_subject_text stays clean for email body)
         if body['subject'] == 'quote' and body.get('partType'):
             part_type_map = {
                 'machined': 'CNC Machined Part',
@@ -195,12 +195,11 @@ def handler(event, context):
                 'rod-tube': 'Rod/Tube Stock',
                 'other': 'Other'
             }
-            part_type_text = part_type_map.get(body['partType'], body['partType'])
-            subject_text = f"RFQ - {part_type_text}"
+            body_subject_text = part_type_map.get(body['partType'], body['partType'])
+            email_subject = f"RFQ - {body_subject_text}"
             email_header_title = "Request for Quote (RFQ)"
         else:
-            # For contact form, prefix with RFI
-            subject_text = f"RFI - {subject_text}"
+            email_subject = f"RFI - {body_subject_text}"
             email_header_title = "Request for Information (RFI)"
 
         name = f"{body['firstName'].strip()} {body['lastName'].strip()}"
@@ -227,9 +226,9 @@ def handler(event, context):
         .field {{ margin-bottom: 12px; }}
         .label {{ font-weight: bold; color: #555; }}
         .message-box {{ background-color: white; padding: 15px; border: 1px solid #ddd; margin-top: 10px; }}
-        .security {{ margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd; }}
-        .security-header {{ font-size: 12px; font-weight: bold; color: #888; text-transform: uppercase; margin-bottom: 8px; }}
-        .security-item {{ font-size: 12px; color: #666; margin-bottom: 4px; }}
+        .security {{ margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd; }}
+        .security-header {{ font-size: 12px; font-weight: bold; color: #888; text-transform: uppercase; margin-bottom: 4px; }}
+        .security-item {{ font-size: 12px; color: #666; margin-bottom: 2px; }}
     </style>
 </head>
 <body>
@@ -253,7 +252,7 @@ def handler(event, context):
             <div class="field"><span class="label">Email:</span> <a href="mailto:{html.escape(email)}">{html.escape(email)}</a></div>
             <div class="field"><span class="label">Phone:</span> {html.escape(phone) if phone else 'Not provided'}</div>
             <div class="field"><span class="label">Company:</span> {html.escape(company) if company else 'Not provided'}</div>
-            <div class="field"><span class="label">Subject:</span> {html.escape(subject_text)}</div>
+            <div class="field"><span class="label">Subject:</span> {html.escape(body_subject_text)}</div>
             <div class="field">
                 <span class="label">Message:</span>
                 <div class="message-box">{message_html}</div>
@@ -331,7 +330,8 @@ def handler(event, context):
                 'email': email,
                 'phone': phone,
                 'company': company,
-                'subject_text': subject_text,
+                'email_subject': email_subject,
+                'body_subject_text': body_subject_text,
                 'email_header_title': email_header_title,
                 'message': body['message'].strip(),
                 'recaptcha_score': score,
@@ -376,7 +376,7 @@ def handler(event, context):
                 Destination=destination,
                 ReplyToAddresses=[email],
                 Message={
-                    'Subject': {'Data': f'[Pro Plastics] {subject_text}'},
+                    'Subject': {'Data': f'[Pro Plastics] {email_subject}'},
                     'Body': {'Html': {'Data': email_body}}
                 }
             )
