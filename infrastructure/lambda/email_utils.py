@@ -165,7 +165,7 @@ def build_html_email(
         <div class="header" style="background-color: #1a365d; color: white; padding: 6px 0 8px 0;">
             <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
                 <tr>
-                    <td style="vertical-align: middle; width: 64px; padding: 0 8px 0 16px;">
+                    <td style="vertical-align: middle; padding: 0 8px 0 16px;">
                         <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="64" height="64" style="display: block;">
                     </td>
                     <td style="vertical-align: middle; padding: 0;">
@@ -175,7 +175,7 @@ def build_html_email(
                     <td style="vertical-align: top; text-align: right; padding: 0 16px 0 0;">{f'<div style="font-size: 11px; color: #a0aec0;">Submitted: {html_lib.escape(submitted_at)}</div>' if submitted_at else ''}</td>
                 </tr>
             </table>
-            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding: 6px 16px 0 16px;">{html_lib.escape(email_header_title)}</div>
+            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding: 6px 0 0 16px;">{html_lib.escape(email_header_title)}</div>
         </div>
         <div class="content" style="padding: 20px; background-color: #f9f9f9;">
             {fields_html}
