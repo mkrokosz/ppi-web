@@ -223,7 +223,8 @@ def handler(event, context):
             email_header_title=email_header_title,
             fields=fields,
             message=body['message'].strip(),
-            security_info=security_info
+            security_info=security_info,
+            submitted_at=datetime.now().strftime('%Y-%m-%d')
         )
 
         # Send email with user's name as the From display name
@@ -296,6 +297,7 @@ def handler(event, context):
                 'recaptcha_score': score,
                 'client_ip': client_ip,
                 'client_ip_location': client_ip_location,
+                'submitted_at': datetime.now().strftime('%Y-%m-%d'),
             }
 
             metadata = {

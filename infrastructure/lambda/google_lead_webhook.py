@@ -1,6 +1,7 @@
 import json
 import boto3
 import os
+from datetime import datetime
 from botocore.exceptions import ClientError
 
 from email_utils import get_destination, build_html_email
@@ -134,7 +135,8 @@ GCL ID: {body.get('gcl_id', 'N/A')}"""
             email_header_title=email_header_title,
             fields=fields,
             message=requirement if requirement else None,
-            extra_sections=extra_sections
+            extra_sections=extra_sections,
+            submitted_at=datetime.now().strftime('%Y-%m-%d')
         )
 
         # Send email

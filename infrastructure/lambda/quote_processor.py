@@ -422,7 +422,8 @@ def build_html_email_body(form_data, attachments=None, has_preview=False, warnin
         security_info=security_info,
         warning_message=warning_message,
         attachments=attachment_names,
-        has_preview=has_preview
+        has_preview=has_preview,
+        submitted_at=form_data.get('submitted_at')
     )
 
 

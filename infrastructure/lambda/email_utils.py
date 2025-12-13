@@ -49,7 +49,8 @@ def build_html_email(
     warning_message=None,
     attachments=None,
     has_preview=False,
-    extra_sections=None
+    extra_sections=None,
+    submitted_at=None
 ):
     """
     Build a branded HTML email with Pro Plastics header.
@@ -63,6 +64,7 @@ def build_html_email(
         attachments: Optional list of attachment filenames
         has_preview: Whether to include preview image placeholder (cid:preview_image)
         extra_sections: Optional list of (header, content) tuples for additional sections
+        submitted_at: Optional submission date string (format: YYYY-MM-DD)
 
     Returns:
         HTML string for email body
@@ -161,7 +163,7 @@ def build_html_email(
 <body style="font-family: Arial, sans-serif; font-size: 14px; color: #333; margin: 0; padding: 0;">
     <div style="max-width: 600px; margin: 0 auto;">
         <div class="header" style="background-color: #1a365d; color: white; padding: 6px 16px 8px 16px;">
-            <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 2px;">
+            <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 2px; width: 100%;">
                 <tr>
                     <td style="vertical-align: middle; padding-right: 4px;">
                         <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="64" height="64" style="display: block;">
@@ -170,6 +172,7 @@ def build_html_email(
                         <div style="font-size: 24px; font-weight: bold; color: #ed8936; line-height: 1.1;">Pro Plastics Inc.</div>
                         <div style="font-size: 13px; color: #a0aec0; font-style: italic;">Precision Manufacturing Since 1968</div>
                     </td>
+                    <td style="vertical-align: top; text-align: right;">{f'<div style="font-size: 11px; color: #a0aec0;">Submitted: {html_lib.escape(submitted_at)}</div>' if submitted_at else ''}</td>
                 </tr>
             </table>
             <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 6px;">{html_lib.escape(email_header_title)}</div>
