@@ -174,7 +174,7 @@ jobs:
               DomainName=proplastics.us \
               HostedZoneId=${{ steps.hosted-zone.outputs.hosted_zone_id }} \
               ContactEmailRecipient=dennisk@proplasticsinc.com,mattk@proplasticsinc.com \
-              ContactEmailCc=mattkrokosz@gmail.com \
+              ContactEmailCc= \
               ContactEmailBcc= \
               SESFromEmail=noreply@proplastics.us \
               RecaptchaSecretKey=${{ secrets.RECAPTCHA_SECRET_KEY }} \
