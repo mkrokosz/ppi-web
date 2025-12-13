@@ -239,7 +239,7 @@ def handler(event, context):
                         <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="50" height="50" style="display: block;">
                     </td>
                     <td style="vertical-align: middle;">
-                        <div style="font-size: 22px; font-weight: bold; color: white; line-height: 1.2;">Pro Plastics Inc.</div>
+                        <div style="font-size: 22px; font-weight: bold; color: #ed8936; line-height: 1.2; text-shadow: 0 2px 10px rgba(237, 137, 54, 0.3);">Pro Plastics Inc.</div>
                         <div style="font-size: 13px; color: #a0aec0; font-style: italic;">Precision Manufacturing Since 1968</div>
                     </td>
                 </tr>
