@@ -160,7 +160,7 @@ def build_html_email(
 </head>
 <body>
     <div class="container">
-        <div class="header" style="padding: 6px 16px 8px 16px;">
+        <div class="header" style="background-color: #1a365d; color: white; padding: 6px 16px 8px 16px;">
             <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 2px;">
                 <tr>
                     <td style="vertical-align: middle; padding-right: 4px;">
@@ -174,7 +174,7 @@ def build_html_email(
             </table>
             <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 6px;">{html_lib.escape(email_header_title)}</div>
         </div>
-        <div class="content">
+        <div class="content" style="padding: 20px; background-color: #f9f9f9;">
             {fields_html}
             {message_html}
             {preview_html}
