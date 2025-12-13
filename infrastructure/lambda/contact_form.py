@@ -84,7 +84,7 @@ def lookup_ip_location(ip):
 
     try:
         req = urllib.request.Request(f'{IP_GEOLOCATION_URL}{ip}?fields=status,city,regionName,country')
-        with urllib.request.urlopen(req, timeout=2) as response:
+        with urllib.request.urlopen(req, timeout=3) as response:
             result = json.loads(response.read().decode('utf-8'))
 
         if result.get('status') == 'success':
