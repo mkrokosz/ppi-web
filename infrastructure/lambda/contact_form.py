@@ -234,8 +234,8 @@ def handler(event, context):
 </head>
 <body>
     <div class="container">
-        <div class="header" style="padding: 10px 16px;">
-            <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 6px;">
+        <div class="header" style="padding: 8px 16px 10px 16px;">
+            <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 4px;">
                 <tr>
                     <td style="vertical-align: middle; padding-right: 4px;">
                         <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="64" height="64" style="display: block;">
