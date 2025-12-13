@@ -435,7 +435,7 @@ def build_html_email_body(form_data, attachments=None, has_preview=False, warnin
     <style>
         body {{ font-family: Arial, sans-serif; font-size: 14px; color: #333; }}
         .container {{ max-width: 600px; margin: 0 auto; }}
-        .header {{ background-color: #1a365d; color: white; padding: 15px 20px; }}
+        .header {{ background-color: #1a365d; color: white; padding: 20px; }}
         .content {{ padding: 20px; background-color: #f9f9f9; }}
         .field {{ margin-bottom: 12px; }}
         .label {{ font-weight: bold; color: #555; }}
@@ -448,7 +448,18 @@ def build_html_email_body(form_data, attachments=None, has_preview=False, warnin
 <body>
     <div class="container">
         <div class="header">
-            <strong>New Contact Form Submission</strong>
+            <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 15px;">
+                <tr>
+                    <td style="vertical-align: middle; padding-right: 12px;">
+                        <img src="https://proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="50" height="50" style="display: block;">
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <div style="font-size: 22px; font-weight: bold; color: white; line-height: 1.2;">Pro Plastics Inc.</div>
+                        <div style="font-size: 13px; color: #a0aec0; font-style: italic;">Precision Manufacturing Since 1968</div>
+                    </td>
+                </tr>
+            </table>
+            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 12px;">New Contact Form Submission</div>
         </div>
         <div class="content">
             <div class="field"><span class="label">Name:</span> {html.escape(name)}</div>
