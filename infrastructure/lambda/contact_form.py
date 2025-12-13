@@ -195,12 +195,10 @@ def handler(event, context):
                 'rod-tube': 'Rod/Tube Stock',
                 'other': 'Other'
             }
-            part_type_text = part_type_map.get(body['partType'], body['partType'])
-            subject_text = f"Quote Request - {part_type_text}"
+            subject_text = part_type_map.get(body['partType'], body['partType'])
             email_header_title = "Request for Quote (RFQ)"
         else:
-            # For contact form, format as "Contact - [Subject]"
-            subject_text = f"Contact - {subject_text}"
+            # For contact form, use subject as-is
             email_header_title = "Request for Information (RFI)"
 
         name = f"{body['firstName'].strip()} {body['lastName'].strip()}"
