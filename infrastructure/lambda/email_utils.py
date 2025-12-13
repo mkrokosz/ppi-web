@@ -67,23 +67,23 @@ def build_html_email(
     Returns:
         HTML string for email body
     """
-    # Build fields HTML
+    # Build fields HTML with inline styles for email client compatibility
     fields_html = ''
     for label, value in fields:
         escaped_value = html_lib.escape(str(value)) if value else 'Not provided'
         # Make email fields clickable
         if label.lower() == 'email' and value:
             escaped_value = f'<a href="mailto:{html_lib.escape(value)}">{html_lib.escape(value)}</a>'
-        fields_html += f'<div class="field"><span class="label">{html_lib.escape(label)}:</span> {escaped_value}</div>\n            '
+        fields_html += f'<div style="margin-bottom: 12px;"><span style="font-weight: bold; color: #555;">{html_lib.escape(label)}:</span> {escaped_value}</div>\n            '
 
     # Build message HTML if provided
     message_html = ''
     if message:
         escaped_message = html_lib.escape(message).replace('\n', '<br>')
         message_html = f'''
-            <div class="field">
-                <span class="label">Message:</span>
-                <div class="message-box">{escaped_message}</div>
+            <div style="margin-bottom: 12px;">
+                <span style="font-weight: bold; color: #555;">Message:</span>
+                <div style="background-color: white; padding: 15px; border: 1px solid #ddd; margin-top: 10px;">{escaped_message}</div>
             </div>
         '''
 
@@ -128,17 +128,17 @@ def build_html_email(
             </div>
             '''
 
-    # Build security section
+    # Build security section with inline styles
     security_html = ''
     if security_info:
         recaptcha_score = security_info.get('recaptcha_score', 'N/A')
         client_ip = html_lib.escape(str(security_info.get('client_ip', 'Unknown')))
         client_ip_location = html_lib.escape(str(security_info.get('client_ip_location', 'Unknown')))
         security_html = f'''
-            <div class="security">
-                <div class="security-header">Security Check</div>
-                <div class="security-item">reCAPTCHA Score: {recaptcha_score}</div>
-                <div class="security-item">Source IP: {client_ip} / {client_ip_location}</div>
+            <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd;">
+                <div style="font-size: 12px; font-weight: bold; color: #888; text-transform: uppercase; margin-bottom: 4px;">Security Check</div>
+                <div style="font-size: 12px; color: #666; margin-bottom: 2px;">reCAPTCHA Score: {recaptcha_score}</div>
+                <div style="font-size: 12px; color: #666; margin-bottom: 2px;">Source IP: {client_ip} / {client_ip_location}</div>
             </div>
         '''
 
@@ -158,8 +158,8 @@ def build_html_email(
         .security-item {{ font-size: 12px; color: #666; margin-bottom: 2px; }}
     </style>
 </head>
-<body>
-    <div class="container">
+<body style="font-family: Arial, sans-serif; font-size: 14px; color: #333; margin: 0; padding: 0;">
+    <div style="max-width: 600px; margin: 0 auto;">
         <div class="header" style="background-color: #1a365d; color: white; padding: 6px 16px 8px 16px;">
             <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 2px;">
                 <tr>
