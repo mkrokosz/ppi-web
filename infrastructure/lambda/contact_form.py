@@ -2,6 +2,7 @@ import json
 import boto3
 import os
 import re
+import html
 import urllib.request
 import urllib.parse
 import base64
@@ -204,19 +205,49 @@ def handler(event, context):
         company = body.get('company', '').strip()
         phone = body.get('phone', '').strip()
 
-        email_body = f"""New contact form submission from Pro Plastics website:
+        # Escape message for HTML and preserve line breaks
+        message_html = html.escape(body['message'].strip()).replace('\n', '<br>')
 
-Name: {name}
-Email: {email}
-Phone: {phone if phone else 'Not provided'}
-Company: {company if company else 'Not provided'}
-Subject: {subject_text}
-Message:
-{body['message'].strip()}
-
-reCAPTCHA Score: {score}
-Source IP: {client_ip} / {client_ip_location}
-"""
+        email_body = f"""<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {{ font-family: Arial, sans-serif; font-size: 14px; color: #333; }}
+        .container {{ max-width: 600px; margin: 0 auto; }}
+        .header {{ background-color: #1a365d; color: white; padding: 15px 20px; }}
+        .content {{ padding: 20px; background-color: #f9f9f9; }}
+        .field {{ margin-bottom: 12px; }}
+        .label {{ font-weight: bold; color: #555; }}
+        .message-box {{ background-color: white; padding: 15px; border: 1px solid #ddd; margin-top: 10px; }}
+        .security {{ margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd; }}
+        .security-header {{ font-size: 12px; font-weight: bold; color: #888; text-transform: uppercase; margin-bottom: 8px; }}
+        .security-item {{ font-size: 12px; color: #666; margin-bottom: 4px; }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <strong>New Contact Form Submission</strong>
+        </div>
+        <div class="content">
+            <div class="field"><span class="label">Name:</span> {html.escape(name)}</div>
+            <div class="field"><span class="label">Email:</span> <a href="mailto:{html.escape(email)}">{html.escape(email)}</a></div>
+            <div class="field"><span class="label">Phone:</span> {html.escape(phone) if phone else 'Not provided'}</div>
+            <div class="field"><span class="label">Company:</span> {html.escape(company) if company else 'Not provided'}</div>
+            <div class="field"><span class="label">Subject:</span> {html.escape(subject_text)}</div>
+            <div class="field">
+                <span class="label">Message:</span>
+                <div class="message-box">{message_html}</div>
+            </div>
+            <div class="security">
+                <div class="security-header">Security Check</div>
+                <div class="security-item">reCAPTCHA Score: {score}</div>
+                <div class="security-item">Source IP: {html.escape(client_ip)} / {html.escape(client_ip_location)}</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>"""
 
         # Send email with user's name as the From display name
         from_address = f'"{name}" <{os.environ["FROM_EMAIL"]}>'
@@ -323,7 +354,7 @@ Source IP: {client_ip} / {client_ip_location}
                 ReplyToAddresses=[email],
                 Message={
                     'Subject': {'Data': f'[Pro Plastics] {subject_text}'},
-                    'Body': {'Text': {'Data': email_body}}
+                    'Body': {'Html': {'Data': email_body}}
                 }
             )
 
