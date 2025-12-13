@@ -234,11 +234,11 @@ def handler(event, context):
 </head>
 <body>
     <div class="container">
-        <div class="header" style="padding: 12px 20px;">
-            <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 8px;">
+        <div class="header" style="padding: 10px 16px;">
+            <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 6px;">
                 <tr>
-                    <td style="vertical-align: middle; padding-right: 8px;">
-                        <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="56" height="56" style="display: block;">
+                    <td style="vertical-align: middle; padding-right: 4px;">
+                        <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="64" height="64" style="display: block;">
                     </td>
                     <td style="vertical-align: middle;">
                         <div style="font-size: 24px; font-weight: bold; color: #ed8936; line-height: 1.1;">Pro Plastics Inc.</div>
@@ -246,7 +246,7 @@ def handler(event, context):
                     </td>
                 </tr>
             </table>
-            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 8px;">{email_header_title}</div>
+            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 6px;">{email_header_title}</div>
         </div>
         <div class="content">
             <div class="field"><span class="label">Name:</span> {html.escape(name)}</div>
