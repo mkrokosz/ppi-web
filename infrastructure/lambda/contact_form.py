@@ -236,7 +236,7 @@ def handler(event, context):
             <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 15px;">
                 <tr>
                     <td style="vertical-align: middle; padding-right: 12px;">
-                        <img src="https://proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="50" height="50" style="display: block;">
+                        <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="50" height="50" style="display: block;">
                     </td>
                     <td style="vertical-align: middle;">
                         <div style="font-size: 22px; font-weight: bold; color: white; line-height: 1.2;">Pro Plastics Inc.</div>
