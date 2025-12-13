@@ -137,10 +137,10 @@ def build_html_email(
         client_ip = html_lib.escape(str(security_info.get('client_ip', 'Unknown')))
         client_ip_location = html_lib.escape(str(security_info.get('client_ip_location', 'Unknown')))
         security_html = f'''
-            <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd;">
-                <div style="font-size: 10px; font-weight: bold; color: #999; text-transform: uppercase; margin-bottom: 3px;">Security Check</div>
-                <div style="font-size: 10px; color: #888; margin-bottom: 1px;">reCAPTCHA Score: {recaptcha_score}</div>
-                <div style="font-size: 10px; color: #888;">Source IP: {client_ip} / {client_ip_location}</div>
+            <div style="margin-top: 12px; padding-top: 6px; border-top: 1px solid #ddd;">
+                <div style="font-size: 10px; font-weight: bold; color: #999; text-transform: uppercase; margin-bottom: 1px;">Security Check</div>
+                <div style="font-size: 10px; color: #888; line-height: 1.3;">reCAPTCHA Score: {recaptcha_score}</div>
+                <div style="font-size: 10px; color: #888; line-height: 1.3;">Source IP: {client_ip} / {client_ip_location}</div>
             </div>
         '''
 
@@ -165,12 +165,18 @@ def build_html_email(
         <div class="header" style="background-color: #1a365d; color: white; padding: 6px 16px 8px 16px;">
             <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 2px; width: 100%;">
                 <tr>
-                    <td style="vertical-align: middle; padding-right: 4px;">
-                        <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="64" height="64" style="display: block;">
-                    </td>
                     <td style="vertical-align: middle;">
-                        <div style="font-size: 24px; font-weight: bold; color: #ed8936; line-height: 1.1;">Pro Plastics Inc.</div>
-                        <div style="font-size: 13px; color: #a0aec0; font-style: italic;">Precision Manufacturing Since 1968</div>
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td style="vertical-align: middle; padding-right: 8px;">
+                                    <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="64" height="64" style="display: block;">
+                                </td>
+                                <td style="vertical-align: middle;">
+                                    <div style="font-size: 24px; font-weight: bold; color: #ed8936; line-height: 1.1;">Pro Plastics Inc.</div>
+                                    <div style="font-size: 13px; color: #a0aec0; font-style: italic;">Precision Manufacturing Since 1968</div>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
                     <td style="vertical-align: top; text-align: right;">{f'<div style="font-size: 11px; color: #a0aec0;">Submitted: {html_lib.escape(submitted_at)}</div>' if submitted_at else ''}</td>
                 </tr>
