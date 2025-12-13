@@ -17,6 +17,7 @@ import {
 import { trackQuoteRequest, gtagQuoteFormSubmit } from '@/lib/firebase';
 import { useLocale } from 'next-intl';
 import ReCaptchaProvider, { useReCaptcha } from '@/components/ReCaptchaProvider';
+import CopyablePhone from '@/components/CopyablePhone';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -261,7 +262,14 @@ Additional Info: ${formData.additionalInfo || 'None'}
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-precision-orange-500" />
-              <span>Questions? Call +1 (866) 925-5000</span>
+              <span>Questions? Call</span>
+              <CopyablePhone
+                phone="+1 (866) 925-5000"
+                phoneRaw="+18669255000"
+                location="quote-form-trust-bar"
+                showIcon={false}
+                className="text-sm"
+              />
             </div>
           </div>
         </div>
