@@ -149,7 +149,7 @@ class TestGetDestination:
         assert result['BccAddresses'] == ['archive@example.com']
 
 
-class TestCreateHtmlEmail:
+class TestBuildHtmlEmailBody:
     """Tests for HTML email creation."""
 
     def test_escapes_html_characters(self):
@@ -157,8 +157,14 @@ class TestCreateHtmlEmail:
         import quote_processor
         importlib.reload(quote_processor)
 
-        text = 'Test <script>alert("xss")</script>'
-        result = quote_processor.create_html_email(text, [], has_preview=False)
+        form_data = {
+            'firstName': 'John',
+            'lastName': 'Doe',
+            'email': 'john@example.com',
+            'message': 'Test <script>alert("xss")</script>',
+            'subject_text': 'Quote Request',
+        }
+        result = quote_processor.build_html_email_body(form_data)
 
         assert '<script>' not in result
         assert '&lt;script&gt;' in result
@@ -168,11 +174,18 @@ class TestCreateHtmlEmail:
         import quote_processor
         importlib.reload(quote_processor)
 
+        form_data = {
+            'firstName': 'John',
+            'lastName': 'Doe',
+            'email': 'john@example.com',
+            'message': 'Test body',
+            'subject_text': 'Quote Request',
+        }
         attachments = [
             (b'content1', 'part.step', 'application/step'),
             (b'content2', 'drawing.pdf', 'application/pdf')
         ]
-        result = quote_processor.create_html_email('Test body', attachments, has_preview=False)
+        result = quote_processor.build_html_email_body(form_data, attachments=attachments, has_preview=False)
 
         assert 'part.step' in result
         assert 'drawing.pdf' in result
@@ -183,7 +196,14 @@ class TestCreateHtmlEmail:
         import quote_processor
         importlib.reload(quote_processor)
 
-        result = quote_processor.create_html_email('Test body', [], has_preview=True)
+        form_data = {
+            'firstName': 'John',
+            'lastName': 'Doe',
+            'email': 'john@example.com',
+            'message': 'Test body',
+            'subject_text': 'Quote Request',
+        }
+        result = quote_processor.build_html_email_body(form_data, has_preview=True)
 
         assert 'cid:preview_image' in result
         assert 'Part Preview' in result
@@ -193,7 +213,14 @@ class TestCreateHtmlEmail:
         import quote_processor
         importlib.reload(quote_processor)
 
-        result = quote_processor.create_html_email('Test body', [], has_preview=False)
+        form_data = {
+            'firstName': 'John',
+            'lastName': 'Doe',
+            'email': 'john@example.com',
+            'message': 'Test body',
+            'subject_text': 'Quote Request',
+        }
+        result = quote_processor.build_html_email_body(form_data, has_preview=False)
 
         assert 'cid:preview_image' not in result
 
@@ -445,7 +472,7 @@ class TestThreatDetectedFlow:
         quote_processor.handler(event, None)
 
         call_args = mock_ses.send_email.call_args
-        email_body = call_args[1]['Message']['Body']['Text']['Data']
+        email_body = call_args[1]['Message']['Body']['Html']['Data']
         assert 'SECURITY WARNING' in email_body
         assert 'malicious' in email_body.lower()
 
@@ -512,7 +539,7 @@ class TestScanFailedFlow:
         quote_processor.handler(event, None)
 
         call_args = mock_ses.send_email.call_args
-        email_body = call_args[1]['Message']['Body']['Text']['Data']
+        email_body = call_args[1]['Message']['Body']['Html']['Data']
         assert 'ACCESS_DENIED' in email_body
         assert 'could not be scanned' in email_body.lower()
 
