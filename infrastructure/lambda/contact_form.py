@@ -197,9 +197,11 @@ def handler(event, context):
             }
             part_type_text = part_type_map.get(body['partType'], body['partType'])
             subject_text = f"Quote Request - {part_type_text}"
+            email_header_title = "Request for Quote (RFQ)"
         else:
             # For contact form, format as "Contact - [Subject]"
             subject_text = f"Contact - {subject_text}"
+            email_header_title = "Request for Information (RFI)"
 
         name = f"{body['firstName'].strip()} {body['lastName'].strip()}"
         company = body.get('company', '').strip()
@@ -232,19 +234,19 @@ def handler(event, context):
 </head>
 <body>
     <div class="container">
-        <div class="header" style="padding: 15px 20px;">
-            <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 10px;">
+        <div class="header" style="padding: 12px 20px;">
+            <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 8px;">
                 <tr>
                     <td style="vertical-align: middle; padding-right: 8px;">
-                        <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="70" height="70" style="display: block;">
+                        <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="56" height="56" style="display: block;">
                     </td>
                     <td style="vertical-align: middle;">
-                        <div style="font-size: 26px; font-weight: bold; color: #ed8936; line-height: 1.2;">Pro Plastics Inc.</div>
-                        <div style="font-size: 14px; color: #a0aec0; font-style: italic;">Precision Manufacturing Since 1968</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #ed8936; line-height: 1.1;">Pro Plastics Inc.</div>
+                        <div style="font-size: 13px; color: #a0aec0; font-style: italic;">Precision Manufacturing Since 1968</div>
                     </td>
                 </tr>
             </table>
-            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 10px;">New Contact Form Submission</div>
+            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 8px;">{email_header_title}</div>
         </div>
         <div class="content">
             <div class="field"><span class="label">Name:</span> {html.escape(name)}</div>
@@ -330,6 +332,7 @@ def handler(event, context):
                 'phone': phone,
                 'company': company,
                 'subject_text': subject_text,
+                'email_header_title': email_header_title,
                 'message': body['message'].strip(),
                 'recaptcha_score': score,
                 'client_ip': client_ip,
