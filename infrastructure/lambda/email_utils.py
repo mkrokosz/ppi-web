@@ -165,17 +165,17 @@ def build_html_email(
         <div class="header" style="background-color: #1a365d; color: white; padding: 6px 16px 8px 16px;">
             <table cellpadding="0" cellspacing="0" border="0" style="margin: 0; padding: 0; border-collapse: collapse; width: 100%;">
                 <tr>
-                    <td style="vertical-align: middle; padding: 0; margin: 0; width: 72px;">
-                        <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="64" height="64" style="display: block; margin: 0; padding: 0; border: 0;">
+                    <td style="vertical-align: middle; padding: 0 8px 0 0; margin: 0; text-align: left;">
+                        <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="64" height="64" style="display: block; margin: 0; padding: 0; border: 0; float: left;">
                     </td>
-                    <td style="vertical-align: middle; padding: 0; margin: 0;">
+                    <td style="vertical-align: middle; padding: 0; margin: 0; text-align: left;">
                         <div style="font-size: 24px; font-weight: bold; color: #ed8936; line-height: 1.1;">Pro Plastics Inc.</div>
                         <div style="font-size: 13px; color: #a0aec0; font-style: italic;">Precision Manufacturing Since 1968</div>
                     </td>
                     <td style="vertical-align: top; text-align: right; padding: 0; margin: 0;">{f'<div style="font-size: 11px; color: #a0aec0;">Submitted: {html_lib.escape(submitted_at)}</div>' if submitted_at else ''}</td>
                 </tr>
             </table>
-            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 6px; margin: 0;">{html_lib.escape(email_header_title)}</div>
+            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 6px; margin: 0; text-align: left;">{html_lib.escape(email_header_title)}</div>
         </div>
         <div class="content" style="padding: 20px; background-color: #f9f9f9;">
             {fields_html}
