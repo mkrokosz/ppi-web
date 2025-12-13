@@ -181,7 +181,7 @@ def build_html_email(
                     <td style="vertical-align: top; text-align: right;">{f'<div style="font-size: 11px; color: #a0aec0;">Submitted: {html_lib.escape(submitted_at)}</div>' if submitted_at else ''}</td>
                 </tr>
             </table>
-            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 6px;">{html_lib.escape(email_header_title)}</div>
+            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 6px; padding-left: 72px;">{html_lib.escape(email_header_title)}</div>
         </div>
         <div class="content" style="padding: 20px; background-color: #f9f9f9;">
             {fields_html}
