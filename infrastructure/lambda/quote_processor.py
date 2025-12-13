@@ -12,6 +12,7 @@ import json
 import boto3
 import os
 import base64
+import html
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
@@ -310,22 +311,31 @@ def send_email_with_attachment(form_data, attachments, preview_content=None):
     if destination.get('CcAddresses'):
         msg['Cc'] = ', '.join(destination['CcAddresses'])
 
-    # Get email body text
-    email_body = form_data.get('email_body', 'No message body')
-
     # Create alternative part for text/html
     msg_alternative = MIMEMultipart('alternative')
 
     # Plain text version (always included as fallback)
-    msg_alternative.attach(MIMEText(email_body, 'plain'))
+    plain_text = f"""New contact form submission from Pro Plastics website:
+
+Name: {name}
+Email: {email}
+Phone: {form_data.get('phone') or 'Not provided'}
+Company: {form_data.get('company') or 'Not provided'}
+Subject: {subject_text}
+Message:
+{form_data.get('message', '')}
+
+reCAPTCHA Score: {form_data.get('recaptcha_score', 'N/A')}
+Source IP: {form_data.get('client_ip', 'Unknown')} / {form_data.get('client_ip_location', 'Unknown')}
+"""
+    msg_alternative.attach(MIMEText(plain_text, 'plain'))
 
     # HTML version with optional preview
     if preview_content:
         # Create related part for HTML + inline image
         msg_related = MIMEMultipart('related')
 
-        # Convert text to HTML and add preview image
-        html_body = create_html_email(email_body, attachments, has_preview=True)
+        html_body = build_html_email_body(form_data, attachments, has_preview=True)
         msg_related.attach(MIMEText(html_body, 'html'))
 
         # Add inline preview image
@@ -337,7 +347,7 @@ def send_email_with_attachment(form_data, attachments, preview_content=None):
         msg_alternative.attach(msg_related)
     else:
         # HTML version without preview
-        html_body = create_html_email(email_body, attachments, has_preview=False)
+        html_body = build_html_email_body(form_data, attachments, has_preview=False)
         msg_alternative.attach(MIMEText(html_body, 'html'))
 
     msg.attach(msg_alternative)
@@ -367,52 +377,99 @@ def send_email_with_attachment(form_data, attachments, preview_content=None):
     print(f"Email sent {preview_status} with {len(attachments)} attachment(s) to {destinations}: {attachment_names}")
 
 
-def create_html_email(text_body, attachments, has_preview=False):
+def build_html_email_body(form_data, attachments=None, has_preview=False, warning_message=None):
     """
-    Create HTML email body from plain text.
+    Build HTML email body from form data.
 
     Args:
-        text_body: Plain text email body
-        attachments: List of attachment tuples
+        form_data: Form submission data dict
+        attachments: Optional list of attachment tuples
         has_preview: Whether to include preview image placeholder
+        warning_message: Optional warning message to display
     """
-    # Escape HTML characters and convert newlines
-    import html
-    escaped_body = html.escape(text_body)
-    html_body = escaped_body.replace('\n', '<br>\n')
+    name = f"{form_data.get('firstName', '')} {form_data.get('lastName', '')}".strip()
+    email = form_data.get('email', '')
+    phone = form_data.get('phone', '')
+    company = form_data.get('company', '')
+    subject_text = form_data.get('subject_text', 'Quote Request')
+    message = form_data.get('message', '')
+    recaptcha_score = form_data.get('recaptcha_score', 'N/A')
+    client_ip = form_data.get('client_ip', 'Unknown')
+    client_ip_location = form_data.get('client_ip_location', 'Unknown')
 
-    # Build attachment list
-    attachment_names = [a[1] for a in attachments]
-    attachments_html = ''
-    if attachment_names:
-        attachments_html = '<p><strong>Attachments:</strong> ' + ', '.join(attachment_names) + '</p>'
+    # Escape message for HTML and preserve line breaks
+    message_html = html.escape(message).replace('\n', '<br>')
 
     # Build preview section
     preview_html = ''
     if has_preview:
         preview_html = '''
-        <div style="margin: 20px 0; padding: 15px; background-color: #f5f5f5; border-radius: 8px;">
-            <p style="margin: 0 0 10px 0; font-weight: bold; color: #333;">Part Preview:</p>
-            <img src="cid:preview_image" alt="Part Preview" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
-        </div>
+            <div style="margin-top: 15px; padding: 15px; background-color: #f5f5f5; border-radius: 8px;">
+                <p style="margin: 0 0 10px 0; font-weight: bold; color: #333;">Part Preview:</p>
+                <img src="cid:preview_image" alt="Part Preview" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+        '''
+
+    # Build attachments section
+    attachments_html = ''
+    if attachments:
+        attachment_names = [a[1] for a in attachments]
+        attachments_html = f'''
+            <div style="margin-top: 15px;">
+                <span style="font-weight: bold; color: #555;">Attachments:</span> {html.escape(', '.join(attachment_names))}
+            </div>
+        '''
+
+    # Build warning section if needed
+    warning_html = ''
+    if warning_message:
+        warning_html = f'''
+            <div style="margin-top: 15px; padding: 15px; background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 4px;">
+                <strong>⚠️ Warning:</strong> {html.escape(warning_message)}
+            </div>
         '''
 
     html_content = f'''<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {{ font-family: Arial, sans-serif; font-size: 14px; color: #333; }}
+        .container {{ max-width: 600px; margin: 0 auto; }}
+        .header {{ background-color: #1a365d; color: white; padding: 15px 20px; }}
+        .content {{ padding: 20px; background-color: #f9f9f9; }}
+        .field {{ margin-bottom: 12px; }}
+        .label {{ font-weight: bold; color: #555; }}
+        .message-box {{ background-color: white; padding: 15px; border: 1px solid #ddd; margin-top: 10px; }}
+        .security {{ margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd; }}
+        .security-header {{ font-size: 12px; font-weight: bold; color: #888; text-transform: uppercase; margin-bottom: 8px; }}
+        .security-item {{ font-size: 12px; color: #666; margin-bottom: 4px; }}
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;">
-    <div style="margin-bottom: 20px;">
-        {html_body}
+<body>
+    <div class="container">
+        <div class="header">
+            <strong>New Contact Form Submission</strong>
+        </div>
+        <div class="content">
+            <div class="field"><span class="label">Name:</span> {html.escape(name)}</div>
+            <div class="field"><span class="label">Email:</span> <a href="mailto:{html.escape(email)}">{html.escape(email)}</a></div>
+            <div class="field"><span class="label">Phone:</span> {html.escape(phone) if phone else 'Not provided'}</div>
+            <div class="field"><span class="label">Company:</span> {html.escape(company) if company else 'Not provided'}</div>
+            <div class="field"><span class="label">Subject:</span> {html.escape(subject_text)}</div>
+            <div class="field">
+                <span class="label">Message:</span>
+                <div class="message-box">{message_html}</div>
+            </div>
+            {preview_html}
+            {attachments_html}
+            {warning_html}
+            <div class="security">
+                <div class="security-header">Security Check</div>
+                <div class="security-item">reCAPTCHA Score: {recaptcha_score}</div>
+                <div class="security-item">Source IP: {html.escape(client_ip)} / {html.escape(client_ip_location)}</div>
+            </div>
+        </div>
     </div>
-    {preview_html}
-    {attachments_html}
-    <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
-    <p style="color: #666; font-size: 12px;">
-        This email was sent from the Pro Plastics website contact form.
-    </p>
 </body>
 </html>'''
 
@@ -428,13 +485,15 @@ def send_email_without_attachment(form_data, threat_detected=False, scan_failed=
     from_address = f'"{name}" <{os.environ["FROM_EMAIL"]}>'
     destination = get_destination(email)
 
-    email_body = form_data.get('email_body', 'No message body')
-
-    # Add warning if threat was detected or scan failed
+    # Build warning message if needed
+    warning_message = None
     if threat_detected:
-        email_body += "\n\n---\n⚠️ SECURITY WARNING: The attached file was flagged as potentially malicious and has been removed."
+        warning_message = "SECURITY WARNING: The attached file was flagged as potentially malicious and has been removed."
     elif scan_failed:
-        email_body += f"\n\n---\n⚠️ NOTE: The attached file could not be scanned (result: {scan_result}) and has been removed for security."
+        warning_message = f"The attached file could not be scanned (result: {scan_result}) and has been removed for security."
+
+    # Build HTML email
+    html_body = build_html_email_body(form_data, warning_message=warning_message)
 
     ses.send_email(
         Source=from_address,
@@ -442,7 +501,7 @@ def send_email_without_attachment(form_data, threat_detected=False, scan_failed=
         ReplyToAddresses=[email],
         Message={
             'Subject': {'Data': f'[Pro Plastics] {subject_text}'},
-            'Body': {'Text': {'Data': email_body}}
+            'Body': {'Html': {'Data': html_body}}
         }
     )
 

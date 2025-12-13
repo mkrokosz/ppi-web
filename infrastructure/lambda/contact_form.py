@@ -313,7 +313,10 @@ def handler(event, context):
                 'phone': phone,
                 'company': company,
                 'subject_text': subject_text,
-                'email_body': email_body,
+                'message': body['message'].strip(),
+                'recaptcha_score': score,
+                'client_ip': client_ip,
+                'client_ip_location': client_ip_location,
             }
 
             metadata = {
