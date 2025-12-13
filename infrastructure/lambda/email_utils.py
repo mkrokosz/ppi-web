@@ -162,20 +162,19 @@ def build_html_email(
 </head>
 <body style="font-family: Arial, sans-serif; font-size: 14px; color: #333; margin: 0; padding: 0;">
     <div style="max-width: 600px; margin: 0 auto;">
-        <div class="header" style="background-color: #1a365d; color: white; padding: 6px 0 8px 0;">
-            <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%;">
+        <div class="header" style="background-color: #1a365d; color: white; padding: 6px 16px 8px 16px;">
+            <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
                 <tr>
-                    <td style="vertical-align: middle; padding: 0 0 0 16px;">
+                    <td style="vertical-align: middle;">
                         <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="64" height="64" style="display: block;">
                     </td>
-                    <td style="vertical-align: middle; padding: 0 0 0 8px;">
+                    <td style="vertical-align: middle; padding-left: 8px;">
                         <div style="font-size: 24px; font-weight: bold; color: #ed8936; line-height: 1.1;">Pro Plastics Inc.</div>
                         <div style="font-size: 13px; color: #a0aec0; font-style: italic;">Precision Manufacturing Since 1968</div>
                     </td>
-                    <td style="vertical-align: top; text-align: right; padding: 0 16px 0 0;">{f'<div style="font-size: 11px; color: #a0aec0;">Submitted: {html_lib.escape(submitted_at)}</div>' if submitted_at else ''}</td>
                 </tr>
-            </table>
-            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding: 6px 0 0 16px;">{html_lib.escape(email_header_title)}</div>
+            </table>{f'<div style="font-size: 11px; color: #a0aec0; text-align: right; margin-top: -50px;">Submitted: {html_lib.escape(submitted_at)}</div>' if submitted_at else ''}
+            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 6px; clear: both;">{html_lib.escape(email_header_title)}</div>
         </div>
         <div class="content" style="padding: 20px; background-color: #f9f9f9;">
             {fields_html}
