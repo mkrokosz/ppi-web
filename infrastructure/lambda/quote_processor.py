@@ -19,7 +19,7 @@ from email.mime.application import MIMEApplication
 from email.mime.image import MIMEImage
 from botocore.exceptions import ClientError
 
-from email_utils import get_destination
+from email_utils import get_destination, build_html_email
 
 s3 = boto3.client('s3')
 ses = boto3.client('ses', region_name='us-east-1')
@@ -380,11 +380,11 @@ Source IP: {form_data.get('client_ip', 'Unknown')} / {form_data.get('client_ip_l
 
 def build_html_email_body(form_data, attachments=None, has_preview=False, warning_message=None):
     """
-    Build HTML email body from form data.
+    Build HTML email body from form data using shared template.
 
     Args:
         form_data: Form submission data dict
-        attachments: Optional list of attachment tuples
+        attachments: Optional list of attachment tuples (content, filename, content_type)
         has_preview: Whether to include preview image placeholder
         warning_message: Optional warning message to display
     """
@@ -395,98 +395,35 @@ def build_html_email_body(form_data, attachments=None, has_preview=False, warnin
     body_subject_text = form_data.get('body_subject_text', 'Quote Request')
     email_header_title = form_data.get('email_header_title', 'Request for Quote (RFQ)')
     message = form_data.get('message', '')
-    recaptcha_score = form_data.get('recaptcha_score', 'N/A')
-    client_ip = form_data.get('client_ip', 'Unknown')
-    client_ip_location = form_data.get('client_ip_location', 'Unknown')
 
-    # Escape message for HTML and preserve line breaks
-    message_html = html.escape(message).replace('\n', '<br>')
+    # Build fields list
+    fields = [
+        ('Name', name),
+        ('Email', email),
+        ('Phone', phone),
+        ('Company', company),
+        ('Subject', body_subject_text),
+    ]
 
-    # Build preview section
-    preview_html = ''
-    if has_preview:
-        preview_html = '''
-            <div style="margin-top: 15px; padding: 15px; background-color: #f5f5f5; border-radius: 8px;">
-                <p style="margin: 0 0 10px 0; font-weight: bold; color: #333;">Part Preview:</p>
-                <img src="cid:preview_image" alt="Part Preview" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
-            </div>
-        '''
+    # Build security info
+    security_info = {
+        'recaptcha_score': form_data.get('recaptcha_score', 'N/A'),
+        'client_ip': form_data.get('client_ip', 'Unknown'),
+        'client_ip_location': form_data.get('client_ip_location', 'Unknown'),
+    }
 
-    # Build attachments section
-    attachments_html = ''
-    if attachments:
-        attachment_names = [a[1] for a in attachments]
-        attachments_html = f'''
-            <div style="margin-top: 15px;">
-                <span style="font-weight: bold; color: #555;">Attachments:</span> {html.escape(', '.join(attachment_names))}
-            </div>
-        '''
+    # Extract attachment filenames if provided
+    attachment_names = [a[1] for a in attachments] if attachments else None
 
-    # Build warning section if needed
-    warning_html = ''
-    if warning_message:
-        warning_html = f'''
-            <div style="margin-top: 15px; padding: 15px; background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 4px;">
-                <strong>⚠️ Warning:</strong> {html.escape(warning_message)}
-            </div>
-        '''
-
-    html_content = f'''<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        body {{ font-family: Arial, sans-serif; font-size: 14px; color: #333; }}
-        .container {{ max-width: 600px; margin: 0 auto; }}
-        .header {{ background-color: #1a365d; color: white; padding: 20px; }}
-        .content {{ padding: 20px; background-color: #f9f9f9; }}
-        .field {{ margin-bottom: 12px; }}
-        .label {{ font-weight: bold; color: #555; }}
-        .message-box {{ background-color: white; padding: 15px; border: 1px solid #ddd; margin-top: 10px; }}
-        .security {{ margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd; }}
-        .security-header {{ font-size: 12px; font-weight: bold; color: #888; text-transform: uppercase; margin-bottom: 4px; }}
-        .security-item {{ font-size: 12px; color: #666; margin-bottom: 2px; }}
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header" style="padding: 6px 16px 8px 16px;">
-            <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 2px;">
-                <tr>
-                    <td style="vertical-align: middle; padding-right: 4px;">
-                        <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="64" height="64" style="display: block;">
-                    </td>
-                    <td style="vertical-align: middle;">
-                        <div style="font-size: 24px; font-weight: bold; color: #ed8936; line-height: 1.1;">Pro Plastics Inc.</div>
-                        <div style="font-size: 13px; color: #a0aec0; font-style: italic;">Precision Manufacturing Since 1968</div>
-                    </td>
-                </tr>
-            </table>
-            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 6px;">{email_header_title}</div>
-        </div>
-        <div class="content">
-            <div class="field"><span class="label">Name:</span> {html.escape(name)}</div>
-            <div class="field"><span class="label">Email:</span> <a href="mailto:{html.escape(email)}">{html.escape(email)}</a></div>
-            <div class="field"><span class="label">Phone:</span> {html.escape(phone) if phone else 'Not provided'}</div>
-            <div class="field"><span class="label">Company:</span> {html.escape(company) if company else 'Not provided'}</div>
-            <div class="field"><span class="label">Subject:</span> {html.escape(body_subject_text)}</div>
-            <div class="field">
-                <span class="label">Message:</span>
-                <div class="message-box">{message_html}</div>
-            </div>
-            {preview_html}
-            {attachments_html}
-            {warning_html}
-            <div class="security">
-                <div class="security-header">Security Check</div>
-                <div class="security-item">reCAPTCHA Score: {recaptcha_score}</div>
-                <div class="security-item">Source IP: {html.escape(client_ip)} / {html.escape(client_ip_location)}</div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>'''
-
-    return html_content
+    return build_html_email(
+        email_header_title=email_header_title,
+        fields=fields,
+        message=message if message else None,
+        security_info=security_info,
+        warning_message=warning_message,
+        attachments=attachment_names,
+        has_preview=has_preview
+    )
 
 
 def send_email_without_attachment(form_data, threat_detected=False, scan_failed=False, scan_result=None):

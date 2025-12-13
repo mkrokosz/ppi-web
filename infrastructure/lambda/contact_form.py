@@ -13,7 +13,7 @@ from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 from botocore.exceptions import ClientError
 
-from email_utils import get_destination
+from email_utils import get_destination, build_html_email
 
 ses = boto3.client('ses', region_name='us-east-1')
 s3 = boto3.client('s3')
@@ -206,66 +206,25 @@ def handler(event, context):
         company = body.get('company', '').strip()
         phone = body.get('phone', '').strip()
 
-        # Escape message for HTML and preserve line breaks
-        message_html = html.escape(body['message'].strip()).replace('\n', '<br>')
-
-        email_body = f"""<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        body {{ font-family: Arial, sans-serif; font-size: 14px; color: #333; }}
-        .container {{ max-width: 600px; margin: 0 auto; }}
-        .header {{ background-color: #1a365d; color: white; padding: 20px; }}
-        .logo-row {{ display: flex; align-items: center; margin-bottom: 15px; }}
-        .logo {{ width: 50px; height: 50px; margin-right: 12px; }}
-        .brand-text {{ }}
-        .brand-name {{ font-size: 22px; font-weight: bold; color: white; margin: 0; }}
-        .brand-tagline {{ font-size: 13px; color: #a0aec0; margin: 0; font-style: italic; }}
-        .header-title {{ font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 12px; margin-top: 5px; }}
-        .content {{ padding: 20px; background-color: #f9f9f9; }}
-        .field {{ margin-bottom: 12px; }}
-        .label {{ font-weight: bold; color: #555; }}
-        .message-box {{ background-color: white; padding: 15px; border: 1px solid #ddd; margin-top: 10px; }}
-        .security {{ margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd; }}
-        .security-header {{ font-size: 12px; font-weight: bold; color: #888; text-transform: uppercase; margin-bottom: 4px; }}
-        .security-item {{ font-size: 12px; color: #666; margin-bottom: 2px; }}
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header" style="padding: 6px 16px 8px 16px;">
-            <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 2px;">
-                <tr>
-                    <td style="vertical-align: middle; padding-right: 4px;">
-                        <img src="https://www.proplasticsinc.com/images/ppi-logo.png" alt="Pro Plastics Inc." width="64" height="64" style="display: block;">
-                    </td>
-                    <td style="vertical-align: middle;">
-                        <div style="font-size: 24px; font-weight: bold; color: #ed8936; line-height: 1.1;">Pro Plastics Inc.</div>
-                        <div style="font-size: 13px; color: #a0aec0; font-style: italic;">Precision Manufacturing Since 1968</div>
-                    </td>
-                </tr>
-            </table>
-            <div style="font-size: 14px; color: #e2e8f0; border-top: 1px solid #2d4a6f; padding-top: 6px;">{email_header_title}</div>
-        </div>
-        <div class="content">
-            <div class="field"><span class="label">Name:</span> {html.escape(name)}</div>
-            <div class="field"><span class="label">Email:</span> <a href="mailto:{html.escape(email)}">{html.escape(email)}</a></div>
-            <div class="field"><span class="label">Phone:</span> {html.escape(phone) if phone else 'Not provided'}</div>
-            <div class="field"><span class="label">Company:</span> {html.escape(company) if company else 'Not provided'}</div>
-            <div class="field"><span class="label">Subject:</span> {html.escape(body_subject_text)}</div>
-            <div class="field">
-                <span class="label">Message:</span>
-                <div class="message-box">{message_html}</div>
-            </div>
-            <div class="security">
-                <div class="security-header">Security Check</div>
-                <div class="security-item">reCAPTCHA Score: {score}</div>
-                <div class="security-item">Source IP: {html.escape(client_ip)} / {html.escape(client_ip_location)}</div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>"""
+        # Build HTML email using shared template
+        fields = [
+            ('Name', name),
+            ('Email', email),
+            ('Phone', phone),
+            ('Company', company),
+            ('Subject', body_subject_text),
+        ]
+        security_info = {
+            'recaptcha_score': score,
+            'client_ip': client_ip,
+            'client_ip_location': client_ip_location,
+        }
+        email_body = build_html_email(
+            email_header_title=email_header_title,
+            fields=fields,
+            message=body['message'].strip(),
+            security_info=security_info
+        )
 
         # Send email with user's name as the From display name
         from_address = f'"{name}" <{os.environ["FROM_EMAIL"]}>'

@@ -145,7 +145,7 @@ class TestUserDataExtraction:
         google_lead_webhook.handler(event, None)
 
         call_args = mock_ses.send_email.call_args
-        email_body = call_args[1]['Message']['Body']['Text']['Data']
+        email_body = call_args[1]['Message']['Body']['Html']['Data']
 
         assert 'Jane Smith' in email_body
         assert 'jane@company.com' in email_body
@@ -171,7 +171,7 @@ class TestUserDataExtraction:
         google_lead_webhook.handler(event, None)
 
         call_args = mock_ses.send_email.call_args
-        email_body = call_args[1]['Message']['Body']['Text']['Data']
+        email_body = call_args[1]['Message']['Body']['Html']['Data']
 
         assert 'Chicago' in email_body
         assert '60601' in email_body
@@ -195,7 +195,7 @@ class TestUserDataExtraction:
         google_lead_webhook.handler(event, None)
 
         call_args = mock_ses.send_email.call_args
-        email_body = call_args[1]['Message']['Body']['Text']['Data']
+        email_body = call_args[1]['Message']['Body']['Html']['Data']
 
         assert 'CNC machined parts' in email_body
         assert 'Quantity Needed' in email_body
@@ -277,7 +277,7 @@ class TestTestLeadIndicator:
 
         call_args = mock_ses.send_email.call_args
         subject = call_args[1]['Message']['Subject']['Data']
-        email_body = call_args[1]['Message']['Body']['Text']['Data']
+        email_body = call_args[1]['Message']['Body']['Html']['Data']
 
         assert '[TEST LEAD]' in subject
         assert '[TEST LEAD]' in email_body
@@ -295,7 +295,7 @@ class TestTestLeadIndicator:
 
         call_args = mock_ses.send_email.call_args
         subject = call_args[1]['Message']['Subject']['Data']
-        email_body = call_args[1]['Message']['Body']['Text']['Data']
+        email_body = call_args[1]['Message']['Body']['Html']['Data']
 
         assert '[TEST LEAD]' not in subject
         assert '[TEST LEAD]' not in email_body
@@ -364,7 +364,7 @@ class TestEmailBodyContent:
         google_lead_webhook.handler(event, None)
 
         call_args = mock_ses.send_email.call_args
-        email_body = call_args[1]['Message']['Body']['Text']['Data']
+        email_body = call_args[1]['Message']['Body']['Html']['Data']
 
         assert 'Lead ID: lead_xyz_789' in email_body
         assert 'Campaign ID: 123456' in email_body
@@ -373,7 +373,7 @@ class TestEmailBodyContent:
         assert 'GCL ID: gclid_abc123' in email_body
 
     def test_includes_requirement_field(self):
-        """Test that 'Your Requirement' field is prominently displayed."""
+        """Test that 'Your Requirement' field is displayed in message box."""
         import google_lead_webhook
         importlib.reload(google_lead_webhook)
 
@@ -390,9 +390,10 @@ class TestEmailBodyContent:
         google_lead_webhook.handler(event, None)
 
         call_args = mock_ses.send_email.call_args
-        email_body = call_args[1]['Message']['Body']['Text']['Data']
+        email_body = call_args[1]['Message']['Body']['Html']['Data']
 
-        assert 'Requirement:' in email_body
+        # Requirement is displayed in the message box
+        assert 'Message:' in email_body
         assert 'Need custom plastic parts' in email_body
 
     def test_handles_missing_optional_fields(self):
@@ -411,11 +412,12 @@ class TestEmailBodyContent:
         google_lead_webhook.handler(event, None)
 
         call_args = mock_ses.send_email.call_args
-        email_body = call_args[1]['Message']['Body']['Text']['Data']
+        email_body = call_args[1]['Message']['Body']['Html']['Data']
 
-        assert 'Name: Not provided' in email_body
-        assert 'Phone: Not provided' in email_body
-        assert 'Company: Not provided' in email_body
+        # HTML format: <span class="label">Name:</span> Not provided
+        assert 'Name:</span> Not provided' in email_body
+        assert 'Phone:</span> Not provided' in email_body
+        assert 'Company:</span> Not provided' in email_body
 
 
 class TestEmailRouting:

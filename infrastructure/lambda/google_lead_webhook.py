@@ -3,7 +3,7 @@ import boto3
 import os
 from botocore.exceptions import ClientError
 
-from email_utils import get_destination
+from email_utils import get_destination, build_html_email
 
 ses = boto3.client('ses', region_name='us-east-1')
 
@@ -91,9 +91,9 @@ def handler(event, context):
                 'body': json.dumps({'error': 'Missing email address'})
             }
 
-        # Build email body
-        phone = user_data.get('phone', 'Not provided')
-        company = user_data.get('company', 'Not provided')
+        # Build email
+        phone = user_data.get('phone', '')
+        company = user_data.get('company', '')
 
         # Get the custom "Your Requirement" field specifically
         requirement = user_data.get('Your Requirement', '')
@@ -105,37 +105,37 @@ def handler(event, context):
             if key not in known_fields:
                 additional_fields.append(f"{key}: {value}")
 
-        additional_info = '\n'.join(additional_fields) if additional_fields else None
-
         test_indicator = "[TEST LEAD] " if is_test else ""
 
-        email_body = f"""{test_indicator}New lead from Google Ads:
+        # Build fields for HTML email
+        fields = [
+            ('Name', full_name),
+            ('Email', email),
+            ('Phone', phone),
+            ('Company', company),
+        ]
 
-Name: {full_name}
-Email: {email}
-Phone: {phone}
-Company: {company}
-
-Requirement:
-{requirement if requirement else 'Not provided'}
-"""
-
-        # Add additional info section only if there are other custom fields
-        if additional_info:
-            email_body += f"""
-Additional Information:
-{additional_info}
-"""
-
-        email_body += f"""
----
-Lead Details:
-Lead ID: {lead_id}
+        # Build lead details for extra section
+        lead_details = f"""Lead ID: {lead_id}
 Campaign ID: {body.get('campaign_id', 'N/A')}
 Ad Group ID: {body.get('adgroup_id', 'N/A')}
 Form ID: {body.get('form_id', 'N/A')}
-GCL ID: {body.get('gcl_id', 'N/A')}
-"""
+GCL ID: {body.get('gcl_id', 'N/A')}"""
+
+        extra_sections = [('Lead Details', lead_details)]
+
+        # Add additional info section only if there are other custom fields
+        if additional_fields:
+            extra_sections.append(('Additional Information', '\n'.join(additional_fields)))
+
+        # Build HTML email using shared template
+        email_header_title = f"{test_indicator}Google Ads Lead"
+        email_body = build_html_email(
+            email_header_title=email_header_title,
+            fields=fields,
+            message=requirement if requirement else None,
+            extra_sections=extra_sections
+        )
 
         # Send email
         from_email = os.environ.get('FROM_EMAIL', 'noreply@proplastics.us')
@@ -161,7 +161,7 @@ GCL ID: {body.get('gcl_id', 'N/A')}
             ReplyToAddresses=[email] if email else [],
             Message={
                 'Subject': {'Data': subject},
-                'Body': {'Text': {'Data': email_body}}
+                'Body': {'Html': {'Data': email_body}}
             }
         )
 
