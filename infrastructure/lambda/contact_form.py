@@ -93,6 +93,14 @@ def handler(event, context):
     try:
         body = json.loads(event.get('body', '{}'))
 
+        # Log client IP and user agent for security tracking
+        headers_in = event.get('headers', {})
+        # x-forwarded-for contains client IP when behind CloudFront/proxy (first IP in chain is the client)
+        forwarded_for = headers_in.get('x-forwarded-for', headers_in.get('X-Forwarded-For', ''))
+        client_ip = forwarded_for.split(',')[0].strip() if forwarded_for else 'unknown'
+        user_agent = headers_in.get('user-agent', headers_in.get('User-Agent', 'unknown'))
+        print(f'Request from IP: {client_ip} | User-Agent: {user_agent}')
+
         # Honeypot check - if filled, silently succeed (bot trap)
         if body.get('website', ''):
             print('Honeypot triggered - bot detected')
